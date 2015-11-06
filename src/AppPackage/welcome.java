@@ -43,7 +43,18 @@ public class welcome extends javax.swing.JFrame {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         inventoryTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        name_field = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        name_field1 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        name_field2 = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        name_field3 = new javax.swing.JTextField();
+        background_green = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -82,7 +93,6 @@ public class welcome extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1280, 680));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
@@ -147,8 +157,61 @@ public class welcome extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
+        jLabel9.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel9.setText("Name");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 40, -1));
+
+        name_field.setText("dss");
+        name_field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name_fieldActionPerformed(evt);
+            }
+        });
+        jPanel1.add(name_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 160, -1));
+
+        jLabel10.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel10.setText("Serial Number");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        name_field1.setText("df34242");
+        jPanel1.add(name_field1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 160, -1));
+
+        jLabel11.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel11.setText("Description");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
+
+        name_field2.setText("dss");
+        name_field2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name_field2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(name_field2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 160, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 160, -1));
+
+        jLabel12.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel12.setText("Expiration Date");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel13.setText("Supplier Name ");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        name_field3.setText("dss");
+        name_field3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name_field3ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(name_field3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 160, -1));
+
+        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        jPanel1.add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         inventoryTab.addTab("Add Item", jPanel1);
 
@@ -534,6 +597,18 @@ public class welcome extends javax.swing.JFrame {
         customerTab.setVisible(true);
     }//GEN-LAST:event_customersButtonActionPerformed
 
+    private void name_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_fieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_name_fieldActionPerformed
+
+    private void name_field2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_field2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_name_field2ActionPerformed
+
+    private void name_field3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_field3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_name_field3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -571,19 +646,24 @@ public class welcome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel background_green;
     private javax.swing.JTabbedPane customerTab;
     private javax.swing.JButton customersButton;
     private javax.swing.JButton inventoryButton;
     private javax.swing.JTabbedPane inventoryTab;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -608,8 +688,14 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton logoutButton;
+    private javax.swing.JTextField name_field;
+    private javax.swing.JTextField name_field1;
+    private javax.swing.JTextField name_field2;
+    private javax.swing.JTextField name_field3;
     private javax.swing.JButton ordersButton;
     private javax.swing.JTabbedPane ordersTab;
     private javax.swing.JTabbedPane projectTab;
