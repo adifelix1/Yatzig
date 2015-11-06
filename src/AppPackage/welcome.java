@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package AppPackage;
-
+import java.util.Date;
 /**
  *
  * @author Adi
@@ -53,13 +53,13 @@ public class welcome extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         name_field3 = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel14 = new javax.swing.JLabel();
         name_field4 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         name_field5 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         choice1 = new java.awt.Choice();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         background_green = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -189,11 +189,21 @@ public class welcome extends javax.swing.JFrame {
         });
         jPanel1.add(name_field2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 160, -1));
 
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        jScrollPane1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(60, 61));
+
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
+        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jTextArea1.setPreferredSize(new java.awt.Dimension(100, 60));
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 160, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 240, 80));
 
         jLabel12.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel12.setText("Category Name");
@@ -209,7 +219,6 @@ public class welcome extends javax.swing.JFrame {
             }
         });
         jPanel1.add(name_field3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 160, -1));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 160, -1));
 
         jLabel14.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel14.setText("Expiration Date");
@@ -243,8 +252,12 @@ public class welcome extends javax.swing.JFrame {
             }
         });
         jPanel1.add(choice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 160, -1));
-        choice1.add("Paints");
-        choice1.add("Packaging");
+        choice1.addItem("paints");
+        choice1.addItem("Packaging");
+
+        jDateChooser2.setDateFormatString("d MMM, yyyy");
+        jDateChooser2.setMinSelectableDate(new Date());
+        jPanel1.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 160, 20));
 
         background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel1.add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -701,7 +714,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JButton inventoryButton;
     private javax.swing.JTabbedPane inventoryTab;
     private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
