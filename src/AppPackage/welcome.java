@@ -44,7 +44,6 @@ public class welcome extends javax.swing.JFrame {
         inventoryTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        name_field = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         name_field1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -54,6 +53,13 @@ public class welcome extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         name_field3 = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel14 = new javax.swing.JLabel();
+        name_field4 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        name_field5 = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        choice1 = new java.awt.Choice();
         background_green = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -161,26 +167,21 @@ public class welcome extends javax.swing.JFrame {
         jLabel9.setText("Name");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 40, -1));
 
-        name_field.setText("dss");
-        name_field.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                name_fieldActionPerformed(evt);
-            }
-        });
-        jPanel1.add(name_field, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 160, -1));
-
         jLabel10.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel10.setText("Serial Number");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-        name_field1.setText("df34242");
+        name_field1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name_field1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(name_field1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 160, -1));
 
         jLabel11.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel11.setText("Description");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 300, -1, -1));
+        jLabel11.setText("Quantity");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, -1, -1));
 
-        name_field2.setText("dss");
         name_field2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name_field2ActionPerformed(evt);
@@ -192,23 +193,58 @@ public class welcome extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 260, 160, -1));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 160, -1));
 
         jLabel12.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel12.setText("Expiration Date");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        jLabel12.setText("Category Name");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel13.setText("Supplier Name ");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
-        name_field3.setText("dss");
         name_field3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 name_field3ActionPerformed(evt);
             }
         });
-        jPanel1.add(name_field3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 160, -1));
+        jPanel1.add(name_field3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 160, -1));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 160, -1));
+
+        jLabel14.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel14.setText("Expiration Date");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+
+        name_field4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name_field4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(name_field4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 160, -1));
+
+        jLabel15.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel15.setText("Category ID");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+
+        name_field5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                name_field5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(name_field5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 160, -1));
+
+        jLabel16.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel16.setText("Description");
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+
+        choice1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                choice1MouseClicked(evt);
+            }
+        });
+        jPanel1.add(choice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 160, -1));
+        choice1.add("Paints");
+        choice1.add("Packaging");
 
         background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel1.add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -597,10 +633,6 @@ public class welcome extends javax.swing.JFrame {
         customerTab.setVisible(true);
     }//GEN-LAST:event_customersButtonActionPerformed
 
-    private void name_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_fieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_name_fieldActionPerformed
-
     private void name_field2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_field2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_name_field2ActionPerformed
@@ -608,6 +640,22 @@ public class welcome extends javax.swing.JFrame {
     private void name_field3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_field3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_name_field3ActionPerformed
+
+    private void name_field4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_field4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_name_field4ActionPerformed
+
+    private void name_field5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_field5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_name_field5ActionPerformed
+
+    private void name_field1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_field1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_name_field1ActionPerformed
+
+    private void choice1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choice1MouseClicked
+      
+    }//GEN-LAST:event_choice1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -647,16 +695,21 @@ public class welcome extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background_green;
+    private java.awt.Choice choice1;
     private javax.swing.JTabbedPane customerTab;
     private javax.swing.JButton customersButton;
     private javax.swing.JButton inventoryButton;
     private javax.swing.JTabbedPane inventoryTab;
     private javax.swing.JButton jButton1;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -692,10 +745,11 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JTextField name_field;
     private javax.swing.JTextField name_field1;
     private javax.swing.JTextField name_field2;
     private javax.swing.JTextField name_field3;
+    private javax.swing.JTextField name_field4;
+    private javax.swing.JTextField name_field5;
     private javax.swing.JButton ordersButton;
     private javax.swing.JTabbedPane ordersTab;
     private javax.swing.JTabbedPane projectTab;
