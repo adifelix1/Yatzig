@@ -5,16 +5,21 @@
  */
 package AppPackage;
 import java.util.Date;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import java.awt.*;
 /**
  *
  * @author Adi
  */
 public class welcome extends javax.swing.JFrame {
-
+  Connection conn=loginGUI.conn;
+        PreparedStatement pst=null;
     /**
      * Creates new form welcome
      */
     public welcome() {
+      
         initComponents();
         customerTab.setVisible(false);
     }
@@ -45,21 +50,25 @@ public class welcome extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        name_field1 = new javax.swing.JTextField();
+        serialText = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        name_field2 = new javax.swing.JTextField();
+        nameText = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        descriptionText = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        name_field3 = new javax.swing.JTextField();
+        quantityText = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        name_field4 = new javax.swing.JTextField();
+        supplierText = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        name_field5 = new javax.swing.JTextField();
+        categoryText = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        choice1 = new java.awt.Choice();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        categoryChoice = new java.awt.Choice();
+        eDate = new com.toedter.calendar.JDateChooser();
+        addButton = new javax.swing.JButton();
+        clearButton = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        minLevelText = new javax.swing.JTextField();
         background_green = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -171,23 +180,23 @@ public class welcome extends javax.swing.JFrame {
         jLabel10.setText("Serial Number");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
-        name_field1.addActionListener(new java.awt.event.ActionListener() {
+        serialText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                name_field1ActionPerformed(evt);
+                serialTextActionPerformed(evt);
             }
         });
-        jPanel1.add(name_field1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 160, -1));
+        jPanel1.add(serialText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 160, -1));
 
         jLabel11.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel11.setText("Quantity");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, -1, -1));
 
-        name_field2.addActionListener(new java.awt.event.ActionListener() {
+        nameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                name_field2ActionPerformed(evt);
+                nameTextActionPerformed(evt);
             }
         });
-        jPanel1.add(name_field2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 160, -1));
+        jPanel1.add(nameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 160, -1));
 
         jScrollPane1.setBorder(null);
         jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -195,13 +204,13 @@ public class welcome extends javax.swing.JFrame {
         jScrollPane1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         jScrollPane1.setPreferredSize(new java.awt.Dimension(60, 61));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        jTextArea1.setPreferredSize(new java.awt.Dimension(100, 60));
-        jScrollPane1.setViewportView(jTextArea1);
+        descriptionText.setColumns(20);
+        descriptionText.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        descriptionText.setLineWrap(true);
+        descriptionText.setRows(5);
+        descriptionText.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        descriptionText.setPreferredSize(new java.awt.Dimension(100, 60));
+        jScrollPane1.setViewportView(descriptionText);
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 240, 80));
 
@@ -213,51 +222,73 @@ public class welcome extends javax.swing.JFrame {
         jLabel13.setText("Supplier Name ");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
-        name_field3.addActionListener(new java.awt.event.ActionListener() {
+        quantityText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                name_field3ActionPerformed(evt);
+                quantityTextActionPerformed(evt);
             }
         });
-        jPanel1.add(name_field3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 160, -1));
+        jPanel1.add(quantityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 160, -1));
 
         jLabel14.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel14.setText("Expiration Date");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
-        name_field4.addActionListener(new java.awt.event.ActionListener() {
+        supplierText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                name_field4ActionPerformed(evt);
+                supplierTextActionPerformed(evt);
             }
         });
-        jPanel1.add(name_field4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 160, -1));
+        jPanel1.add(supplierText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 160, -1));
 
         jLabel15.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel15.setText("Category ID");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
-        name_field5.addActionListener(new java.awt.event.ActionListener() {
+        categoryText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                name_field5ActionPerformed(evt);
+                categoryTextActionPerformed(evt);
             }
         });
-        jPanel1.add(name_field5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 160, -1));
+        jPanel1.add(categoryText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 160, -1));
 
         jLabel16.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel16.setText("Description");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
-        choice1.addMouseListener(new java.awt.event.MouseAdapter() {
+        categoryChoice.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                choice1MouseClicked(evt);
+                categoryChoiceMouseClicked(evt);
             }
         });
-        jPanel1.add(choice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 160, -1));
-        choice1.addItem("paints");
-        choice1.addItem("Packaging");
+        jPanel1.add(categoryChoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 160, -1));
+        categoryChoice.addItem("paints");
+        categoryChoice.addItem("Packaging");
 
-        jDateChooser2.setDateFormatString("d MMM, yyyy");
-        jDateChooser2.setMinSelectableDate(new Date());
-        jPanel1.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 160, 20));
+        eDate.setDateFormatString("yyyy-MM-dd");
+        eDate.setMinSelectableDate(new Date());
+        eDate.setPreferredSize(new java.awt.Dimension(91, 30));
+        jPanel1.add(eDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 160, 30));
+
+        addButton.setText("Add");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, -1, -1));
+
+        clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(clearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel5.setText("Min Quantity Level");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
+        jPanel1.add(minLevelText, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 160, -1));
 
         background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel1.add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -646,29 +677,71 @@ public class welcome extends javax.swing.JFrame {
         customerTab.setVisible(true);
     }//GEN-LAST:event_customersButtonActionPerformed
 
-    private void name_field2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_field2ActionPerformed
+    private void nameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_name_field2ActionPerformed
+    }//GEN-LAST:event_nameTextActionPerformed
 
-    private void name_field3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_field3ActionPerformed
+    private void quantityTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_name_field3ActionPerformed
+    }//GEN-LAST:event_quantityTextActionPerformed
 
-    private void name_field4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_field4ActionPerformed
+    private void supplierTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplierTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_name_field4ActionPerformed
+    }//GEN-LAST:event_supplierTextActionPerformed
 
-    private void name_field5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_field5ActionPerformed
+    private void categoryTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_name_field5ActionPerformed
+    }//GEN-LAST:event_categoryTextActionPerformed
 
-    private void name_field1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name_field1ActionPerformed
+    private void serialTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serialTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_name_field1ActionPerformed
+    }//GEN-LAST:event_serialTextActionPerformed
 
-    private void choice1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_choice1MouseClicked
+    private void categoryChoiceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_categoryChoiceMouseClicked
       
-    }//GEN-LAST:event_choice1MouseClicked
+    }//GEN-LAST:event_categoryChoiceMouseClicked
+
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        try{
+            String sql = "Insert into items (item_id,item_name,expiration_date,category_id,supplier_name,quantity,description,min_quantity_level) values(?,?,?,?,?,?,?,?)";
+
+            pst=conn.prepareStatement(sql);
+            pst.setString(1, serialText.getText());
+            pst.setString(2, nameText.getText());
+            pst.setDate(3,new java.sql.Date(eDate.getDate().getTime()));
+            pst.setString(4, categoryText.getText());
+            pst.setString(5, supplierText.getText());
+            pst.setString(6, quantityText.getText());
+            //pst.setString(7, categoryChoice);
+            pst.setString(7, descriptionText.getText());
+            pst.setString(8, minLevelText.getText());
+            
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Item Added");
+        }
+        catch(Exception e){
+       JOptionPane.showMessageDialog(null, e);
+   }
+        serialText.setText("");
+        nameText.setText("");
+        categoryText.setText("");
+        supplierText.setText("");
+        quantityText.setText("");
+        descriptionText.setText("");
+        minLevelText.setText("");
+        eDate.setCalendar(null);
+    }//GEN-LAST:event_addButtonActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+         serialText.setText("");
+        nameText.setText("");
+        categoryText.setText("");
+        supplierText.setText("");
+        quantityText.setText("");
+        descriptionText.setText("");
+        minLevelText.setText("");
+        eDate.setCalendar(null);
+    }//GEN-LAST:event_clearButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -707,14 +780,18 @@ public class welcome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addButton;
     private javax.swing.JLabel background_green;
-    private java.awt.Choice choice1;
+    private java.awt.Choice categoryChoice;
+    private javax.swing.JTextField categoryText;
+    private javax.swing.JButton clearButton;
     private javax.swing.JTabbedPane customerTab;
     private javax.swing.JButton customersButton;
+    private javax.swing.JTextArea descriptionText;
+    private com.toedter.calendar.JDateChooser eDate;
     private javax.swing.JButton inventoryButton;
     private javax.swing.JTabbedPane inventoryTab;
     private javax.swing.JButton jButton1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -726,6 +803,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -756,19 +834,18 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JTextField name_field1;
-    private javax.swing.JTextField name_field2;
-    private javax.swing.JTextField name_field3;
-    private javax.swing.JTextField name_field4;
-    private javax.swing.JTextField name_field5;
+    private javax.swing.JTextField minLevelText;
+    private javax.swing.JTextField nameText;
     private javax.swing.JButton ordersButton;
     private javax.swing.JTabbedPane ordersTab;
     private javax.swing.JTabbedPane projectTab;
     private javax.swing.JButton projectsButton;
+    private javax.swing.JTextField quantityText;
     private javax.swing.JTabbedPane reportTab;
     private javax.swing.JButton reportsButton;
+    private javax.swing.JTextField serialText;
+    private javax.swing.JTextField supplierText;
     private javax.swing.JTabbedPane suppliers;
     private javax.swing.JButton suppliersButton;
     private javax.swing.JTabbedPane userTab;
