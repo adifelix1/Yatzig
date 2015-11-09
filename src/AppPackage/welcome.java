@@ -73,6 +73,7 @@ public class welcome extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         background_green = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
         jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -304,6 +305,7 @@ public class welcome extends javax.swing.JFrame {
         inventoryTab.addTab("Add Item", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel3.add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -802,6 +804,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
