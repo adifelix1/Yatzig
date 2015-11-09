@@ -72,6 +72,16 @@ public class welcome extends javax.swing.JFrame {
         clearButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         minLevelText = new javax.swing.JTextField();
+        Storage_panel = new javax.swing.JPanel();
+        Storage_Label = new javax.swing.JLabel();
+        Comments_Label = new javax.swing.JLabel();
+        Shelf_Text = new javax.swing.JTextField();
+        warehouse_label = new javax.swing.JLabel();
+        Comments_Text = new javax.swing.JTextField();
+        Row_label = new javax.swing.JLabel();
+        Row_Text = new javax.swing.JTextField();
+        Shelf__label = new javax.swing.JLabel();
+        Warehouse_Text = new javax.swing.JTextField();
         background_green = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jTextField1 = new javax.swing.JTextField();
@@ -184,6 +194,8 @@ public class welcome extends javax.swing.JFrame {
         });
         getContentPane().add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 30, 30));
 
+        inventoryTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
@@ -283,6 +295,7 @@ public class welcome extends javax.swing.JFrame {
         eDate.setPreferredSize(new java.awt.Dimension(91, 30));
         jPanel1.add(eDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 160, 30));
 
+        addButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/plus_icon.png"))); // NOI18N
         addButton.setText("Add");
         addButton.addActionListener(new java.awt.event.ActionListener() {
@@ -290,20 +303,74 @@ public class welcome extends javax.swing.JFrame {
                 addButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 340, -1, -1));
+        jPanel1.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 350, -1, -1));
 
+        clearButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         clearButton.setText("Clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(clearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, -1, -1));
+        jPanel1.add(clearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 350, 90, 40));
 
         jLabel5.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel5.setText("Min Quantity Level");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
         jPanel1.add(minLevelText, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 160, -1));
+
+        Storage_panel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Storage_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Storage_Label.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        Storage_Label.setText("Storage");
+        Storage_panel.add(Storage_Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 30));
+
+        Comments_Label.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        Comments_Label.setText("Comments");
+        Storage_panel.add(Comments_Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, -1, -1));
+
+        Shelf_Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Shelf_TextActionPerformed(evt);
+            }
+        });
+        Storage_panel.add(Shelf_Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 80, -1));
+
+        warehouse_label.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        warehouse_label.setText("Warehouse");
+        Storage_panel.add(warehouse_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+
+        Comments_Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Comments_TextActionPerformed(evt);
+            }
+        });
+        Storage_panel.add(Comments_Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 150, 90));
+
+        Row_label.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        Row_label.setText("Row");
+        Storage_panel.add(Row_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
+        Row_Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Row_TextActionPerformed(evt);
+            }
+        });
+        Storage_panel.add(Row_Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 80, -1));
+
+        Shelf__label.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        Shelf__label.setText("Shelf");
+        Storage_panel.add(Shelf__label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+
+        Warehouse_Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Warehouse_TextActionPerformed(evt);
+            }
+        });
+        Storage_panel.add(Warehouse_Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 80, -1));
+
+        jPanel1.add(Storage_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 470, 190));
 
         background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel1.add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -371,7 +438,7 @@ public class welcome extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         customerTab.addTab("Add Customer", jPanel2);
@@ -384,7 +451,7 @@ public class welcome extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         customerTab.addTab("Update Details", jPanel6);
@@ -397,7 +464,7 @@ public class welcome extends javax.swing.JFrame {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         customerTab.addTab("Search", jPanel8);
@@ -410,7 +477,7 @@ public class welcome extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         ordersTab.addTab("Add Order", jPanel4);
@@ -423,7 +490,7 @@ public class welcome extends javax.swing.JFrame {
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         ordersTab.addTab("Update", jPanel9);
@@ -436,7 +503,7 @@ public class welcome extends javax.swing.JFrame {
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         ordersTab.addTab("Search", jPanel10);
@@ -851,6 +918,22 @@ public class welcome extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_itemTableMouseClicked
 
+    private void Shelf_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Shelf_TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Shelf_TextActionPerformed
+
+    private void Comments_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Comments_TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Comments_TextActionPerformed
+
+    private void Row_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Row_TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Row_TextActionPerformed
+
+    private void Warehouse_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Warehouse_TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Warehouse_TextActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -900,6 +983,15 @@ public class welcome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Comments_Label;
+    private javax.swing.JTextField Comments_Text;
+    private javax.swing.JTextField Row_Text;
+    private javax.swing.JLabel Row_label;
+    private javax.swing.JTextField Shelf_Text;
+    private javax.swing.JLabel Shelf__label;
+    private javax.swing.JLabel Storage_Label;
+    private javax.swing.JPanel Storage_panel;
+    private javax.swing.JTextField Warehouse_Text;
     private javax.swing.JButton addButton;
     private javax.swing.JLabel background_green;
     private java.awt.Choice categoryChoice;
@@ -980,6 +1072,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JButton suppliersButton;
     private javax.swing.JTabbedPane userTab;
     private javax.swing.JButton usersButton;
+    private javax.swing.JLabel warehouse_label;
     private javax.swing.JTextField wherhoustxt;
     private javax.swing.JTabbedPane woekerTab;
     // End of variables declaration//GEN-END:variables
