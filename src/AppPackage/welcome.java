@@ -70,6 +70,7 @@ public class welcome extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         minLevelText = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         background_green = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -293,6 +294,9 @@ public class welcome extends javax.swing.JFrame {
 
         jButton2.setText("jButton2");
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, -1, -1));
+
+        jButton3.setText("jButton3");
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 240, -1, -1));
 
         background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel1.add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -797,6 +801,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTabbedPane inventoryTab;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
