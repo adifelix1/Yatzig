@@ -796,7 +796,9 @@ public class welcome extends javax.swing.JFrame {
        try{
            int raw =itemTable.getSelectedRow();
            String tableClick=(itemTable.getModel().getValueAt(raw,0).toString());
-            String sql="select * from items where item_id='"+tableClick+"'";
+            String sql="select * from items where item_id='"+tableClick+"' ";
+            pst=conn.prepareStatement(sql);
+            rs=pst.executeQuery();
            if(rs.next())
            {
                String add1=rs.getString("quantity");
