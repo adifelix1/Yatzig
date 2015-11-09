@@ -11,7 +11,7 @@ import javax.swing.*;
  * @author Adi
  */
 public class loginGUI extends javax.swing.JFrame {
-Connection conn=null;
+public static Connection conn=null;
 PreparedStatement pst=null;
 ResultSet rs=null;
 public  static String username;
@@ -21,6 +21,7 @@ public  static String username;
     public loginGUI() {
         initComponents();
         conn=mySqlConnect.connectDB();
+        
     }
     public loginGUI(int x) {
         initComponents();

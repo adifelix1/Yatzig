@@ -69,6 +69,7 @@ public class welcome extends javax.swing.JFrame {
         clearButton = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         minLevelText = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         background_green = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -202,7 +203,7 @@ public class welcome extends javax.swing.JFrame {
         jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jScrollPane1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jScrollPane1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(60, 61));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(60, 60));
 
         descriptionText.setColumns(20);
         descriptionText.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
@@ -289,6 +290,9 @@ public class welcome extends javax.swing.JFrame {
         jLabel5.setText("Min Quantity Level");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
         jPanel1.add(minLevelText, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 160, -1));
+
+        jButton2.setText("jButton2");
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 230, -1, -1));
 
         background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel1.add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -792,6 +796,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JButton inventoryButton;
     private javax.swing.JTabbedPane inventoryTab;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
