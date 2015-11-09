@@ -751,6 +751,9 @@ public class welcome extends javax.swing.JFrame {
 
     
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        int f=0;
+        String q,mq;
+        int q1,mq1;
         try{
             String sql = "Insert into items (item_id,item_name,expiration_date,category_id,supplier_name,quantity,description,min_quantity_level) values(?,?,?,?,?,?,?,?)";
 
@@ -761,16 +764,46 @@ public class welcome extends javax.swing.JFrame {
             pst.setString(4, categoryText.getText());
             pst.setString(5, supplierText.getText());
             pst.setString(6, quantityText.getText());
-            //pst.setString(7, categoryChoice);
+            pst.setString(7, categoryChoice.getSelectedItem());
             pst.setString(7, descriptionText.getText());
             pst.setString(8, minLevelText.getText());
-            
+            q=quantityText.getText();
+            mq=minLevelText.getText();
+            q1=Integer.parseInt(q);
+            mq1=Integer.parseInt(mq);
+            if(mq1>q1)
+            {
+                f=2;
+                throw new Exception("Min Quantity Level Is Higher Then Quantity Level");
+            }
             pst.execute();
             JOptionPane.showMessageDialog(null, "Item Added");
         }
         catch(Exception e){
-       JOptionPane.showMessageDialog(null, e);
+            
+            if(serialText.getText().isEmpty())
+                serialText.setBackground(Color.red);
+            if(nameText.getText().isEmpty())
+                nameText.setBackground(Color.red);
+            if(categoryText.getText().isEmpty())
+                categoryText.setBackground(Color.red);
+            if(supplierText.getText().isEmpty())
+                supplierText.setBackground(Color.red);
+            if(quantityText.getText().isEmpty())
+                quantityText.setBackground(Color.red);
+            if(descriptionText.getText().isEmpty())
+                descriptionText.setBackground(Color.red);
+            if(minLevelText.getText().isEmpty())
+                minLevelText.setBackground(Color.red);
+            if (f!=2)
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty");
+            else
+             JOptionPane.showMessageDialog(null,e);
+            
    }
+
+        if(f==0)
+        {
         serialText.setText("");
         nameText.setText("");
         categoryText.setText("");
@@ -779,6 +812,8 @@ public class welcome extends javax.swing.JFrame {
         descriptionText.setText("");
         minLevelText.setText("");
         eDate.setCalendar(null);
+        }
+        //f=0;
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
