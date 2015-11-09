@@ -197,10 +197,11 @@ public  static String username;
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new loginGUI().setVisible(true);
+            new loginGUI().setVisible(true);
             }
         });
-    }
+    
+                }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

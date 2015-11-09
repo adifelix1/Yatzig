@@ -74,11 +74,17 @@ public class welcome extends javax.swing.JFrame {
         minLevelText = new javax.swing.JTextField();
         background_green = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         itemTable = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
+        quantitytxt = new javax.swing.JTextField();
+        minQtxt = new javax.swing.JTextField();
+        commenttxt = new javax.swing.JTextField();
+        datetxt = new com.toedter.calendar.JDateChooser();
+        rawtxt = new javax.swing.JTextField();
+        shelftxt = new javax.swing.JTextField();
+        wherhoustxt = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -277,13 +283,14 @@ public class welcome extends javax.swing.JFrame {
         eDate.setPreferredSize(new java.awt.Dimension(91, 30));
         jPanel1.add(eDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 160, 30));
 
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/plus_icon.png"))); // NOI18N
         addButton.setText("Add");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, -1, -1));
+        jPanel1.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 340, -1, -1));
 
         clearButton.setText("Clear");
         clearButton.addActionListener(new java.awt.event.ActionListener() {
@@ -304,11 +311,7 @@ public class welcome extends javax.swing.JFrame {
         inventoryTab.addTab("Add Item", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel17.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel17.setText("Search");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, 20));
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 100, -1));
+        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 100, -1));
 
         itemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -321,12 +324,25 @@ public class welcome extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8"
             }
         ));
+        itemTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                itemTableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(itemTable);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 690, 280));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 740, 280));
 
-        jButton2.setText("jButton2");
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
+        jButton2.setText("Search");
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        jPanel3.add(quantitytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 60, -1));
+        jPanel3.add(minQtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 60, -1));
+        jPanel3.add(commenttxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 60, -1));
+        jPanel3.add(datetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+        jPanel3.add(rawtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 60, -1));
+        jPanel3.add(shelftxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 60, -1));
+        jPanel3.add(wherhoustxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, 60, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -776,6 +792,30 @@ public class welcome extends javax.swing.JFrame {
         eDate.setCalendar(null);
     }//GEN-LAST:event_clearButtonActionPerformed
 
+    private void itemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemTableMouseClicked
+       try{
+           int raw =itemTable.getSelectedRow();
+           String tableClick=(itemTable.getModel().getValueAt(raw,0).toString());
+            String sql="select * from items where item_id='"+tableClick+"' ";
+            pst=conn.prepareStatement(sql);
+            rs=pst.executeQuery();
+           if(rs.next())
+           {
+               String add1=rs.getString("quantity");
+               quantitytxt.setText(add1);
+                String add2=rs.getString("min_quantity_level");
+               minQtxt.setText(add2);
+               String add3=rs.getString("description");
+               commenttxt.setText(add3);
+               
+           }
+       }
+       
+       catch(Exception e){
+           JOptionPane.showMessageDialog(null, e);
+       }
+    }//GEN-LAST:event_itemTableMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -806,9 +846,7 @@ public class welcome extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new welcome().setVisible(true);
-                
-                
+                new welcome().setVisible(true); 
             }
         });
     }
@@ -832,8 +870,10 @@ public class welcome extends javax.swing.JFrame {
     private java.awt.Choice categoryChoice;
     private javax.swing.JTextField categoryText;
     private javax.swing.JButton clearButton;
+    private javax.swing.JTextField commenttxt;
     private javax.swing.JTabbedPane customerTab;
     private javax.swing.JButton customersButton;
+    private com.toedter.calendar.JDateChooser datetxt;
     private javax.swing.JTextArea descriptionText;
     private com.toedter.calendar.JDateChooser eDate;
     private javax.swing.JButton inventoryButton;
@@ -849,7 +889,6 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -888,20 +927,25 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTextField minLevelText;
+    private javax.swing.JTextField minQtxt;
     private javax.swing.JTextField nameText;
     private javax.swing.JButton ordersButton;
     private javax.swing.JTabbedPane ordersTab;
     private javax.swing.JTabbedPane projectTab;
     private javax.swing.JButton projectsButton;
     private javax.swing.JTextField quantityText;
+    private javax.swing.JTextField quantitytxt;
+    private javax.swing.JTextField rawtxt;
     private javax.swing.JTabbedPane reportTab;
     private javax.swing.JButton reportsButton;
     private javax.swing.JTextField serialText;
+    private javax.swing.JTextField shelftxt;
     private javax.swing.JTextField supplierText;
     private javax.swing.JTabbedPane suppliers;
     private javax.swing.JButton suppliersButton;
     private javax.swing.JTabbedPane userTab;
     private javax.swing.JButton usersButton;
+    private javax.swing.JTextField wherhoustxt;
     private javax.swing.JTabbedPane woekerTab;
     // End of variables declaration//GEN-END:variables
 
