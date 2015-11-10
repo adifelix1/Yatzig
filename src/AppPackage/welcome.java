@@ -20,6 +20,7 @@ public class welcome extends javax.swing.JFrame {
     static Connection conn = loginGUI.conn;
     static PreparedStatement pst = null;
     static ResultSet rs = null;
+    String tableClick;
 
     /**
      * Creates new form welcome
@@ -100,6 +101,7 @@ public class welcome extends javax.swing.JFrame {
         suppliertxt = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         descriptiontxt = new javax.swing.JTextArea();
+        updateButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -389,7 +391,15 @@ public class welcome extends javax.swing.JFrame {
             new String [] {
                 "Item ID", "Item Name", "Expiration Date", "Supplier Name", "Quantity", "Min Quantity Level", "Description", "Warehouse", "Row", "Shelf"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         itemTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 itemTableMouseClicked(evt);
@@ -409,6 +419,8 @@ public class welcome extends javax.swing.JFrame {
         jPanel3.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
         jPanel3.add(quantitytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 100, -1));
         jPanel3.add(minQtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 100, -1));
+
+        datetxt.setDateFormatString("yyyy-MM-dd");
         jPanel3.add(datetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 120, -1));
         jPanel3.add(rawtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 90, -1));
         jPanel3.add(shelftxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 90, -1));
@@ -421,6 +433,14 @@ public class welcome extends javax.swing.JFrame {
         jScrollPane4.setViewportView(descriptiontxt);
 
         jPanel3.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 150, 90));
+
+        updateButton.setText("Update");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButtonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -930,7 +950,7 @@ public class welcome extends javax.swing.JFrame {
     private void itemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemTableMouseClicked
         try {
             int raw = itemTable.getSelectedRow();
-            String tableClick = (itemTable.getModel().getValueAt(raw, 0).toString());
+            tableClick = (itemTable.getModel().getValueAt(raw, 0).toString());
             String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_id='" + tableClick + "' ";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -983,6 +1003,39 @@ public class welcome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchButtonActionPerformed
 
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        try{
+
+        String vs = suppliertxt.getText();
+        String vq = quantitytxt.getText();
+        Date vd =  new java.sql.Date(datetxt.getDate().getTime());
+        String vm = minQtxt.getText();
+        String vds = descriptiontxt.getText();
+        String vw = wherhoustxt.getText();
+        String vr = rawtxt.getText();
+        String vsl =shelftxt.getText();
+         
+          
+           
+           /* if(vd.isEmpty())
+            {
+               vd="Select expiration_date from items where item_id='" + tableClick+"' ";
+            
+            }*/
+
+            String sql = "update items set supplier_name='"+vs+"',quantity='"+vq+"',expiration_date='"+vd+"',min_quantity_level='"+vm+"',description='"+vds+"',warehouse='"+vw+"',row='"+vr+"',shelf='"+vsl+"' where item_id='"+tableClick+"'";
+          
+           pst = conn.prepareStatement(sql);
+               pst.execute();
+            JOptionPane.showMessageDialog(null, "Item Updated");
+            update_table();
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_updateButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1020,7 +1073,7 @@ public class welcome extends javax.swing.JFrame {
 
     private void update_table() {
         try {
-            String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items";
+            String sql = "select item_id as 'Item ID',item_name as 'Item Name',expiration_date 'Expiration Date',supplier_name as 'Supplier Name',quantity 'Quantity',description as'Description',min_quantity_level as 'Min Quantity Level',warehouse as 'Warehouse',row as 'Row',shelf as 'Shelf' from items";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery(sql);
             itemTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1119,6 +1172,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTabbedPane suppliers;
     private javax.swing.JButton suppliersButton;
     private javax.swing.JTextField suppliertxt;
+    private javax.swing.JButton updateButton;
     private javax.swing.JTabbedPane userTab;
     private javax.swing.JButton usersButton;
     private javax.swing.JLabel warehouse_label;
