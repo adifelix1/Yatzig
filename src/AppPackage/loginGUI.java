@@ -115,6 +115,7 @@ public  static String username;
        this.setState(welcome.ICONIFIED);
     }//GEN-LAST:event_jLabel6MouseClicked
 
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String Sql="Select * from users where user_name=? and password=?";
         try{
@@ -170,6 +171,7 @@ public  static String username;
     /**
      * @param args the command line arguments
      */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
