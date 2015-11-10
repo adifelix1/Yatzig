@@ -148,7 +148,7 @@ public  static String username;
                 }
                 if(lvl==0)
                 {
-                welcome0 w=new welcome0();
+                welcome00 w=new welcome00();
                 w.setVisible(true);
                 this.setVisible(false);
                 }
