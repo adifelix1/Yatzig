@@ -254,7 +254,6 @@ public class welcome00 extends javax.swing.JFrame {
         });
         Storage_panel.add(UploadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 150, -1));
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Felix\\Desktop\\פרוייקט שלב ב\\עיצובים\\Contract_Bar.png")); // NOI18N
         jLabel11.setText("jLabel11");
         Storage_panel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -298,13 +297,13 @@ public class welcome00 extends javax.swing.JFrame {
 
         workersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Worker ID", "First Name", "Last Name", "Phone", "Address", "Birthdate", "E-Mail"
+                "Worker ID", "First Name", "Last Name", "Phone", "Address", "Birthdate", "Title 7", "Title 8", "E-Mail"
             }
         ));
         jScrollPane2.setViewportView(workersTable);
@@ -795,7 +794,7 @@ public class welcome00 extends javax.swing.JFrame {
     }
     private void update_table(){
         try{
-                 String sql = "select * from workers" ;
+                 String sql = "select worker_id,first_name,last_name,worker_phone,contract_id,job_title,email,birth_date from workers";
                  pst=conn.prepareStatement(sql);
                  rs=pst.executeQuery(sql);
                  workersTable.setModel(DbUtils.resultSetToTableModel(rs));
