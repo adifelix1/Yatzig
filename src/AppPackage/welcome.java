@@ -5,6 +5,8 @@
  */
 package AppPackage;
 
+
+
 import java.util.Date;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -121,8 +123,23 @@ public class welcome extends javax.swing.JFrame {
         RefreshButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        statusTable = new javax.swing.JTable();
+        searchtxt2 = new javax.swing.JTextField();
+        EnterYourSearchLabel2 = new javax.swing.JLabel();
+        itemIdRadioButton2 = new javax.swing.JRadioButton();
+        itemNameRadioButton2 = new javax.swing.JRadioButton();
+        searchStatusButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        itemSearchTable = new javax.swing.JTable();
+        searchtxt1 = new javax.swing.JTextField();
+        EnterYourSearchLabel1 = new javax.swing.JLabel();
+        searchButton1 = new javax.swing.JButton();
+        itemIdRadioButton1 = new javax.swing.JRadioButton();
+        itemNameRadioButton1 = new javax.swing.JRadioButton();
+        RefreshButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         customerTab = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -315,7 +332,7 @@ public class welcome extends javax.swing.JFrame {
         jPanel1.add(eDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 160, 30));
 
         addButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/plus_icon.png"))); // NOI18N
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
         addButton.setText("Add");
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -549,12 +566,143 @@ public class welcome extends javax.swing.JFrame {
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        statusTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(statusTable);
+
+        jPanel5.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 790, 200));
+        jPanel5.add(searchtxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+
+        EnterYourSearchLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel2.setText("Enter your search");
+        jPanel5.add(EnterYourSearchLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        searchGroup.add(itemIdRadioButton2);
+        itemIdRadioButton2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        itemIdRadioButton2.setText("By ID");
+        itemIdRadioButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        itemIdRadioButton2.setBorderPainted(true);
+        itemIdRadioButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        itemIdRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemIdRadioButton2ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(itemIdRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
+
+        searchGroup.add(itemNameRadioButton2);
+        itemNameRadioButton2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        itemNameRadioButton2.setText("By Name");
+        itemNameRadioButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        itemNameRadioButton2.setBorderPainted(true);
+        itemNameRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemNameRadioButton2ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(itemNameRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
+
+        searchStatusButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
+        searchStatusButton.setText("Search");
+        searchStatusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchStatusButtonActionPerformed(evt);
+            }
+        });
+        jPanel5.add(searchStatusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         inventoryTab.addTab("Status", jPanel5);
 
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        itemSearchTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Item ID", "Item Name", "Expiration Date", "Supplier Name", "Quantity", "Min Quantity Level", "Description", "Warehouse", "Row", "Shelf"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        itemSearchTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                itemSearchTableMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(itemSearchTable);
+
+        jPanel7.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 910, 230));
+        jPanel7.add(searchtxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+
+        EnterYourSearchLabel1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel1.setText("Enter your search");
+        jPanel7.add(EnterYourSearchLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        searchButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
+        searchButton1.setText("Search");
+        searchButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButton1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(searchButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+
+        searchGroup.add(itemIdRadioButton1);
+        itemIdRadioButton1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        itemIdRadioButton1.setText("By ID");
+        itemIdRadioButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        itemIdRadioButton1.setBorderPainted(true);
+        itemIdRadioButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        itemIdRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemIdRadioButton1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(itemIdRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
+
+        searchGroup.add(itemNameRadioButton1);
+        itemNameRadioButton1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        itemNameRadioButton1.setText("By Name");
+        itemNameRadioButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        itemNameRadioButton1.setBorderPainted(true);
+        itemNameRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemNameRadioButton1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(itemNameRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
+
+        RefreshButton1.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        RefreshButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        RefreshButton1.setText("Refresh");
+        RefreshButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RefreshButton1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(RefreshButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel7.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -1089,17 +1237,36 @@ public class welcome extends javax.swing.JFrame {
 
     private void inventoryTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryTabMouseClicked
         update_table();
+        update_Search_table();
     }//GEN-LAST:event_inventoryTabMouseClicked
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        if(searchmethod.equals("item_id"))
+        {
         try {
             String sn=searchtxt.getText();
-            String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where '"+searchmethod+"'='" + sn + "' ";
+            String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_id='" + sn + "' ";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery(sql);
             itemTable.setModel(DbUtils.resultSetToTableModel(rs));
-        } catch (Exception e) {
+        }
+        
+        catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
+        }
+        }
+        else{
+            try {
+            String sn=searchtxt.getText();
+            String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_name='" + sn + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            itemTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
         }
     }//GEN-LAST:event_searchButtonActionPerformed
 
@@ -1145,6 +1312,90 @@ public class welcome extends javax.swing.JFrame {
     private void itemIdRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIdRadioButtonActionPerformed
         searchmethod="item_id";
     }//GEN-LAST:event_itemIdRadioButtonActionPerformed
+
+    private void itemSearchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemSearchTableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemSearchTableMouseClicked
+
+    private void searchButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton1ActionPerformed
+       if(searchmethod.equals("item_id"))
+        {
+        try {
+            String sn=searchtxt1.getText();
+            String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_id='" + sn + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            itemSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+        else{
+            try {
+            String sn=searchtxt1.getText();
+            String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_name='" + sn + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            itemSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+    }//GEN-LAST:event_searchButton1ActionPerformed
+
+    private void itemIdRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIdRadioButton1ActionPerformed
+        searchmethod="item_id";
+    }//GEN-LAST:event_itemIdRadioButton1ActionPerformed
+
+    private void itemNameRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNameRadioButton1ActionPerformed
+        searchmethod="item_name";
+    }//GEN-LAST:event_itemNameRadioButton1ActionPerformed
+
+    private void RefreshButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshButton1ActionPerformed
+      update_Search_table(); 
+    }//GEN-LAST:event_RefreshButton1ActionPerformed
+
+    private void itemIdRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIdRadioButton2ActionPerformed
+       searchmethod="item_name";
+    }//GEN-LAST:event_itemIdRadioButton2ActionPerformed
+
+    private void itemNameRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNameRadioButton2ActionPerformed
+       searchmethod="item_name";
+    }//GEN-LAST:event_itemNameRadioButton2ActionPerformed
+
+    private void searchStatusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchStatusButtonActionPerformed
+         if(searchmethod.equals("item_id"))
+        {
+        try {
+            String sn=searchtxt2.getText();
+            String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_id='" + sn + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            statusTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+        else{
+            try {
+            String sn=searchtxt2.getText();
+            String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_name='" + sn + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            statusTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+    }//GEN-LAST:event_searchStatusButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1192,16 +1443,30 @@ public class welcome extends javax.swing.JFrame {
         }
 
     }
+     private void update_Search_table() {
+        try {
+            String sql = "select item_id as 'Item ID',item_name as 'Item Name',expiration_date 'Expiration Date',supplier_name as 'Supplier Name',quantity 'Quantity',description as'Description',min_quantity_level as 'Min Quantity Level',warehouse as 'Warehouse',row as 'Row',shelf as 'Shelf' from items";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            itemSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Comments_Label;
     private javax.swing.JTextArea Comments_Text;
     private javax.swing.JLabel DescriptionLabel;
     private javax.swing.JLabel EnterYourSearchLabel;
+    private javax.swing.JLabel EnterYourSearchLabel1;
+    private javax.swing.JLabel EnterYourSearchLabel2;
     private javax.swing.JLabel ExpirationDateLabel2;
     private javax.swing.JLabel MinQuantityLabel1;
     private javax.swing.JLabel QuantityLabel1;
     private javax.swing.JButton RefreshButton;
+    private javax.swing.JButton RefreshButton1;
     private javax.swing.JTextField Row_Text;
     private javax.swing.JLabel Row_label;
     private javax.swing.JLabel Row_label1;
@@ -1227,7 +1492,12 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JButton inventoryButton;
     private javax.swing.JTabbedPane inventoryTab;
     private javax.swing.JRadioButton itemIdRadioButton;
+    private javax.swing.JRadioButton itemIdRadioButton1;
+    private javax.swing.JRadioButton itemIdRadioButton2;
     private javax.swing.JRadioButton itemNameRadioButton;
+    private javax.swing.JRadioButton itemNameRadioButton1;
+    private javax.swing.JRadioButton itemNameRadioButton2;
+    private javax.swing.JTable itemSearchTable;
     private javax.swing.JTable itemTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -1274,6 +1544,8 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTextField minLevelText;
@@ -1289,10 +1561,15 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTabbedPane reportTab;
     private javax.swing.JButton reportsButton;
     private javax.swing.JButton searchButton;
+    private javax.swing.JButton searchButton1;
     private javax.swing.ButtonGroup searchGroup;
+    private javax.swing.JButton searchStatusButton;
     private javax.swing.JTextField searchtxt;
+    private javax.swing.JTextField searchtxt1;
+    private javax.swing.JTextField searchtxt2;
     private javax.swing.JTextField serialText;
     private javax.swing.JTextField shelftxt;
+    private javax.swing.JTable statusTable;
     private javax.swing.JTextField supplierText;
     private javax.swing.JTabbedPane suppliers;
     private javax.swing.JButton suppliersButton;
