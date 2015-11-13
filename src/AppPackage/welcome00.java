@@ -7,8 +7,12 @@ package AppPackage;
 import java.util.Date;
 import java.sql.*;
 import javax.swing.JOptionPane;
-import java.awt.*;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import net.proteanit.sql.DbUtils;
+import java.awt.*;
+
 /**
  *
  * @author Adi
@@ -38,47 +42,42 @@ public class welcome00 extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        inventoryButton = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         customersButton = new javax.swing.JButton();
-        ordersButton = new javax.swing.JButton();
-        projectsButton = new javax.swing.JButton();
         reportsButton = new javax.swing.JButton();
-        suppliersButton = new javax.swing.JButton();
         usersButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        inventoryTab = new javax.swing.JTabbedPane();
+        WorkersTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         serialText = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
         nameText = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        descriptionText = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        quantityText = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         supplierText = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         categoryText = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        categoryChoice = new java.awt.Choice();
-        eDate = new com.toedter.calendar.JDateChooser();
-        addButton = new javax.swing.JButton();
-        clearButton = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        minLevelText = new javax.swing.JTextField();
+        supplierText1 = new javax.swing.JTextField();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        Storage_panel = new javax.swing.JPanel();
+        warehouse_label = new javax.swing.JLabel();
+        Row_label = new javax.swing.JLabel();
+        Row_Text = new javax.swing.JTextField();
+        UploadText = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        Warehouse_Text1 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
         background_green = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        itemTable = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
+        workersTable = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -125,14 +124,6 @@ public class welcome00 extends javax.swing.JFrame {
         jSeparator1.setPreferredSize(new java.awt.Dimension(55, 10));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 222, 1240, 10));
 
-        inventoryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Inventory icon 53 x 50.png"))); // NOI18N
-        inventoryButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inventoryButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(inventoryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 110, 65, 60));
-
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel4MouseClicked(evt);
@@ -153,22 +144,13 @@ public class welcome00 extends javax.swing.JFrame {
                 customersButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(customersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 67, 60));
-
-        ordersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Orders icon 53 x 50.png"))); // NOI18N
-        getContentPane().add(ordersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 65, 60));
-
-        projectsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Projects icon 53 x 50.png"))); // NOI18N
-        getContentPane().add(projectsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 65, 60));
+        getContentPane().add(customersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 67, 60));
 
         reportsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Reports icon 53 x 50.png"))); // NOI18N
         getContentPane().add(reportsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 65, 60));
 
-        suppliersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Suppliers icon 53 x 50.png"))); // NOI18N
-        getContentPane().add(suppliersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 65, 60));
-
         usersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Users icon 53 x 50.png"))); // NOI18N
-        getContentPane().add(usersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 110, 65, -1));
+        getContentPane().add(usersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 65, -1));
 
         logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/logout button.png"))); // NOI18N
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -178,130 +160,134 @@ public class welcome00 extends javax.swing.JFrame {
         });
         getContentPane().add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 30, 30));
 
+        WorkersTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        WorkersTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                WorkersTabMouseClicked(evt);
+            }
+        });
+
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel9.setText("Name");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 40, -1));
+        jLabel9.setText("First Name");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 70, -1));
 
         jLabel10.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel10.setText("Serial Number");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+        jLabel10.setText("Worker ID");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
         serialText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 serialTextActionPerformed(evt);
             }
         });
-        jPanel1.add(serialText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 160, -1));
-
-        jLabel11.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel11.setText("Quantity");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, -1, -1));
+        jPanel1.add(serialText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 160, -1));
 
         nameText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nameTextActionPerformed(evt);
             }
         });
-        jPanel1.add(nameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 160, -1));
-
-        jScrollPane1.setBorder(null);
-        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jScrollPane1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
-        jScrollPane1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(60, 60));
-
-        descriptionText.setColumns(20);
-        descriptionText.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        descriptionText.setLineWrap(true);
-        descriptionText.setRows(5);
-        descriptionText.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        descriptionText.setPreferredSize(new java.awt.Dimension(100, 60));
-        jScrollPane1.setViewportView(descriptionText);
-
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 310, 240, 80));
+        jPanel1.add(nameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 160, -1));
 
         jLabel12.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel12.setText("Category Name");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
+        jLabel12.setText("Birthdate");
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel13.setText("Supplier Name ");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
-
-        quantityText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quantityTextActionPerformed(evt);
-            }
-        });
-        jPanel1.add(quantityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 160, -1));
+        jLabel13.setText("Last Name");
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 80, -1));
 
         jLabel14.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel14.setText("Expiration Date");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+        jLabel14.setText("Phone Number");
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
         supplierText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 supplierTextActionPerformed(evt);
             }
         });
-        jPanel1.add(supplierText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 160, -1));
+        jPanel1.add(supplierText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 160, -1));
 
         jLabel15.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel15.setText("Category ID");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
+        jLabel15.setText("Address");
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, -1, -1));
 
         categoryText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 categoryTextActionPerformed(evt);
             }
         });
-        jPanel1.add(categoryText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 160, -1));
+        jPanel1.add(categoryText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 160, -1));
 
-        jLabel16.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel16.setText("Description");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
-
-        categoryChoice.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                categoryChoiceMouseClicked(evt);
-            }
-        });
-        jPanel1.add(categoryChoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 160, -1));
-        categoryChoice.addItem("paints");
-        categoryChoice.addItem("Packaging");
-
-        eDate.setDateFormatString("yyyy-MM-dd");
-        eDate.setMinSelectableDate(new Date());
-        eDate.setPreferredSize(new java.awt.Dimension(91, 30));
-        jPanel1.add(eDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 160, 30));
-
-        addButton.setText("Add");
-        addButton.addActionListener(new java.awt.event.ActionListener() {
+        supplierText1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addButtonActionPerformed(evt);
+                supplierText1ActionPerformed(evt);
             }
         });
-        jPanel1.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, -1, -1));
+        jPanel1.add(supplierText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 160, -1));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 160, -1));
 
-        clearButton.setText("Clear");
-        clearButton.addActionListener(new java.awt.event.ActionListener() {
+        Storage_panel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Storage_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        warehouse_label.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        warehouse_label.setText("Contract ID");
+        Storage_panel.add(warehouse_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+
+        Row_label.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        Row_label.setText("Job Title");
+        Storage_panel.add(Row_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
+        Row_Text.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearButtonActionPerformed(evt);
+                Row_TextActionPerformed(evt);
             }
         });
-        jPanel1.add(clearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 340, -1, -1));
+        Storage_panel.add(Row_Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 80, -1));
 
-        jLabel5.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel5.setText("Min Quantity Level");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
-        jPanel1.add(minLevelText, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 160, -1));
+        UploadText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UploadTextActionPerformed(evt);
+            }
+        });
+        Storage_panel.add(UploadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 150, -1));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Felix\\Desktop\\פרוייקט שלב ב\\עיצובים\\Contract_Bar.png")); // NOI18N
+        jLabel11.setText("jLabel11");
+        Storage_panel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jButton2.setText("Upload");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        Storage_panel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
+
+        Warehouse_Text1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Warehouse_Text1ActionPerformed(evt);
+            }
+        });
+        Storage_panel.add(Warehouse_Text1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 80, -1));
+
+        jButton3.setText("Upload");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        Storage_panel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
+
+        jPanel1.add(Storage_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 387, 130));
 
         background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel1.add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
-        inventoryTab.addTab("Add Item", jPanel1);
+        WorkersTab.addTab("Add Worker", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -310,42 +296,39 @@ public class welcome00 extends javax.swing.JFrame {
         jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, 20));
         jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 100, -1));
 
-        itemTable.setModel(new javax.swing.table.DefaultTableModel(
+        workersTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8"
+                "Worker ID", "First Name", "Last Name", "Phone", "Address", "Birthdate", "E-Mail"
             }
         ));
-        jScrollPane2.setViewportView(itemTable);
+        jScrollPane2.setViewportView(workersTable);
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 690, 280));
-
-        jButton2.setText("jButton2");
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
-        inventoryTab.addTab("Update", jPanel3);
+        WorkersTab.addTab("Update Details", jPanel3);
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
-        inventoryTab.addTab("Status", jPanel5);
+        WorkersTab.addTab("Workers Status", jPanel5);
 
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel7.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
-        inventoryTab.addTab("Search", jPanel7);
+        WorkersTab.addTab("Search", jPanel7);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -355,7 +338,7 @@ public class welcome00 extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         customerTab.addTab("Add Customer", jPanel2);
@@ -368,7 +351,7 @@ public class welcome00 extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         customerTab.addTab("Update Details", jPanel6);
@@ -381,7 +364,7 @@ public class welcome00 extends javax.swing.JFrame {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         customerTab.addTab("Search", jPanel8);
@@ -394,7 +377,7 @@ public class welcome00 extends javax.swing.JFrame {
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         ordersTab.addTab("Add Order", jPanel4);
@@ -407,7 +390,7 @@ public class welcome00 extends javax.swing.JFrame {
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         ordersTab.addTab("Update", jPanel9);
@@ -420,7 +403,7 @@ public class welcome00 extends javax.swing.JFrame {
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         ordersTab.addTab("Search", jPanel10);
@@ -598,7 +581,7 @@ public class welcome00 extends javax.swing.JFrame {
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(inventoryTab)
+            .addComponent(WorkersTab)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(customerTab))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -631,7 +614,7 @@ public class welcome00 extends javax.swing.JFrame {
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(inventoryTab, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(WorkersTab, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(customerTab))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -662,7 +645,7 @@ public class welcome00 extends javax.swing.JFrame {
                     .addComponent(userTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(projectTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -674,7 +657,12 @@ public class welcome00 extends javax.swing.JFrame {
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Workers icon 53 x 50.png"))); // NOI18N
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 110, 65, 60));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 65, 60));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N
@@ -683,12 +671,6 @@ public class welcome00 extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
-              inventoryTab.setVisible(true);
-              customerTab.setVisible(false);
-              
-    }//GEN-LAST:event_inventoryButtonActionPerformed
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
        System.exit(0);
@@ -705,17 +687,13 @@ public class welcome00 extends javax.swing.JFrame {
     }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void customersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customersButtonActionPerformed
-       inventoryTab.setVisible(false);
+       WorkersTab.setVisible(false);
         customerTab.setVisible(true);
     }//GEN-LAST:event_customersButtonActionPerformed
 
     private void nameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameTextActionPerformed
-
-    private void quantityTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_quantityTextActionPerformed
 
     private void supplierTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplierTextActionPerformed
         // TODO add your handling code here:
@@ -729,53 +707,55 @@ public class welcome00 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_serialTextActionPerformed
 
-    private void categoryChoiceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_categoryChoiceMouseClicked
-      
-    }//GEN-LAST:event_categoryChoiceMouseClicked
+  /*  */
+        
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    
-    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+    private void supplierText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplierText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supplierText1ActionPerformed
+
+    private void Row_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Row_TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Row_TextActionPerformed
+
+    private void UploadTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UploadTextActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try{
-            String sql = "Insert into items (item_id,item_name,expiration_date,category_id,supplier_name,quantity,description,min_quantity_level) values(?,?,?,?,?,?,?,?)";
-
-            pst=conn.prepareStatement(sql);
-            pst.setString(1, serialText.getText());
-            pst.setString(2, nameText.getText());
-            pst.setDate(3,new java.sql.Date(eDate.getDate().getTime()));
-            pst.setString(4, categoryText.getText());
-            pst.setString(5, supplierText.getText());
-            pst.setString(6, quantityText.getText());
-            //pst.setString(7, categoryChoice);
-            pst.setString(7, descriptionText.getText());
-            pst.setString(8, minLevelText.getText());
-            
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "Item Added");
+        JFileChooser chooser = new JFileChooser();
+        FileNameExtensionFilter docFilter = new FileNameExtensionFilter("Word Files","docx");
+        chooser.setFileFilter(docFilter);
+        int value = chooser.showOpenDialog(null);
+        if (value == JFileChooser.APPROVE_OPTION) {
+           // XWPFDocument doc = new XWPFDocument(new FileInputSream(Chooser,getSelectedFile()));
         }
-        catch(Exception e){
-       JOptionPane.showMessageDialog(null, e);
-   }
-        serialText.setText("");
-        nameText.setText("");
-        categoryText.setText("");
-        supplierText.setText("");
-        quantityText.setText("");
-        descriptionText.setText("");
-        minLevelText.setText("");
-        eDate.setCalendar(null);
-    }//GEN-LAST:event_addButtonActionPerformed
+        File f = chooser.getSelectedFile();
+        String filename = f.getAbsolutePath();
+        UploadText.setText(filename);
+        f.getAbsoluteFile();
+    }//GEN-LAST:event_jButton2ActionPerformed
+       catch (Exception e){
+    JOptionPane.showMessageDialog(null,e);
+    }
+    }
+        
+    private void Warehouse_Text1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Warehouse_Text1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Warehouse_Text1ActionPerformed
 
-    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
-         serialText.setText("");
-        nameText.setText("");
-        categoryText.setText("");
-        supplierText.setText("");
-        quantityText.setText("");
-        descriptionText.setText("");
-        minLevelText.setText("");
-        eDate.setCalendar(null);
-    }//GEN-LAST:event_clearButtonActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void WorkersTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WorkersTabMouseClicked
+        update_table();
+    }//GEN-LAST:event_WorkersTabMouseClicked
+   
     /**
      * @param args the command line arguments
      */
@@ -815,10 +795,10 @@ public class welcome00 extends javax.swing.JFrame {
     }
     private void update_table(){
         try{
-        String sql="select * from items";
-        pst=conn.prepareStatement(sql);
-        rs=pst.executeQuery(sql);
-        itemTable.setModel(DbUtils.resultSetToTableModel(rs));
+                 String sql = "select * from workers" ;
+                 pst=conn.prepareStatement(sql);
+                 rs=pst.executeQuery(sql);
+                 workersTable.setModel(DbUtils.resultSetToTableModel(rs));
         }
         catch(Exception e)
         {
@@ -828,20 +808,20 @@ public class welcome00 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addButton;
+    private javax.swing.JTextField Row_Text;
+    private javax.swing.JLabel Row_label;
+    private javax.swing.JPanel Storage_panel;
+    private javax.swing.JTextField UploadText;
+    private javax.swing.JTextField Warehouse_Text1;
+    private javax.swing.JTabbedPane WorkersTab;
     private javax.swing.JLabel background_green;
-    private java.awt.Choice categoryChoice;
     private javax.swing.JTextField categoryText;
-    private javax.swing.JButton clearButton;
     private javax.swing.JTabbedPane customerTab;
     private javax.swing.JButton customersButton;
-    private javax.swing.JTextArea descriptionText;
-    private com.toedter.calendar.JDateChooser eDate;
-    private javax.swing.JButton inventoryButton;
-    private javax.swing.JTabbedPane inventoryTab;
-    private javax.swing.JTable itemTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -849,12 +829,10 @@ public class welcome00 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -883,27 +861,24 @@ public class welcome00 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JTextField minLevelText;
     private javax.swing.JTextField nameText;
-    private javax.swing.JButton ordersButton;
     private javax.swing.JTabbedPane ordersTab;
     private javax.swing.JTabbedPane projectTab;
-    private javax.swing.JButton projectsButton;
-    private javax.swing.JTextField quantityText;
     private javax.swing.JTabbedPane reportTab;
     private javax.swing.JButton reportsButton;
     private javax.swing.JTextField serialText;
     private javax.swing.JTextField supplierText;
+    private javax.swing.JTextField supplierText1;
     private javax.swing.JTabbedPane suppliers;
-    private javax.swing.JButton suppliersButton;
     private javax.swing.JTabbedPane userTab;
     private javax.swing.JButton usersButton;
+    private javax.swing.JLabel warehouse_label;
     private javax.swing.JTabbedPane woekerTab;
+    private javax.swing.JTable workersTable;
     // End of variables declaration//GEN-END:variables
 
 }
