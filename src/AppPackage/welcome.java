@@ -125,11 +125,17 @@ public class welcome extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         statusTable = new javax.swing.JTable();
-        searchtxt2 = new javax.swing.JTextField();
+        searchStatustxt = new javax.swing.JTextField();
         EnterYourSearchLabel2 = new javax.swing.JLabel();
         itemIdRadioButton2 = new javax.swing.JRadioButton();
         itemNameRadioButton2 = new javax.swing.JRadioButton();
         searchStatusButton = new javax.swing.JButton();
+        sWorkerIdtxt = new javax.swing.JTextField();
+        amountFor = new javax.swing.JTextField();
+        sItemIdtxt = new javax.swing.JTextField();
+        dateStatus = new com.toedter.calendar.JDateChooser();
+        addStatusButton = new javax.swing.JButton();
+        oporationType = new java.awt.Choice();
         jLabel8 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -456,6 +462,7 @@ public class welcome extends javax.swing.JFrame {
         jPanel3.add(minQtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 100, -1));
 
         datetxt.setDateFormatString("yyyy-MM-dd");
+        datetxt.setMinSelectableDate(new Date());
         jPanel3.add(datetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 100, -1));
         jPanel3.add(suppliertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 100, -1));
 
@@ -568,19 +575,28 @@ public class welcome extends javax.swing.JFrame {
 
         statusTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Item ID", "Worker ID", "Date", "Amount Of Operation", "Quantity Trace", "Operation Type"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        statusTable.setFocusCycleRoot(true);
         jScrollPane6.setViewportView(statusTable);
 
         jPanel5.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 790, 200));
-        jPanel5.add(searchtxt2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+        jPanel5.add(searchStatustxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
 
         EnterYourSearchLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         EnterYourSearchLabel2.setText("Enter your search");
@@ -619,6 +635,24 @@ public class welcome extends javax.swing.JFrame {
             }
         });
         jPanel5.add(searchStatusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+        jPanel5.add(sWorkerIdtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 60, -1));
+        jPanel5.add(amountFor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 60, -1));
+        jPanel5.add(sItemIdtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 60, -1));
+
+        dateStatus.setDateFormatString("yyyy-MM-dd");
+        dateStatus.setMinSelectableDate(new Date());
+        jPanel5.add(dateStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, -1, -1));
+
+        addStatusButton.setText("Add");
+        addStatusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addStatusButtonActionPerformed(evt);
+            }
+        });
+        jPanel5.add(addStatusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 120, 40));
+        jPanel5.add(oporationType, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 80, -1));
+        oporationType.addItem("Add");
+        oporationType.addItem("Subtract");
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -646,6 +680,7 @@ public class welcome extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        itemSearchTable.setFocusCycleRoot(true);
         itemSearchTable.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 itemSearchTableMouseClicked(evt);
@@ -1238,6 +1273,7 @@ public class welcome extends javax.swing.JFrame {
     private void inventoryTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryTabMouseClicked
         update_table();
         update_Search_table();
+        update_statusTable();
     }//GEN-LAST:event_inventoryTabMouseClicked
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
@@ -1371,8 +1407,8 @@ public class welcome extends javax.swing.JFrame {
          if(searchmethod.equals("item_id"))
         {
         try {
-            String sn=searchtxt2.getText();
-            String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_id='" + sn + "' ";
+            String sn=searchStatustxt.getText();
+            String sql = "select item_id as 'Item ID',worker_id as 'Worker ID',date as 'Date',amount_for_operation as 'Amount Of Operation',quantity_trace 'Quantity Trace',operation_type as 'Operation Type' from quantity where item_id='"+sn+"'";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery(sql);
             statusTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1384,8 +1420,8 @@ public class welcome extends javax.swing.JFrame {
         }
         else{
             try {
-            String sn=searchtxt2.getText();
-            String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_name='" + sn + "' ";
+            String sn=searchStatustxt.getText();
+            String sql = "select item_id as 'Item ID',worker_id as 'Worker ID',date as 'Date',amount_for_operation as 'Amount Of Operation',quantity_trace 'Quantity Trace',operation_type as 'Operation Type' from quantity where item_id='"+sn+"'";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery(sql);
             statusTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1396,6 +1432,92 @@ public class welcome extends javax.swing.JFrame {
         }
         }
     }//GEN-LAST:event_searchStatusButtonActionPerformed
+
+    private void addStatusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStatusButtonActionPerformed
+        int f = 0;
+        String ot, iid,afo, ssum = null;
+        int q1, mq1,sum = 0;
+        try {
+            iid= sItemIdtxt.getText();
+            String sql="select quantity from items where item_id='"+iid+"'";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery();
+                rs.next();
+                String add1 = rs.getString("quantity");
+                
+                afo=amountFor.getText();
+                 ot = oporationType.getSelectedItem();
+            if(ot.equals("Add"))
+            {
+                q1=Integer.parseInt(add1);
+                mq1=Integer.parseInt(afo);
+                sum=q1+mq1;
+                ssum=Integer.toString(sum);
+                f=0;
+                sql="update items set quantity='"+ssum+"'where item_id='"+iid+"'";
+                 pst = conn.prepareStatement(sql);
+                pst.execute();
+            }
+            
+            sql = "Insert into quantity (item_id,worker_id,date,operation_type,amount_for_operation,quantity_trace) values(?,?,?,?,?,?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, sItemIdtxt.getText());
+            pst.setString(2, sWorkerIdtxt.getText());
+            pst.setDate(3, new java.sql.Date(dateStatus.getDate().getTime()));
+            pst.setString(5, amountFor.getText());
+            pst.setString(4, oporationType.getSelectedItem());
+            pst.setString(6, ssum);
+            pst.execute();
+            
+            
+            /*if (mq1 > q1) {
+                f = 2;
+                throw new Exception("Min Quantity Level Is Higher Then Quantity Level");
+            }*/
+           
+            JOptionPane.showMessageDialog(null, "Operation Added");
+        } catch (Exception e) {
+
+            if (sItemIdtxt.getText().isEmpty()) {
+                sItemIdtxt.setBackground(Color.red);
+            }
+            if (sWorkerIdtxt.getText().isEmpty()) {
+                sWorkerIdtxt.setBackground(Color.red);
+            }
+            if (oporationType.getSelectedItem().isEmpty()) {
+                oporationType.setBackground(Color.red);
+            }
+            if (amountFor.getText().isEmpty()) {
+                amountFor.setBackground(Color.red);
+            }
+            
+            JOptionPane.showMessageDialog(null, e);
+            
+           /* if (f != 2) {
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty");
+            } else {
+                JOptionPane.showMessageDialog(null, e);
+            }*/
+
+        }
+
+        if (f == 0) {
+            serialText.setText("");
+            nameText.setText("");
+            supplierText.setText("");
+            quantityText.setText("");
+            descriptionText.setText("");
+            minLevelText.setText("");
+            Warehouse_Text.setText("");
+            Row_Text.setText("");
+            Shelf_Text.setText("");
+            Comments_Text.setText("");
+            eDate.setCalendar(null);
+        }
+        //f=0;
+                  update_statusTable();
+    }//GEN-LAST:event_addStatusButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1454,6 +1576,18 @@ public class welcome extends javax.swing.JFrame {
         }
 
     }
+     
+     private void update_statusTable(){
+        try {
+            String sql = "select item_id as 'Item ID',worker_id as 'Worker ID',date as 'Date',amount_for_operation as 'Amount For Operation',quantity_trace 'Quantity Trace',operation_type as 'Operation Type' from quantity";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            statusTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Comments_Label;
@@ -1480,11 +1614,14 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel SupplierNameLabel2;
     private javax.swing.JTextField Warehouse_Text;
     private javax.swing.JButton addButton;
+    private javax.swing.JButton addStatusButton;
+    private javax.swing.JTextField amountFor;
     private javax.swing.JLabel background_green;
     private java.awt.Choice categoryChoice;
     private javax.swing.JButton clearButton;
     private javax.swing.JTabbedPane customerTab;
     private javax.swing.JButton customersButton;
+    private com.toedter.calendar.JDateChooser dateStatus;
     private com.toedter.calendar.JDateChooser datetxt;
     private javax.swing.JTextArea descriptionText;
     private javax.swing.JTextArea descriptiontxt;
@@ -1551,6 +1688,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField minLevelText;
     private javax.swing.JTextField minQtxt;
     private javax.swing.JTextField nameText;
+    private java.awt.Choice oporationType;
     private javax.swing.JButton ordersButton;
     private javax.swing.JTabbedPane ordersTab;
     private javax.swing.JTabbedPane projectTab;
@@ -1560,13 +1698,15 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField rawtxt;
     private javax.swing.JTabbedPane reportTab;
     private javax.swing.JButton reportsButton;
+    private javax.swing.JTextField sItemIdtxt;
+    private javax.swing.JTextField sWorkerIdtxt;
     private javax.swing.JButton searchButton;
     private javax.swing.JButton searchButton1;
     private javax.swing.ButtonGroup searchGroup;
     private javax.swing.JButton searchStatusButton;
+    private javax.swing.JTextField searchStatustxt;
     private javax.swing.JTextField searchtxt;
     private javax.swing.JTextField searchtxt1;
-    private javax.swing.JTextField searchtxt2;
     private javax.swing.JTextField serialText;
     private javax.swing.JTextField shelftxt;
     private javax.swing.JTable statusTable;
