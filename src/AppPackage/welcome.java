@@ -87,6 +87,7 @@ public class welcome extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         Comments_Text = new javax.swing.JTextArea();
         background_green = new javax.swing.JLabel();
+        jScrollBar2 = new javax.swing.JScrollBar();
         jPanel3 = new javax.swing.JPanel();
         searchtxt = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -95,13 +96,27 @@ public class welcome extends javax.swing.JFrame {
         quantitytxt = new javax.swing.JTextField();
         minQtxt = new javax.swing.JTextField();
         datetxt = new com.toedter.calendar.JDateChooser();
-        rawtxt = new javax.swing.JTextField();
-        shelftxt = new javax.swing.JTextField();
-        wherhoustxt = new javax.swing.JTextField();
         suppliertxt = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         descriptiontxt = new javax.swing.JTextArea();
         updateButton = new javax.swing.JButton();
+        EnterYourSearchLabel = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        SupplierNameLabel2 = new javax.swing.JLabel();
+        QuantityLabel1 = new javax.swing.JLabel();
+        MinQuantityLabel1 = new javax.swing.JLabel();
+        DescriptionLabel = new javax.swing.JLabel();
+        Storage_panel1 = new javax.swing.JPanel();
+        Storage_Label1 = new javax.swing.JLabel();
+        warehouse_label1 = new javax.swing.JLabel();
+        Row_label1 = new javax.swing.JLabel();
+        Shelf__label1 = new javax.swing.JLabel();
+        wherhoustxt = new javax.swing.JTextField();
+        rawtxt = new javax.swing.JTextField();
+        shelftxt = new javax.swing.JTextField();
+        ExpirationDateLabel2 = new javax.swing.JLabel();
+        RefreshButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -371,15 +386,16 @@ public class welcome extends javax.swing.JFrame {
 
         Storage_panel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 150, 90));
 
-        jPanel1.add(Storage_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 470, 190));
+        jPanel1.add(Storage_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, 470, 170));
 
         background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel1.add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
+        jPanel1.add(jScrollBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
 
         inventoryTab.addTab("Add Item", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel3.add(searchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 100, -1));
+        jPanel3.add(searchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
 
         itemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -407,7 +423,7 @@ public class welcome extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(itemTable);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 910, 280));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 910, 230));
 
         searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
         searchButton.setText("Search");
@@ -416,31 +432,106 @@ public class welcome extends javax.swing.JFrame {
                 searchButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
-        jPanel3.add(quantitytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 100, -1));
-        jPanel3.add(minQtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 100, -1));
+        jPanel3.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+        jPanel3.add(quantitytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 100, -1));
+        jPanel3.add(minQtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 100, -1));
 
         datetxt.setDateFormatString("yyyy-MM-dd");
-        jPanel3.add(datetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 270, 120, -1));
-        jPanel3.add(rawtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 90, -1));
-        jPanel3.add(shelftxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 90, -1));
-        jPanel3.add(wherhoustxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, 90, -1));
-        jPanel3.add(suppliertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, 100, -1));
+        jPanel3.add(datetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 100, -1));
+        jPanel3.add(suppliertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 100, -1));
 
         descriptiontxt.setColumns(20);
         descriptiontxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         descriptiontxt.setRows(5);
         jScrollPane4.setViewportView(descriptiontxt);
 
-        jPanel3.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 150, 90));
+        jPanel3.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 100, 100));
 
+        updateButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        updateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/save-icon-30.png"))); // NOI18N
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, -1));
+        jPanel3.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 250, -1, -1));
+
+        EnterYourSearchLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel.setText("Enter your search");
+        jPanel3.add(EnterYourSearchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        jRadioButton1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jRadioButton1.setText("By Name");
+        jRadioButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jRadioButton1.setBorderPainted(true);
+        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
+
+        jRadioButton2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jRadioButton2.setText("By ID");
+        jRadioButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jRadioButton2.setBorderPainted(true);
+        jRadioButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel3.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
+
+        SupplierNameLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierNameLabel2.setText("Supplier Name ");
+        jPanel3.add(SupplierNameLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+
+        QuantityLabel1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        QuantityLabel1.setText("Quantity");
+        jPanel3.add(QuantityLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+
+        MinQuantityLabel1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        MinQuantityLabel1.setText("Min Quantity Level");
+        jPanel3.add(MinQuantityLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+
+        DescriptionLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        DescriptionLabel.setText("Description");
+        jPanel3.add(DescriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+
+        Storage_panel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Storage_panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Storage_Label1.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        Storage_Label1.setText("Storage");
+        Storage_panel1.add(Storage_Label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 30));
+
+        warehouse_label1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        warehouse_label1.setText("Warehouse");
+        Storage_panel1.add(warehouse_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        Row_label1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        Row_label1.setText("Row");
+        Storage_panel1.add(Row_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        Shelf__label1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        Shelf__label1.setText("Shelf");
+        Storage_panel1.add(Shelf__label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        Storage_panel1.add(wherhoustxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 100, -1));
+        Storage_panel1.add(rawtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 100, -1));
+        Storage_panel1.add(shelftxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 100, -1));
+
+        jPanel3.add(Storage_panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, 210, 140));
+
+        ExpirationDateLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        ExpirationDateLabel2.setText("Expiration date");
+        jPanel3.add(ExpirationDateLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+
+        RefreshButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        RefreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        RefreshButton.setText("Refresh");
+        RefreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RefreshButtonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(RefreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 250, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -1003,38 +1094,44 @@ public class welcome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchButtonActionPerformed
 
+    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton1ActionPerformed
+
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         try{
 
-        String vs = suppliertxt.getText();
-        String vq = quantitytxt.getText();
-        Date vd =  new java.sql.Date(datetxt.getDate().getTime());
-        String vm = minQtxt.getText();
-        String vds = descriptiontxt.getText();
-        String vw = wherhoustxt.getText();
-        String vr = rawtxt.getText();
-        String vsl =shelftxt.getText();
-         
-          
-           
-           /* if(vd.isEmpty())
+            String vs = suppliertxt.getText();
+            String vq = quantitytxt.getText();
+            Date vd =  new java.sql.Date(datetxt.getDate().getTime());
+            String vm = minQtxt.getText();
+            String vds = descriptiontxt.getText();
+            String vw = wherhoustxt.getText();
+            String vr = rawtxt.getText();
+            String vsl =shelftxt.getText();
+
+            /* if(vd.isEmpty())
             {
-               vd="Select expiration_date from items where item_id='" + tableClick+"' ";
-            
+                vd="Select expiration_date from items where item_id='" + tableClick+"' ";
+
             }*/
 
             String sql = "update items set supplier_name='"+vs+"',quantity='"+vq+"',expiration_date='"+vd+"',min_quantity_level='"+vm+"',description='"+vds+"',warehouse='"+vw+"',row='"+vr+"',shelf='"+vsl+"' where item_id='"+tableClick+"'";
-          
-           pst = conn.prepareStatement(sql);
-               pst.execute();
+
+            pst = conn.prepareStatement(sql);
+            pst.execute();
             JOptionPane.showMessageDialog(null, "Item Updated");
             update_table();
         }
-        
+
         catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_updateButtonActionPerformed
+
+    private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshButtonActionPerformed
+        update_table(); 
+    }//GEN-LAST:event_RefreshButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1086,12 +1183,23 @@ public class welcome extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Comments_Label;
     private javax.swing.JTextArea Comments_Text;
+    private javax.swing.JLabel DescriptionLabel;
+    private javax.swing.JLabel EnterYourSearchLabel;
+    private javax.swing.JLabel ExpirationDateLabel2;
+    private javax.swing.JLabel MinQuantityLabel1;
+    private javax.swing.JLabel QuantityLabel1;
+    private javax.swing.JButton RefreshButton;
     private javax.swing.JTextField Row_Text;
     private javax.swing.JLabel Row_label;
+    private javax.swing.JLabel Row_label1;
     private javax.swing.JTextField Shelf_Text;
     private javax.swing.JLabel Shelf__label;
+    private javax.swing.JLabel Shelf__label1;
     private javax.swing.JLabel Storage_Label;
+    private javax.swing.JLabel Storage_Label1;
     private javax.swing.JPanel Storage_panel;
+    private javax.swing.JPanel Storage_panel1;
+    private javax.swing.JLabel SupplierNameLabel2;
     private javax.swing.JTextField Warehouse_Text;
     private javax.swing.JButton addButton;
     private javax.swing.JLabel background_green;
@@ -1146,6 +1254,9 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JScrollBar jScrollBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1176,6 +1287,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTabbedPane userTab;
     private javax.swing.JButton usersButton;
     private javax.swing.JLabel warehouse_label;
+    private javax.swing.JLabel warehouse_label1;
     private javax.swing.JTextField wherhoustxt;
     private javax.swing.JTabbedPane woekerTab;
     // End of variables declaration//GEN-END:variables
