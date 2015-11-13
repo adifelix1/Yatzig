@@ -21,6 +21,7 @@ public class welcome extends javax.swing.JFrame {
     static PreparedStatement pst = null;
     static ResultSet rs = null;
     String tableClick;
+    String searchmethod;
 
     /**
      * Creates new form welcome
@@ -41,6 +42,7 @@ public class welcome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        searchGroup = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         inventoryButton = new javax.swing.JButton();
@@ -101,8 +103,8 @@ public class welcome extends javax.swing.JFrame {
         descriptiontxt = new javax.swing.JTextArea();
         updateButton = new javax.swing.JButton();
         EnterYourSearchLabel = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        itemNameRadioButton = new javax.swing.JRadioButton();
+        itemIdRadioButton = new javax.swing.JRadioButton();
         SupplierNameLabel2 = new javax.swing.JLabel();
         QuantityLabel1 = new javax.swing.JLabel();
         MinQuantityLabel1 = new javax.swing.JLabel();
@@ -461,23 +463,30 @@ public class welcome extends javax.swing.JFrame {
         EnterYourSearchLabel.setText("Enter your search");
         jPanel3.add(EnterYourSearchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
-        jRadioButton1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jRadioButton1.setText("By Name");
-        jRadioButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jRadioButton1.setBorderPainted(true);
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        searchGroup.add(itemNameRadioButton);
+        itemNameRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        itemNameRadioButton.setText("By Name");
+        itemNameRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        itemNameRadioButton.setBorderPainted(true);
+        itemNameRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                itemNameRadioButtonActionPerformed(evt);
             }
         });
-        jPanel3.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
+        jPanel3.add(itemNameRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
 
-        jRadioButton2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jRadioButton2.setText("By ID");
-        jRadioButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jRadioButton2.setBorderPainted(true);
-        jRadioButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jPanel3.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
+        searchGroup.add(itemIdRadioButton);
+        itemIdRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        itemIdRadioButton.setText("By ID");
+        itemIdRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        itemIdRadioButton.setBorderPainted(true);
+        itemIdRadioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        itemIdRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemIdRadioButtonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(itemIdRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
 
         SupplierNameLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         SupplierNameLabel2.setText("Supplier Name ");
@@ -1085,7 +1094,7 @@ public class welcome extends javax.swing.JFrame {
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
         try {
             String sn=searchtxt.getText();
-            String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_id='" + sn + "' ";
+            String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where '"+searchmethod+"'='" + sn + "' ";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery(sql);
             itemTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1094,9 +1103,9 @@ public class welcome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_searchButtonActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    private void itemNameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNameRadioButtonActionPerformed
+        searchmethod="item_name";
+    }//GEN-LAST:event_itemNameRadioButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
         try{
@@ -1132,6 +1141,10 @@ public class welcome extends javax.swing.JFrame {
     private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshButtonActionPerformed
         update_table(); 
     }//GEN-LAST:event_RefreshButtonActionPerformed
+
+    private void itemIdRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIdRadioButtonActionPerformed
+        searchmethod="item_id";
+    }//GEN-LAST:event_itemIdRadioButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1213,6 +1226,8 @@ public class welcome extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser eDate;
     private javax.swing.JButton inventoryButton;
     private javax.swing.JTabbedPane inventoryTab;
+    private javax.swing.JRadioButton itemIdRadioButton;
+    private javax.swing.JRadioButton itemNameRadioButton;
     private javax.swing.JTable itemTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -1254,8 +1269,6 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollBar jScrollBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -1276,6 +1289,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTabbedPane reportTab;
     private javax.swing.JButton reportsButton;
     private javax.swing.JButton searchButton;
+    private javax.swing.ButtonGroup searchGroup;
     private javax.swing.JTextField searchtxt;
     private javax.swing.JTextField serialText;
     private javax.swing.JTextField shelftxt;
