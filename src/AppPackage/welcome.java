@@ -136,6 +136,7 @@ public class welcome extends javax.swing.JFrame {
         dateStatus = new com.toedter.calendar.JDateChooser();
         addStatusButton = new javax.swing.JButton();
         oporationType = new java.awt.Choice();
+        refreshStausButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -653,6 +654,14 @@ public class welcome extends javax.swing.JFrame {
         jPanel5.add(oporationType, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 80, -1));
         oporationType.addItem("Add");
         oporationType.addItem("Subtract");
+
+        refreshStausButton.setText("Refresh");
+        refreshStausButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshStausButtonActionPerformed(evt);
+            }
+        });
+        jPanel5.add(refreshStausButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -1435,15 +1444,25 @@ public class welcome extends javax.swing.JFrame {
 
     private void addStatusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStatusButtonActionPerformed
         int f = 0;
-        String ot, iid,afo, ssum = null;
-        int q1, mq1,sum = 0;
+        String ot, iid,afo, ssum = null,opnum;
+        int q1, mq1,sum = 0,ml,on;
         try {
             iid= sItemIdtxt.getText();
-            String sql="select quantity from items where item_id='"+iid+"'";
+            String sql="select quantity,min_quantity_level from items where item_id='"+iid+"'";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery();
                 rs.next();
                 String add1 = rs.getString("quantity");
+                String add2 = rs.getString("min_quantity_level");
+               
+                sql="SELECT opnum FROM quantity ORDER BY opnum DESC LIMIT 1";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery();
+                rs.next();
+                opnum=rs.getString("opnum");
+                on=Integer.parseInt(opnum);
+                on++;
+                opnum=Integer.toString(on);
                 
                 afo=amountFor.getText();
                  ot = oporationType.getSelectedItem();
@@ -1459,15 +1478,31 @@ public class welcome extends javax.swing.JFrame {
                 pst.execute();
             }
             
-            sql = "Insert into quantity (item_id,worker_id,date,operation_type,amount_for_operation,quantity_trace) values(?,?,?,?,?,?)";
+            if(ot.equals("Subtract"))
+            {
+                ml=Integer.parseInt(add2);
+                q1=Integer.parseInt(add1);
+                mq1=Integer.parseInt(afo);
+                sum=q1-mq1;
+                if(sum<ml)
+                    JOptionPane.showMessageDialog(null, "Warning! The Current Quantity Is Lower Than The Min Level");
+                ssum=Integer.toString(sum);
+                f=0;
+                sql="update items set quantity='"+ssum+"'where item_id='"+iid+"'";
+                 pst = conn.prepareStatement(sql);
+                pst.execute();
+            }
+            
+            sql = "Insert into quantity (opnum,item_id,worker_id,date,operation_type,amount_for_operation,quantity_trace) values(?,?,?,?,?,?,?)";
 
             pst = conn.prepareStatement(sql);
-            pst.setString(1, sItemIdtxt.getText());
-            pst.setString(2, sWorkerIdtxt.getText());
-            pst.setDate(3, new java.sql.Date(dateStatus.getDate().getTime()));
-            pst.setString(5, amountFor.getText());
-            pst.setString(4, oporationType.getSelectedItem());
-            pst.setString(6, ssum);
+            pst.setString(1, opnum);
+            pst.setString(2, sItemIdtxt.getText());
+            pst.setString(3, sWorkerIdtxt.getText());
+            pst.setDate(4, new java.sql.Date(dateStatus.getDate().getTime()));
+            pst.setString(6, amountFor.getText());
+            pst.setString(5, oporationType.getSelectedItem());
+            pst.setString(7, ssum);
             pst.execute();
             
             
@@ -1519,6 +1554,10 @@ public class welcome extends javax.swing.JFrame {
                   update_statusTable();
     }//GEN-LAST:event_addStatusButtonActionPerformed
 
+    private void refreshStausButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshStausButtonActionPerformed
+       update_statusTable();
+    }//GEN-LAST:event_refreshStausButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1556,7 +1595,7 @@ public class welcome extends javax.swing.JFrame {
 
     private void update_table() {
         try {
-            String sql = "select item_id as 'Item ID',item_name as 'Item Name',expiration_date 'Expiration Date',supplier_name as 'Supplier Name',quantity 'Quantity',description as'Description',min_quantity_level as 'Min Quantity Level',warehouse as 'Warehouse',row as 'Row',shelf as 'Shelf' from items";
+            String sql = "select item_id as 'Item ID',item_name as 'Item Name',expiration_date 'Expiration Date',supplier_name as 'Supplier Name',quantity as 'Quantity',description as'Description',min_quantity_level as 'Min Quantity Level',warehouse as 'Warehouse',row as 'Row',shelf as 'Shelf' from items";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery(sql);
             itemTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1567,7 +1606,7 @@ public class welcome extends javax.swing.JFrame {
     }
      private void update_Search_table() {
         try {
-            String sql = "select item_id as 'Item ID',item_name as 'Item Name',expiration_date 'Expiration Date',supplier_name as 'Supplier Name',quantity 'Quantity',description as'Description',min_quantity_level as 'Min Quantity Level',warehouse as 'Warehouse',row as 'Row',shelf as 'Shelf' from items";
+            String sql = "select item_id as 'Item ID',item_name as 'Item Name',expiration_date 'Expiration Date',supplier_name as 'Supplier Name',quantity as 'Quantity',description as'Description',min_quantity_level as 'Min Quantity Level',warehouse as 'Warehouse',row as 'Row',shelf as 'Shelf' from items";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery(sql);
             itemSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1579,7 +1618,7 @@ public class welcome extends javax.swing.JFrame {
      
      private void update_statusTable(){
         try {
-            String sql = "select item_id as 'Item ID',worker_id as 'Worker ID',date as 'Date',amount_for_operation as 'Amount For Operation',quantity_trace 'Quantity Trace',operation_type as 'Operation Type' from quantity";
+            String sql = "select item_id as 'Item ID',worker_id as 'Worker ID',date as 'Date',amount_for_operation as 'Amount For Operation',quantity_trace as 'Quantity Trace',operation_type as 'Operation Type' from quantity";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery(sql);
             statusTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1696,6 +1735,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField quantityText;
     private javax.swing.JTextField quantitytxt;
     private javax.swing.JTextField rawtxt;
+    private javax.swing.JButton refreshStausButton;
     private javax.swing.JTabbedPane reportTab;
     private javax.swing.JButton reportsButton;
     private javax.swing.JTextField sItemIdtxt;
