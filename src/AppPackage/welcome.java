@@ -147,8 +147,6 @@ public class welcome extends javax.swing.JFrame {
         statusTable = new javax.swing.JTable();
         searchStatustxt = new javax.swing.JTextField();
         EnterYourSearchLabel2 = new javax.swing.JLabel();
-        itemIdRadioButton2 = new javax.swing.JRadioButton();
-        itemNameRadioButton2 = new javax.swing.JRadioButton();
         searchStatusButton = new javax.swing.JButton();
         sWorkerIdtxt = new javax.swing.JTextField();
         amountFor = new javax.swing.JTextField();
@@ -160,6 +158,8 @@ public class welcome extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -696,31 +696,6 @@ public class welcome extends javax.swing.JFrame {
         EnterYourSearchLabel2.setText("Enter your search");
         jPanel5.add(EnterYourSearchLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
-        searchGroup.add(itemIdRadioButton2);
-        itemIdRadioButton2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        itemIdRadioButton2.setText("By ID");
-        itemIdRadioButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        itemIdRadioButton2.setBorderPainted(true);
-        itemIdRadioButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        itemIdRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemIdRadioButton2ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(itemIdRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
-
-        searchGroup.add(itemNameRadioButton2);
-        itemNameRadioButton2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        itemNameRadioButton2.setText("By Name");
-        itemNameRadioButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        itemNameRadioButton2.setBorderPainted(true);
-        itemNameRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                itemNameRadioButton2ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(itemNameRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
-
         searchStatusButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
         searchStatusButton.setText("Search");
         searchStatusButton.addActionListener(new java.awt.event.ActionListener() {
@@ -729,41 +704,56 @@ public class welcome extends javax.swing.JFrame {
             }
         });
         jPanel5.add(searchStatusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
-        jPanel5.add(sWorkerIdtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 60, -1));
-        jPanel5.add(amountFor, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 60, -1));
-        jPanel5.add(sItemIdtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 60, -1));
+        jPanel5.add(sWorkerIdtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 100, -1));
+        jPanel5.add(amountFor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 100, -1));
+        jPanel5.add(sItemIdtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 100, -1));
 
         dateStatus.setDateFormatString("yyyy-MM-dd");
         dateStatus.setMinSelectableDate(new Date());
-        jPanel5.add(dateStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, -1, -1));
+        jPanel5.add(dateStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 150, -1));
 
+        addStatusButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        addStatusButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
         addStatusButton.setText("Add");
         addStatusButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addStatusButtonActionPerformed(evt);
             }
         });
-        jPanel5.add(addStatusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, 120, 40));
-        jPanel5.add(oporationType, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 80, -1));
+        jPanel5.add(addStatusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 240, 130, 40));
+        jPanel5.add(oporationType, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 110, -1));
         oporationType.addItem("Add");
         oporationType.addItem("Subtract");
 
+        refreshStausButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        refreshStausButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
         refreshStausButton.setText("Refresh");
         refreshStausButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshStausButtonActionPerformed(evt);
             }
         });
-        jPanel5.add(refreshStausButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 280, -1, -1));
+        jPanel5.add(refreshStausButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 240, 130, 40));
 
-        jLabel15.setText("jLabel15");
-        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, -1, -1));
+        jLabel15.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel15.setText("Item ID");
+        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
-        jLabel17.setText("jLabel17");
-        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
+        jLabel17.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel17.setText("Worker ID");
+        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
-        jLabel18.setText("jLabel18");
-        jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, -1, -1));
+        jLabel18.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel18.setText("Amount ");
+        jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel20.setText("Operation Type");
+        jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel21.setText("Date");
+        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -1506,14 +1496,6 @@ public class welcome extends javax.swing.JFrame {
       update_Search_table(); 
     }//GEN-LAST:event_RefreshButton1ActionPerformed
 
-    private void itemIdRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIdRadioButton2ActionPerformed
-       searchmethod="item_name";
-    }//GEN-LAST:event_itemIdRadioButton2ActionPerformed
-
-    private void itemNameRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNameRadioButton2ActionPerformed
-       searchmethod="item_name";
-    }//GEN-LAST:event_itemNameRadioButton2ActionPerformed
-
     private void searchStatusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchStatusButtonActionPerformed
          if(searchmethod.equals("item_id"))
         {
@@ -1780,10 +1762,8 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTabbedPane inventoryTab;
     private javax.swing.JRadioButton itemIdRadioButton;
     private javax.swing.JRadioButton itemIdRadioButton1;
-    private javax.swing.JRadioButton itemIdRadioButton2;
     private javax.swing.JRadioButton itemNameRadioButton;
     private javax.swing.JRadioButton itemNameRadioButton1;
-    private javax.swing.JRadioButton itemNameRadioButton2;
     private javax.swing.JTable itemSearchTable;
     private javax.swing.JTable itemTable;
     private javax.swing.JButton jButton1;
@@ -1800,6 +1780,8 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
