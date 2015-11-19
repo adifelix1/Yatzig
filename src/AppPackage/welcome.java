@@ -838,7 +838,7 @@ public class welcome extends javax.swing.JFrame {
                 RefreshButton1ActionPerformed(evt);
             }
         });
-        jPanel7.add(RefreshButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
+        jPanel7.add(RefreshButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 250, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel7.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
