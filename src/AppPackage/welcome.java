@@ -74,8 +74,34 @@ public class welcome extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        cusUpdateTable = new javax.swing.JTable();
+        EnterYourSearchLabel4 = new javax.swing.JLabel();
+        cusSearchUpdatetxt = new javax.swing.JTextField();
+        cusSearchUpdateButton = new javax.swing.JButton();
+        upCusNameRadioButton = new javax.swing.JRadioButton();
+        upcusIDRadioButton = new javax.swing.JRadioButton();
+        cusUpAddtxt = new javax.swing.JTextField();
+        cusUpPhonetxt = new javax.swing.JTextField();
+        cusUpMailtxt = new javax.swing.JTextField();
+        cusUpContarcttxt = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        cusUpdate = new javax.swing.JButton();
+        cusRefreshUpButton = new javax.swing.JButton();
+        cusDeleteButton = new javax.swing.JButton();
+        jPanel8 = new javax.swing.JPanel();
+        EnterYourSearchLabel3 = new javax.swing.JLabel();
+        cusSearchtxt = new javax.swing.JTextField();
+        cusIDRadioButton = new javax.swing.JRadioButton();
+        cusNameRadioButton = new javax.swing.JRadioButton();
+        cusSearchButton = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        cusSearchTable = new javax.swing.JTable();
+        cusRefreshButton = new javax.swing.JButton();
         inventoryTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -280,6 +306,12 @@ public class welcome extends javax.swing.JFrame {
         });
         getContentPane().add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 30, 30));
 
+        customerTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                customerTabMouseClicked(evt);
+            }
+        });
+
         addCusButton.setText("Add");
         addCusButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -369,36 +401,314 @@ public class welcome extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(cusContractIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel27))))
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
-        customerTab.addTab("Update Details", jPanel6);
+        customerTab.addTab("Add customer", jPanel6);
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
-        );
+        cusUpdateTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Customer ID", "Customer Name", "Address", "Phone", "E-Mail", "Contract"
+            }
+        ));
+        cusUpdateTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cusUpdateTableMouseClicked(evt);
+            }
+        });
+        jScrollPane8.setViewportView(cusUpdateTable);
 
-        customerTab.addTab("Search", jPanel8);
+        EnterYourSearchLabel4.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel4.setText("Enter your search");
+
+        cusSearchUpdateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
+        cusSearchUpdateButton.setText("Search");
+        cusSearchUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusSearchUpdateButtonActionPerformed(evt);
+            }
+        });
+
+        searchGroup.add(upCusNameRadioButton);
+        upCusNameRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        upCusNameRadioButton.setText("By Name");
+        upCusNameRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        upCusNameRadioButton.setBorderPainted(true);
+        upCusNameRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upCusNameRadioButtonActionPerformed(evt);
+            }
+        });
+
+        searchGroup.add(upcusIDRadioButton);
+        upcusIDRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        upcusIDRadioButton.setText("By ID");
+        upcusIDRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        upcusIDRadioButton.setBorderPainted(true);
+        upcusIDRadioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        upcusIDRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upcusIDRadioButtonActionPerformed(evt);
+            }
+        });
+
+        cusUpAddtxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusUpAddtxtActionPerformed(evt);
+            }
+        });
+
+        jLabel28.setText("Address");
+
+        jLabel29.setText("Phone");
+
+        jLabel30.setText("E-Mail");
+
+        jLabel31.setText("Contract ID");
+
+        cusUpdate.setText("Update");
+        cusUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusUpdateActionPerformed(evt);
+            }
+        });
+
+        cusRefreshUpButton.setText("Refresh");
+        cusRefreshUpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusRefreshUpButtonActionPerformed(evt);
+            }
+        });
+
+        cusDeleteButton.setText("Delete");
+        cusDeleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusDeleteButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(EnterYourSearchLabel4)
+                                    .addComponent(cusSearchUpdatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(cusSearchUpdateButton))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(upcusIDRadioButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(upCusNameRadioButton)))
+                        .addGap(90, 90, 90))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel28)
+                            .addComponent(jLabel29)
+                            .addComponent(jLabel30)
+                            .addComponent(jLabel31))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cusUpAddtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                            .addComponent(cusUpPhonetxt)
+                            .addComponent(cusUpMailtxt)
+                            .addComponent(cusUpContarcttxt))
+                        .addGap(107, 107, 107)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(cusUpdate)
+                        .addGap(30, 30, 30)
+                        .addComponent(cusRefreshUpButton)
+                        .addGap(30, 30, 30)
+                        .addComponent(cusDeleteButton)))
+                .addContainerGap(209, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(cusSearchUpdateButton)
+                                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                                        .addComponent(EnterYourSearchLabel4)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(cusSearchUpdatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                    .addComponent(upcusIDRadioButton)
+                                                    .addComponent(upCusNameRadioButton))
+                                                .addGap(42, 42, 42)
+                                                .addComponent(cusUpAddtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel28))
+                                        .addGap(41, 41, 41)
+                                        .addComponent(cusUpPhonetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel29))
+                                .addGap(34, 34, 34)
+                                .addComponent(cusUpMailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel30)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cusUpContarcttxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cusUpdate)
+                            .addComponent(cusRefreshUpButton)
+                            .addComponent(cusDeleteButton))))
+                .addContainerGap(185, Short.MAX_VALUE))
         );
 
-        customerTab.addTab("Add Customer", jPanel2);
+        customerTab.addTab("Update Details", jPanel2);
+
+        EnterYourSearchLabel3.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel3.setText("Enter your search");
+
+        searchGroup.add(cusIDRadioButton);
+        cusIDRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        cusIDRadioButton.setText("By ID");
+        cusIDRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        cusIDRadioButton.setBorderPainted(true);
+        cusIDRadioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cusIDRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusIDRadioButtonActionPerformed(evt);
+            }
+        });
+
+        searchGroup.add(cusNameRadioButton);
+        cusNameRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        cusNameRadioButton.setText("By Name");
+        cusNameRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        cusNameRadioButton.setBorderPainted(true);
+        cusNameRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusNameRadioButtonActionPerformed(evt);
+            }
+        });
+
+        cusSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
+        cusSearchButton.setText("Search");
+        cusSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusSearchButtonActionPerformed(evt);
+            }
+        });
+
+        cusSearchTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Customer ID", "Customer Name", "Address", "Phone", "Email", "Contract ID"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        cusSearchTable.setFocusCycleRoot(true);
+        cusSearchTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cusSearchTableMouseClicked(evt);
+            }
+        });
+        jScrollPane7.setViewportView(cusSearchTable);
+
+        cusRefreshButton.setText("Refresh");
+        cusRefreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusRefreshButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addComponent(EnterYourSearchLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cusSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                        .addComponent(cusSearchButton))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(cusIDRadioButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cusNameRadioButton)))
+                .addGap(114, 114, 114)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(194, Short.MAX_VALUE))
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGap(429, 429, 429)
+                .addComponent(cusRefreshButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel8Layout.createSequentialGroup()
+                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel8Layout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(EnterYourSearchLabel3)
+                                    .addComponent(cusSearchButton)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(cusSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cusIDRadioButton)
+                            .addComponent(cusNameRadioButton)))
+                    .addGroup(jPanel8Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(36, 36, 36)
+                .addComponent(cusRefreshButton)
+                .addContainerGap(219, Short.MAX_VALUE))
+        );
+
+        customerTab.addTab("Search", jPanel8);
 
         inventoryTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         inventoryTab.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1600,8 +1910,7 @@ public class welcome extends javax.swing.JFrame {
     }//GEN-LAST:event_RefreshButton1ActionPerformed
 
     private void searchStatusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchStatusButtonActionPerformed
-         if(searchmethod.equals("item_id"))
-        {
+        
         try {
             String sn=searchStatustxt.getText();
             String sql = "select item_id as 'Item ID',worker_id as 'Worker ID',date as 'Date',amount_for_operation as 'Amount Of Operation',quantity_trace 'Quantity Trace',operation_type as 'Operation Type' from quantity where item_id='"+sn+"'";
@@ -1613,20 +1922,9 @@ public class welcome extends javax.swing.JFrame {
         catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        }
-        else{
-            try {
-            String sn=searchStatustxt.getText();
-            String sql = "select item_id as 'Item ID',worker_id as 'Worker ID',date as 'Date',amount_for_operation as 'Amount Of Operation',quantity_trace 'Quantity Trace',operation_type as 'Operation Type' from quantity where item_id='"+sn+"'";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery(sql);
-            statusTable.setModel(DbUtils.resultSetToTableModel(rs));
-        }
         
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        }
+       
+        
     }//GEN-LAST:event_searchStatusButtonActionPerformed
 
     private void addStatusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStatusButtonActionPerformed
@@ -1812,7 +2110,7 @@ public class welcome extends javax.swing.JFrame {
     }//GEN-LAST:event_clearCusButtonActionPerformed
 
     private void deleteItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteItemButtonActionPerformed
-        int ans=JOptionPane.showConfirmDialog(null, "Warning!", "Are You Sure You Want To Delete This Item", JOptionPane.YES_NO_OPTION);
+        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete This Item", "Warning!", JOptionPane.YES_NO_OPTION);
            if(ans==0) 
            {
         int raw = itemTable.getSelectedRow();
@@ -1843,6 +2141,172 @@ public class welcome extends javax.swing.JFrame {
            if (ans==1)
            {} 
     }//GEN-LAST:event_deleteItemButtonActionPerformed
+
+    private void cusIDRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusIDRadioButtonActionPerformed
+        searchmethod="customer_id";
+    }//GEN-LAST:event_cusIDRadioButtonActionPerformed
+
+    private void cusNameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusNameRadioButtonActionPerformed
+        searchmethod="customer_name";
+    }//GEN-LAST:event_cusNameRadioButtonActionPerformed
+
+    private void cusSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusSearchButtonActionPerformed
+         if(searchmethod.equals("customer_id"))
+        {
+        try {
+            String sn=cusSearchtxt.getText();
+            String sql = "select customer_id as 'Customer ID',customer_name as 'Customer Name',address as 'Address',phone as 'Phone',email 'Email',contract_id as 'Contarct ID' from customers where customer_id='"+sn+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            cusSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+        else{
+            try {
+            String sn=cusSearchtxt.getText();
+            String sql = "select customer_id as 'Customer ID',customer_name as 'Customer Name',adderss as 'Address',phone as 'Phone',email 'Email',contract_id as 'Contarct ID' from customers where customer_name='"+sn+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            cusSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+    }//GEN-LAST:event_cusSearchButtonActionPerformed
+
+    private void cusSearchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cusSearchTableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cusSearchTableMouseClicked
+
+    private void cusSearchUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusSearchUpdateButtonActionPerformed
+         if(searchmethod.equals("customer_id"))
+        {
+        try {
+            String sn=cusSearchUpdatetxt.getText();
+            String sql = "select customer_id as 'Customer ID',customer_name as 'Customer Name',address as 'Address',phone as 'Phone',email 'Email',contract_id as 'Contarct ID' from customers where customer_id='"+sn+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            cusUpdateTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+        else{
+            try {
+            String sn=cusSearchUpdatetxt.getText();
+            String sql = "select customer_id as 'Customer ID',customer_name as 'Customer Name',adderss as 'Address',phone as 'Phone',email 'Email',contract_id as 'Contarct ID' from customers where customer_name='"+sn+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            cusUpdateTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+    }//GEN-LAST:event_cusSearchUpdateButtonActionPerformed
+
+    private void upCusNameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upCusNameRadioButtonActionPerformed
+         searchmethod="customer_name";
+    }//GEN-LAST:event_upCusNameRadioButtonActionPerformed
+
+    private void upcusIDRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upcusIDRadioButtonActionPerformed
+       searchmethod="customer_id";
+    }//GEN-LAST:event_upcusIDRadioButtonActionPerformed
+
+    private void cusUpAddtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusUpAddtxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cusUpAddtxtActionPerformed
+
+    private void cusRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusRefreshButtonActionPerformed
+        update_Customer_SearchTable();
+    }//GEN-LAST:event_cusRefreshButtonActionPerformed
+
+    private void cusUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusUpdateActionPerformed
+        try{
+
+            String vs = cusUpAddtxt.getText();
+            String vq = cusUpPhonetxt.getText();
+            String vm = cusUpMailtxt.getText();
+            String vds = cusUpContarcttxt.getText();
+          
+            
+            String sql = "update customers set address='"+vs+"',phone='"+vq+"',email='"+vm+"',contract_id='"+vds+"' where customer_id='"+tableClick+"'";
+
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Item Updated");
+            update_CustomerTable();
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        update_CustomerTable();
+    }//GEN-LAST:event_cusUpdateActionPerformed
+
+    private void cusUpdateTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cusUpdateTableMouseClicked
+         try {
+            int raw = cusUpdateTable.getSelectedRow();
+            tableClick = (cusUpdateTable.getModel().getValueAt(raw, 0).toString());
+            String sql = "select address,phone,email,contract_id from customers where customer_id='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("address");
+                cusUpAddtxt.setText(add1);
+                String add2 = rs.getString("phone");
+                cusUpPhonetxt.setText(add2);
+                String add3 = rs.getString("email");
+                cusUpMailtxt.setText(add3);
+                String add4 = rs.getString("contract_id");
+                cusUpContarcttxt.setText(add4);
+              
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_cusUpdateTableMouseClicked
+
+    private void cusRefreshUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusRefreshUpButtonActionPerformed
+        update_CustomerTable();
+    }//GEN-LAST:event_cusRefreshUpButtonActionPerformed
+
+    private void cusDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusDeleteButtonActionPerformed
+        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete This Customers", "Warning!", JOptionPane.YES_NO_OPTION);
+           if(ans==0) 
+           {
+        int raw = cusUpdateTable.getSelectedRow();
+            tableClick = (cusUpdateTable.getModel().getValueAt(raw, 0).toString());
+            String sql="delete from customers where customer_id='"+tableClick+"'";
+            try{
+                pst=conn.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Customer Deleted!");
+                update_CustomerTable();
+            }
+            catch(Exception e){
+                 JOptionPane.showMessageDialog(null, e);
+            }
+             
+           }
+           if (ans==1)
+           {} 
+           
+    }//GEN-LAST:event_cusDeleteButtonActionPerformed
+
+    private void customerTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerTabMouseClicked
+        update_CustomerTable();
+        update_Customer_SearchTable();
+    }//GEN-LAST:event_customerTabMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1913,6 +2377,30 @@ public class welcome extends javax.swing.JFrame {
         }
 
     }
+     
+      private void update_Customer_SearchTable(){
+        try {
+            String sql = "select customer_id as 'Customer ID',customer_name as 'Customer Name',address as 'Address',phone as 'Phone',email 'Email',contract_id as 'Contarct ID' from customers";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            cusSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+      
+      private void update_CustomerTable(){
+        try {
+            String sql = "select customer_id as 'Customer ID',customer_name as 'Customer Name',address as 'Address',phone as 'Phone',email 'Email',contract_id as 'Contarct ID' from customers";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            cusUpdateTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Comments_Label;
@@ -1921,6 +2409,8 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel EnterYourSearchLabel;
     private javax.swing.JLabel EnterYourSearchLabel1;
     private javax.swing.JLabel EnterYourSearchLabel2;
+    private javax.swing.JLabel EnterYourSearchLabel3;
+    private javax.swing.JLabel EnterYourSearchLabel4;
     private javax.swing.JLabel ExpirationDateLabel2;
     private javax.swing.JLabel MinQuantityLabel1;
     private javax.swing.JLabel QuantityLabel1;
@@ -1957,10 +2447,26 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JButton clearCusButton;
     private javax.swing.JTextField cusAddtxt;
     private javax.swing.JTextField cusContractIDtxt;
+    private javax.swing.JButton cusDeleteButton;
+    private javax.swing.JRadioButton cusIDRadioButton;
     private javax.swing.JTextField cusIDtxt;
     private javax.swing.JTextField cusMailtxt;
+    private javax.swing.JRadioButton cusNameRadioButton;
     private javax.swing.JTextField cusNametxt;
     private javax.swing.JTextField cusPhonetxt;
+    private javax.swing.JButton cusRefreshButton;
+    private javax.swing.JButton cusRefreshUpButton;
+    private javax.swing.JButton cusSearchButton;
+    private javax.swing.JTable cusSearchTable;
+    private javax.swing.JButton cusSearchUpdateButton;
+    private javax.swing.JTextField cusSearchUpdatetxt;
+    private javax.swing.JTextField cusSearchtxt;
+    private javax.swing.JTextField cusUpAddtxt;
+    private javax.swing.JTextField cusUpContarcttxt;
+    private javax.swing.JTextField cusUpMailtxt;
+    private javax.swing.JTextField cusUpPhonetxt;
+    private javax.swing.JButton cusUpdate;
+    private javax.swing.JTable cusUpdateTable;
     private javax.swing.JTabbedPane customerTab;
     private javax.swing.JButton customersButton;
     private com.toedter.calendar.JDateChooser dateStatus;
@@ -1998,7 +2504,11 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2037,6 +2547,8 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTextField minLevelText;
@@ -2074,6 +2586,8 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTabbedPane suppliers;
     private javax.swing.JButton suppliersButton;
     private javax.swing.JTextField suppliertxt;
+    private javax.swing.JRadioButton upCusNameRadioButton;
+    private javax.swing.JRadioButton upcusIDRadioButton;
     private javax.swing.JButton updateButton;
     private javax.swing.JTabbedPane userTab;
     private javax.swing.JButton usersButton;
