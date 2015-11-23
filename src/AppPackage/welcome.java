@@ -75,12 +75,6 @@ public class welcome extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        cusSearchTable = new javax.swing.JTable();
-        searchCusNametxt = new javax.swing.JTextField();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        searchCusButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         inventoryTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
@@ -375,83 +369,20 @@ public class welcome extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(cusContractIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel27))))
-                .addContainerGap(77, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
-        customerTab.addTab("Add Customer", jPanel6);
-
-        cusSearchTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "Customer ID", "Customer Name", "Address", "Phone", "E-Mail", "Contract ID"
-            }
-        ));
-        jScrollPane7.setViewportView(cusSearchTable);
-
-        searchGroup.add(jRadioButton1);
-        jRadioButton1.setText("Customer ID");
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
-            }
-        });
-
-        searchGroup.add(jRadioButton2);
-        jRadioButton2.setText("Customer Name");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
-
-        searchCusButton.setText("Search");
-        searchCusButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchCusButtonActionPerformed(evt);
-            }
-        });
+        customerTab.addTab("Update Details", jPanel6);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jRadioButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jRadioButton2))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(searchCusNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)
-                        .addComponent(searchCusButton)))
-                .addGap(80, 80, 80)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(291, Short.MAX_VALUE))
+            .addGap(0, 1250, Short.MAX_VALUE)
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(searchCusNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchCusButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2))))
-                .addContainerGap(40, Short.MAX_VALUE))
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
         customerTab.addTab("Search", jPanel8);
@@ -464,10 +395,10 @@ public class welcome extends javax.swing.JFrame {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 449, Short.MAX_VALUE)
+            .addGap(0, 436, Short.MAX_VALUE)
         );
 
-        customerTab.addTab("Update Customer", jPanel2);
+        customerTab.addTab("Add Customer", jPanel2);
 
         inventoryTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         inventoryTab.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -1913,44 +1844,6 @@ public class welcome extends javax.swing.JFrame {
            {} 
     }//GEN-LAST:event_deleteItemButtonActionPerformed
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        searchmethod="customer_id";
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        searchmethod="custumer_name";
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void searchCusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchCusButtonActionPerformed
-        if(searchmethod.equals("customer_id"))
-        {
-        try {
-            String sn=searchCusNametxt.getText();
-            String sql = "select customer_id,customer_name,address,phone,email,contract_id from customers where customer_id='" + sn + "' ";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery(sql);
-            cusSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
-        }
-        
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        }
-        else{
-            try {
-            String sn=searchCusNametxt.getText();
-            String sql = "select customer_id,customer_name,address,phone,email,contract_id from customers where customer_name='" + sn + "' ";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery(sql);
-            cusSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
-        }
-        
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        }
-    }//GEN-LAST:event_searchCusButtonActionPerformed
-  
     /**
      * @param args the command line arguments
      */
@@ -2068,7 +1961,6 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField cusMailtxt;
     private javax.swing.JTextField cusNametxt;
     private javax.swing.JTextField cusPhonetxt;
-    private javax.swing.JTable cusSearchTable;
     private javax.swing.JTabbedPane customerTab;
     private javax.swing.JButton customersButton;
     private com.toedter.calendar.JDateChooser dateStatus;
@@ -2138,8 +2030,6 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollBar jScrollBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
@@ -2147,7 +2037,6 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTextField minLevelText;
@@ -2170,8 +2059,6 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField sWorkerIdtxt;
     private javax.swing.JButton searchButton;
     private javax.swing.JButton searchButton1;
-    private javax.swing.JButton searchCusButton;
-    private javax.swing.JTextField searchCusNametxt;
     private javax.swing.ButtonGroup searchGroup;
     private javax.swing.JButton searchStatusButton;
     private javax.swing.JTextField searchStatustxt;
