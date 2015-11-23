@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package AppPackage;
+import static AppPackage.welcome.pst;
 import java.util.Date;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -12,6 +13,14 @@ import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import net.proteanit.sql.DbUtils;
 import java.awt.*;
+import java.awt.Desktop;
+import java.io.File;
+import java.lang.Object; 
+import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 
 /**
  *
@@ -21,6 +30,7 @@ public class welcome00 extends javax.swing.JFrame {
   static Connection conn=loginGUI.conn;
      static   PreparedStatement pst=null;
      static ResultSet rs=null;
+     public String filename;
     /**
      * Creates new form welcome
      */
@@ -51,27 +61,30 @@ public class welcome00 extends javax.swing.JFrame {
         jLayeredPane1 = new javax.swing.JLayeredPane();
         WorkersTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        serialText = new javax.swing.JTextField();
-        nameText = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        supplierText = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        categoryText = new javax.swing.JTextField();
-        supplierText1 = new javax.swing.JTextField();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        WorkerIDLabel = new javax.swing.JLabel();
+        FirstNamerLabel = new javax.swing.JLabel();
+        WorkerIDText = new javax.swing.JTextField();
+        FirstNamerText = new javax.swing.JTextField();
+        EmailLabel = new javax.swing.JLabel();
+        LastNameLabel = new javax.swing.JLabel();
+        PhoneLabel = new javax.swing.JLabel();
+        PhoneText = new javax.swing.JTextField();
+        AddressLabel = new javax.swing.JLabel();
+        AddressText = new javax.swing.JTextField();
+        EmailText = new javax.swing.JTextField();
+        LastNameText = new javax.swing.JTextField();
+        BirthdateLabel = new javax.swing.JLabel();
+        BirthdayDateChooser = new com.toedter.calendar.JDateChooser();
         Storage_panel = new javax.swing.JPanel();
         warehouse_label = new javax.swing.JLabel();
         Row_label = new javax.swing.JLabel();
-        Row_Text = new javax.swing.JTextField();
+        JobTitleText = new javax.swing.JTextField();
         UploadText = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        Warehouse_Text1 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
+        UploadContractButton = new javax.swing.JButton();
+        ContracdIDText = new javax.swing.JTextField();
+        ShowContractButton = new javax.swing.JButton();
+        AddButton = new javax.swing.JButton();
         background_green = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
@@ -169,65 +182,76 @@ public class welcome00 extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel9.setText("First Name");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 70, -1));
+        WorkerIDLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        WorkerIDLabel.setText("Worker ID");
+        jPanel1.add(WorkerIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
-        jLabel10.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel10.setText("Worker ID");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
+        FirstNamerLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        FirstNamerLabel.setText("First Name");
+        jPanel1.add(FirstNamerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 70, -1));
 
-        serialText.addActionListener(new java.awt.event.ActionListener() {
+        WorkerIDText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                serialTextActionPerformed(evt);
+                WorkerIDTextActionPerformed(evt);
             }
         });
-        jPanel1.add(serialText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 160, -1));
+        jPanel1.add(WorkerIDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 160, -1));
 
-        nameText.addActionListener(new java.awt.event.ActionListener() {
+        FirstNamerText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameTextActionPerformed(evt);
+                FirstNamerTextActionPerformed(evt);
             }
         });
-        jPanel1.add(nameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 160, -1));
+        jPanel1.add(FirstNamerText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 160, -1));
 
-        jLabel12.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel12.setText("Birthdate");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
+        EmailLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EmailLabel.setText("E-mail");
+        jPanel1.add(EmailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, -1));
 
-        jLabel13.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel13.setText("Last Name");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 80, -1));
+        LastNameLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        LastNameLabel.setText("Last Name");
+        jPanel1.add(LastNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 80, -1));
 
-        jLabel14.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel14.setText("Phone Number");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
+        PhoneLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        PhoneLabel.setText("Phone Number");
+        jPanel1.add(PhoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
-        supplierText.addActionListener(new java.awt.event.ActionListener() {
+        PhoneText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                supplierTextActionPerformed(evt);
+                PhoneTextActionPerformed(evt);
             }
         });
-        jPanel1.add(supplierText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 160, -1));
+        jPanel1.add(PhoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 160, -1));
 
-        jLabel15.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel15.setText("Address");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, -1, -1));
+        AddressLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        AddressLabel.setText("Address");
+        jPanel1.add(AddressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, -1, -1));
 
-        categoryText.addActionListener(new java.awt.event.ActionListener() {
+        AddressText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                categoryTextActionPerformed(evt);
+                AddressTextActionPerformed(evt);
             }
         });
-        jPanel1.add(categoryText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 160, -1));
+        jPanel1.add(AddressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 160, -1));
 
-        supplierText1.addActionListener(new java.awt.event.ActionListener() {
+        EmailText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                supplierText1ActionPerformed(evt);
+                EmailTextActionPerformed(evt);
             }
         });
-        jPanel1.add(supplierText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 160, -1));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 160, -1));
+        jPanel1.add(EmailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 160, -1));
+
+        LastNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LastNameTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(LastNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 160, -1));
+
+        BirthdateLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        BirthdateLabel.setText("Birthdate");
+        jPanel1.add(BirthdateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, -1, -1));
+        jPanel1.add(BirthdayDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 270, 160, -1));
 
         Storage_panel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
         Storage_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -240,47 +264,58 @@ public class welcome00 extends javax.swing.JFrame {
         Row_label.setText("Job Title");
         Storage_panel.add(Row_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
-        Row_Text.addActionListener(new java.awt.event.ActionListener() {
+        JobTitleText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Row_TextActionPerformed(evt);
+                JobTitleTextActionPerformed(evt);
             }
         });
-        Storage_panel.add(Row_Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 80, -1));
+        Storage_panel.add(JobTitleText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 80, -1));
 
         UploadText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 UploadTextActionPerformed(evt);
             }
         });
-        Storage_panel.add(UploadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, 150, -1));
+        Storage_panel.add(UploadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 150, -1));
 
-        jLabel11.setText("jLabel11");
-        Storage_panel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel11.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        jLabel11.setText("Personal Contract");
+        Storage_panel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jButton2.setText("Upload");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        UploadContractButton.setText("Upload");
+        UploadContractButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                UploadContractButtonActionPerformed(evt);
             }
         });
-        Storage_panel.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, -1, -1));
+        Storage_panel.add(UploadContractButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, -1, -1));
 
-        Warehouse_Text1.addActionListener(new java.awt.event.ActionListener() {
+        ContracdIDText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Warehouse_Text1ActionPerformed(evt);
+                ContracdIDTextActionPerformed(evt);
             }
         });
-        Storage_panel.add(Warehouse_Text1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 80, -1));
+        Storage_panel.add(ContracdIDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 80, -1));
 
-        jButton3.setText("Upload");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        ShowContractButton.setText("Show");
+        ShowContractButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                ShowContractButtonActionPerformed(evt);
             }
         });
-        Storage_panel.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
+        Storage_panel.add(ShowContractButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 70, -1));
 
         jPanel1.add(Storage_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 387, 130));
+
+        AddButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        AddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
+        AddButton.setText("Add");
+        AddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddButtonActionPerformed(evt);
+            }
+        });
+        jPanel1.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 210, -1, -1));
 
         background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         background_green.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -303,12 +338,12 @@ public class welcome00 extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Worker ID", "First Name", "Last Name", "Phone", "Address", "Birthdate", "Title 7", "Title 8", "E-Mail"
+                "Worker ID", "First Name", "Last Name", "Phone", "Address", "Birthdate", "E-Mail", "Contrad ID", "Job Title"
             }
         ));
         jScrollPane2.setViewportView(workersTable);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 690, 280));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 740, 280));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -690,21 +725,21 @@ public class welcome00 extends javax.swing.JFrame {
         customerTab.setVisible(true);
     }//GEN-LAST:event_customersButtonActionPerformed
 
-    private void nameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextActionPerformed
+    private void FirstNamerTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstNamerTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nameTextActionPerformed
+    }//GEN-LAST:event_FirstNamerTextActionPerformed
 
-    private void supplierTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplierTextActionPerformed
+    private void PhoneTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PhoneTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_supplierTextActionPerformed
+    }//GEN-LAST:event_PhoneTextActionPerformed
 
-    private void categoryTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_categoryTextActionPerformed
+    private void EmailTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_categoryTextActionPerformed
+    }//GEN-LAST:event_EmailTextActionPerformed
 
-    private void serialTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serialTextActionPerformed
+    private void WorkerIDTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WorkerIDTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_serialTextActionPerformed
+    }//GEN-LAST:event_WorkerIDTextActionPerformed
 
   /*  */
         
@@ -712,48 +747,93 @@ public class welcome00 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void supplierText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplierText1ActionPerformed
+    private void LastNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastNameTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_supplierText1ActionPerformed
+    }//GEN-LAST:event_LastNameTextActionPerformed
 
-    private void Row_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Row_TextActionPerformed
+    private void JobTitleTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JobTitleTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Row_TextActionPerformed
+    }//GEN-LAST:event_JobTitleTextActionPerformed
 
     private void UploadTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_UploadTextActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void UploadContractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadContractButtonActionPerformed
+         String fn = ContracdIDText.getText(); 
         try{
+           
         JFileChooser chooser = new JFileChooser();
+        chooser.setDialogTitle("Open a File");
         FileNameExtensionFilter docFilter = new FileNameExtensionFilter("Word Files","docx");
-        chooser.setFileFilter(docFilter);
-        int value = chooser.showOpenDialog(null);
-        if (value == JFileChooser.APPROVE_OPTION) {
-           // XWPFDocument doc = new XWPFDocument(new FileInputSream(Chooser,getSelectedFile()));
-        }
+        FileNameExtensionFilter pdfFilter = new FileNameExtensionFilter("PDF Documents","pdf");
+        chooser.addChoosableFileFilter(docFilter);
+        chooser.addChoosableFileFilter(pdfFilter);
+        int result = chooser.showOpenDialog(null);
+        if (result == 0) {
         File f = chooser.getSelectedFile();
-        String filename = f.getAbsolutePath();
+        filename = f.getAbsolutePath();
         UploadText.setText(filename);
         f.getAbsoluteFile();
-    }//GEN-LAST:event_jButton2ActionPerformed
+        Path dest = Paths.get( "C:/Users/Felix/Documents/NetBeansProjects/Yatzig/src/Contracts/"+fn+".pdf");
+        Path source = Paths.get(filename);
+        Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);
+        JOptionPane.showMessageDialog(null, "Contract Saved");
+        }
+                   
+    }//GEN-LAST:event_UploadContractButtonActionPerformed
        catch (Exception e){
     JOptionPane.showMessageDialog(null,e);
-    }
+    
+        }
     }
         
-    private void Warehouse_Text1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Warehouse_Text1ActionPerformed
+    private void ContracdIDTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContracdIDTextActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Warehouse_Text1ActionPerformed
+    }//GEN-LAST:event_ContracdIDTextActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void ShowContractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowContractButtonActionPerformed
+           try {
+               
+               Desktop.getDesktop().open(new File(filename));          
+           }
+           catch (Exception e) {
+              JOptionPane.showMessageDialog(null,e); 
+           }
+    }//GEN-LAST:event_ShowContractButtonActionPerformed
 
     private void WorkersTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WorkersTabMouseClicked
         update_table();
     }//GEN-LAST:event_WorkersTabMouseClicked
+
+    private void AddressTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddressTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AddressTextActionPerformed
+
+    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+        
+        try {
+            String sql = "Insert into workers (worker_id,first_name,last_name,worker_phone,worker_add,contract_id,job_title,birth_date,email) values(?,?,?,?,?,?,?,?,?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, WorkerIDText.getText());
+            pst.setString(2, FirstNamerLabel.getText());
+            pst.setString(3, LastNameText.getText());
+            pst.setString(4, PhoneText.getText());
+            pst.setString(5, AddressText.getText());
+            pst.setString(6, ContracdIDText.getText());
+            pst.setString(7, JobTitleText.getText());
+            pst.setDate(8, new java.sql.Date(BirthdayDateChooser.getDate().getTime()));
+            pst.setString(9, EmailText.getText());
+          
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Worker Added");
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+            
+    }//GEN-LAST:event_AddButtonActionPerformed
    
     /**
      * @param args the command line arguments
@@ -794,7 +874,7 @@ public class welcome00 extends javax.swing.JFrame {
     }
     private void update_table(){
         try{
-                 String sql = "select worker_id,first_name,last_name,worker_phone,contract_id,job_title,email,birth_date from workers";
+                 String sql = "select worker_id as 'Worker ID',first_name as 'First Name',last_name as 'Last Name',worker_phone as 'Phone',birth_date as 'Birthdate', email as 'Email',contract_id as 'Contract ID',job_title as 'Job Title' from workers";
                  pst=conn.prepareStatement(sql);
                  rs=pst.executeQuery(sql);
                  workersTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -807,27 +887,35 @@ public class welcome00 extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Row_Text;
+    private javax.swing.JButton AddButton;
+    private javax.swing.JLabel AddressLabel;
+    private javax.swing.JTextField AddressText;
+    private javax.swing.JLabel BirthdateLabel;
+    private com.toedter.calendar.JDateChooser BirthdayDateChooser;
+    private javax.swing.JTextField ContracdIDText;
+    private javax.swing.JLabel EmailLabel;
+    private javax.swing.JTextField EmailText;
+    private javax.swing.JLabel FirstNamerLabel;
+    private javax.swing.JTextField FirstNamerText;
+    private javax.swing.JTextField JobTitleText;
+    private javax.swing.JLabel LastNameLabel;
+    private javax.swing.JTextField LastNameText;
+    private javax.swing.JLabel PhoneLabel;
+    private javax.swing.JTextField PhoneText;
     private javax.swing.JLabel Row_label;
+    private javax.swing.JButton ShowContractButton;
     private javax.swing.JPanel Storage_panel;
+    private javax.swing.JButton UploadContractButton;
     private javax.swing.JTextField UploadText;
-    private javax.swing.JTextField Warehouse_Text1;
+    private javax.swing.JLabel WorkerIDLabel;
+    private javax.swing.JTextField WorkerIDText;
     private javax.swing.JTabbedPane WorkersTab;
     private javax.swing.JLabel background_green;
-    private javax.swing.JTextField categoryText;
     private javax.swing.JTabbedPane customerTab;
     private javax.swing.JButton customersButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -835,7 +923,6 @@ public class welcome00 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
@@ -864,14 +951,10 @@ public class welcome00 extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JTextField nameText;
     private javax.swing.JTabbedPane ordersTab;
     private javax.swing.JTabbedPane projectTab;
     private javax.swing.JTabbedPane reportTab;
     private javax.swing.JButton reportsButton;
-    private javax.swing.JTextField serialText;
-    private javax.swing.JTextField supplierText;
-    private javax.swing.JTextField supplierText1;
     private javax.swing.JTabbedPane suppliers;
     private javax.swing.JTabbedPane userTab;
     private javax.swing.JButton usersButton;
