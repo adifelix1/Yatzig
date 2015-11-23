@@ -58,6 +58,24 @@ public class welcome extends javax.swing.JFrame {
         usersButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
+        customerTab = new javax.swing.JTabbedPane();
+        jPanel6 = new javax.swing.JPanel();
+        cusIDtxt = new javax.swing.JTextField();
+        cusNametxt = new javax.swing.JTextField();
+        cusAddtxt = new javax.swing.JTextField();
+        cusPhonetxt = new javax.swing.JTextField();
+        cusMailtxt = new javax.swing.JTextField();
+        cusContractIDtxt = new javax.swing.JTextField();
+        addCusButton = new javax.swing.JButton();
+        clearCusButton = new javax.swing.JButton();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jPanel8 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         inventoryTab = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -140,7 +158,8 @@ public class welcome extends javax.swing.JFrame {
         quantitytxt = new javax.swing.JTextField();
         QuantityLabel1 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        submitButton = new javax.swing.JButton();
+        deleteItemButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -171,10 +190,6 @@ public class welcome extends javax.swing.JFrame {
         itemNameRadioButton1 = new javax.swing.JRadioButton();
         RefreshButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        customerTab = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
         ordersTab = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
@@ -264,6 +279,126 @@ public class welcome extends javax.swing.JFrame {
             }
         });
         getContentPane().add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 30, 30));
+
+        addCusButton.setText("Add");
+        addCusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addCusButtonActionPerformed(evt);
+            }
+        });
+
+        clearCusButton.setText("Clear");
+        clearCusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearCusButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel22.setText("id");
+
+        jLabel23.setText("name");
+
+        jLabel24.setText("address");
+
+        jLabel25.setText("phone");
+
+        jLabel26.setText("email");
+
+        jLabel27.setText("contract");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel26)
+                    .addComponent(jLabel27))
+                .addGap(84, 84, 84)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cusIDtxt)
+                    .addComponent(cusNametxt)
+                    .addComponent(cusAddtxt)
+                    .addComponent(cusPhonetxt)
+                    .addComponent(cusMailtxt)
+                    .addComponent(cusContractIDtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
+                .addGap(294, 294, 294)
+                .addComponent(addCusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(clearCusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(443, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(addCusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(clearCusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                            .addComponent(cusIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(jLabel22))
+                                                        .addGap(39, 39, 39)
+                                                        .addComponent(cusNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(jLabel23))
+                                                .addGap(45, 45, 45)
+                                                .addComponent(cusAddtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jLabel24))
+                                        .addGap(36, 36, 36)
+                                        .addComponent(cusPhonetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel25))
+                                .addGap(35, 35, 35)
+                                .addComponent(cusMailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel26))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cusContractIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel27))))
+                .addContainerGap(64, Short.MAX_VALUE))
+        );
+
+        customerTab.addTab("Update Details", jPanel6);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1250, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 436, Short.MAX_VALUE)
+        );
+
+        customerTab.addTab("Search", jPanel8);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1250, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 436, Short.MAX_VALUE)
+        );
+
+        customerTab.addTab("Add Customer", jPanel2);
 
         inventoryTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         inventoryTab.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -653,12 +788,20 @@ public class welcome extends javax.swing.JFrame {
         jLabel19.setText("Any change requiers manager approval");
         jPanel24.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/submit.png"))); // NOI18N
-        jButton2.setText("Submit");
-        jPanel24.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 130, -1));
+        submitButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        submitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/submit.png"))); // NOI18N
+        submitButton.setText("Submit");
+        jPanel24.add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 130, -1));
 
         jPanel3.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 230, 140));
+
+        deleteItemButton.setText("delete");
+        deleteItemButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteItemButtonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(deleteItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 330, 100, 30));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -844,45 +987,6 @@ public class welcome extends javax.swing.JFrame {
         jPanel7.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         inventoryTab.addTab("Search", jPanel7);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
-        );
-
-        customerTab.addTab("Add Customer", jPanel2);
-
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
-        );
-
-        customerTab.addTab("Update Details", jPanel6);
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
-        );
-
-        customerTab.addTab("Search", jPanel8);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -1160,8 +1264,8 @@ public class welcome extends javax.swing.JFrame {
                     .addComponent(userTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(projectTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(reportTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1642,6 +1746,92 @@ public class welcome extends javax.swing.JFrame {
        update_statusTable();
     }//GEN-LAST:event_refreshStausButtonActionPerformed
 
+    private void addCusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCusButtonActionPerformed
+        int f = 0;
+       
+        try {
+            String sql = "Insert into customers (customer_id,customer_name,address,phone,email,contract_id) values(?,?,?,?,?,?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, cusIDtxt.getText());
+            pst.setString(2, cusNametxt.getText());
+            pst.setString(3, cusAddtxt.getText());
+            pst.setString(4, cusPhonetxt.getText());
+            pst.setString(5, cusMailtxt.getText());
+            pst.setString(6, cusContractIDtxt.getText());
+            
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Customer Added");
+        } catch (Exception e) {
+
+            if (cusIDtxt.getText().isEmpty()) {
+                cusIDtxt.setBackground(Color.red);
+            }
+            if (cusNametxt.getText().isEmpty()) {
+                cusNametxt.setBackground(Color.red);
+            }
+           
+            if (cusAddtxt.getText().isEmpty()) {
+                cusAddtxt.setBackground(Color.red);
+            }
+            if (cusPhonetxt.getText().isEmpty()) {
+                cusPhonetxt.setBackground(Color.red);
+            }
+
+            if (cusMailtxt.getText().isEmpty()) {
+                cusMailtxt.setBackground(Color.red);
+            }
+            if (cusContractIDtxt.getText().isEmpty()) {
+                cusContractIDtxt.setBackground(Color.red);
+            }
+            
+            if (f != 2) {
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty");
+            } else {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        }
+
+        if (f == 0) {
+            cusIDtxt.setText("");
+            cusNametxt.setText("");
+            cusAddtxt.setText("");
+            cusPhonetxt.setText("");
+            cusMailtxt.setText("");
+            cusContractIDtxt.setText("");
+        }
+    }//GEN-LAST:event_addCusButtonActionPerformed
+
+    private void clearCusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearCusButtonActionPerformed
+            cusIDtxt.setText("");
+            cusNametxt.setText("");
+            cusAddtxt.setText("");
+            cusPhonetxt.setText("");
+            cusMailtxt.setText("");
+            cusContractIDtxt.setText("");
+    }//GEN-LAST:event_clearCusButtonActionPerformed
+
+    private void deleteItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteItemButtonActionPerformed
+        int ans=JOptionPane.showConfirmDialog(null, "Warning!", "Are You Sure You Want To Delete This Item", JOptionPane.YES_NO_OPTION);
+           if(ans==1) 
+           {
+        int raw = itemTable.getSelectedRow();
+            tableClick = (itemTable.getModel().getValueAt(raw, 0).toString());
+            String sql="delete from items where item_id='"+tableClick+"'";
+            try{
+                pst=conn.prepareStatement(sql);
+                pst.executeQuery();
+                JOptionPane.showMessageDialog(null, "Item Deleted!");
+            }
+            catch(Exception e){
+                 JOptionPane.showMessageDialog(null, e);
+            }
+           }
+           if (ans==0)
+           {} 
+    }//GEN-LAST:event_deleteItemButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1746,15 +1936,24 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel SupplierNameLabel2;
     private javax.swing.JTextField Warehouse_Text;
     private javax.swing.JButton addButton;
+    private javax.swing.JButton addCusButton;
     private javax.swing.JButton addStatusButton;
     private javax.swing.JTextField amountFor;
     private javax.swing.JLabel background_green;
     private java.awt.Choice categoryChoice;
     private javax.swing.JButton clearButton;
+    private javax.swing.JButton clearCusButton;
+    private javax.swing.JTextField cusAddtxt;
+    private javax.swing.JTextField cusContractIDtxt;
+    private javax.swing.JTextField cusIDtxt;
+    private javax.swing.JTextField cusMailtxt;
+    private javax.swing.JTextField cusNametxt;
+    private javax.swing.JTextField cusPhonetxt;
     private javax.swing.JTabbedPane customerTab;
     private javax.swing.JButton customersButton;
     private com.toedter.calendar.JDateChooser dateStatus;
     private com.toedter.calendar.JDateChooser datetxt;
+    private javax.swing.JButton deleteItemButton;
     private javax.swing.JTextArea descriptionText;
     private javax.swing.JTextArea descriptiontxt;
     private com.toedter.calendar.JDateChooser eDate;
@@ -1767,7 +1966,6 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTable itemSearchTable;
     private javax.swing.JTable itemTable;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1782,6 +1980,12 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1853,6 +2057,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField shelftxt1;
     private javax.swing.JTextField shelftxt2;
     private javax.swing.JTable statusTable;
+    private javax.swing.JButton submitButton;
     private javax.swing.JTextField supplierText;
     private javax.swing.JTabbedPane suppliers;
     private javax.swing.JButton suppliersButton;
