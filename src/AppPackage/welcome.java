@@ -789,7 +789,6 @@ public class welcome extends javax.swing.JFrame {
         jPanel24.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         submitButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        submitButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/submit.png"))); // NOI18N
         submitButton.setText("Submit");
         jPanel24.add(submitButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 130, -1));
 
@@ -1814,21 +1813,34 @@ public class welcome extends javax.swing.JFrame {
 
     private void deleteItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteItemButtonActionPerformed
         int ans=JOptionPane.showConfirmDialog(null, "Warning!", "Are You Sure You Want To Delete This Item", JOptionPane.YES_NO_OPTION);
-           if(ans==1) 
+           if(ans==0) 
            {
         int raw = itemTable.getSelectedRow();
             tableClick = (itemTable.getModel().getValueAt(raw, 0).toString());
             String sql="delete from items where item_id='"+tableClick+"'";
             try{
                 pst=conn.prepareStatement(sql);
-                pst.executeQuery();
-                JOptionPane.showMessageDialog(null, "Item Deleted!");
+                pst.execute();
+                //JOptionPane.showMessageDialog(null, "Item Deleted!");
+                update_table();
             }
             catch(Exception e){
                  JOptionPane.showMessageDialog(null, e);
             }
+            String qsql="delete from quantity where item_id='"+tableClick+"'";
+            try{
+                pst=conn.prepareStatement(qsql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Item Deleted!");
+                update_table();
+            }
+            catch(Exception e){
+                 JOptionPane.showMessageDialog(null, e);
+            }
+            
+            
            }
-           if (ans==0)
+           if (ans==1)
            {} 
     }//GEN-LAST:event_deleteItemButtonActionPerformed
 
