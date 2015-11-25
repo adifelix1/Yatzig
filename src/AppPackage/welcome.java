@@ -32,6 +32,13 @@ public class welcome extends javax.swing.JFrame {
 
         initComponents();
         customerTab.setVisible(false);
+        ordersTab.setVisible(false);
+        customerTab.setVisible(false);
+        projectsTab.setVisible(false);
+        reportsTab.setVisible(false);
+        suppliersTab.setVisible(false);
+        workersTab.setVisible(false);
+        usersTab.setVisible(false);
         update_table();
     }
 
@@ -218,25 +225,38 @@ public class welcome extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         ordersTab = new javax.swing.JTabbedPane();
         jPanel4 = new javax.swing.JPanel();
+        orderIDtxt = new javax.swing.JTextField();
+        orderTptxt = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        orderDesctxt = new javax.swing.JTextArea();
+        tooDate = new com.toedter.calendar.JDateChooser();
+        toaDate = new com.toedter.calendar.JDateChooser();
+        addOrderButton = new javax.swing.JButton();
+        orderClearButton = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jPanel10 = new javax.swing.JPanel();
-        projectTab = new javax.swing.JTabbedPane();
+        projectsTab = new javax.swing.JTabbedPane();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
-        reportTab = new javax.swing.JTabbedPane();
+        reportsTab = new javax.swing.JTabbedPane();
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
-        suppliers = new javax.swing.JTabbedPane();
+        suppliersTab = new javax.swing.JTabbedPane();
         jPanel16 = new javax.swing.JPanel();
         jPanel17 = new javax.swing.JPanel();
         jPanel18 = new javax.swing.JPanel();
-        woekerTab = new javax.swing.JTabbedPane();
+        workersTab = new javax.swing.JTabbedPane();
         jPanel19 = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jPanel21 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
-        userTab = new javax.swing.JTabbedPane();
+        usersTab = new javax.swing.JTabbedPane();
         jPanel23 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -284,6 +304,11 @@ public class welcome extends javax.swing.JFrame {
         getContentPane().add(customersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 67, 60));
 
         ordersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Orders icon 53 x 50.png"))); // NOI18N
+        ordersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ordersButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(ordersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 65, 60));
 
         projectsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Projects icon 53 x 50.png"))); // NOI18N
@@ -1297,15 +1322,103 @@ public class welcome extends javax.swing.JFrame {
 
         inventoryTab.addTab("Search", jPanel7);
 
+        orderIDtxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderIDtxtActionPerformed(evt);
+            }
+        });
+
+        jLabel32.setText("Order ID");
+
+        jLabel33.setText("Time Of Order");
+
+        jLabel34.setText("Time Of Arrival");
+
+        jLabel35.setText("Description");
+
+        jLabel36.setText("Total Price");
+
+        orderDesctxt.setColumns(20);
+        orderDesctxt.setRows(5);
+        jScrollPane10.setViewportView(orderDesctxt);
+
+        tooDate.setDateFormatString("yyyy-MM-dd");
+
+        toaDate.setDateFormatString("yyyy-MM-dd");
+
+        addOrderButton.setText("Add");
+        addOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addOrderButtonActionPerformed(evt);
+            }
+        });
+
+        orderClearButton.setText("Clear");
+        orderClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderClearButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel36)
+                    .addComponent(jLabel35)
+                    .addComponent(jLabel34)
+                    .addComponent(jLabel33)
+                    .addComponent(jLabel32))
+                .addGap(86, 86, 86)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tooDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(toaDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                    .addComponent(orderIDtxt)
+                    .addComponent(orderTptxt))
+                .addGap(181, 181, 181)
+                .addComponent(addOrderButton)
+                .addGap(57, 57, 57)
+                .addComponent(orderClearButton)
+                .addContainerGap(572, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(orderIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel32))
+                .addGap(34, 34, 34)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel33)
+                    .addComponent(tooDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel34)
+                    .addComponent(toaDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel35)
+                                .addGap(93, 93, 93)
+                                .addComponent(jLabel36))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(orderTptxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addOrderButton)
+                            .addComponent(orderClearButton))
+                        .addGap(189, 189, 189))))
         );
 
         ordersTab.addTab("Add Order", jPanel4);
@@ -1318,7 +1431,7 @@ public class welcome extends javax.swing.JFrame {
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
+            .addGap(0, 442, Short.MAX_VALUE)
         );
 
         ordersTab.addTab("Update", jPanel9);
@@ -1331,7 +1444,7 @@ public class welcome extends javax.swing.JFrame {
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
+            .addGap(0, 442, Short.MAX_VALUE)
         );
 
         ordersTab.addTab("Search", jPanel10);
@@ -1347,7 +1460,7 @@ public class welcome extends javax.swing.JFrame {
             .addGap(0, 402, Short.MAX_VALUE)
         );
 
-        projectTab.addTab("Add Project", jPanel11);
+        projectsTab.addTab("Add Project", jPanel11);
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
@@ -1360,7 +1473,7 @@ public class welcome extends javax.swing.JFrame {
             .addGap(0, 402, Short.MAX_VALUE)
         );
 
-        projectTab.addTab(" Status", jPanel12);
+        projectsTab.addTab(" Status", jPanel12);
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -1373,7 +1486,7 @@ public class welcome extends javax.swing.JFrame {
             .addGap(0, 402, Short.MAX_VALUE)
         );
 
-        projectTab.addTab("Search", jPanel13);
+        projectsTab.addTab("Search", jPanel13);
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -1386,7 +1499,7 @@ public class welcome extends javax.swing.JFrame {
             .addGap(0, 402, Short.MAX_VALUE)
         );
 
-        reportTab.addTab("Generate", jPanel14);
+        reportsTab.addTab("Generate", jPanel14);
 
         javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
         jPanel15.setLayout(jPanel15Layout);
@@ -1399,7 +1512,7 @@ public class welcome extends javax.swing.JFrame {
             .addGap(0, 402, Short.MAX_VALUE)
         );
 
-        reportTab.addTab("History", jPanel15);
+        reportsTab.addTab("History", jPanel15);
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -1412,7 +1525,7 @@ public class welcome extends javax.swing.JFrame {
             .addGap(0, 402, Short.MAX_VALUE)
         );
 
-        suppliers.addTab("Add Suppliers", jPanel16);
+        suppliersTab.addTab("Add Suppliers", jPanel16);
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -1425,7 +1538,7 @@ public class welcome extends javax.swing.JFrame {
             .addGap(0, 402, Short.MAX_VALUE)
         );
 
-        suppliers.addTab("Update", jPanel17);
+        suppliersTab.addTab("Update", jPanel17);
 
         javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
         jPanel18.setLayout(jPanel18Layout);
@@ -1438,7 +1551,7 @@ public class welcome extends javax.swing.JFrame {
             .addGap(0, 402, Short.MAX_VALUE)
         );
 
-        suppliers.addTab("Search", jPanel18);
+        suppliersTab.addTab("Search", jPanel18);
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
@@ -1451,7 +1564,7 @@ public class welcome extends javax.swing.JFrame {
             .addGap(0, 402, Short.MAX_VALUE)
         );
 
-        woekerTab.addTab("Add Worker", jPanel19);
+        workersTab.addTab("Add Worker", jPanel19);
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -1464,7 +1577,7 @@ public class welcome extends javax.swing.JFrame {
             .addGap(0, 402, Short.MAX_VALUE)
         );
 
-        woekerTab.addTab("Update Details", jPanel20);
+        workersTab.addTab("Update Details", jPanel20);
 
         javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
         jPanel21.setLayout(jPanel21Layout);
@@ -1477,7 +1590,7 @@ public class welcome extends javax.swing.JFrame {
             .addGap(0, 402, Short.MAX_VALUE)
         );
 
-        woekerTab.addTab("Worker Status", jPanel21);
+        workersTab.addTab("Worker Status", jPanel21);
 
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
@@ -1490,7 +1603,7 @@ public class welcome extends javax.swing.JFrame {
             .addGap(0, 402, Short.MAX_VALUE)
         );
 
-        woekerTab.addTab("Search", jPanel22);
+        workersTab.addTab("Search", jPanel22);
 
         javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
         jPanel23.setLayout(jPanel23Layout);
@@ -1503,7 +1616,7 @@ public class welcome extends javax.swing.JFrame {
             .addGap(0, 402, Short.MAX_VALUE)
         );
 
-        userTab.addTab("Edit", jPanel23);
+        usersTab.addTab("Edit", jPanel23);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -1517,27 +1630,27 @@ public class welcome extends javax.swing.JFrame {
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(projectTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(projectsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(reportTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reportsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(suppliers, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(suppliersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(woekerTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(workersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(userTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         jLayeredPane1Layout.setVerticalGroup(
@@ -1550,37 +1663,37 @@ public class welcome extends javax.swing.JFrame {
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(projectTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(projectsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(reportTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reportsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(suppliers, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(suppliersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(woekerTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(workersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(userTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(projectTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(suppliers, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(woekerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(userTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(workersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -2308,6 +2421,74 @@ public class welcome extends javax.swing.JFrame {
         update_Customer_SearchTable();
     }//GEN-LAST:event_customerTabMouseClicked
 
+    private void ordersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordersButtonActionPerformed
+        ordersTab.setVisible(true);
+        inventoryTab.setVisible(false);
+        customerTab.setVisible(false);
+        projectsTab.setVisible(false);
+        reportsTab.setVisible(false);
+        suppliersTab.setVisible(false);
+        workersTab.setVisible(false);
+        usersTab.setVisible(false);
+    }//GEN-LAST:event_ordersButtonActionPerformed
+
+    private void orderIDtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderIDtxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orderIDtxtActionPerformed
+
+    private void addOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrderButtonActionPerformed
+         int f = 0;
+       
+        try {
+            String sql = "Insert into orders (order_id,order_date,description,price,arrivel_date) values(?,?,?,?,?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, orderIDtxt.getText());
+            pst.setDate(2, new java.sql.Date(tooDate.getDate().getTime()));
+            pst.setString(3, orderDesctxt.getText());
+            pst.setDate(4, new java.sql.Date(toaDate.getDate().getTime()));
+            pst.setString(5, orderTptxt.getText());
+            
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Order Added");
+        } catch (Exception e) {
+
+            if (orderIDtxt.getText().isEmpty()) {
+                orderIDtxt.setBackground(Color.red);
+            }
+            if (orderDesctxt.getText().isEmpty()) {
+                orderDesctxt.setBackground(Color.red);
+            }
+           
+            if (orderTptxt.getText().isEmpty()) {
+                orderTptxt.setBackground(Color.red);
+            }
+            
+            if (f != 2) {
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty");
+            } else {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        }
+
+        if (f == 0) {
+            orderIDtxt.setText("");
+            orderDesctxt.setText("");
+            orderTptxt.setText("");
+            tooDate.setCalendar(null);
+            toaDate.setCalendar(null);
+        }
+    }//GEN-LAST:event_addOrderButtonActionPerformed
+
+    private void orderClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderClearButtonActionPerformed
+          orderIDtxt.setText("");
+            orderDesctxt.setText("");
+            orderTptxt.setText("");
+            tooDate.setCalendar(null);
+            toaDate.setCalendar(null);
+    }//GEN-LAST:event_orderClearButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2439,6 +2620,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField Warehouse_Text;
     private javax.swing.JButton addButton;
     private javax.swing.JButton addCusButton;
+    private javax.swing.JButton addOrderButton;
     private javax.swing.JButton addStatusButton;
     private javax.swing.JTextField amountFor;
     private javax.swing.JLabel background_green;
@@ -2509,6 +2691,11 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2542,6 +2729,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollBar jScrollBar2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2555,18 +2743,22 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField minQtxt;
     private javax.swing.JTextField nameText;
     private java.awt.Choice oporationType;
+    private javax.swing.JButton orderClearButton;
+    private javax.swing.JTextArea orderDesctxt;
+    private javax.swing.JTextField orderIDtxt;
+    private javax.swing.JTextField orderTptxt;
     private javax.swing.JButton ordersButton;
     private javax.swing.JTabbedPane ordersTab;
-    private javax.swing.JTabbedPane projectTab;
     private javax.swing.JButton projectsButton;
+    private javax.swing.JTabbedPane projectsTab;
     private javax.swing.JTextField quantityText;
     private javax.swing.JTextField quantitytxt;
     private javax.swing.JTextField rawtxt;
     private javax.swing.JTextField rawtxt1;
     private javax.swing.JTextField rawtxt2;
     private javax.swing.JButton refreshStausButton;
-    private javax.swing.JTabbedPane reportTab;
     private javax.swing.JButton reportsButton;
+    private javax.swing.JTabbedPane reportsTab;
     private javax.swing.JTextField sItemIdtxt;
     private javax.swing.JTextField sWorkerIdtxt;
     private javax.swing.JButton searchButton;
@@ -2583,14 +2775,16 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTable statusTable;
     private javax.swing.JButton submitButton;
     private javax.swing.JTextField supplierText;
-    private javax.swing.JTabbedPane suppliers;
     private javax.swing.JButton suppliersButton;
+    private javax.swing.JTabbedPane suppliersTab;
     private javax.swing.JTextField suppliertxt;
+    private com.toedter.calendar.JDateChooser toaDate;
+    private com.toedter.calendar.JDateChooser tooDate;
     private javax.swing.JRadioButton upCusNameRadioButton;
     private javax.swing.JRadioButton upcusIDRadioButton;
     private javax.swing.JButton updateButton;
-    private javax.swing.JTabbedPane userTab;
     private javax.swing.JButton usersButton;
+    private javax.swing.JTabbedPane usersTab;
     private javax.swing.JLabel warehouse_label;
     private javax.swing.JLabel warehouse_label1;
     private javax.swing.JLabel warehouse_label2;
@@ -2598,7 +2792,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField wherhoustxt;
     private javax.swing.JTextField wherhoustxt1;
     private javax.swing.JTextField wherhoustxt2;
-    private javax.swing.JTabbedPane woekerTab;
+    private javax.swing.JTabbedPane workersTab;
     // End of variables declaration//GEN-END:variables
 
 }
