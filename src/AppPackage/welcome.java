@@ -239,7 +239,23 @@ public class welcome extends javax.swing.JFrame {
         addOrderButton = new javax.swing.JButton();
         orderClearButton = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
+        EnterYourSearchLabel5 = new javax.swing.JLabel();
+        searchUpOrdertxt = new javax.swing.JTextField();
+        searchOrderUpButton = new javax.swing.JButton();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        orderUpdateTable = new javax.swing.JTable();
+        tooUpDate = new com.toedter.calendar.JDateChooser();
+        toaUpdate = new com.toedter.calendar.JDateChooser();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        orderDescUptxt = new javax.swing.JTextArea();
+        tpUptxt = new javax.swing.JTextField();
+        refreshUpdateOrderButton = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
+        searchOrdertxt = new javax.swing.JTextField();
+        searchOrderButton = new javax.swing.JButton();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        orderSearchTable = new javax.swing.JTable();
+        orderRefreshButton = new javax.swing.JButton();
         projectsTab = new javax.swing.JTabbedPane();
         jPanel11 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
@@ -426,7 +442,7 @@ public class welcome extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(cusContractIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel27))))
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         customerTab.addTab("Add customer", jPanel6);
@@ -609,7 +625,7 @@ public class welcome extends javax.swing.JFrame {
                             .addComponent(cusUpdate)
                             .addComponent(cusRefreshUpButton)
                             .addComponent(cusDeleteButton))))
-                .addContainerGap(185, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         customerTab.addTab("Update Details", jPanel2);
@@ -730,7 +746,7 @@ public class welcome extends javax.swing.JFrame {
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(36, 36, 36)
                 .addComponent(cusRefreshButton)
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
 
         customerTab.addTab("Search", jPanel8);
@@ -1322,6 +1338,12 @@ public class welcome extends javax.swing.JFrame {
 
         inventoryTab.addTab("Search", jPanel7);
 
+        ordersTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ordersTabMouseClicked(evt);
+            }
+        });
+
         orderIDtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderIDtxtActionPerformed(evt);
@@ -1414,7 +1436,7 @@ public class welcome extends javax.swing.JFrame {
                                 .addComponent(orderTptxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(addOrderButton)
                             .addComponent(orderClearButton))
@@ -1423,28 +1445,187 @@ public class welcome extends javax.swing.JFrame {
 
         ordersTab.addTab("Add Order", jPanel4);
 
+        jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel9MouseClicked(evt);
+            }
+        });
+
+        EnterYourSearchLabel5.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel5.setText("Enter your search by Order ID:");
+
+        searchOrderUpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
+        searchOrderUpButton.setText("Search");
+        searchOrderUpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchOrderUpButtonActionPerformed(evt);
+            }
+        });
+
+        orderUpdateTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        orderUpdateTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                orderUpdateTableMouseClicked(evt);
+            }
+        });
+        jScrollPane9.setViewportView(orderUpdateTable);
+
+        orderDescUptxt.setColumns(20);
+        orderDescUptxt.setRows(5);
+        jScrollPane11.setViewportView(orderDescUptxt);
+
+        refreshUpdateOrderButton.setText("Refresh");
+        refreshUpdateOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshUpdateOrderButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addGap(167, 167, 167)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(tooUpDate, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
+                                    .addComponent(toaUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel9Layout.createSequentialGroup()
+                                        .addGap(8, 8, 8)
+                                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jScrollPane11)
+                                            .addComponent(tpUptxt)))))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(EnterYourSearchLabel5)
+                                    .addComponent(searchUpOrdertxt, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(42, 42, 42)
+                                .addComponent(searchOrderUpButton)))
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                        .addComponent(refreshUpdateOrderButton)
+                        .addGap(39, 39, 39)))
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(228, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(EnterYourSearchLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchOrderUpButton)
+                    .addComponent(searchUpOrdertxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(refreshUpdateOrderButton)
+                .addGap(35, 35, 35)
+                .addComponent(tooUpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(toaUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(tpUptxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         ordersTab.addTab("Update", jPanel9);
+
+        searchOrdertxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchOrdertxtActionPerformed(evt);
+            }
+        });
+
+        searchOrderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
+        searchOrderButton.setText("Search");
+        searchOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchOrderButtonActionPerformed(evt);
+            }
+        });
+
+        orderSearchTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        orderSearchTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                orderSearchTableMouseClicked(evt);
+            }
+        });
+        jScrollPane12.setViewportView(orderSearchTable);
+
+        orderRefreshButton.setText("Refresh");
+        orderRefreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderRefreshButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(321, 321, 321)
+                .addComponent(orderRefreshButton)
+                .addContainerGap(858, Short.MAX_VALUE))
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createSequentialGroup()
+                    .addGap(172, 172, 172)
+                    .addComponent(searchOrdertxt, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(42, 42, 42)
+                    .addComponent(searchOrderButton)
+                    .addGap(29, 29, 29)
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(173, Short.MAX_VALUE)))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
+            .addGroup(jPanel10Layout.createSequentialGroup()
+                .addGap(139, 139, 139)
+                .addComponent(orderRefreshButton)
+                .addContainerGap(287, Short.MAX_VALUE))
+            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel10Layout.createSequentialGroup()
+                    .addGap(26, 26, 26)
+                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel10Layout.createSequentialGroup()
+                            .addGap(14, 14, 14)
+                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(searchOrderButton)
+                                .addComponent(searchOrdertxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(344, 344, 344))
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                    .addGap(26, 26, 26)))
         );
 
         ordersTab.addTab("Search", jPanel10);
@@ -1657,7 +1838,7 @@ public class welcome extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(inventoryTab, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(customerTab))
+                .addComponent(customerTab, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(ordersTab))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2440,7 +2621,7 @@ public class welcome extends javax.swing.JFrame {
          int f = 0;
        
         try {
-            String sql = "Insert into orders (order_id,order_date,description,price,arrivel_date) values(?,?,?,?,?)";
+            String sql = "Insert into orders (orders_id,order_date,description,price,arrivel_date) values(?,?,?,?,?)";
 
             pst = conn.prepareStatement(sql);
             pst.setString(1, orderIDtxt.getText());
@@ -2488,6 +2669,79 @@ public class welcome extends javax.swing.JFrame {
             tooDate.setCalendar(null);
             toaDate.setCalendar(null);
     }//GEN-LAST:event_orderClearButtonActionPerformed
+
+    private void searchOrderUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrderUpButtonActionPerformed
+        try {
+            String sn=searchUpOrdertxt.getText();
+            String sql = "select orders_id as 'Order ID',order_date as 'Order Date',description as 'Description',price as 'Total Price',arrivel_date as 'Arrivel Date' from orders where orders_id='"+sn+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            orderUpdateTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }//GEN-LAST:event_searchOrderUpButtonActionPerformed
+
+    private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
+        
+    }//GEN-LAST:event_jPanel9MouseClicked
+
+    private void orderUpdateTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderUpdateTableMouseClicked
+        try {
+            int raw = orderUpdateTable.getSelectedRow();
+            tableClick = (orderUpdateTable.getModel().getValueAt(raw, 0).toString());
+            String sql = "select orders_id,order_date,description,price,arrivel_date from orders where orders_id ='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("description");
+                orderDescUptxt.setText(add1);
+                String add2 = rs.getString("price");
+                tpUptxt.setText(add2);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_orderUpdateTableMouseClicked
+
+    private void searchOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrderButtonActionPerformed
+        try {
+            String sn=searchOrdertxt.getText();
+            String sql = "select orders_id as 'Order ID',order_date as 'Order Date',description as 'Description',price as 'Total Price',arrivel_date as 'Arrivel Date' from orders where orders_id='"+sn+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            orderSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        update_OrderTable();
+    }//GEN-LAST:event_searchOrderButtonActionPerformed
+
+    private void orderSearchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderSearchTableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orderSearchTableMouseClicked
+
+    private void searchOrdertxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrdertxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchOrdertxtActionPerformed
+
+    private void orderRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderRefreshButtonActionPerformed
+        update_Search_OrderTable();
+    }//GEN-LAST:event_orderRefreshButtonActionPerformed
+
+    private void ordersTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ordersTabMouseClicked
+        update_OrderTable();
+        update_Search_OrderTable();
+    }//GEN-LAST:event_ordersTabMouseClicked
+
+    private void refreshUpdateOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshUpdateOrderButtonActionPerformed
+        update_OrderTable();
+    }//GEN-LAST:event_refreshUpdateOrderButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2582,6 +2836,30 @@ public class welcome extends javax.swing.JFrame {
         }
 
     }
+      
+     private void update_OrderTable(){
+        try {
+            String sql = "select orders_id as 'Order ID',order_date as 'Order Date',description as 'Description',price as 'Total Price',arrivel_date as 'Arrivel Date' from orders";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            orderUpdateTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    } 
+     
+       private void update_Search_OrderTable(){
+        try {
+            String sql = "select orders_id as 'Order ID',order_date as 'Order Date',description as 'Description',price as 'Total Price',arrivel_date as 'Arrivel Date' from orders";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            orderSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Comments_Label;
@@ -2592,6 +2870,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel EnterYourSearchLabel2;
     private javax.swing.JLabel EnterYourSearchLabel3;
     private javax.swing.JLabel EnterYourSearchLabel4;
+    private javax.swing.JLabel EnterYourSearchLabel5;
     private javax.swing.JLabel ExpirationDateLabel2;
     private javax.swing.JLabel MinQuantityLabel1;
     private javax.swing.JLabel QuantityLabel1;
@@ -2730,6 +3009,8 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JScrollBar jScrollBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -2737,6 +3018,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTextField minLevelText;
@@ -2744,9 +3026,13 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField nameText;
     private java.awt.Choice oporationType;
     private javax.swing.JButton orderClearButton;
+    private javax.swing.JTextArea orderDescUptxt;
     private javax.swing.JTextArea orderDesctxt;
     private javax.swing.JTextField orderIDtxt;
+    private javax.swing.JButton orderRefreshButton;
+    private javax.swing.JTable orderSearchTable;
     private javax.swing.JTextField orderTptxt;
+    private javax.swing.JTable orderUpdateTable;
     private javax.swing.JButton ordersButton;
     private javax.swing.JTabbedPane ordersTab;
     private javax.swing.JButton projectsButton;
@@ -2757,6 +3043,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField rawtxt1;
     private javax.swing.JTextField rawtxt2;
     private javax.swing.JButton refreshStausButton;
+    private javax.swing.JButton refreshUpdateOrderButton;
     private javax.swing.JButton reportsButton;
     private javax.swing.JTabbedPane reportsTab;
     private javax.swing.JTextField sItemIdtxt;
@@ -2764,8 +3051,12 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JButton searchButton;
     private javax.swing.JButton searchButton1;
     private javax.swing.ButtonGroup searchGroup;
+    private javax.swing.JButton searchOrderButton;
+    private javax.swing.JButton searchOrderUpButton;
+    private javax.swing.JTextField searchOrdertxt;
     private javax.swing.JButton searchStatusButton;
     private javax.swing.JTextField searchStatustxt;
+    private javax.swing.JTextField searchUpOrdertxt;
     private javax.swing.JTextField searchtxt;
     private javax.swing.JTextField searchtxt1;
     private javax.swing.JTextField serialText;
@@ -2779,7 +3070,10 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTabbedPane suppliersTab;
     private javax.swing.JTextField suppliertxt;
     private com.toedter.calendar.JDateChooser toaDate;
+    private com.toedter.calendar.JDateChooser toaUpdate;
     private com.toedter.calendar.JDateChooser tooDate;
+    private com.toedter.calendar.JDateChooser tooUpDate;
+    private javax.swing.JTextField tpUptxt;
     private javax.swing.JRadioButton upCusNameRadioButton;
     private javax.swing.JRadioButton upcusIDRadioButton;
     private javax.swing.JButton updateButton;
