@@ -244,12 +244,12 @@ public class welcome extends javax.swing.JFrame {
         searchOrderUpButton = new javax.swing.JButton();
         jScrollPane9 = new javax.swing.JScrollPane();
         orderUpdateTable = new javax.swing.JTable();
-        tooUpDate = new com.toedter.calendar.JDateChooser();
         toaUpdate = new com.toedter.calendar.JDateChooser();
         jScrollPane11 = new javax.swing.JScrollPane();
         orderDescUptxt = new javax.swing.JTextArea();
         tpUptxt = new javax.swing.JTextField();
         refreshUpdateOrderButton = new javax.swing.JButton();
+        orderUpdateButton = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         searchOrdertxt = new javax.swing.JTextField();
         searchOrderButton = new javax.swing.JButton();
@@ -258,6 +258,14 @@ public class welcome extends javax.swing.JFrame {
         orderRefreshButton = new javax.swing.JButton();
         projectsTab = new javax.swing.JTabbedPane();
         jPanel11 = new javax.swing.JPanel();
+        projIDtxt = new javax.swing.JTextField();
+        projNametxt = new javax.swing.JTextField();
+        projStartDate = new com.toedter.calendar.JDateChooser();
+        projDueDate = new com.toedter.calendar.JDateChooser();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        projDesctxt = new javax.swing.JTextArea();
+        projAddButton = new javax.swing.JButton();
+        projClearButton = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
         jPanel13 = new javax.swing.JPanel();
         reportsTab = new javax.swing.JTabbedPane();
@@ -328,6 +336,11 @@ public class welcome extends javax.swing.JFrame {
         getContentPane().add(ordersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 65, 60));
 
         projectsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Projects icon 53 x 50.png"))); // NOI18N
+        projectsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projectsButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(projectsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 65, 60));
 
         reportsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Reports icon 53 x 50.png"))); // NOI18N
@@ -1491,6 +1504,13 @@ public class welcome extends javax.swing.JFrame {
             }
         });
 
+        orderUpdateButton.setText("Update");
+        orderUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderUpdateButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
@@ -1501,9 +1521,8 @@ public class welcome extends javax.swing.JFrame {
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
                                 .addGap(167, 167, 167)
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(tooUpDate, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                                    .addComponent(toaUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(toaUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel9Layout.createSequentialGroup()
                                         .addGap(8, 8, 8)
                                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1515,12 +1534,15 @@ public class welcome extends javax.swing.JFrame {
                                     .addComponent(EnterYourSearchLabel5)
                                     .addComponent(searchUpOrdertxt, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(42, 42, 42)
-                                .addComponent(searchOrderUpButton)))
-                        .addGap(29, 29, 29))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                        .addComponent(refreshUpdateOrderButton)
-                        .addGap(39, 39, 39)))
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(searchOrderUpButton))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(refreshUpdateOrderButton)))
+                        .addGap(29, 29, 29)
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(325, 325, 325)
+                        .addComponent(orderUpdateButton)))
                 .addContainerGap(228, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
@@ -1532,21 +1554,21 @@ public class welcome extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchOrderUpButton)
                     .addComponent(searchUpOrdertxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addComponent(refreshUpdateOrderButton)
-                .addGap(35, 35, 35)
-                .addComponent(tooUpDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(62, 62, 62)
                 .addComponent(toaUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(tpUptxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(104, Short.MAX_VALUE))
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addComponent(orderUpdateButton)
+                .addGap(61, 61, 61))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(93, 93, 93))
         );
 
         ordersTab.addTab("Update", jPanel9);
@@ -1630,15 +1652,61 @@ public class welcome extends javax.swing.JFrame {
 
         ordersTab.addTab("Search", jPanel10);
 
+        projDesctxt.setColumns(20);
+        projDesctxt.setRows(5);
+        jScrollPane13.setViewportView(projDesctxt);
+
+        projAddButton.setText("Add");
+        projAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projAddButtonActionPerformed(evt);
+            }
+        });
+
+        projClearButton.setText("Clear");
+        projClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projClearButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(projDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(projStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(projNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(projIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(219, 219, 219)
+                .addComponent(projAddButton)
+                .addGap(92, 92, 92)
+                .addComponent(projClearButton)
+                .addContainerGap(554, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
             jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(projAddButton)
+                        .addComponent(projClearButton))
+                    .addGroup(jPanel11Layout.createSequentialGroup()
+                        .addComponent(projIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(projNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(projStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(projDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         projectsTab.addTab("Add Project", jPanel11);
@@ -1838,7 +1906,7 @@ public class welcome extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(inventoryTab, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(customerTab, javax.swing.GroupLayout.DEFAULT_SIZE, 477, Short.MAX_VALUE))
+                .addComponent(customerTab))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(ordersTab))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2060,6 +2128,8 @@ public class welcome extends javax.swing.JFrame {
                 rawtxt.setText(add6);
                 String add7 = rs.getString("shelf");
                 shelftxt.setText(add7);
+                Date add8 = rs.getDate("expiration_date");
+                datetxt.setDate(add8);
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -2496,7 +2566,7 @@ public class welcome extends javax.swing.JFrame {
         else{
             try {
             String sn=cusSearchUpdatetxt.getText();
-            String sql = "select customer_id as 'Customer ID',customer_name as 'Customer Name',adderss as 'Address',phone as 'Phone',email 'Email',contract_id as 'Contarct ID' from customers where customer_name='"+sn+"'";
+            String sql = "select customer_id as 'Customer ID',customer_name as 'Customer Name',address as 'Address',phone as 'Phone',email 'Email',contract_id as 'Contarct ID' from customers where customer_name='"+sn+"'";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery(sql);
             cusUpdateTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -2701,6 +2771,9 @@ public class welcome extends javax.swing.JFrame {
                 orderDescUptxt.setText(add1);
                 String add2 = rs.getString("price");
                 tpUptxt.setText(add2);
+                Date add3 = rs.getDate("arrivel_date");
+                toaDate.setDate(add3);
+                
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -2742,6 +2815,86 @@ public class welcome extends javax.swing.JFrame {
     private void refreshUpdateOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshUpdateOrderButtonActionPerformed
         update_OrderTable();
     }//GEN-LAST:event_refreshUpdateOrderButtonActionPerformed
+
+    private void projectsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_projectsButtonActionPerformed
+
+    private void orderUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderUpdateButtonActionPerformed
+        try{
+
+            String vs = orderDescUptxt.getText();
+            String vq = tpUptxt.getText();
+            Date vd =  new java.sql.Date(toaUpdate.getDate().getTime());
+            
+          
+            
+            String sql = "update orers set description='"+vs+"',price='"+vq+"',arrivel_date='"+vd+"' where order_id='"+tableClick+"'";
+
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Order Updated");
+            update_CustomerTable();
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        update_OrderTable();
+    }//GEN-LAST:event_orderUpdateButtonActionPerformed
+
+    private void projAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projAddButtonActionPerformed
+        int f = 0;
+       
+        try {
+            String sql = "Insert into projects (project_id,project_name,start_date,due_date,comments) values(?,?,?,?,?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, projIDtxt.getText());
+            pst.setString(2, projNametxt.getText());
+            pst.setDate(3, new java.sql.Date(projStartDate.getDate().getTime()));
+            pst.setDate(4, new java.sql.Date(projDueDate.getDate().getTime()));
+            pst.setString(6, projDesctxt.getText());
+            
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Project Added");
+        } catch (Exception e) {
+
+            if (projIDtxt.getText().isEmpty()) {
+                projIDtxt.setBackground(Color.red);
+            }
+            if (projNametxt.getText().isEmpty()) {
+                projNametxt.setBackground(Color.red);
+            }
+           
+            if (projDesctxt.getText().isEmpty()) {
+                projDesctxt.setBackground(Color.red);
+            }
+            
+            if (f != 2) {
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty");
+            } else {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        }
+
+        if (f == 0) {
+            projIDtxt.setText("");
+            projNametxt.setText("");
+            projDesctxt.setText("");
+            projStartDate.setCalendar(null);
+            projDueDate.setCalendar(null);
+        }
+    }//GEN-LAST:event_projAddButtonActionPerformed
+
+    private void projClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projClearButtonActionPerformed
+            projIDtxt.setText("");
+            projNametxt.setText("");
+            projDesctxt.setText("");
+            projStartDate.setCalendar(null);
+            projDueDate.setCalendar(null);
+    }//GEN-LAST:event_projClearButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3011,6 +3164,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3032,9 +3186,17 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JButton orderRefreshButton;
     private javax.swing.JTable orderSearchTable;
     private javax.swing.JTextField orderTptxt;
+    private javax.swing.JButton orderUpdateButton;
     private javax.swing.JTable orderUpdateTable;
     private javax.swing.JButton ordersButton;
     private javax.swing.JTabbedPane ordersTab;
+    private javax.swing.JButton projAddButton;
+    private javax.swing.JButton projClearButton;
+    private javax.swing.JTextArea projDesctxt;
+    private com.toedter.calendar.JDateChooser projDueDate;
+    private javax.swing.JTextField projIDtxt;
+    private javax.swing.JTextField projNametxt;
+    private com.toedter.calendar.JDateChooser projStartDate;
     private javax.swing.JButton projectsButton;
     private javax.swing.JTabbedPane projectsTab;
     private javax.swing.JTextField quantityText;
@@ -3072,7 +3234,6 @@ public class welcome extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser toaDate;
     private com.toedter.calendar.JDateChooser toaUpdate;
     private com.toedter.calendar.JDateChooser tooDate;
-    private com.toedter.calendar.JDateChooser tooUpDate;
     private javax.swing.JTextField tpUptxt;
     private javax.swing.JRadioButton upCusNameRadioButton;
     private javax.swing.JRadioButton upcusIDRadioButton;
