@@ -21,6 +21,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import javax.swing.plaf.FontUIResource;
+import javax.swing.*;
 
 /**
  *
@@ -31,11 +33,12 @@ public class welcome00 extends javax.swing.JFrame {
      static   PreparedStatement pst=null;
      static ResultSet rs=null;
      public String filename;
+     public String fn;
     /**
      * Creates new form welcome
      */
     public welcome00() {
-      
+
         initComponents();
         customerTab.setVisible(false);
         update_table();
@@ -760,7 +763,7 @@ public class welcome00 extends javax.swing.JFrame {
     }//GEN-LAST:event_UploadTextActionPerformed
 
     private void UploadContractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UploadContractButtonActionPerformed
-         String fn = ContracdIDText.getText(); 
+         
         try{
            
         JFileChooser chooser = new JFileChooser();
@@ -775,10 +778,7 @@ public class welcome00 extends javax.swing.JFrame {
         filename = f.getAbsolutePath();
         UploadText.setText(filename);
         f.getAbsoluteFile();
-        Path dest = Paths.get( "C:/Users/Felix/Documents/NetBeansProjects/Yatzig/src/Contracts/"+fn+".pdf");
-        Path source = Paths.get(filename);
-        Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);
-        JOptionPane.showMessageDialog(null, "Contract Saved");
+        
         }
                    
     }//GEN-LAST:event_UploadContractButtonActionPerformed
@@ -811,7 +811,7 @@ public class welcome00 extends javax.swing.JFrame {
     }//GEN-LAST:event_AddressTextActionPerformed
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
-        
+        fn = ContracdIDText.getText(); 
         try {
             String sql = "Insert into workers (worker_id,first_name,last_name,worker_phone,worker_add,contract_id,job_title,birth_date,email) values(?,?,?,?,?,?,?,?,?)";
 
@@ -827,7 +827,11 @@ public class welcome00 extends javax.swing.JFrame {
             pst.setString(9, EmailText.getText());
           
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Worker Added");
+            Path dest = Paths.get( "C:/Users/Felix/Documents/NetBeansProjects/Yatzig/src/Contracts/"+fn+".pdf");
+            Path source = Paths.get(filename);
+            Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);
+            JOptionPane.showMessageDialog(null, "Worker Has Been Added");
+            
         }
         catch (Exception e){
             JOptionPane.showMessageDialog(null,e);
