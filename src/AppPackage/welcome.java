@@ -267,7 +267,26 @@ public class welcome extends javax.swing.JFrame {
         projAddButton = new javax.swing.JButton();
         projClearButton = new javax.swing.JButton();
         jPanel12 = new javax.swing.JPanel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        projUpTable = new javax.swing.JTable();
+        projUpDueDate = new com.toedter.calendar.JDateChooser();
+        projUpStatusChoice = new java.awt.Choice();
+        projUpStatusButton = new javax.swing.JButton();
+        projUpRefreshButton = new javax.swing.JButton();
+        projUpSearchButton = new javax.swing.JButton();
+        projSearchUptxt = new javax.swing.JTextField();
+        projNameRadioButton = new javax.swing.JRadioButton();
+        projIDRadioButton = new javax.swing.JRadioButton();
+        jScrollPane15 = new javax.swing.JScrollPane();
+        projComUptxt = new javax.swing.JTextArea();
         jPanel13 = new javax.swing.JPanel();
+        projSearchtxt = new javax.swing.JTextField();
+        projSearchButton = new javax.swing.JButton();
+        projNameRadioButton1 = new javax.swing.JRadioButton();
+        projIDRadioButton1 = new javax.swing.JRadioButton();
+        jScrollPane16 = new javax.swing.JScrollPane();
+        projSearchTable = new javax.swing.JTable();
+        projRefreshSearchButton = new javax.swing.JButton();
         reportsTab = new javax.swing.JTabbedPane();
         jPanel14 = new javax.swing.JPanel();
         jPanel15 = new javax.swing.JPanel();
@@ -1652,6 +1671,17 @@ public class welcome extends javax.swing.JFrame {
 
         ordersTab.addTab("Search", jPanel10);
 
+        projectsTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                projectsTabMouseClicked(evt);
+            }
+        });
+
+        projStartDate.setDateFormatString("yyyy-MM-dd");
+        projStartDate.setMinSelectableDate(new Date());
+
+        projDueDate.setMinSelectableDate(new Date());
+
         projDesctxt.setColumns(20);
         projDesctxt.setRows(5);
         jScrollPane13.setViewportView(projDesctxt);
@@ -1711,28 +1741,224 @@ public class welcome extends javax.swing.JFrame {
 
         projectsTab.addTab("Add Project", jPanel11);
 
+        projUpTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
+            }
+        ));
+        projUpTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                projUpTableMouseClicked(evt);
+            }
+        });
+        jScrollPane14.setViewportView(projUpTable);
+
+        projUpDueDate.setMinSelectableDate(new Date());
+
+        projUpStatusChoice.addItem("Pending");
+        projUpStatusChoice.addItem("In Progress");
+        projUpStatusChoice.addItem("Completed");
+
+        projUpStatusButton.setText("Update");
+        projUpStatusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projUpStatusButtonActionPerformed(evt);
+            }
+        });
+
+        projUpRefreshButton.setText("Refresh");
+        projUpRefreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projUpRefreshButtonActionPerformed(evt);
+            }
+        });
+
+        projUpSearchButton.setText("Search");
+        projUpSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projUpSearchButtonActionPerformed(evt);
+            }
+        });
+
+        searchGroup.add(projNameRadioButton);
+        projNameRadioButton.setText("By Name");
+        projNameRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projNameRadioButtonActionPerformed(evt);
+            }
+        });
+
+        searchGroup.add(projIDRadioButton);
+        projIDRadioButton.setText("By ID");
+        projIDRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projIDRadioButtonActionPerformed(evt);
+            }
+        });
+
+        projComUptxt.setColumns(20);
+        projComUptxt.setRows(5);
+        jScrollPane15.setViewportView(projComUptxt);
+
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
         jPanel12.setLayout(jPanel12Layout);
         jPanel12Layout.setHorizontalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addComponent(projSearchUptxt, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(projUpSearchButton)
+                                .addGap(42, 42, 42))
+                            .addGroup(jPanel12Layout.createSequentialGroup()
+                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(projUpDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel12Layout.createSequentialGroup()
+                                        .addComponent(projIDRadioButton)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(projNameRadioButton))
+                                    .addComponent(projUpStatusChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(97, 97, 97))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel12Layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel12Layout.createSequentialGroup()
+                        .addGap(270, 270, 270)
+                        .addComponent(projUpStatusButton)
+                        .addGap(67, 67, 67)
+                        .addComponent(projUpRefreshButton)))
+                .addContainerGap(271, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(projUpStatusButton)
+                    .addComponent(projUpRefreshButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel12Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(projUpSearchButton)
+                    .addComponent(projSearchUptxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(projNameRadioButton)
+                    .addComponent(projIDRadioButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(projUpDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(projUpStatusChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(127, 127, 127))
         );
 
         projectsTab.addTab(" Status", jPanel12);
+
+        projSearchButton.setText("Search");
+        projSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projSearchButtonActionPerformed(evt);
+            }
+        });
+
+        searchGroup.add(projNameRadioButton1);
+        projNameRadioButton1.setText("By Name");
+        projNameRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projNameRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        searchGroup.add(projIDRadioButton1);
+        projIDRadioButton1.setText("By ID");
+        projIDRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projIDRadioButton1ActionPerformed(evt);
+            }
+        });
+
+        projSearchTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
+            }
+        ));
+        jScrollPane16.setViewportView(projSearchTable);
+
+        projRefreshSearchButton.setText("Refresh");
+        projRefreshSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                projRefreshSearchButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
         jPanel13Layout.setHorizontalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addComponent(projSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(projSearchButton))
+                            .addGroup(jPanel13Layout.createSequentialGroup()
+                                .addComponent(projIDRadioButton1)
+                                .addGap(18, 18, 18)
+                                .addComponent(projNameRadioButton1)
+                                .addGap(55, 55, 55)))
+                        .addGap(121, 121, 121))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(projRefreshSearchButton)
+                        .addGap(66, 66, 66)))
+                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(227, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(projSearchButton)
+                            .addComponent(projSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(projNameRadioButton1)
+                            .addComponent(projIDRadioButton1))
+                        .addGap(90, 90, 90)
+                        .addComponent(projRefreshSearchButton))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
         projectsTab.addTab("Search", jPanel13);
@@ -2817,7 +3043,14 @@ public class welcome extends javax.swing.JFrame {
     }//GEN-LAST:event_refreshUpdateOrderButtonActionPerformed
 
     private void projectsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectsButtonActionPerformed
-        // TODO add your handling code here:
+        ordersTab.setVisible(false);
+        inventoryTab.setVisible(false);
+        customerTab.setVisible(false);
+        projectsTab.setVisible(true);
+        reportsTab.setVisible(false);
+        suppliersTab.setVisible(false);
+        workersTab.setVisible(false);
+        usersTab.setVisible(false);
     }//GEN-LAST:event_projectsButtonActionPerformed
 
     private void orderUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderUpdateButtonActionPerformed
@@ -2895,6 +3128,138 @@ public class welcome extends javax.swing.JFrame {
             projStartDate.setCalendar(null);
             projDueDate.setCalendar(null);
     }//GEN-LAST:event_projClearButtonActionPerformed
+
+    private void projIDRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projIDRadioButtonActionPerformed
+        searchmethod="proj_id";
+    }//GEN-LAST:event_projIDRadioButtonActionPerformed
+
+    private void projNameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projNameRadioButtonActionPerformed
+       searchmethod="proj_name";
+    }//GEN-LAST:event_projNameRadioButtonActionPerformed
+
+    private void projectsTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_projectsTabMouseClicked
+        update_Status_ProjTable();
+        update_Search_ProjTable();
+    }//GEN-LAST:event_projectsTabMouseClicked
+
+    private void projUpSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projUpSearchButtonActionPerformed
+         if(searchmethod.equals("project_id"))
+        {
+        try {
+            String sn=projSearchUptxt.getText();
+            String sql = "select project_id as 'Project ID',project_name as 'Project Name',start_date as 'Start Date',due_date as 'Due Date',status as 'Status',comments as 'Comments' from projects where project_id='"+sn+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            projUpTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+        else{
+            try {
+            String sn=projSearchUptxt.getText();
+            String sql = "select project_id as 'Project ID',project_name as 'Project Name',start_date as 'Start Date',due_date as 'Due Date',status as 'Status',comments as 'Comments' from projects where project_name='"+sn+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            projUpTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+    }//GEN-LAST:event_projUpSearchButtonActionPerformed
+
+    private void projUpTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_projUpTableMouseClicked
+         try {
+            int raw = projUpTable.getSelectedRow();
+            tableClick = (projUpTable.getModel().getValueAt(raw, 0).toString());
+            String sql = "select due_date,status,comments from projects where project_id='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                Date add1 = rs.getDate("due_date");
+                projUpDueDate.setDate(add1);
+                String add2 = rs.getString("status");
+                projUpStatusChoice.select(add2);
+                String add3 = rs.getString("comments");
+                projComUptxt.setText(add3);
+              
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_projUpTableMouseClicked
+
+    private void projUpStatusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projUpStatusButtonActionPerformed
+        try{
+
+            String vs = projUpStatusChoice.getSelectedItem();
+            String vq = projComUptxt.getText();
+            Date vd =  new java.sql.Date(projUpDueDate.getDate().getTime());
+          
+
+            String sql = "update projects set status='"+vs+"',comments='"+vq+"',due_date='"+vd+"' where item_id='"+tableClick+"'";
+
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Item Updated");
+            update_Status_ProjTable();
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_projUpStatusButtonActionPerformed
+
+    private void projUpRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projUpRefreshButtonActionPerformed
+        update_Status_ProjTable();
+        
+    }//GEN-LAST:event_projUpRefreshButtonActionPerformed
+
+    private void projSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projSearchButtonActionPerformed
+         if(searchmethod.equals("project_id"))
+        {
+        try {
+            String sn=projSearchtxt.getText();
+            String sql = "select project_id as 'Project ID',project_name as 'Project Name',start_date as 'Start Date',due_date as 'Due Date',status as 'Status',comments as 'Comments' from projects where project_id='"+sn+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            projSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+        else{
+            try {
+            String sn=projSearchtxt.getText();
+            String sql = "select project_id as 'Project ID',project_name as 'Project Name',start_date as 'Start Date',due_date as 'Due Date',status as 'Status',comments as 'Comments' from projects where project_name='"+sn+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            projSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        }
+    }//GEN-LAST:event_projSearchButtonActionPerformed
+
+    private void projNameRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projNameRadioButton1ActionPerformed
+       searchmethod="proj_name";
+    }//GEN-LAST:event_projNameRadioButton1ActionPerformed
+
+    private void projIDRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projIDRadioButton1ActionPerformed
+       searchmethod="proj_id";
+    }//GEN-LAST:event_projIDRadioButton1ActionPerformed
+
+    private void projRefreshSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projRefreshSearchButtonActionPerformed
+        update_Search_ProjTable();
+    }//GEN-LAST:event_projRefreshSearchButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3008,6 +3373,30 @@ public class welcome extends javax.swing.JFrame {
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery(sql);
             orderSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+       
+        private void update_Status_ProjTable(){
+        try {
+            String sql = "select project_id as 'Project ID',project_name as 'Project Name',start_date as 'Start Date',due_date as 'Due Date',status as 'Status',comments as 'Comments' from projects";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            projUpTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+        
+        private void update_Search_ProjTable(){
+        try {
+            String sql = "select project_id as 'Project ID',project_name as 'Project Name',start_date as 'Start Date',due_date as 'Due Date',status as 'Status',comments as 'Comments' from projects";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            projSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -3165,6 +3554,9 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane15;
+    private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
@@ -3192,11 +3584,27 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTabbedPane ordersTab;
     private javax.swing.JButton projAddButton;
     private javax.swing.JButton projClearButton;
+    private javax.swing.JTextArea projComUptxt;
     private javax.swing.JTextArea projDesctxt;
     private com.toedter.calendar.JDateChooser projDueDate;
+    private javax.swing.JRadioButton projIDRadioButton;
+    private javax.swing.JRadioButton projIDRadioButton1;
     private javax.swing.JTextField projIDtxt;
+    private javax.swing.JRadioButton projNameRadioButton;
+    private javax.swing.JRadioButton projNameRadioButton1;
     private javax.swing.JTextField projNametxt;
+    private javax.swing.JButton projRefreshSearchButton;
+    private javax.swing.JButton projSearchButton;
+    private javax.swing.JTable projSearchTable;
+    private javax.swing.JTextField projSearchUptxt;
+    private javax.swing.JTextField projSearchtxt;
     private com.toedter.calendar.JDateChooser projStartDate;
+    private com.toedter.calendar.JDateChooser projUpDueDate;
+    private javax.swing.JButton projUpRefreshButton;
+    private javax.swing.JButton projUpSearchButton;
+    private javax.swing.JButton projUpStatusButton;
+    private java.awt.Choice projUpStatusChoice;
+    private javax.swing.JTable projUpTable;
     private javax.swing.JButton projectsButton;
     private javax.swing.JTabbedPane projectsTab;
     private javax.swing.JTextField quantityText;
