@@ -12,6 +12,13 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import java.awt.*;
 import net.proteanit.sql.DbUtils;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -289,6 +296,11 @@ public class welcome extends javax.swing.JFrame {
         projRefreshSearchButton = new javax.swing.JButton();
         reportsTab = new javax.swing.JTabbedPane();
         jPanel14 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        monthRepjSpin = new com.toedter.components.JSpinField();
+        yearRepjSpin = new com.toedter.components.JSpinField();
+        repItemIDtxt = new javax.swing.JTextField();
         jPanel15 = new javax.swing.JPanel();
         suppliersTab = new javax.swing.JTabbedPane();
         jPanel16 = new javax.swing.JPanel();
@@ -363,6 +375,11 @@ public class welcome extends javax.swing.JFrame {
         getContentPane().add(projectsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 65, 60));
 
         reportsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Reports icon 53 x 50.png"))); // NOI18N
+        reportsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportsButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(reportsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 65, 60));
 
         suppliersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Suppliers icon 53 x 50.png"))); // NOI18N
@@ -1214,7 +1231,7 @@ public class welcome extends javax.swing.JFrame {
         statusTable.setFocusCycleRoot(true);
         jScrollPane6.setViewportView(statusTable);
 
-        jPanel5.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 790, 200));
+        jPanel5.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 790, 200));
         jPanel5.add(searchStatustxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
 
         EnterYourSearchLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
@@ -1963,15 +1980,58 @@ public class welcome extends javax.swing.JFrame {
 
         projectsTab.addTab("Search", jPanel13);
 
+        jButton2.setText("Bar Graph");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        monthRepjSpin.setMaximum(12);
+        monthRepjSpin.setMinimum(1);
+        monthRepjSpin.setValue(1);
+
+        yearRepjSpin.setMinimum(2000);
+        yearRepjSpin.setValue(2000);
+
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
         jPanel14Layout.setHorizontalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(199, 199, 199)
+                        .addComponent(jButton2))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(211, 211, 211)
+                        .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(repItemIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(89, 89, 89)
+                        .addComponent(monthRepjSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49)
+                        .addComponent(yearRepjSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(799, Short.MAX_VALUE))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGroup(jPanel14Layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(monthRepjSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(yearRepjSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel14Layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(repItemIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22)
+                .addComponent(jButton2)
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
         reportsTab.addTab("Generate", jPanel14);
@@ -3261,6 +3321,57 @@ public class welcome extends javax.swing.JFrame {
         update_Search_ProjTable();
     }//GEN-LAST:event_projRefreshSearchButtonActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int month = monthRepjSpin.getValue();
+        int year= yearRepjSpin.getValue();
+        int qt=0,subSum=0;
+        try{
+        String sql="select quantity_trace,MAX(date) from quantity where MONTH(date)='"+month+"'and YEAR(date)='"+year+"'and item_id='"+repItemIDtxt.getText()+"'";
+        pst = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        rs.next();
+        qt=rs.getInt("quantity_trace");
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        try{
+        String sql="select sum(amount_for_operation) as asum from quantity where operation_type='Subtract' and MONTH(date)='"+month+"'and YEAR(date)='"+year+"'and item_id='"+repItemIDtxt.getText()+"'";
+        pst = conn.prepareStatement(sql);
+        rs = pst.executeQuery();
+        rs.next();
+        subSum=rs.getInt("asum");
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        DefaultCategoryDataset dataSet = new DefaultCategoryDataset();
+        dataSet.setValue(qt,"Values","Quantity" );
+        dataSet.setValue(subSum,"Values","SubItemes" );
+        
+        JFreeChart chart = ChartFactory.createBarChart3D("Values", "Quantity","Parameters", dataSet, PlotOrientation.VERTICAL, false, true, false);
+        chart.setBackgroundPaint(Color.CYAN);
+        chart.getTitle().setPaint(Color.RED);
+        CategoryPlot p=chart.getCategoryPlot();
+        p.setRangeGridlinePaint(Color.GREEN);
+        ChartFrame frame = new ChartFrame("Chart",chart);
+        frame.setVisible(true);
+        frame.setSize(450,350);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void reportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportsButtonActionPerformed
+          ordersTab.setVisible(false);
+        inventoryTab.setVisible(false);
+        customerTab.setVisible(false);
+        projectsTab.setVisible(false);
+        reportsTab.setVisible(true);
+        suppliersTab.setVisible(false);
+        workersTab.setVisible(false);
+        usersTab.setVisible(false);
+    }//GEN-LAST:event_reportsButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3487,6 +3598,8 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTable itemSearchTable;
     private javax.swing.JTable itemTable;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3569,6 +3682,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JButton logoutButton;
     private javax.swing.JTextField minLevelText;
     private javax.swing.JTextField minQtxt;
+    private com.toedter.components.JSpinField monthRepjSpin;
     private javax.swing.JTextField nameText;
     private java.awt.Choice oporationType;
     private javax.swing.JButton orderClearButton;
@@ -3614,6 +3728,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField rawtxt2;
     private javax.swing.JButton refreshStausButton;
     private javax.swing.JButton refreshUpdateOrderButton;
+    private javax.swing.JTextField repItemIDtxt;
     private javax.swing.JButton reportsButton;
     private javax.swing.JTabbedPane reportsTab;
     private javax.swing.JTextField sItemIdtxt;
@@ -3656,6 +3771,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField wherhoustxt1;
     private javax.swing.JTextField wherhoustxt2;
     private javax.swing.JTabbedPane workersTab;
+    private com.toedter.components.JSpinField yearRepjSpin;
     // End of variables declaration//GEN-END:variables
 
 }
