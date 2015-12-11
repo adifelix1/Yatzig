@@ -3809,6 +3809,7 @@ public class welcome extends javax.swing.JFrame {
 
     private void SupplierAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierAddButtonActionPerformed
         sn = SupplierContracdIDText.getText();
+        int ans;
         try {
             String sql = "Insert into suppliers (supplier_id,supplier_name,supplier_address,supplier_phone,supplier_email,supplier_contract_id) values(?,?,?,?,?,?)";
 
@@ -3819,18 +3820,32 @@ public class welcome extends javax.swing.JFrame {
             pst.setString(4, SupplierPhoneText.getText());
             pst.setString(5, SupplierEmailText.getText());
             pst.setString(6, SupplierContracdIDText.getText());
-
-            pst.execute();
-            Path dest = Paths.get( "C:/Users/Felix/Documents/NetBeansProjects/Yatzig/src/SupplierContracts/"+sn+".pdf");
+            if(SupplierUploadText.getText().isEmpty())
+            {
+                ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Add a Supplier Without a Contract?", "Warning!", JOptionPane.YES_NO_OPTION);
+            if(ans==0)
+                pst.execute();
+            if(ans==1) {}
+            }
+           else 
+           {
+            Path dest = Paths.get( "C:/Users/Adi/Documents/NetBeansProjects/Yatzig/src/SupplierContracts/"+sn+".pdf");
             Path source = Paths.get(filename_supplier);
             Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);
+           }
+            
             JOptionPane.showMessageDialog(null, "Supplier Has Been Added");
-
         }
         catch (Exception e){
             JOptionPane.showMessageDialog(null,e);
         }
-
+        SupplierIDText.setText("");
+        SupplierNameText.setText("");
+        SupplierAddressText.setText("");
+        SupplierPhoneText.setText("");
+        SupplierEmailText.setText("");
+        SupplierContracdIDText.setText("");
+        SupplierUploadText.setText("");
     }//GEN-LAST:event_SupplierAddButtonActionPerformed
 
     private void workerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workerButtonActionPerformed
@@ -3852,6 +3867,7 @@ public class welcome extends javax.swing.JFrame {
         SupplierPhoneText.setText("");
         SupplierEmailText.setText("");
         SupplierContracdIDText.setText("");
+        SupplierUploadText.setText("");
 
     }//GEN-LAST:event_ClearButtonActionPerformed
 

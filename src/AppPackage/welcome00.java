@@ -39,8 +39,6 @@ import net.proteanit.sql.DbUtils;
      String searchmethod;
      String searchmethod2;
      String tableClick;
-     String showcontractsearch;
-     
     /**
      * Creates new form welcome
      */
@@ -144,6 +142,8 @@ import net.proteanit.sql.DbUtils;
         RefreshButton1 = new javax.swing.JButton();
         Show_Contract_Button = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        ContractIDText2 = new javax.swing.JTextField();
+        ContractIDLabel2 = new javax.swing.JLabel();
         customerTab = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -680,6 +680,17 @@ import net.proteanit.sql.DbUtils;
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         SearchPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
+
+        ContractIDText2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ContractIDText2ActionPerformed(evt);
+            }
+        });
+        SearchPanel.add(ContractIDText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 80, -1));
+
+        ContractIDLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        ContractIDLabel2.setText("Contract ID");
+        SearchPanel.add(ContractIDLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         WorkersTab.addTab("Search", SearchPanel);
 
@@ -1446,8 +1457,8 @@ import net.proteanit.sql.DbUtils;
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if (rs.next()) {
-                showcontractsearch = rs.getString("contract_id");
-                
+                String add1 = rs.getString("contract_id");
+                ContractIDText2.setText(add1);
                 
             }                       
         }  
@@ -1462,7 +1473,7 @@ import net.proteanit.sql.DbUtils;
     }//GEN-LAST:event_RefreshButton1ActionPerformed
 
     private void Show_Contract_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_Contract_ButtonActionPerformed
-        filename_show_contract = "C:/Users/Felix/Documents/NetBeansProjects/Yatzig/src/Contracts/"+showcontractsearch+".pdf" ;       
+        filename_show_contract = "C:/Users/Felix/Documents/NetBeansProjects/Yatzig/src/Contracts/"+ContractIDText2.getText()+".pdf" ;       
         try {
                
               Desktop.getDesktop().open(new File(filename_show_contract));          
@@ -1472,6 +1483,10 @@ import net.proteanit.sql.DbUtils;
               JOptionPane.showMessageDialog(null,e); 
            }
     }//GEN-LAST:event_Show_Contract_ButtonActionPerformed
+
+    private void ContractIDText2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContractIDText2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContractIDText2ActionPerformed
 
     
     /**
@@ -1552,7 +1567,9 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JTextField ContracdIDText;
     private javax.swing.JLabel ContractIDLabel;
     private javax.swing.JLabel ContractIDLabel1;
+    private javax.swing.JLabel ContractIDLabel2;
     private javax.swing.JTextField ContractIDText1;
+    private javax.swing.JTextField ContractIDText2;
     private javax.swing.JPanel ContractPanel;
     private javax.swing.JButton DeleteButton;
     private javax.swing.JLabel EmailLabel;
