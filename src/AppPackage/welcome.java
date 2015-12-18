@@ -204,22 +204,23 @@ public class welcome extends javax.swing.JFrame {
         RefreshButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         customerTab = new javax.swing.JTabbedPane();
-        jPanel6 = new javax.swing.JPanel();
-        cusIDtxt = new javax.swing.JTextField();
-        cusNametxt = new javax.swing.JTextField();
-        cusAddtxt = new javax.swing.JTextField();
-        cusPhonetxt = new javax.swing.JTextField();
-        cusMailtxt = new javax.swing.JTextField();
-        cusContractIDtxt = new javax.swing.JTextField();
-        addCusButton = new javax.swing.JButton();
-        clearCusButton = new javax.swing.JButton();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        AddCustomerPanel = new javax.swing.JPanel();
+        CustomerIDText = new javax.swing.JTextField();
+        CustomerNameText = new javax.swing.JTextField();
+        CustomerAddressText = new javax.swing.JTextField();
+        CustomerPhoneText = new javax.swing.JTextField();
+        CustomerEmailText = new javax.swing.JTextField();
+        CustomerContractIDText = new javax.swing.JTextField();
+        AddCustomerButton = new javax.swing.JButton();
+        ClearCustomerButton = new javax.swing.JButton();
+        CustomerIDLabel = new javax.swing.JLabel();
+        CustomerNameLabel = new javax.swing.JLabel();
+        CustomerAddressLabel = new javax.swing.JLabel();
+        CustomerPhoneLabel = new javax.swing.JLabel();
+        CustomerEmailLabel = new javax.swing.JLabel();
+        CustomerContractLabel = new javax.swing.JLabel();
+        background_green5 = new javax.swing.JLabel();
+        UpdateDetailsCustomerPanel = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         cusUpdateTable = new javax.swing.JTable();
         EnterYourSearchLabel4 = new javax.swing.JLabel();
@@ -231,14 +232,15 @@ public class welcome extends javax.swing.JFrame {
         cusUpPhonetxt = new javax.swing.JTextField();
         cusUpMailtxt = new javax.swing.JTextField();
         cusUpContarcttxt = new javax.swing.JTextField();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
+        cusUpAddLabel = new javax.swing.JLabel();
+        cusUpPhoneLabel = new javax.swing.JLabel();
+        cusUpMailLabel = new javax.swing.JLabel();
+        cusUpContarctLabel = new javax.swing.JLabel();
         cusUpdate = new javax.swing.JButton();
         cusRefreshUpButton = new javax.swing.JButton();
         cusDeleteButton = new javax.swing.JButton();
-        jPanel8 = new javax.swing.JPanel();
+        background_green6 = new javax.swing.JLabel();
+        SearchCustomerPanel = new javax.swing.JPanel();
         EnterYourSearchLabel3 = new javax.swing.JLabel();
         cusSearchtxt = new javax.swing.JTextField();
         cusIDRadioButton = new javax.swing.JRadioButton();
@@ -247,22 +249,24 @@ public class welcome extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         cusSearchTable = new javax.swing.JTable();
         cusRefreshButton = new javax.swing.JButton();
+        background_green7 = new javax.swing.JLabel();
         ordersTab = new javax.swing.JTabbedPane();
-        jPanel4 = new javax.swing.JPanel();
+        AddOrderPanel = new javax.swing.JPanel();
         orderIDtxt = new javax.swing.JTextField();
         orderTptxt = new javax.swing.JTextField();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
+        orderIDLabel = new javax.swing.JLabel();
+        orderTimeLabel = new javax.swing.JLabel();
+        orderArrivalLabel = new javax.swing.JLabel();
+        orderDescriptionLabel = new javax.swing.JLabel();
+        orderPriceLabel = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
         orderDesctxt = new javax.swing.JTextArea();
         tooDate = new com.toedter.calendar.JDateChooser();
         toaDate = new com.toedter.calendar.JDateChooser();
         addOrderButton = new javax.swing.JButton();
         orderClearButton = new javax.swing.JButton();
-        jPanel9 = new javax.swing.JPanel();
+        background_green8 = new javax.swing.JLabel();
+        UpdateOrderPanel = new javax.swing.JPanel();
         EnterYourSearchLabel5 = new javax.swing.JLabel();
         searchUpOrdertxt = new javax.swing.JTextField();
         searchOrderUpButton = new javax.swing.JButton();
@@ -274,14 +278,20 @@ public class welcome extends javax.swing.JFrame {
         tpUptxt = new javax.swing.JTextField();
         refreshUpdateOrderButton = new javax.swing.JButton();
         orderUpdateButton = new javax.swing.JButton();
-        jPanel10 = new javax.swing.JPanel();
+        UpdatetoaLabel = new javax.swing.JLabel();
+        UpdateDescriptionLabel = new javax.swing.JLabel();
+        UpdatetpLabel = new javax.swing.JLabel();
+        background_green9 = new javax.swing.JLabel();
+        SearchOrderPanel = new javax.swing.JPanel();
         searchOrdertxt = new javax.swing.JTextField();
         searchOrderButton = new javax.swing.JButton();
         jScrollPane12 = new javax.swing.JScrollPane();
         orderSearchTable = new javax.swing.JTable();
         orderRefreshButton = new javax.swing.JButton();
+        EnterYourSearchLabel8 = new javax.swing.JLabel();
+        background_green10 = new javax.swing.JLabel();
         projectsTab = new javax.swing.JTabbedPane();
-        jPanel11 = new javax.swing.JPanel();
+        AddProjectPanel = new javax.swing.JPanel();
         projIDtxt = new javax.swing.JTextField();
         projNametxt = new javax.swing.JTextField();
         projStartDate = new com.toedter.calendar.JDateChooser();
@@ -290,12 +300,13 @@ public class welcome extends javax.swing.JFrame {
         projDesctxt = new javax.swing.JTextArea();
         projAddButton = new javax.swing.JButton();
         projClearButton = new javax.swing.JButton();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
+        ProjectIDLabel = new javax.swing.JLabel();
+        ProjectNameLabel = new javax.swing.JLabel();
+        ProjectStartdateLabel = new javax.swing.JLabel();
+        ProjectDuedateLabel = new javax.swing.JLabel();
+        ProjectCommentsLabel = new javax.swing.JLabel();
+        background_green11 = new javax.swing.JLabel();
+        StatusProjectPanel = new javax.swing.JPanel();
         jScrollPane14 = new javax.swing.JScrollPane();
         projUpTable = new javax.swing.JTable();
         projUpDueDate = new com.toedter.calendar.JDateChooser();
@@ -308,7 +319,12 @@ public class welcome extends javax.swing.JFrame {
         projIDRadioButton = new javax.swing.JRadioButton();
         jScrollPane15 = new javax.swing.JScrollPane();
         projComUptxt = new javax.swing.JTextArea();
-        jPanel13 = new javax.swing.JPanel();
+        EnterYourSearchLabel9 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        background_green12 = new javax.swing.JLabel();
+        SearchProjectPanel = new javax.swing.JPanel();
         projSearchtxt = new javax.swing.JTextField();
         projSearchButton = new javax.swing.JButton();
         projNameRadioButton1 = new javax.swing.JRadioButton();
@@ -316,6 +332,8 @@ public class welcome extends javax.swing.JFrame {
         jScrollPane16 = new javax.swing.JScrollPane();
         projSearchTable = new javax.swing.JTable();
         projRefreshSearchButton = new javax.swing.JButton();
+        EnterYourSearchLabel10 = new javax.swing.JLabel();
+        background_green13 = new javax.swing.JLabel();
         reportsTab = new javax.swing.JTabbedPane();
         jPanel14 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
@@ -323,6 +341,7 @@ public class welcome extends javax.swing.JFrame {
         monthRepjSpin = new com.toedter.components.JSpinField();
         yearRepjSpin = new com.toedter.components.JSpinField();
         repItemIDtxt = new javax.swing.JTextField();
+        background_green14 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         suppliersTab = new javax.swing.JTabbedPane();
         AddSupplierPanel = new javax.swing.JPanel();
@@ -727,6 +746,7 @@ public class welcome extends javax.swing.JFrame {
 
         UpdateItemPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 910, 230));
 
+        searchButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -760,7 +780,7 @@ public class welcome extends javax.swing.JFrame {
         UpdateItemPanel.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 250, -1, -1));
 
         EnterYourSearchLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        EnterYourSearchLabel.setText("Enter your search");
+        EnterYourSearchLabel.setText("Enter your Search");
         UpdateItemPanel.add(EnterYourSearchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         searchGroup.add(itemNameRadioButton);
@@ -1104,105 +1124,82 @@ public class welcome extends javax.swing.JFrame {
 
         inventoryTab.addTab("Search", SearchItemPanel);
 
+        customerTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         customerTab.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 customerTabMouseClicked(evt);
             }
         });
 
-        addCusButton.setText("Add");
-        addCusButton.addActionListener(new java.awt.event.ActionListener() {
+        AddCustomerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        CustomerIDText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addCusButtonActionPerformed(evt);
+                CustomerIDTextActionPerformed(evt);
             }
         });
+        AddCustomerPanel.add(CustomerIDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 118, -1));
+        AddCustomerPanel.add(CustomerNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 118, -1));
+        AddCustomerPanel.add(CustomerAddressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 118, -1));
+        AddCustomerPanel.add(CustomerPhoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 118, -1));
+        AddCustomerPanel.add(CustomerEmailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 118, -1));
 
-        clearCusButton.setText("Clear");
-        clearCusButton.addActionListener(new java.awt.event.ActionListener() {
+        CustomerContractIDText.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                clearCusButtonActionPerformed(evt);
+                CustomerContractIDTextActionPerformed(evt);
             }
         });
+        AddCustomerPanel.add(CustomerContractIDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 118, -1));
 
-        jLabel22.setText("id");
+        AddCustomerButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        AddCustomerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
+        AddCustomerButton.setText("Add");
+        AddCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddCustomerButtonActionPerformed(evt);
+            }
+        });
+        AddCustomerPanel.add(AddCustomerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
 
-        jLabel23.setText("name");
+        ClearCustomerButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        ClearCustomerButton.setText("Clear");
+        ClearCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearCustomerButtonActionPerformed(evt);
+            }
+        });
+        AddCustomerPanel.add(ClearCustomerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 100, 40));
 
-        jLabel24.setText("address");
+        CustomerIDLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        CustomerIDLabel.setText("Customer ID");
+        AddCustomerPanel.add(CustomerIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
-        jLabel25.setText("phone");
+        CustomerNameLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        CustomerNameLabel.setText("Customer Name");
+        AddCustomerPanel.add(CustomerNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
 
-        jLabel26.setText("email");
+        CustomerAddressLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        CustomerAddressLabel.setText("Address");
+        AddCustomerPanel.add(CustomerAddressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
-        jLabel27.setText("contract");
+        CustomerPhoneLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        CustomerPhoneLabel.setText("Phone");
+        AddCustomerPanel.add(CustomerPhoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel22)
-                    .addComponent(jLabel23)
-                    .addComponent(jLabel24)
-                    .addComponent(jLabel25)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabel27))
-                .addGap(84, 84, 84)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cusIDtxt)
-                    .addComponent(cusNametxt)
-                    .addComponent(cusAddtxt)
-                    .addComponent(cusPhonetxt)
-                    .addComponent(cusMailtxt)
-                    .addComponent(cusContractIDtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE))
-                .addGap(294, 294, 294)
-                .addComponent(addCusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49)
-                .addComponent(clearCusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(443, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(addCusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(clearCusButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel6Layout.createSequentialGroup()
-                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addGroup(jPanel6Layout.createSequentialGroup()
-                                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                            .addComponent(cusIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(jLabel22))
-                                                        .addGap(39, 39, 39)
-                                                        .addComponent(cusNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(jLabel23))
-                                                .addGap(45, 45, 45)
-                                                .addComponent(cusAddtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabel24))
-                                        .addGap(36, 36, 36)
-                                        .addComponent(cusPhonetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel25))
-                                .addGap(35, 35, 35)
-                                .addComponent(cusMailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel26))
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(cusContractIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel27))))
-                .addContainerGap(77, Short.MAX_VALUE))
-        );
+        CustomerEmailLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        CustomerEmailLabel.setText("E-mail");
+        AddCustomerPanel.add(CustomerEmailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
-        customerTab.addTab("Add customer", jPanel6);
+        CustomerContractLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        CustomerContractLabel.setText("Contract ID");
+        AddCustomerPanel.add(CustomerContractLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
+
+        background_green5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        AddCustomerPanel.add(background_green5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
+
+        customerTab.addTab("Add Customer", AddCustomerPanel);
+
+        UpdateDetailsCustomerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cusUpdateTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1222,9 +1219,14 @@ public class welcome extends javax.swing.JFrame {
         });
         jScrollPane8.setViewportView(cusUpdateTable);
 
+        UpdateDetailsCustomerPanel.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
+
         EnterYourSearchLabel4.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         EnterYourSearchLabel4.setText("Enter your search");
+        UpdateDetailsCustomerPanel.add(EnterYourSearchLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        UpdateDetailsCustomerPanel.add(cusSearchUpdatetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
 
+        cusSearchUpdateButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         cusSearchUpdateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
         cusSearchUpdateButton.setText("Search");
         cusSearchUpdateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1232,6 +1234,7 @@ public class welcome extends javax.swing.JFrame {
                 cusSearchUpdateButtonActionPerformed(evt);
             }
         });
+        UpdateDetailsCustomerPanel.add(cusSearchUpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
 
         searchGroup.add(upCusNameRadioButton);
         upCusNameRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
@@ -1243,6 +1246,7 @@ public class welcome extends javax.swing.JFrame {
                 upCusNameRadioButtonActionPerformed(evt);
             }
         });
+        UpdateDetailsCustomerPanel.add(upCusNameRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
 
         searchGroup.add(upcusIDRadioButton);
         upcusIDRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
@@ -1255,140 +1259,75 @@ public class welcome extends javax.swing.JFrame {
                 upcusIDRadioButtonActionPerformed(evt);
             }
         });
+        UpdateDetailsCustomerPanel.add(upcusIDRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
 
         cusUpAddtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cusUpAddtxtActionPerformed(evt);
             }
         });
+        UpdateDetailsCustomerPanel.add(cusUpAddtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 100, -1));
+        UpdateDetailsCustomerPanel.add(cusUpPhonetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 100, -1));
+        UpdateDetailsCustomerPanel.add(cusUpMailtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 100, -1));
+        UpdateDetailsCustomerPanel.add(cusUpContarcttxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 100, -1));
 
-        jLabel28.setText("Address");
+        cusUpAddLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        cusUpAddLabel.setText("Address");
+        UpdateDetailsCustomerPanel.add(cusUpAddLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
-        jLabel29.setText("Phone");
+        cusUpPhoneLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        cusUpPhoneLabel.setText("Phone");
+        UpdateDetailsCustomerPanel.add(cusUpPhoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
-        jLabel30.setText("E-Mail");
+        cusUpMailLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        cusUpMailLabel.setText("E-Mail");
+        UpdateDetailsCustomerPanel.add(cusUpMailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
-        jLabel31.setText("Contract ID");
+        cusUpContarctLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        cusUpContarctLabel.setText("Contract ID");
+        UpdateDetailsCustomerPanel.add(cusUpContarctLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
+        cusUpdate.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        cusUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/save-icon-30.png"))); // NOI18N
         cusUpdate.setText("Update");
         cusUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cusUpdateActionPerformed(evt);
             }
         });
+        UpdateDetailsCustomerPanel.add(cusUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, -1, -1));
 
+        cusRefreshUpButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        cusRefreshUpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
         cusRefreshUpButton.setText("Refresh");
         cusRefreshUpButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cusRefreshUpButtonActionPerformed(evt);
             }
         });
+        UpdateDetailsCustomerPanel.add(cusRefreshUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
 
+        cusDeleteButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        cusDeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete icon.png"))); // NOI18N
         cusDeleteButton.setText("Delete");
         cusDeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cusDeleteButtonActionPerformed(evt);
             }
         });
+        UpdateDetailsCustomerPanel.add(cusDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 250, -1, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(EnterYourSearchLabel4)
-                                    .addComponent(cusSearchUpdatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(cusSearchUpdateButton))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(upcusIDRadioButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(upCusNameRadioButton)))
-                        .addGap(90, 90, 90))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel28)
-                            .addComponent(jLabel29)
-                            .addComponent(jLabel30)
-                            .addComponent(jLabel31))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cusUpAddtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
-                            .addComponent(cusUpPhonetxt)
-                            .addComponent(cusUpMailtxt)
-                            .addComponent(cusUpContarcttxt))
-                        .addGap(107, 107, 107)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 711, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(cusUpdate)
-                        .addGap(30, 30, 30)
-                        .addComponent(cusRefreshUpButton)
-                        .addGap(30, 30, 30)
-                        .addComponent(cusDeleteButton)))
-                .addContainerGap(209, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                    .addComponent(cusSearchUpdateButton)
-                                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                                        .addComponent(EnterYourSearchLabel4)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(cusSearchUpdatetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(upcusIDRadioButton)
-                                                    .addComponent(upCusNameRadioButton))
-                                                .addGap(42, 42, 42)
-                                                .addComponent(cusUpAddtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabel28))
-                                        .addGap(41, 41, 41)
-                                        .addComponent(cusUpPhonetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel29))
-                                .addGap(34, 34, 34)
-                                .addComponent(cusUpMailtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel30)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cusUpContarcttxt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cusUpdate)
-                            .addComponent(cusRefreshUpButton)
-                            .addComponent(cusDeleteButton))))
-                .addContainerGap(99, Short.MAX_VALUE))
-        );
+        background_green6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        UpdateDetailsCustomerPanel.add(background_green6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
-        customerTab.addTab("Update Details", jPanel2);
+        customerTab.addTab("Update Details", UpdateDetailsCustomerPanel);
+
+        SearchCustomerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         EnterYourSearchLabel3.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         EnterYourSearchLabel3.setText("Enter your search");
+        SearchCustomerPanel.add(EnterYourSearchLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        SearchCustomerPanel.add(cusSearchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
 
         searchGroup.add(cusIDRadioButton);
         cusIDRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
@@ -1401,6 +1340,7 @@ public class welcome extends javax.swing.JFrame {
                 cusIDRadioButtonActionPerformed(evt);
             }
         });
+        SearchCustomerPanel.add(cusIDRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
 
         searchGroup.add(cusNameRadioButton);
         cusNameRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
@@ -1412,7 +1352,9 @@ public class welcome extends javax.swing.JFrame {
                 cusNameRadioButtonActionPerformed(evt);
             }
         });
+        SearchCustomerPanel.add(cusNameRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
 
+        cusSearchButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         cusSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
         cusSearchButton.setText("Search");
         cusSearchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1420,6 +1362,7 @@ public class welcome extends javax.swing.JFrame {
                 cusSearchButtonActionPerformed(evt);
             }
         });
+        SearchCustomerPanel.add(cusSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
 
         cusSearchTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1448,182 +1391,109 @@ public class welcome extends javax.swing.JFrame {
         });
         jScrollPane7.setViewportView(cusSearchTable);
 
+        SearchCustomerPanel.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
+
+        cusRefreshButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        cusRefreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
         cusRefreshButton.setText("Refresh");
         cusRefreshButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cusRefreshButtonActionPerformed(evt);
             }
         });
+        SearchCustomerPanel.add(cusRefreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(EnterYourSearchLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cusSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                        .addComponent(cusSearchButton))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(cusIDRadioButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cusNameRadioButton)))
-                .addGap(114, 114, 114)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 641, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(194, Short.MAX_VALUE))
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(429, 429, 429)
-                .addComponent(cusRefreshButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(EnterYourSearchLabel3)
-                                    .addComponent(cusSearchButton)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(cusSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cusIDRadioButton)
-                            .addComponent(cusNameRadioButton)))
-                    .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(36, 36, 36)
-                .addComponent(cusRefreshButton)
-                .addContainerGap(133, Short.MAX_VALUE))
-        );
+        background_green7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        SearchCustomerPanel.add(background_green7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
-        customerTab.addTab("Search", jPanel8);
+        customerTab.addTab("Search", SearchCustomerPanel);
 
+        ordersTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         ordersTab.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ordersTabMouseClicked(evt);
             }
         });
 
+        AddOrderPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         orderIDtxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderIDtxtActionPerformed(evt);
             }
         });
+        AddOrderPanel.add(orderIDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 118, -1));
+        AddOrderPanel.add(orderTptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 118, -1));
 
-        jLabel32.setText("Order ID");
+        orderIDLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        orderIDLabel.setText("Order ID");
+        AddOrderPanel.add(orderIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
-        jLabel33.setText("Time Of Order");
+        orderTimeLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        orderTimeLabel.setText("Time Of Order");
+        AddOrderPanel.add(orderTimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
 
-        jLabel34.setText("Time Of Arrival");
+        orderArrivalLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        orderArrivalLabel.setText("Time Of Arrival");
+        AddOrderPanel.add(orderArrivalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
-        jLabel35.setText("Description");
+        orderDescriptionLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        orderDescriptionLabel.setText("Description");
+        AddOrderPanel.add(orderDescriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
-        jLabel36.setText("Total Price");
+        orderPriceLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        orderPriceLabel.setText("Total Price");
+        AddOrderPanel.add(orderPriceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
 
         orderDesctxt.setColumns(20);
         orderDesctxt.setRows(5);
         jScrollPane10.setViewportView(orderDesctxt);
 
+        AddOrderPanel.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 120, -1));
+
         tooDate.setDateFormatString("yyyy-MM-dd");
+        AddOrderPanel.add(tooDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 118, -1));
 
         toaDate.setDateFormatString("yyyy-MM-dd");
+        AddOrderPanel.add(toaDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 118, -1));
 
+        addOrderButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        addOrderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
         addOrderButton.setText("Add");
         addOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addOrderButtonActionPerformed(evt);
             }
         });
+        AddOrderPanel.add(addOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
 
+        orderClearButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         orderClearButton.setText("Clear");
         orderClearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderClearButtonActionPerformed(evt);
             }
         });
+        AddOrderPanel.add(orderClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 100, 40));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel36)
-                    .addComponent(jLabel35)
-                    .addComponent(jLabel34)
-                    .addComponent(jLabel33)
-                    .addComponent(jLabel32))
-                .addGap(86, 86, 86)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tooDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(toaDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
-                    .addComponent(orderIDtxt)
-                    .addComponent(orderTptxt))
-                .addGap(181, 181, 181)
-                .addComponent(addOrderButton)
-                .addGap(57, 57, 57)
-                .addComponent(orderClearButton)
-                .addContainerGap(572, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(orderIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel32))
-                .addGap(34, 34, 34)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel33)
-                    .addComponent(tooDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel34)
-                    .addComponent(toaDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(jLabel35)
-                                .addGap(93, 93, 93)
-                                .addComponent(jLabel36))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(orderTptxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(addOrderButton)
-                            .addComponent(orderClearButton))
-                        .addGap(189, 189, 189))))
-        );
+        background_green8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        AddOrderPanel.add(background_green8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
-        ordersTab.addTab("Add Order", jPanel4);
+        ordersTab.addTab("Add Order", AddOrderPanel);
 
-        jPanel9.addMouseListener(new java.awt.event.MouseAdapter() {
+        UpdateOrderPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel9MouseClicked(evt);
+                UpdateOrderPanelMouseClicked(evt);
             }
         });
+        UpdateOrderPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         EnterYourSearchLabel5.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        EnterYourSearchLabel5.setText("Enter your search by Order ID:");
+        EnterYourSearchLabel5.setText("Enter your search by Order ID");
+        UpdateOrderPanel.add(EnterYourSearchLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        UpdateOrderPanel.add(searchUpOrdertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
 
+        searchOrderUpButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         searchOrderUpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
         searchOrderUpButton.setText("Search");
         searchOrderUpButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1631,6 +1501,7 @@ public class welcome extends javax.swing.JFrame {
                 searchOrderUpButtonActionPerformed(evt);
             }
         });
+        UpdateOrderPanel.add(searchOrderUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
 
         orderUpdateTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1650,92 +1521,63 @@ public class welcome extends javax.swing.JFrame {
         });
         jScrollPane9.setViewportView(orderUpdateTable);
 
+        UpdateOrderPanel.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
+        UpdateOrderPanel.add(toaUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 100, -1));
+
         orderDescUptxt.setColumns(20);
         orderDescUptxt.setRows(5);
         jScrollPane11.setViewportView(orderDescUptxt);
 
+        UpdateOrderPanel.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
+        UpdateOrderPanel.add(tpUptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 106, -1));
+
+        refreshUpdateOrderButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        refreshUpdateOrderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
         refreshUpdateOrderButton.setText("Refresh");
         refreshUpdateOrderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshUpdateOrderButtonActionPerformed(evt);
             }
         });
+        UpdateOrderPanel.add(refreshUpdateOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
 
+        orderUpdateButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        orderUpdateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/save-icon-30.png"))); // NOI18N
         orderUpdateButton.setText("Update");
         orderUpdateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderUpdateButtonActionPerformed(evt);
             }
         });
+        UpdateOrderPanel.add(orderUpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 250, -1, -1));
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGap(167, 167, 167)
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(toaUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel9Layout.createSequentialGroup()
-                                        .addGap(8, 8, 8)
-                                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jScrollPane11)
-                                            .addComponent(tpUptxt)))))
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(EnterYourSearchLabel5)
-                                    .addComponent(searchUpOrdertxt, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(42, 42, 42)
-                                .addComponent(searchOrderUpButton))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(refreshUpdateOrderButton)))
-                        .addGap(29, 29, 29)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(325, 325, 325)
-                        .addComponent(orderUpdateButton)))
-                .addContainerGap(228, Short.MAX_VALUE))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(EnterYourSearchLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchOrderUpButton)
-                    .addComponent(searchUpOrdertxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(refreshUpdateOrderButton)
-                .addGap(62, 62, 62)
-                .addComponent(toaUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tpUptxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(orderUpdateButton)
-                .addGap(61, 61, 61))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93))
-        );
+        UpdatetoaLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        UpdatetoaLabel.setText("Time Of Arrival");
+        UpdateOrderPanel.add(UpdatetoaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        ordersTab.addTab("Update", jPanel9);
+        UpdateDescriptionLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        UpdateDescriptionLabel.setText("Description");
+        UpdateOrderPanel.add(UpdateDescriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+
+        UpdatetpLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        UpdatetpLabel.setText("Total Price");
+        UpdateOrderPanel.add(UpdatetpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+
+        background_green9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        UpdateOrderPanel.add(background_green9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
+
+        ordersTab.addTab("Update", UpdateOrderPanel);
+
+        SearchOrderPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         searchOrdertxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchOrdertxtActionPerformed(evt);
             }
         });
+        SearchOrderPanel.add(searchOrdertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
 
+        searchOrderButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         searchOrderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
         searchOrderButton.setText("Search");
         searchOrderButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1743,6 +1585,7 @@ public class welcome extends javax.swing.JFrame {
                 searchOrderButtonActionPerformed(evt);
             }
         });
+        SearchOrderPanel.add(searchOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
 
         orderSearchTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1762,163 +1605,98 @@ public class welcome extends javax.swing.JFrame {
         });
         jScrollPane12.setViewportView(orderSearchTable);
 
+        SearchOrderPanel.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
+
+        orderRefreshButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        orderRefreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
         orderRefreshButton.setText("Refresh");
         orderRefreshButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 orderRefreshButtonActionPerformed(evt);
             }
         });
+        SearchOrderPanel.add(orderRefreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(321, 321, 321)
-                .addComponent(orderRefreshButton)
-                .addContainerGap(858, Short.MAX_VALUE))
-            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel10Layout.createSequentialGroup()
-                    .addGap(172, 172, 172)
-                    .addComponent(searchOrdertxt, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(42, 42, 42)
-                    .addComponent(searchOrderButton)
-                    .addGap(29, 29, 29)
-                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(173, Short.MAX_VALUE)))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(139, 139, 139)
-                .addComponent(orderRefreshButton)
-                .addContainerGap(287, Short.MAX_VALUE))
-            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel10Layout.createSequentialGroup()
-                    .addGap(26, 26, 26)
-                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel10Layout.createSequentialGroup()
-                            .addGap(14, 14, 14)
-                            .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(searchOrderButton)
-                                .addComponent(searchOrdertxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(344, 344, 344))
-                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGap(26, 26, 26)))
-        );
+        EnterYourSearchLabel8.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel8.setText("Enter your search by Order ID");
+        SearchOrderPanel.add(EnterYourSearchLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
-        ordersTab.addTab("Search", jPanel10);
+        background_green10.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        background_green10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        SearchOrderPanel.add(background_green10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
+        ordersTab.addTab("Search", SearchOrderPanel);
+
+        projectsTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         projectsTab.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 projectsTabMouseClicked(evt);
             }
         });
 
+        AddProjectPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        AddProjectPanel.add(projIDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 118, -1));
+        AddProjectPanel.add(projNametxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 120, -1));
+
         projStartDate.setDateFormatString("yyyy-MM-dd");
         projStartDate.setMinSelectableDate(new Date());
+        AddProjectPanel.add(projStartDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 127, -1));
 
         projDueDate.setMinSelectableDate(new Date());
+        AddProjectPanel.add(projDueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 127, -1));
 
         projDesctxt.setColumns(20);
         projDesctxt.setRows(5);
         jScrollPane13.setViewportView(projDesctxt);
 
+        AddProjectPanel.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 130, -1));
+
+        projAddButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        projAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
         projAddButton.setText("Add");
         projAddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projAddButtonActionPerformed(evt);
             }
         });
+        AddProjectPanel.add(projAddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
 
+        projClearButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         projClearButton.setText("Clear");
         projClearButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projClearButtonActionPerformed(evt);
             }
         });
+        AddProjectPanel.add(projClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 100, 40));
 
-        jLabel37.setText("Project ID");
+        ProjectIDLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        ProjectIDLabel.setText("Project ID");
+        AddProjectPanel.add(ProjectIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
-        jLabel38.setText("Project Name");
+        ProjectNameLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        ProjectNameLabel.setText("Project Name");
+        AddProjectPanel.add(ProjectNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
 
-        jLabel39.setText("Start Date");
+        ProjectStartdateLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        ProjectStartdateLabel.setText("Start Date");
+        AddProjectPanel.add(ProjectStartdateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
-        jLabel40.setText("Due Date");
+        ProjectDuedateLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        ProjectDuedateLabel.setText("Due Date");
+        AddProjectPanel.add(ProjectDuedateLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
-        jLabel41.setText("Comments");
+        ProjectCommentsLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        ProjectCommentsLabel.setText("Comments");
+        AddProjectPanel.add(ProjectCommentsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
-                                .addComponent(jLabel40)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(projDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
-                                .addComponent(jLabel39)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(projStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
-                                .addComponent(jLabel38)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                                .addComponent(projNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel11Layout.createSequentialGroup()
-                                .addComponent(jLabel37)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(projIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jLabel41)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(219, 219, 219)
-                .addComponent(projAddButton)
-                .addGap(92, 92, 92)
-                .addComponent(projClearButton)
-                .addContainerGap(554, Short.MAX_VALUE))
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(projAddButton)
-                        .addComponent(projClearButton))
-                    .addGroup(jPanel11Layout.createSequentialGroup()
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel11Layout.createSequentialGroup()
-                                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addGroup(jPanel11Layout.createSequentialGroup()
-                                                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                    .addComponent(projIDtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel37))
-                                                .addGap(18, 18, 18)
-                                                .addComponent(projNametxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(jLabel38))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(projStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel39))
-                                .addGap(18, 18, 18)
-                                .addComponent(projDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel40))
-                        .addGap(42, 42, 42)
-                        .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(136, Short.MAX_VALUE))
-        );
+        background_green11.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        background_green11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        AddProjectPanel.add(background_green11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
-        projectsTab.addTab("Add Project", jPanel11);
+        projectsTab.addTab("Add Project", AddProjectPanel);
+
+        StatusProjectPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         projUpTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1938,140 +1716,135 @@ public class welcome extends javax.swing.JFrame {
         });
         jScrollPane14.setViewportView(projUpTable);
 
+        StatusProjectPanel.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
+
         projUpDueDate.setMinSelectableDate(new Date());
+        StatusProjectPanel.add(projUpDueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 100, -1));
 
         projUpStatusChoice.addItem("Pending");
         projUpStatusChoice.addItem("In Progress");
         projUpStatusChoice.addItem("Completed");
+        StatusProjectPanel.add(projUpStatusChoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 100, -1));
 
+        projUpStatusButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        projUpStatusButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/save-icon-30.png"))); // NOI18N
         projUpStatusButton.setText("Update");
         projUpStatusButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projUpStatusButtonActionPerformed(evt);
             }
         });
+        StatusProjectPanel.add(projUpStatusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 250, -1, -1));
 
+        projUpRefreshButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        projUpRefreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
         projUpRefreshButton.setText("Refresh");
         projUpRefreshButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projUpRefreshButtonActionPerformed(evt);
             }
         });
+        StatusProjectPanel.add(projUpRefreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
 
+        projUpSearchButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        projUpSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
         projUpSearchButton.setText("Search");
         projUpSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projUpSearchButtonActionPerformed(evt);
             }
         });
+        StatusProjectPanel.add(projUpSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+        StatusProjectPanel.add(projSearchUptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
 
         searchGroup.add(projNameRadioButton);
+        projNameRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         projNameRadioButton.setText("By Name");
+        projNameRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        projNameRadioButton.setBorderPainted(true);
         projNameRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projNameRadioButtonActionPerformed(evt);
             }
         });
+        StatusProjectPanel.add(projNameRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
 
         searchGroup.add(projIDRadioButton);
+        projIDRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         projIDRadioButton.setText("By ID");
+        projIDRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder(javax.swing.border.EtchedBorder.RAISED));
+        projIDRadioButton.setBorderPainted(true);
         projIDRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projIDRadioButtonActionPerformed(evt);
             }
         });
+        StatusProjectPanel.add(projIDRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
 
         projComUptxt.setColumns(20);
         projComUptxt.setRows(5);
         jScrollPane15.setViewportView(projComUptxt);
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addComponent(projSearchUptxt, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(projUpSearchButton)
-                                .addGap(42, 42, 42))
-                            .addGroup(jPanel12Layout.createSequentialGroup()
-                                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(projUpDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel12Layout.createSequentialGroup()
-                                        .addComponent(projIDRadioButton)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(projNameRadioButton))
-                                    .addComponent(projUpStatusChoice, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(97, 97, 97))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel12Layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 692, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(projUpStatusButton)
-                        .addGap(67, 67, 67)
-                        .addComponent(projUpRefreshButton)))
-                .addContainerGap(271, Short.MAX_VALUE))
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(projUpStatusButton)
-                    .addComponent(projUpRefreshButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel12Layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(projUpSearchButton)
-                    .addComponent(projSearchUptxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(projNameRadioButton)
-                    .addComponent(projIDRadioButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(projUpDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addComponent(projUpStatusChoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(127, 127, 127))
-        );
+        StatusProjectPanel.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
 
-        projectsTab.addTab(" Status", jPanel12);
+        EnterYourSearchLabel9.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel9.setText("Enter your search");
+        StatusProjectPanel.add(EnterYourSearchLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
+        jLabel22.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel22.setText(" Due Date");
+        StatusProjectPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel23.setText("Project Status");
+        StatusProjectPanel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel24.setText("Comments");
+        StatusProjectPanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+
+        background_green12.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        background_green12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        StatusProjectPanel.add(background_green12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
+
+        projectsTab.addTab(" Status", StatusProjectPanel);
+
+        SearchProjectPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        SearchProjectPanel.add(projSearchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+
+        projSearchButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        projSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
         projSearchButton.setText("Search");
         projSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projSearchButtonActionPerformed(evt);
             }
         });
+        SearchProjectPanel.add(projSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
 
         searchGroup.add(projNameRadioButton1);
+        projNameRadioButton1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         projNameRadioButton1.setText("By Name");
+        projNameRadioButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        projNameRadioButton1.setBorderPainted(true);
         projNameRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projNameRadioButton1ActionPerformed(evt);
             }
         });
+        SearchProjectPanel.add(projNameRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
 
         searchGroup.add(projIDRadioButton1);
+        projIDRadioButton1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         projIDRadioButton1.setText("By ID");
+        projIDRadioButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        projIDRadioButton1.setBorderPainted(true);
         projIDRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projIDRadioButton1ActionPerformed(evt);
             }
         });
+        SearchProjectPanel.add(projIDRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
 
         projSearchTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -2086,62 +1859,31 @@ public class welcome extends javax.swing.JFrame {
         ));
         jScrollPane16.setViewportView(projSearchTable);
 
+        SearchProjectPanel.add(jScrollPane16, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
+
+        projRefreshSearchButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        projRefreshSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
         projRefreshSearchButton.setText("Refresh");
         projRefreshSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projRefreshSearchButtonActionPerformed(evt);
             }
         });
+        SearchProjectPanel.add(projRefreshSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
 
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel13Layout.createSequentialGroup()
-                                .addComponent(projSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(projSearchButton))
-                            .addGroup(jPanel13Layout.createSequentialGroup()
-                                .addComponent(projIDRadioButton1)
-                                .addGap(18, 18, 18)
-                                .addComponent(projNameRadioButton1)
-                                .addGap(55, 55, 55)))
-                        .addGap(121, 121, 121))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel13Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(projRefreshSearchButton)
-                        .addGap(66, 66, 66)))
-                .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(227, Short.MAX_VALUE))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(projSearchButton)
-                            .addComponent(projSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(projNameRadioButton1)
-                            .addComponent(projIDRadioButton1))
-                        .addGap(90, 90, 90)
-                        .addComponent(projRefreshSearchButton))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(98, Short.MAX_VALUE))
-        );
+        EnterYourSearchLabel10.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel10.setText("Enter your search");
+        SearchProjectPanel.add(EnterYourSearchLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
-        projectsTab.addTab("Search", jPanel13);
+        background_green13.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        background_green13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        SearchProjectPanel.add(background_green13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
+        projectsTab.addTab("Search", SearchProjectPanel);
+
+        reportsTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        jButton2.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         jButton2.setText("Bar Graph");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -2155,6 +1897,9 @@ public class welcome extends javax.swing.JFrame {
 
         yearRepjSpin.setMinimum(2000);
         yearRepjSpin.setValue(2000);
+
+        background_green14.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        background_green14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
         jPanel14.setLayout(jPanel14Layout);
@@ -2174,7 +1919,12 @@ public class welcome extends javax.swing.JFrame {
                         .addComponent(monthRepjSpin, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(49, 49, 49)
                         .addComponent(yearRepjSpin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(799, Short.MAX_VALUE))
+                .addContainerGap(804, Short.MAX_VALUE))
+            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel14Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(background_green14)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel14Layout.setVerticalGroup(
             jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2192,7 +1942,12 @@ public class welcome extends javax.swing.JFrame {
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2)
                     .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(219, Short.MAX_VALUE))
+                .addContainerGap(235, Short.MAX_VALUE))
+            .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel14Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(background_green14, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         reportsTab.addTab("Generate", jPanel14);
@@ -2201,11 +1956,11 @@ public class welcome extends javax.swing.JFrame {
         jPanel15.setLayout(jPanel15Layout);
         jPanel15Layout.setHorizontalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
+            .addGap(0, 1250, Short.MAX_VALUE)
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
+            .addGap(0, 430, Short.MAX_VALUE)
         );
 
         reportsTab.addTab("History", jPanel15);
@@ -3371,43 +3126,43 @@ public class welcome extends javax.swing.JFrame {
        update_statusTable();
     }//GEN-LAST:event_refreshStausButtonActionPerformed
 
-    private void addCusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCusButtonActionPerformed
+    private void AddCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCustomerButtonActionPerformed
         int f = 0;
        
         try {
             String sql = "Insert into customers (customer_id,customer_name,address,phone,email,contract_id) values(?,?,?,?,?,?)";
 
             pst = conn.prepareStatement(sql);
-            pst.setString(1, cusIDtxt.getText());
-            pst.setString(2, cusNametxt.getText());
-            pst.setString(3, cusAddtxt.getText());
-            pst.setString(4, cusPhonetxt.getText());
-            pst.setString(5, cusMailtxt.getText());
-            pst.setString(6, cusContractIDtxt.getText());
+            pst.setString(1, CustomerIDText.getText());
+            pst.setString(2, CustomerNameText.getText());
+            pst.setString(3, CustomerAddressText.getText());
+            pst.setString(4, CustomerPhoneText.getText());
+            pst.setString(5, CustomerEmailText.getText());
+            pst.setString(6, CustomerContractIDText.getText());
             
             pst.execute();
             JOptionPane.showMessageDialog(null, "Customer Added");
         } catch (Exception e) {
 
-            if (cusIDtxt.getText().isEmpty()) {
-                cusIDtxt.setBackground(Color.red);
+            if (CustomerIDText.getText().isEmpty()) {
+                CustomerIDText.setBackground(Color.red);
             }
-            if (cusNametxt.getText().isEmpty()) {
-                cusNametxt.setBackground(Color.red);
+            if (CustomerNameText.getText().isEmpty()) {
+                CustomerNameText.setBackground(Color.red);
             }
            
-            if (cusAddtxt.getText().isEmpty()) {
-                cusAddtxt.setBackground(Color.red);
+            if (CustomerAddressText.getText().isEmpty()) {
+                CustomerAddressText.setBackground(Color.red);
             }
-            if (cusPhonetxt.getText().isEmpty()) {
-                cusPhonetxt.setBackground(Color.red);
+            if (CustomerPhoneText.getText().isEmpty()) {
+                CustomerPhoneText.setBackground(Color.red);
             }
 
-            if (cusMailtxt.getText().isEmpty()) {
-                cusMailtxt.setBackground(Color.red);
+            if (CustomerEmailText.getText().isEmpty()) {
+                CustomerEmailText.setBackground(Color.red);
             }
-            if (cusContractIDtxt.getText().isEmpty()) {
-                cusContractIDtxt.setBackground(Color.red);
+            if (CustomerContractIDText.getText().isEmpty()) {
+                CustomerContractIDText.setBackground(Color.red);
             }
             
             if (f != 2) {
@@ -3419,23 +3174,23 @@ public class welcome extends javax.swing.JFrame {
         }
 
         if (f == 0) {
-            cusIDtxt.setText("");
-            cusNametxt.setText("");
-            cusAddtxt.setText("");
-            cusPhonetxt.setText("");
-            cusMailtxt.setText("");
-            cusContractIDtxt.setText("");
+            CustomerIDText.setText("");
+            CustomerNameText.setText("");
+            CustomerAddressText.setText("");
+            CustomerPhoneText.setText("");
+            CustomerEmailText.setText("");
+            CustomerContractIDText.setText("");
         }
-    }//GEN-LAST:event_addCusButtonActionPerformed
+    }//GEN-LAST:event_AddCustomerButtonActionPerformed
 
-    private void clearCusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearCusButtonActionPerformed
-            cusIDtxt.setText("");
-            cusNametxt.setText("");
-            cusAddtxt.setText("");
-            cusPhonetxt.setText("");
-            cusMailtxt.setText("");
-            cusContractIDtxt.setText("");
-    }//GEN-LAST:event_clearCusButtonActionPerformed
+    private void ClearCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearCustomerButtonActionPerformed
+            CustomerIDText.setText("");
+            CustomerNameText.setText("");
+            CustomerAddressText.setText("");
+            CustomerPhoneText.setText("");
+            CustomerEmailText.setText("");
+            CustomerContractIDText.setText("");
+    }//GEN-LAST:event_ClearCustomerButtonActionPerformed
 
     private void deleteItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteItemButtonActionPerformed
         int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete This Item", "Warning!", JOptionPane.YES_NO_OPTION);
@@ -3719,9 +3474,9 @@ public class welcome extends javax.swing.JFrame {
         
     }//GEN-LAST:event_searchOrderUpButtonActionPerformed
 
-    private void jPanel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel9MouseClicked
+    private void UpdateOrderPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateOrderPanelMouseClicked
         
-    }//GEN-LAST:event_jPanel9MouseClicked
+    }//GEN-LAST:event_UpdateOrderPanelMouseClicked
 
     private void orderUpdateTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderUpdateTableMouseClicked
         try {
@@ -4570,6 +4325,14 @@ public class welcome extends javax.swing.JFrame {
         
     }//GEN-LAST:event_UserClearButtonActionPerformed
 
+    private void CustomerIDTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerIDTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CustomerIDTextActionPerformed
+
+    private void CustomerContractIDTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerContractIDTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CustomerContractIDTextActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -4751,25 +4514,50 @@ public class welcome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddCustomerButton;
+    private javax.swing.JPanel AddCustomerPanel;
     private javax.swing.JPanel AddItemPanel;
+    private javax.swing.JPanel AddOrderPanel;
+    private javax.swing.JPanel AddProjectPanel;
     private javax.swing.JPanel AddSupplierPanel;
     private javax.swing.JPanel AddUserPanel;
     private javax.swing.JTable AddUserTable;
     private javax.swing.JButton ClearButton;
+    private javax.swing.JButton ClearCustomerButton;
     private javax.swing.JLabel Comments_Label;
     private javax.swing.JTextArea Comments_Text;
     private javax.swing.JPanel ContractPanel;
+    private javax.swing.JLabel CustomerAddressLabel;
+    private javax.swing.JTextField CustomerAddressText;
+    private javax.swing.JTextField CustomerContractIDText;
+    private javax.swing.JLabel CustomerContractLabel;
+    private javax.swing.JLabel CustomerEmailLabel;
+    private javax.swing.JTextField CustomerEmailText;
+    private javax.swing.JLabel CustomerIDLabel;
+    private javax.swing.JTextField CustomerIDText;
+    private javax.swing.JLabel CustomerNameLabel;
+    private javax.swing.JTextField CustomerNameText;
+    private javax.swing.JLabel CustomerPhoneLabel;
+    private javax.swing.JTextField CustomerPhoneText;
     private javax.swing.JLabel DescriptionLabel;
     private javax.swing.JLabel EnterYourSearchLabel;
     private javax.swing.JLabel EnterYourSearchLabel1;
+    private javax.swing.JLabel EnterYourSearchLabel10;
     private javax.swing.JLabel EnterYourSearchLabel2;
     private javax.swing.JLabel EnterYourSearchLabel3;
     private javax.swing.JLabel EnterYourSearchLabel4;
     private javax.swing.JLabel EnterYourSearchLabel5;
     private javax.swing.JLabel EnterYourSearchLabel6;
     private javax.swing.JLabel EnterYourSearchLabel7;
+    private javax.swing.JLabel EnterYourSearchLabel8;
+    private javax.swing.JLabel EnterYourSearchLabel9;
     private javax.swing.JLabel ExpirationDateLabel2;
     private javax.swing.JLabel MinQuantityLabel1;
+    private javax.swing.JLabel ProjectCommentsLabel;
+    private javax.swing.JLabel ProjectDuedateLabel;
+    private javax.swing.JLabel ProjectIDLabel;
+    private javax.swing.JLabel ProjectNameLabel;
+    private javax.swing.JLabel ProjectStartdateLabel;
     private javax.swing.JLabel QuantityLabel1;
     private javax.swing.JButton RefreshButton;
     private javax.swing.JButton RefreshButton1;
@@ -4778,7 +4566,10 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel Row_label1;
     private javax.swing.JLabel Row_label2;
     private javax.swing.JLabel Row_label3;
+    private javax.swing.JPanel SearchCustomerPanel;
     private javax.swing.JPanel SearchItemPanel;
+    private javax.swing.JPanel SearchOrderPanel;
+    private javax.swing.JPanel SearchProjectPanel;
     private javax.swing.JPanel SearchSupplierPanel;
     private javax.swing.JTextField Shelf_Text;
     private javax.swing.JLabel Shelf__label;
@@ -4786,6 +4577,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel Shelf__label2;
     private javax.swing.JLabel Shelf__label3;
     private javax.swing.JPanel StatusItemPanel;
+    private javax.swing.JPanel StatusProjectPanel;
     private javax.swing.JLabel Storage_Label;
     private javax.swing.JLabel Storage_Label1;
     private javax.swing.JLabel Storage_Label2;
@@ -4844,8 +4636,13 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel SupplierlContractLabel;
     private javax.swing.JTable SuppliersSearchTable;
     private javax.swing.JTable SuppliersTable;
+    private javax.swing.JLabel UpdateDescriptionLabel;
+    private javax.swing.JPanel UpdateDetailsCustomerPanel;
     private javax.swing.JPanel UpdateItemPanel;
+    private javax.swing.JPanel UpdateOrderPanel;
     private javax.swing.JPanel UpdateSupplierPanel;
+    private javax.swing.JLabel UpdatetoaLabel;
+    private javax.swing.JLabel UpdatetpLabel;
     private javax.swing.JButton UserAddButton;
     private javax.swing.JButton UserClearButton;
     private javax.swing.JLabel UserDetailsLabel;
@@ -4868,28 +4665,30 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTextField Warehouse_Text;
     private javax.swing.JLabel WorkerDetailsLabel;
     private javax.swing.JButton addButton;
-    private javax.swing.JButton addCusButton;
     private javax.swing.JButton addOrderButton;
     private javax.swing.JButton addStatusButton;
     private javax.swing.JTextField amountFor;
     private javax.swing.JLabel background_green;
     private javax.swing.JLabel background_green1;
+    private javax.swing.JLabel background_green10;
+    private javax.swing.JLabel background_green11;
+    private javax.swing.JLabel background_green12;
+    private javax.swing.JLabel background_green13;
+    private javax.swing.JLabel background_green14;
     private javax.swing.JLabel background_green2;
     private javax.swing.JLabel background_green3;
     private javax.swing.JLabel background_green4;
+    private javax.swing.JLabel background_green5;
+    private javax.swing.JLabel background_green6;
+    private javax.swing.JLabel background_green7;
+    private javax.swing.JLabel background_green8;
+    private javax.swing.JLabel background_green9;
     private java.awt.Choice categoryChoice;
     private javax.swing.JButton clearButton;
-    private javax.swing.JButton clearCusButton;
     private javax.swing.JLabel contract_Label1;
-    private javax.swing.JTextField cusAddtxt;
-    private javax.swing.JTextField cusContractIDtxt;
     private javax.swing.JButton cusDeleteButton;
     private javax.swing.JRadioButton cusIDRadioButton;
-    private javax.swing.JTextField cusIDtxt;
-    private javax.swing.JTextField cusMailtxt;
     private javax.swing.JRadioButton cusNameRadioButton;
-    private javax.swing.JTextField cusNametxt;
-    private javax.swing.JTextField cusPhonetxt;
     private javax.swing.JButton cusRefreshButton;
     private javax.swing.JButton cusRefreshUpButton;
     private javax.swing.JButton cusSearchButton;
@@ -4897,9 +4696,13 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JButton cusSearchUpdateButton;
     private javax.swing.JTextField cusSearchUpdatetxt;
     private javax.swing.JTextField cusSearchtxt;
+    private javax.swing.JLabel cusUpAddLabel;
     private javax.swing.JTextField cusUpAddtxt;
+    private javax.swing.JLabel cusUpContarctLabel;
     private javax.swing.JTextField cusUpContarcttxt;
+    private javax.swing.JLabel cusUpMailLabel;
     private javax.swing.JTextField cusUpMailtxt;
+    private javax.swing.JLabel cusUpPhoneLabel;
     private javax.swing.JTextField cusUpPhonetxt;
     private javax.swing.JButton cusUpdate;
     private javax.swing.JTable cusUpdateTable;
@@ -4938,25 +4741,8 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
@@ -4966,22 +4752,13 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel19;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel20;
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel24;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollBar jScrollBar2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
@@ -5009,12 +4786,17 @@ public class welcome extends javax.swing.JFrame {
     private com.toedter.components.JSpinField monthRepjSpin;
     private javax.swing.JTextField nameText;
     private java.awt.Choice oporationType;
+    private javax.swing.JLabel orderArrivalLabel;
     private javax.swing.JButton orderClearButton;
     private javax.swing.JTextArea orderDescUptxt;
+    private javax.swing.JLabel orderDescriptionLabel;
     private javax.swing.JTextArea orderDesctxt;
+    private javax.swing.JLabel orderIDLabel;
     private javax.swing.JTextField orderIDtxt;
+    private javax.swing.JLabel orderPriceLabel;
     private javax.swing.JButton orderRefreshButton;
     private javax.swing.JTable orderSearchTable;
+    private javax.swing.JLabel orderTimeLabel;
     private javax.swing.JTextField orderTptxt;
     private javax.swing.JButton orderUpdateButton;
     private javax.swing.JTable orderUpdateTable;
