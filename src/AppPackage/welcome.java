@@ -514,6 +514,11 @@ public class welcome extends javax.swing.JFrame {
         getContentPane().add(suppliersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 65, 60));
 
         usersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Users icon 53 x 50.png"))); // NOI18N
+        usersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usersButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(usersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 110, 65, -1));
 
         workerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Workers icon 53 x 50.png"))); // NOI18N
@@ -759,7 +764,7 @@ public class welcome extends javax.swing.JFrame {
 
         datetxt.setDateFormatString("yyyy-MM-dd");
         datetxt.setMinSelectableDate(new Date());
-        UpdateItemPanel.add(datetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 100, -1));
+        UpdateItemPanel.add(datetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 130, -1));
         UpdateItemPanel.add(suppliertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 100, -1));
 
         descriptiontxt.setColumns(20);
@@ -767,7 +772,7 @@ public class welcome extends javax.swing.JFrame {
         descriptiontxt.setRows(5);
         jScrollPane4.setViewportView(descriptiontxt);
 
-        UpdateItemPanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 100, 100));
+        UpdateItemPanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 120, 100));
 
         updateButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         updateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/save-icon-30.png"))); // NOI18N
@@ -1422,40 +1427,40 @@ public class welcome extends javax.swing.JFrame {
                 orderIDtxtActionPerformed(evt);
             }
         });
-        AddOrderPanel.add(orderIDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 118, -1));
-        AddOrderPanel.add(orderTptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 118, -1));
+        AddOrderPanel.add(orderIDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 118, -1));
+        AddOrderPanel.add(orderTptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 118, -1));
 
         orderIDLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         orderIDLabel.setText("Order ID");
-        AddOrderPanel.add(orderIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
+        AddOrderPanel.add(orderIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
 
         orderTimeLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         orderTimeLabel.setText("Time Of Order");
-        AddOrderPanel.add(orderTimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+        AddOrderPanel.add(orderTimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
 
         orderArrivalLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         orderArrivalLabel.setText("Time Of Arrival");
-        AddOrderPanel.add(orderArrivalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
+        AddOrderPanel.add(orderArrivalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         orderDescriptionLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         orderDescriptionLabel.setText("Description");
-        AddOrderPanel.add(orderDescriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
+        AddOrderPanel.add(orderDescriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
         orderPriceLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         orderPriceLabel.setText("Total Price");
-        AddOrderPanel.add(orderPriceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
+        AddOrderPanel.add(orderPriceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
 
         orderDesctxt.setColumns(20);
         orderDesctxt.setRows(5);
         jScrollPane10.setViewportView(orderDesctxt);
 
-        AddOrderPanel.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 120, -1));
+        AddOrderPanel.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 120, -1));
 
         tooDate.setDateFormatString("yyyy-MM-dd");
-        AddOrderPanel.add(tooDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 118, -1));
+        AddOrderPanel.add(tooDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 140, -1));
 
         toaDate.setDateFormatString("yyyy-MM-dd");
-        AddOrderPanel.add(toaDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 118, -1));
+        AddOrderPanel.add(toaDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 140, -1));
 
         addOrderButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         addOrderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
@@ -1522,14 +1527,14 @@ public class welcome extends javax.swing.JFrame {
         jScrollPane9.setViewportView(orderUpdateTable);
 
         UpdateOrderPanel.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
-        UpdateOrderPanel.add(toaUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 100, -1));
+        UpdateOrderPanel.add(toaUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 130, -1));
 
         orderDescUptxt.setColumns(20);
         orderDescUptxt.setRows(5);
         jScrollPane11.setViewportView(orderDescUptxt);
 
-        UpdateOrderPanel.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
-        UpdateOrderPanel.add(tpUptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 106, -1));
+        UpdateOrderPanel.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 110, -1));
+        UpdateOrderPanel.add(tpUptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 106, -1));
 
         refreshUpdateOrderButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         refreshUpdateOrderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
@@ -1561,7 +1566,7 @@ public class welcome extends javax.swing.JFrame {
 
         UpdatetpLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         UpdatetpLabel.setText("Total Price");
-        UpdateOrderPanel.add(UpdatetpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+        UpdateOrderPanel.add(UpdatetpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
         background_green9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         UpdateOrderPanel.add(background_green9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -1719,7 +1724,7 @@ public class welcome extends javax.swing.JFrame {
         StatusProjectPanel.add(jScrollPane14, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
 
         projUpDueDate.setMinSelectableDate(new Date());
-        StatusProjectPanel.add(projUpDueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 100, -1));
+        StatusProjectPanel.add(projUpDueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 140, -1));
 
         projUpStatusChoice.addItem("Pending");
         projUpStatusChoice.addItem("In Progress");
@@ -1785,7 +1790,7 @@ public class welcome extends javax.swing.JFrame {
         projComUptxt.setRows(5);
         jScrollPane15.setViewportView(projComUptxt);
 
-        StatusProjectPanel.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
+        StatusProjectPanel.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 110, -1));
 
         EnterYourSearchLabel9.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         EnterYourSearchLabel9.setText("Enter your search");
@@ -2562,7 +2567,7 @@ public class welcome extends javax.swing.JFrame {
         jLabel43.setText("Password Must be 6 letters at least ");
         jPanel1.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, -1, -1));
 
-        AddUserPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 320, 410));
+        AddUserPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 410));
 
         UserAddButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         UserAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
@@ -2584,18 +2589,9 @@ public class welcome extends javax.swing.JFrame {
         AddUserPanel.add(UserClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 260, 110, 40));
 
         background_green4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
-        AddUserPanel.add(background_green4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 450));
+        AddUserPanel.add(background_green4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1250, 470));
 
         usersTab.addTab("Add User", AddUserPanel);
-
-        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(workersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -2665,6 +2661,14 @@ public class welcome extends javax.swing.JFrame {
                     .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
+        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(workersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -4332,6 +4336,17 @@ public class welcome extends javax.swing.JFrame {
     private void CustomerContractIDTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerContractIDTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CustomerContractIDTextActionPerformed
+
+    private void usersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersButtonActionPerformed
+        workersTab.setVisible(false);
+        suppliersTab.setVisible(false);
+        ordersTab.setVisible(false);
+        inventoryTab.setVisible(false);
+        customerTab.setVisible(false);
+        projectsTab.setVisible(false);
+        reportsTab.setVisible(false);
+        usersTab.setVisible(true);
+    }//GEN-LAST:event_usersButtonActionPerformed
 
     /**
      * @param args the command line arguments
