@@ -26,6 +26,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import net.proteanit.sql.DbUtils;
 
@@ -48,6 +49,7 @@ public class welcome extends javax.swing.JFrame {
     String searchmethod;
     String oq;
     String iid;
+    
 
     /**
      * Creates new form welcome
@@ -63,6 +65,9 @@ public class welcome extends javax.swing.JFrame {
         suppliersTab.setVisible(false);
         workersTab.setVisible(false);
         usersTab.setVisible(false);
+        AlertIcon.setVisible(false);
+        
+       
         int check=0;
         try{
          String sql = "select flag from users where user_type=3";
@@ -71,9 +76,9 @@ public class welcome extends javax.swing.JFrame {
             if (rs.next()) {
                 check=rs.getInt("flag");
             }
-            if(check==1)
-               JOptionPane.showMessageDialog(null,"You Have Changed Quantity Requests"); 
-                
+            if(check==1){
+               AlertIcon.setVisible(true);
+               }  
             } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -187,6 +192,7 @@ public class welcome extends javax.swing.JFrame {
         QuantityLabel1 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         submitQButton = new javax.swing.JButton();
+        QuantityLabel2 = new javax.swing.JLabel();
         commentQtxt = new javax.swing.JTextField();
         deleteItemButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -304,7 +310,6 @@ public class welcome extends javax.swing.JFrame {
         jScrollPane20 = new javax.swing.JScrollPane();
         priceListTable = new javax.swing.JTable();
         refreshPLButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         itemIdPLtxt = new javax.swing.JTextField();
         pricePLtxt = new javax.swing.JTextField();
         suuplierIdPLtxt = new javax.swing.JTextField();
@@ -314,6 +319,8 @@ public class welcome extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
+        EnterYourSearchLabel11 = new javax.swing.JLabel();
+        background_green15 = new javax.swing.JLabel();
         SearchOrderPanel = new javax.swing.JPanel();
         searchOrdertxt = new javax.swing.JTextField();
         searchOrderButton = new javax.swing.JButton();
@@ -470,8 +477,9 @@ public class welcome extends javax.swing.JFrame {
         UserAddButton = new javax.swing.JButton();
         UserClearButton = new javax.swing.JButton();
         background_green4 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        AlertIcon = new javax.swing.JLabel();
+        QuantityChangeButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -581,7 +589,7 @@ public class welcome extends javax.swing.JFrame {
         AddItemPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 40, -1));
 
         jLabel10.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        jLabel10.setText("Serial Number");
+        jLabel10.setText("Item ID");
         AddItemPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         serialText.addActionListener(new java.awt.event.ActionListener() {
@@ -812,7 +820,7 @@ public class welcome extends javax.swing.JFrame {
                 updateButtonActionPerformed(evt);
             }
         });
-        UpdateItemPanel.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 250, -1, -1));
+        UpdateItemPanel.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 250, -1, -1));
 
         EnterYourSearchLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         EnterYourSearchLabel.setText("Enter your Search");
@@ -947,18 +955,18 @@ public class welcome extends javax.swing.JFrame {
         jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Storage_Label4.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
-        Storage_Label4.setText("Stock");
-        jPanel24.add(Storage_Label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 30));
-        jPanel24.add(quantitytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 90, -1));
+        Storage_Label4.setText("Stock Change");
+        jPanel24.add(Storage_Label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 160, 30));
+        jPanel24.add(quantitytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 90, -1));
 
         QuantityLabel1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        QuantityLabel1.setText("Quantity");
-        jPanel24.add(QuantityLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        QuantityLabel1.setText("Comments");
+        jPanel24.add(QuantityLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 0, 0));
         jLabel19.setText("Any change requiers manager approval");
-        jPanel24.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+        jPanel24.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
 
         submitQButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         submitQButton.setText("Submit");
@@ -968,17 +976,23 @@ public class welcome extends javax.swing.JFrame {
             }
         });
         jPanel24.add(submitQButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 130, -1));
-        jPanel24.add(commentQtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 90, -1));
+
+        QuantityLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        QuantityLabel2.setText("New Quantity");
+        jPanel24.add(QuantityLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        jPanel24.add(commentQtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 90, -1));
 
         UpdateItemPanel.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 230, 140));
 
+        deleteItemButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        deleteItemButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete icon.png"))); // NOI18N
         deleteItemButton.setText("delete");
         deleteItemButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 deleteItemButtonActionPerformed(evt);
             }
         });
-        UpdateItemPanel.add(deleteItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 330, 100, 30));
+        UpdateItemPanel.add(deleteItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 250, 130, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         UpdateItemPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -1480,7 +1494,7 @@ public class welcome extends javax.swing.JFrame {
 
         orderDescriptionLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         orderDescriptionLabel.setText("Description");
-        AddOrderPanel.add(orderDescriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+        AddOrderPanel.add(orderDescriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
 
         orderPriceLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         orderPriceLabel.setText("Total Price");
@@ -1609,12 +1623,18 @@ public class welcome extends javax.swing.JFrame {
 
         ordersTab.addTab("Update", UpdateOrderPanel);
 
+        PriceListPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PriceListPanel.add(itemIDPricetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+
+        searchPLButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        searchPLButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
         searchPLButton.setText("Search");
         searchPLButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchPLButtonActionPerformed(evt);
             }
         });
+        PriceListPanel.add(searchPLButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
 
         priceListTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1629,104 +1649,54 @@ public class welcome extends javax.swing.JFrame {
         ));
         jScrollPane20.setViewportView(priceListTable);
 
+        PriceListPanel.add(jScrollPane20, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
+
+        refreshPLButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        refreshPLButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
         refreshPLButton.setText("Refresh");
         refreshPLButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 refreshPLButtonActionPerformed(evt);
             }
         });
+        PriceListPanel.add(refreshPLButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
+        PriceListPanel.add(itemIdPLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 100, -1));
+        PriceListPanel.add(pricePLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 100, -1));
+        PriceListPanel.add(suuplierIdPLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 100, -1));
+        PriceListPanel.add(supplierNamePLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 100, -1));
 
-        jLabel1.setText("Item ID");
-
+        addPLButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        addPLButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
         addPLButton.setText("Add");
         addPLButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addPLButtonActionPerformed(evt);
             }
         });
+        PriceListPanel.add(addPLButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 250, -1, -1));
 
+        jLabel25.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel25.setText("Item ID");
+        PriceListPanel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
+        jLabel26.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel26.setText("Price");
+        PriceListPanel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
+        jLabel27.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel27.setText("Supplier ID");
+        PriceListPanel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
+        jLabel28.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel28.setText("Supplier Name");
+        PriceListPanel.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
-        javax.swing.GroupLayout PriceListPanelLayout = new javax.swing.GroupLayout(PriceListPanel);
-        PriceListPanel.setLayout(PriceListPanelLayout);
-        PriceListPanelLayout.setHorizontalGroup(
-            PriceListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PriceListPanelLayout.createSequentialGroup()
-                .addGroup(PriceListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PriceListPanelLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(PriceListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel25)
-                            .addComponent(jLabel26)
-                            .addComponent(jLabel27)
-                            .addComponent(jLabel28))
-                        .addGap(40, 40, 40)
-                        .addGroup(PriceListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(itemIDPricetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(PriceListPanelLayout.createSequentialGroup()
-                                .addComponent(searchPLButton)
-                                .addGap(18, 18, 18)
-                                .addComponent(refreshPLButton))
-                            .addGroup(PriceListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(suuplierIdPLtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, PriceListPanelLayout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(supplierNamePLtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(PriceListPanelLayout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addGroup(PriceListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(itemIdPLtxt, javax.swing.GroupLayout.DEFAULT_SIZE, 74, Short.MAX_VALUE)
-                                    .addComponent(pricePLtxt))))
-                        .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PriceListPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(addPLButton)
-                        .addGap(55, 55, 55)))
-                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(400, Short.MAX_VALUE))
-        );
-        PriceListPanelLayout.setVerticalGroup(
-            PriceListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PriceListPanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(PriceListPanelLayout.createSequentialGroup()
-                .addGap(61, 61, 61)
-                .addGroup(PriceListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(itemIDPricetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(27, 27, 27)
-                .addGroup(PriceListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(searchPLButton)
-                    .addComponent(refreshPLButton))
-                .addGap(37, 37, 37)
-                .addGroup(PriceListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(itemIdPLtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25))
-                .addGap(18, 18, 18)
-                .addGroup(PriceListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(pricePLtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(PriceListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(suuplierIdPLtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27))
-                .addGap(18, 18, 18)
-                .addGroup(PriceListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(supplierNamePLtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                .addComponent(addPLButton)
-                .addGap(95, 95, 95))
-        );
+        EnterYourSearchLabel11.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel11.setText("Enter your search by Order ID");
+        PriceListPanel.add(EnterYourSearchLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        background_green15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        PriceListPanel.add(background_green15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         ordersTab.addTab("Price List", PriceListPanel);
 
@@ -2710,6 +2680,15 @@ public class welcome extends javax.swing.JFrame {
 
         usersTab.addTab("Add User", AddUserPanel);
 
+        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(workersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -2778,28 +2757,23 @@ public class welcome extends javax.swing.JFrame {
                     .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(workersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
-        jButton3.setText("Quantity Changes");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        AlertIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/applet-critical-48.png"))); // NOI18N
+        getContentPane().add(AlertIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, -1, -1));
+
+        QuantityChangeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Quantity Change icon 53x50.png"))); // NOI18N
+        QuantityChangeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                QuantityChangeButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 180, -1, -1));
+        getContentPane().add(QuantityChangeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 65, 60));
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 680));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 680));
 
         pack();
         setLocationRelativeTo(null);
@@ -4508,10 +4482,10 @@ public class welcome extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_submitQButtonActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void QuantityChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuantityChangeButtonActionPerformed
         QuantityChange qc = new QuantityChange();
         qc.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_QuantityChangeButtonActionPerformed
 
     private void searchPLButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPLButtonActionPerformed
         try {
@@ -4753,6 +4727,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JPanel AddSupplierPanel;
     private javax.swing.JPanel AddUserPanel;
     private javax.swing.JTable AddUserTable;
+    private javax.swing.JLabel AlertIcon;
     private javax.swing.JButton ClearButton;
     private javax.swing.JButton ClearCustomerButton;
     private javax.swing.JLabel Comments_Label;
@@ -4774,6 +4749,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel EnterYourSearchLabel;
     private javax.swing.JLabel EnterYourSearchLabel1;
     private javax.swing.JLabel EnterYourSearchLabel10;
+    private javax.swing.JLabel EnterYourSearchLabel11;
     private javax.swing.JLabel EnterYourSearchLabel2;
     private javax.swing.JLabel EnterYourSearchLabel3;
     private javax.swing.JLabel EnterYourSearchLabel4;
@@ -4790,7 +4766,9 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel ProjectIDLabel;
     private javax.swing.JLabel ProjectNameLabel;
     private javax.swing.JLabel ProjectStartdateLabel;
+    private javax.swing.JButton QuantityChangeButton;
     private javax.swing.JLabel QuantityLabel1;
+    private javax.swing.JLabel QuantityLabel2;
     private javax.swing.JButton RefreshButton;
     private javax.swing.JButton RefreshButton1;
     private javax.swing.JTextField Row_Text;
@@ -4908,6 +4886,7 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel background_green12;
     private javax.swing.JLabel background_green13;
     private javax.swing.JLabel background_green14;
+    private javax.swing.JLabel background_green15;
     private javax.swing.JLabel background_green2;
     private javax.swing.JLabel background_green3;
     private javax.swing.JLabel background_green4;
@@ -4959,7 +4938,6 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JTable itemSearchTable;
     private javax.swing.JTable itemTable;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
@@ -4973,7 +4951,6 @@ public class welcome extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;

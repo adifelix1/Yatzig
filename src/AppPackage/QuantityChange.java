@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author Adi
@@ -28,7 +29,7 @@ public class QuantityChange extends javax.swing.JFrame {
         user_update_table();
         
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -42,8 +43,11 @@ public class QuantityChange extends javax.swing.JFrame {
         quantityChangeTable = new javax.swing.JTable();
         aproveButton = new javax.swing.JButton();
         rejectButton = new javax.swing.JButton();
+        background_green = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(580, 418));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         quantityChangeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -63,47 +67,31 @@ public class QuantityChange extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(quantityChangeTable);
 
-        aproveButton.setText("Aprove");
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, 290));
+
+        aproveButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        aproveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/submit.png"))); // NOI18N
+        aproveButton.setText("Approve");
         aproveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 aproveButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(aproveButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 140, -1));
 
+        rejectButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        rejectButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete icon.png"))); // NOI18N
         rejectButton.setText("Reject");
         rejectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rejectButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(rejectButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 130, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(65, 65, 65)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(aproveButton)
-                    .addComponent(rejectButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addComponent(aproveButton)
-                        .addGap(34, 34, 34)
-                        .addComponent(rejectButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
+        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green.setPreferredSize(new java.awt.Dimension(400, 400));
+        getContentPane().add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -126,7 +114,7 @@ public class QuantityChange extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         
-        dalate_raw();
+        delete_row();
         JOptionPane.showMessageDialog(null, "Quantity Change Approved");
         user_update_table();
          try{
@@ -140,7 +128,9 @@ public class QuantityChange extends javax.swing.JFrame {
         }
          if(!checkEmpty)
            {
+               
             String sql = "update users set flag=0 where user_type=3";
+            
         try{
             pst = conn.prepareStatement(sql);
             pst.execute(sql);
@@ -149,11 +139,12 @@ public class QuantityChange extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
             }
            }
-        
+
     }//GEN-LAST:event_aproveButtonActionPerformed
 
     private void rejectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectButtonActionPerformed
-        dalate_raw();
+        delete_row();
+        user_update_table();
         JOptionPane.showMessageDialog(null, "Quantity Change Rejected");
     }//GEN-LAST:event_rejectButtonActionPerformed
 
@@ -186,13 +177,14 @@ public class QuantityChange extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+                public void run() {
                 new QuantityChange().setVisible(true);
             }
         });
     }
     
-               private void user_update_table(){
+    
+      private void user_update_table(){
         try{
                  String sql = "select item_id as 'Item ID',user_name as 'User Name',old_quantity as 'Old Quantity',new_quantity as 'New Quantity',comments as 'Comments' from quantity_change";
                  pst=conn.prepareStatement(sql);
@@ -205,21 +197,22 @@ public class QuantityChange extends javax.swing.JFrame {
         }
     }
                
-               private void dalate_raw()
-               {
-                   try{
-            String sql = "delete from quantity_change where item_id='"+itemId+"' ";
-            pst = conn.prepareStatement(sql);
-            pst.executeUpdate(sql);
-        }
-        catch (Exception e) {
+       private void delete_row() {
+          try{
+              
+              String sql = "delete from quantity_change where item_id='"+itemId+"' ";
+              pst = conn.prepareStatement(sql);
+              pst.executeUpdate(sql);
+          }
+          catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
+          }
         }
-               }
                
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aproveButton;
+    private javax.swing.JLabel background_green;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable quantityChangeTable;
     private javax.swing.JButton rejectButton;
