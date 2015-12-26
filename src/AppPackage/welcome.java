@@ -4717,6 +4717,15 @@ public class welcome extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    
+    /**
+     *
+     * @return
+     */
+    public void setAlertIconVisible() {
+        AlertIcon.setVisible(false);
+    }
+                        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddCustomerButton;

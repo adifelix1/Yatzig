@@ -15,6 +15,7 @@ public static Connection conn=null;
 PreparedStatement pst=null;
 ResultSet rs=null;
 public  static String username;
+public static welcome w;
     /**
      * Creates new form loginGUI
      */
@@ -129,7 +130,7 @@ public  static String username;
                  int lvl=rs.getInt("user_type");
                 if(lvl==3)
                 {
-                welcome w=new welcome();
+                w=new welcome();
                 w.setVisible(true);
                 this.setVisible(false);
                 }

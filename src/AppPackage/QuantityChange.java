@@ -9,6 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -104,7 +105,6 @@ public class QuantityChange extends javax.swing.JFrame {
     }//GEN-LAST:event_quantityChangeTableMouseClicked
 
     private void aproveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aproveButtonActionPerformed
-       boolean checkEmpty=true;
         try{
             String sql = "update items set quantity='"+newQ+"' where item_id='"+itemId+"' ";
             pst = conn.prepareStatement(sql);
@@ -117,35 +117,15 @@ public class QuantityChange extends javax.swing.JFrame {
         delete_row();
         JOptionPane.showMessageDialog(null, "Quantity Change Approved");
         user_update_table();
-         try{
-            String sql = "select * from quantity_change";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery(sql);
-             checkEmpty=rs.next();
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-         if(!checkEmpty)
-           {
-               
-            String sql = "update users set flag=0 where user_type=3";
-            
-        try{
-            pst = conn.prepareStatement(sql);
-            pst.execute(sql);
-            }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-            }
-           }
-
+         checkIfTableEmpty();
     }//GEN-LAST:event_aproveButtonActionPerformed
 
     private void rejectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectButtonActionPerformed
         delete_row();
         user_update_table();
         JOptionPane.showMessageDialog(null, "Quantity Change Rejected");
+        checkIfTableEmpty();
+        
     }//GEN-LAST:event_rejectButtonActionPerformed
 
     /**
@@ -208,7 +188,45 @@ public class QuantityChange extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
           }
         }
-               
+       
+        private void checkIfTableEmpty(){
+           boolean checkEmpty=true;
+           try{
+            String sql = "select * from quantity_change";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+             checkEmpty=rs.next();
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        if(!checkEmpty)
+           {   
+          resetUserFlag();
+          iconChange();
+           }
+       }
+       
+       private void resetUserFlag(){
+             String sql = "update users set flag=0 where user_type=3";
+            
+        try{
+            pst = conn.prepareStatement(sql);
+            pst.execute(sql);
+            }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+            }
+        
+       }
+       
+       private void iconChange(){
+           welcome wel = loginGUI.w;
+           wel.setAlertIconVisible();
+           this.setVisible(false);
+           wel.validate();
+       }
+                
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton aproveButton;
