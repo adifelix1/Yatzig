@@ -221,7 +221,7 @@ public class QuantityChange extends javax.swing.JFrame {
        }
        
        private void iconChange(){
-           welcome wel = loginGUI.w;
+           welcome3 wel = loginGUI.w;
            wel.setAlertIconVisible();
            this.setVisible(false);
            wel.validate();

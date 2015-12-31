@@ -15,7 +15,7 @@ public static Connection conn=null;
 PreparedStatement pst=null;
 ResultSet rs=null;
 public  static String username;
-public static welcome w;
+public static welcome3 w;
     /**
      * Creates new form loginGUI
      */
@@ -113,7 +113,7 @@ public static welcome w;
     }//GEN-LAST:event_jLabel5MouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-       this.setState(welcome.ICONIFIED);
+       this.setState(welcome3.ICONIFIED);
     }//GEN-LAST:event_jLabel6MouseClicked
 
 
@@ -130,7 +130,7 @@ public static welcome w;
                  int lvl=rs.getInt("user_type");
                 if(lvl==3)
                 {
-                w=new welcome();
+                w=new welcome3();
                 w.setVisible(true);
                 this.setVisible(false);
                 }
@@ -149,7 +149,7 @@ public static welcome w;
                 }
                 if(lvl==0)
                 {
-                welcome00 w=new welcome00();
+                welcome0 w=new welcome0();
                 w.setVisible(true);
                 this.setVisible(false);
                 }

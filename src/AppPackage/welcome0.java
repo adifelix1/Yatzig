@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package AppPackage;
-import static AppPackage.welcome.pst;
+import static AppPackage.welcome3.pst;
 import java.util.Date;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -28,9 +28,9 @@ import net.proteanit.sql.DbUtils;
  *
  * @author Adi
  */
-     public class welcome00 extends javax.swing.JFrame {
+     public class welcome0 extends javax.swing.JFrame {
      static Connection conn=loginGUI.conn;
-     static   PreparedStatement pst=null;
+     static PreparedStatement pst=null;
      static ResultSet rs=null;
      public String filename;
      public String filename_update;
@@ -42,7 +42,7 @@ import net.proteanit.sql.DbUtils;
     /**
      * Creates new form welcome
      */
-    public welcome00() {
+    public welcome0() {
 
         initComponents();
         customerTab.setVisible(false);
@@ -66,8 +66,7 @@ import net.proteanit.sql.DbUtils;
         jLabel3 = new javax.swing.JLabel();
         customersButton = new javax.swing.JButton();
         reportsButton = new javax.swing.JButton();
-        usersButton = new javax.swing.JButton();
-        logoutButton = new javax.swing.JButton();
+        workersButton = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         WorkersTab = new javax.swing.JTabbedPane();
         AddWorkerPanel = new javax.swing.JPanel();
@@ -145,32 +144,53 @@ import net.proteanit.sql.DbUtils;
         ContractIDText2 = new javax.swing.JTextField();
         ContractIDLabel2 = new javax.swing.JLabel();
         customerTab = new javax.swing.JTabbedPane();
-        jPanel2 = new javax.swing.JPanel();
-        jPanel6 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        ordersTab = new javax.swing.JTabbedPane();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        projectTab = new javax.swing.JTabbedPane();
-        jPanel11 = new javax.swing.JPanel();
-        jPanel12 = new javax.swing.JPanel();
-        jPanel13 = new javax.swing.JPanel();
-        reportTab = new javax.swing.JTabbedPane();
-        jPanel14 = new javax.swing.JPanel();
-        jPanel15 = new javax.swing.JPanel();
-        suppliers = new javax.swing.JTabbedPane();
-        jPanel16 = new javax.swing.JPanel();
-        jPanel17 = new javax.swing.JPanel();
-        jPanel18 = new javax.swing.JPanel();
-        woekerTab = new javax.swing.JTabbedPane();
-        jPanel19 = new javax.swing.JPanel();
-        jPanel20 = new javax.swing.JPanel();
-        jPanel21 = new javax.swing.JPanel();
-        jPanel22 = new javax.swing.JPanel();
-        userTab = new javax.swing.JTabbedPane();
-        jPanel23 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        AddCustomerPanel = new javax.swing.JPanel();
+        CustomerIDText = new javax.swing.JTextField();
+        CustomerNameText = new javax.swing.JTextField();
+        CustomerAddressText = new javax.swing.JTextField();
+        CustomerPhoneText = new javax.swing.JTextField();
+        CustomerEmailText = new javax.swing.JTextField();
+        CustomerContractIDText = new javax.swing.JTextField();
+        AddCustomerButton = new javax.swing.JButton();
+        ClearCustomerButton = new javax.swing.JButton();
+        CustomerIDLabel = new javax.swing.JLabel();
+        CustomerNameLabel = new javax.swing.JLabel();
+        CustomerAddressLabel = new javax.swing.JLabel();
+        CustomerPhoneLabel = new javax.swing.JLabel();
+        CustomerEmailLabel = new javax.swing.JLabel();
+        CustomerContractLabel = new javax.swing.JLabel();
+        background_green5 = new javax.swing.JLabel();
+        UpdateDetailsCustomerPanel = new javax.swing.JPanel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        cusUpdateTable = new javax.swing.JTable();
+        EnterYourSearchLabel4 = new javax.swing.JLabel();
+        cusSearchUpdatetxt = new javax.swing.JTextField();
+        cusSearchUpdateButton = new javax.swing.JButton();
+        upCusNameRadioButton = new javax.swing.JRadioButton();
+        upcusIDRadioButton = new javax.swing.JRadioButton();
+        cusUpAddtxt = new javax.swing.JTextField();
+        cusUpPhonetxt = new javax.swing.JTextField();
+        cusUpMailtxt = new javax.swing.JTextField();
+        cusUpContarcttxt = new javax.swing.JTextField();
+        cusUpAddLabel = new javax.swing.JLabel();
+        cusUpPhoneLabel = new javax.swing.JLabel();
+        cusUpMailLabel = new javax.swing.JLabel();
+        cusUpContarctLabel = new javax.swing.JLabel();
+        cusUpdate = new javax.swing.JButton();
+        cusRefreshUpButton = new javax.swing.JButton();
+        cusDeleteButton = new javax.swing.JButton();
+        background_green6 = new javax.swing.JLabel();
+        SearchCustomerPanel = new javax.swing.JPanel();
+        EnterYourSearchLabel3 = new javax.swing.JLabel();
+        cusSearchtxt = new javax.swing.JTextField();
+        cusIDRadioButton = new javax.swing.JRadioButton();
+        cusNameRadioButton = new javax.swing.JRadioButton();
+        cusSearchButton = new javax.swing.JButton();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        cusSearchTable = new javax.swing.JTable();
+        cusRefreshButton = new javax.swing.JButton();
+        background_green7 = new javax.swing.JLabel();
+        logoutButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -199,7 +219,7 @@ import net.proteanit.sql.DbUtils;
         });
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1153, 4, 30, 20));
 
-        customersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Customers icon 60 x 50.png"))); // NOI18N
+        customersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Customers icon 60 x 50.png"))); // NOI18N
         customersButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 customersButtonActionPerformed(evt);
@@ -207,19 +227,16 @@ import net.proteanit.sql.DbUtils;
         });
         getContentPane().add(customersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 67, 60));
 
-        reportsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Reports icon 53 x 50.png"))); // NOI18N
+        reportsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Reports icon 53 x 50.png"))); // NOI18N
         getContentPane().add(reportsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 65, 60));
 
-        usersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Users icon 53 x 50.png"))); // NOI18N
-        getContentPane().add(usersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 65, -1));
-
-        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/logout button.png"))); // NOI18N
-        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+        workersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Workers icon 53 x 50.png"))); // NOI18N
+        workersButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutButtonActionPerformed(evt);
+                workersButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 30, 30));
+        getContentPane().add(workersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 65, 60));
 
         WorkersTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         WorkersTab.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -376,7 +393,7 @@ import net.proteanit.sql.DbUtils;
 
         background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         background_green.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        AddWorkerPanel.add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
+        AddWorkerPanel.add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1260, 430));
 
         WorkersTab.addTab("Add Worker", AddWorkerPanel);
 
@@ -387,7 +404,7 @@ import net.proteanit.sql.DbUtils;
         UpdateDetailsPanel.add(EnterYourSearchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
         UpdateDetailsPanel.add(SearchText, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
 
-        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
+        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -629,7 +646,7 @@ import net.proteanit.sql.DbUtils;
         });
         SearchPanel.add(WorkerNameRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
 
-        searchButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/search.png"))); // NOI18N
+        searchButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
         searchButton1.setText("Search");
         searchButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -694,339 +711,317 @@ import net.proteanit.sql.DbUtils;
 
         WorkersTab.addTab("Search", SearchPanel);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
-        );
+        customerTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        customerTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                customerTabMouseClicked(evt);
+            }
+        });
 
-        customerTab.addTab("Add Customer", jPanel2);
+        AddCustomerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
-        );
+        CustomerIDText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CustomerIDTextActionPerformed(evt);
+            }
+        });
+        AddCustomerPanel.add(CustomerIDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 118, -1));
+        AddCustomerPanel.add(CustomerNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 118, -1));
+        AddCustomerPanel.add(CustomerAddressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 118, -1));
+        AddCustomerPanel.add(CustomerPhoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 118, -1));
+        AddCustomerPanel.add(CustomerEmailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 118, -1));
 
-        customerTab.addTab("Update Details", jPanel6);
+        CustomerContractIDText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CustomerContractIDTextActionPerformed(evt);
+            }
+        });
+        AddCustomerPanel.add(CustomerContractIDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 118, -1));
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
-        );
+        AddCustomerButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        AddCustomerButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
+        AddCustomerButton.setText("Add");
+        AddCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddCustomerButtonActionPerformed(evt);
+            }
+        });
+        AddCustomerPanel.add(AddCustomerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
 
-        customerTab.addTab("Search", jPanel8);
+        ClearCustomerButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        ClearCustomerButton.setText("Clear");
+        ClearCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearCustomerButtonActionPerformed(evt);
+            }
+        });
+        AddCustomerPanel.add(ClearCustomerButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 100, 40));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
-        );
+        CustomerIDLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        CustomerIDLabel.setText("Customer ID");
+        AddCustomerPanel.add(CustomerIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, -1, -1));
 
-        ordersTab.addTab("Add Order", jPanel4);
+        CustomerNameLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        CustomerNameLabel.setText("Customer Name");
+        AddCustomerPanel.add(CustomerNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
-        );
+        CustomerAddressLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        CustomerAddressLabel.setText("Address");
+        AddCustomerPanel.add(CustomerAddressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
-        ordersTab.addTab("Update", jPanel9);
+        CustomerPhoneLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        CustomerPhoneLabel.setText("Phone");
+        AddCustomerPanel.add(CustomerPhoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 436, Short.MAX_VALUE)
-        );
+        CustomerEmailLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        CustomerEmailLabel.setText("E-mail");
+        AddCustomerPanel.add(CustomerEmailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
-        ordersTab.addTab("Search", jPanel10);
+        CustomerContractLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        CustomerContractLabel.setText("Contract ID");
+        AddCustomerPanel.add(CustomerContractLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
 
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
-        );
+        background_green5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        AddCustomerPanel.add(background_green5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
-        projectTab.addTab("Add Project", jPanel11);
+        customerTab.addTab("Add Customer", AddCustomerPanel);
 
-        javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
-        jPanel12.setLayout(jPanel12Layout);
-        jPanel12Layout.setHorizontalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
-        );
-        jPanel12Layout.setVerticalGroup(
-            jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
-        );
+        UpdateDetailsCustomerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        projectTab.addTab(" Status", jPanel12);
+        cusUpdateTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Customer ID", "Customer Name", "Address", "Phone", "E-Mail", "Contract"
+            }
+        ));
+        cusUpdateTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cusUpdateTableMouseClicked(evt);
+            }
+        });
+        jScrollPane8.setViewportView(cusUpdateTable);
 
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
-        );
+        UpdateDetailsCustomerPanel.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
 
-        projectTab.addTab("Search", jPanel13);
+        EnterYourSearchLabel4.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel4.setText("Enter your search");
+        UpdateDetailsCustomerPanel.add(EnterYourSearchLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        UpdateDetailsCustomerPanel.add(cusSearchUpdatetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
 
-        javax.swing.GroupLayout jPanel14Layout = new javax.swing.GroupLayout(jPanel14);
-        jPanel14.setLayout(jPanel14Layout);
-        jPanel14Layout.setHorizontalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
-        );
-        jPanel14Layout.setVerticalGroup(
-            jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
-        );
+        cusSearchUpdateButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        cusSearchUpdateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
+        cusSearchUpdateButton.setText("Search");
+        cusSearchUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusSearchUpdateButtonActionPerformed(evt);
+            }
+        });
+        UpdateDetailsCustomerPanel.add(cusSearchUpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
 
-        reportTab.addTab("Generate", jPanel14);
+        upCusNameRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        upCusNameRadioButton.setText("By Name");
+        upCusNameRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        upCusNameRadioButton.setBorderPainted(true);
+        upCusNameRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upCusNameRadioButtonActionPerformed(evt);
+            }
+        });
+        UpdateDetailsCustomerPanel.add(upCusNameRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
 
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
-        );
+        upcusIDRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        upcusIDRadioButton.setText("By ID");
+        upcusIDRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        upcusIDRadioButton.setBorderPainted(true);
+        upcusIDRadioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        upcusIDRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upcusIDRadioButtonActionPerformed(evt);
+            }
+        });
+        UpdateDetailsCustomerPanel.add(upcusIDRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
 
-        reportTab.addTab("History", jPanel15);
+        cusUpAddtxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusUpAddtxtActionPerformed(evt);
+            }
+        });
+        UpdateDetailsCustomerPanel.add(cusUpAddtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 150, -1));
+        UpdateDetailsCustomerPanel.add(cusUpPhonetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 150, -1));
+        UpdateDetailsCustomerPanel.add(cusUpMailtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 150, -1));
+        UpdateDetailsCustomerPanel.add(cusUpContarcttxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 150, -1));
 
-        javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
-        jPanel16.setLayout(jPanel16Layout);
-        jPanel16Layout.setHorizontalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
-        );
-        jPanel16Layout.setVerticalGroup(
-            jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
-        );
+        cusUpAddLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        cusUpAddLabel.setText("Address");
+        UpdateDetailsCustomerPanel.add(cusUpAddLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
 
-        suppliers.addTab("Add Suppliers", jPanel16);
+        cusUpPhoneLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        cusUpPhoneLabel.setText("Phone");
+        UpdateDetailsCustomerPanel.add(cusUpPhoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
-        );
+        cusUpMailLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        cusUpMailLabel.setText("E-Mail");
+        UpdateDetailsCustomerPanel.add(cusUpMailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
-        suppliers.addTab("Update", jPanel17);
+        cusUpContarctLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        cusUpContarctLabel.setText("Contract ID");
+        UpdateDetailsCustomerPanel.add(cusUpContarctLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
 
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
-        );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
-        );
+        cusUpdate.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        cusUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/save-icon-30.png"))); // NOI18N
+        cusUpdate.setText("Update");
+        cusUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusUpdateActionPerformed(evt);
+            }
+        });
+        UpdateDetailsCustomerPanel.add(cusUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, -1, -1));
 
-        suppliers.addTab("Search", jPanel18);
+        cusRefreshUpButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        cusRefreshUpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        cusRefreshUpButton.setText("Refresh");
+        cusRefreshUpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusRefreshUpButtonActionPerformed(evt);
+            }
+        });
+        UpdateDetailsCustomerPanel.add(cusRefreshUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
 
-        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
-        );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
-        );
+        cusDeleteButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        cusDeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete icon.png"))); // NOI18N
+        cusDeleteButton.setText("Delete");
+        cusDeleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusDeleteButtonActionPerformed(evt);
+            }
+        });
+        UpdateDetailsCustomerPanel.add(cusDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 250, -1, -1));
 
-        woekerTab.addTab("Add Worker", jPanel19);
+        background_green6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        UpdateDetailsCustomerPanel.add(background_green6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
-        javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
-        jPanel20.setLayout(jPanel20Layout);
-        jPanel20Layout.setHorizontalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
-        );
-        jPanel20Layout.setVerticalGroup(
-            jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
-        );
+        customerTab.addTab("Update Details", UpdateDetailsCustomerPanel);
 
-        woekerTab.addTab("Update Details", jPanel20);
+        SearchCustomerPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout jPanel21Layout = new javax.swing.GroupLayout(jPanel21);
-        jPanel21.setLayout(jPanel21Layout);
-        jPanel21Layout.setHorizontalGroup(
-            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
-        );
-        jPanel21Layout.setVerticalGroup(
-            jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
-        );
+        EnterYourSearchLabel3.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel3.setText("Enter your search");
+        SearchCustomerPanel.add(EnterYourSearchLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        SearchCustomerPanel.add(cusSearchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
 
-        woekerTab.addTab("Worker Status", jPanel21);
+        cusIDRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        cusIDRadioButton.setText("By ID");
+        cusIDRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        cusIDRadioButton.setBorderPainted(true);
+        cusIDRadioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cusIDRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusIDRadioButtonActionPerformed(evt);
+            }
+        });
+        SearchCustomerPanel.add(cusIDRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
 
-        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
-        jPanel22.setLayout(jPanel22Layout);
-        jPanel22Layout.setHorizontalGroup(
-            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
-        );
-        jPanel22Layout.setVerticalGroup(
-            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
-        );
+        cusNameRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        cusNameRadioButton.setText("By Name");
+        cusNameRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        cusNameRadioButton.setBorderPainted(true);
+        cusNameRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusNameRadioButtonActionPerformed(evt);
+            }
+        });
+        SearchCustomerPanel.add(cusNameRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
 
-        woekerTab.addTab("Search", jPanel22);
+        cusSearchButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        cusSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
+        cusSearchButton.setText("Search");
+        cusSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusSearchButtonActionPerformed(evt);
+            }
+        });
+        SearchCustomerPanel.add(cusSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
 
-        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
-        jPanel23.setLayout(jPanel23Layout);
-        jPanel23Layout.setHorizontalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1245, Short.MAX_VALUE)
-        );
-        jPanel23Layout.setVerticalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 402, Short.MAX_VALUE)
-        );
+        cusSearchTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Customer ID", "Customer Name", "Address", "Phone", "Email", "Contract ID"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
 
-        userTab.addTab("Edit", jPanel23);
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        cusSearchTable.setFocusCycleRoot(true);
+        cusSearchTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cusSearchTableMouseClicked(evt);
+            }
+        });
+        jScrollPane7.setViewportView(cusSearchTable);
+
+        SearchCustomerPanel.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
+
+        cusRefreshButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        cusRefreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        cusRefreshButton.setText("Refresh");
+        cusRefreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cusRefreshButtonActionPerformed(evt);
+            }
+        });
+        SearchCustomerPanel.add(cusRefreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
+
+        background_green7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        SearchCustomerPanel.add(background_green7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
+
+        customerTab.addTab("Search", SearchCustomerPanel);
+
+        jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(WorkersTab)
+            .addComponent(WorkersTab, javax.swing.GroupLayout.DEFAULT_SIZE, 1265, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(customerTab))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(ordersTab))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(projectTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(reportTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(suppliers, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(woekerTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(userTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                    .addComponent(customerTab)
+                    .addContainerGap()))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(WorkersTab, javax.swing.GroupLayout.Alignment.TRAILING)
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(customerTab))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(ordersTab))
+            .addComponent(WorkersTab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(projectTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(reportTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(suppliers, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(woekerTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(userTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(customerTab)
+                    .addContainerGap()))
         );
-        jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(projectTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(suppliers, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(woekerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(userTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Workers icon 53 x 50.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout button.png"))); // NOI18N
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 65, 60));
+        getContentPane().add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 30, 30));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N
@@ -1041,7 +1036,7 @@ import net.proteanit.sql.DbUtils;
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-       this.setState(welcome00.ICONIFIED);
+       this.setState(welcome0.ICONIFIED);
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
@@ -1052,7 +1047,7 @@ import net.proteanit.sql.DbUtils;
 
     private void customersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customersButtonActionPerformed
        WorkersTab.setVisible(false);
-        customerTab.setVisible(true);
+       customerTab.setVisible(true);
     }//GEN-LAST:event_customersButtonActionPerformed
 
     private void FirstNamerTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstNamerTextActionPerformed
@@ -1073,9 +1068,10 @@ import net.proteanit.sql.DbUtils;
 
   /*  */
         
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void workersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workersButtonActionPerformed
+       WorkersTab.setVisible(true);
+       customerTab.setVisible(false);
+    }//GEN-LAST:event_workersButtonActionPerformed
 
     private void LastNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastNameTextActionPerformed
         // TODO add your handling code here:
@@ -1139,6 +1135,8 @@ import net.proteanit.sql.DbUtils;
     }//GEN-LAST:event_AddressTextActionPerformed
 
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+        int f = 0;
+        int h = 0;
         fn = ContracdIDText.getText(); 
         try {
             String sql = "Insert into workers (worker_id,first_name,last_name,worker_phone,worker_add,contract_id,job_title,birth_date,email) values(?,?,?,?,?,?,?,?,?)";
@@ -1154,7 +1152,7 @@ import net.proteanit.sql.DbUtils;
             pst.setDate(8, new java.sql.Date(BirthdayDateChooserText.getDate().getTime()));
             pst.setString(9, EmailText.getText());
           
-            pst.execute();
+            pst.executeQuery();
             Path dest = Paths.get( "C:/Users/Felix/Documents/NetBeansProjects/Yatzig/src/Contracts/"+fn+".pdf");
             Path source = Paths.get(filename);
             Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);
@@ -1162,9 +1160,64 @@ import net.proteanit.sql.DbUtils;
             
         }
         catch (Exception e){
-            JOptionPane.showMessageDialog(null,e);
-        }
+            h=1;
+            if (WorkerIDText.getText().isEmpty()) 
+                    WorkerIDText.setBackground(Color.red);      
+            else 
+                WorkerIDText.setBackground(Color.white); 
             
+            if (FirstNamerText.getText().isEmpty()) 
+                    FirstNamerText.setBackground(Color.red);      
+            else 
+                FirstNamerText.setBackground(Color.white); 
+            
+            if (LastNameText.getText().isEmpty()) 
+                    LastNameText.setBackground(Color.red);      
+            else 
+                LastNameText.setBackground(Color.white);             
+            
+            if (PhoneText.getText().isEmpty()) 
+                    PhoneText.setBackground(Color.red);      
+            else 
+                PhoneText.setBackground(Color.white); 
+            
+            if (AddressText.getText().isEmpty()) 
+                    AddressText.setBackground(Color.red);      
+            else 
+                AddressText.setBackground(Color.white); 
+            
+            if (ContracdIDText.getText().isEmpty()) 
+                    ContracdIDText.setBackground(Color.red);      
+            else 
+                ContracdIDText.setBackground(Color.white);              
+            
+            if (JobTitleText.getText().isEmpty()) 
+                    JobTitleText.setBackground(Color.red);      
+            else 
+                JobTitleText.setBackground(Color.white);             
+            
+            if (EmailText.getText().isEmpty()) 
+                    EmailText.setBackground(Color.red);      
+            else 
+                EmailText.setBackground(Color.white);             
+              
+            if (f != 2) {
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+            } else {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        if (f == 0 && h==0) {
+            WorkerIDText.setText("");
+            FirstNamerText.setText("");
+            LastNameText.setText("");
+            PhoneText.setText("");
+            AddressText.setText("");
+            ContracdIDText.setText("");
+            JobTitleText.setText("");
+            EmailText.setText("");
+        }
+                       
     }//GEN-LAST:event_AddButtonActionPerformed
 
     private void ClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearButtonActionPerformed
@@ -1488,6 +1541,265 @@ import net.proteanit.sql.DbUtils;
         // TODO add your handling code here:
     }//GEN-LAST:event_ContractIDText2ActionPerformed
 
+    private void CustomerIDTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerIDTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CustomerIDTextActionPerformed
+
+    private void CustomerContractIDTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerContractIDTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CustomerContractIDTextActionPerformed
+
+    private void AddCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCustomerButtonActionPerformed
+        int f = 0;
+        int h = 0;
+        try {
+            String sql = "Insert into customers (customer_id,customer_name,address,phone,email,contract_id) values(?,?,?,?,?,?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, CustomerIDText.getText());
+            pst.setString(2, CustomerNameText.getText());
+            pst.setString(3, CustomerAddressText.getText());
+            pst.setString(4, CustomerPhoneText.getText());
+            pst.setString(5, CustomerEmailText.getText());
+            pst.setString(6, CustomerContractIDText.getText());
+
+            pst.executeQuery();
+            JOptionPane.showMessageDialog(null, "Customer Added");
+        } catch (Exception e) {
+            h=1;
+            if (CustomerIDText.getText().isEmpty()) {
+                CustomerIDText.setBackground(Color.red);
+                
+            }
+            else {
+             CustomerIDText.setBackground(Color.white); 
+            }
+            if (CustomerNameText.getText().isEmpty()) {
+                CustomerNameText.setBackground(Color.red);
+            }
+            else {
+                CustomerNameText.setBackground(Color.white);
+            }
+
+            if (CustomerAddressText.getText().isEmpty()) {
+                CustomerAddressText.setBackground(Color.red);
+            }
+            else {
+                CustomerAddressText.setBackground(Color.white);
+            }
+                 
+            if (CustomerPhoneText.getText().isEmpty()) {
+                CustomerPhoneText.setBackground(Color.red);
+            }
+            else {
+                CustomerPhoneText.setBackground(Color.white);
+            }
+
+            if (CustomerEmailText.getText().isEmpty()) {
+                CustomerEmailText.setBackground(Color.red);
+            }
+            else {
+                CustomerEmailText.setBackground(Color.white);
+            }
+            if (CustomerContractIDText.getText().isEmpty()) {
+                CustomerContractIDText.setBackground(Color.red);
+            }
+            else {
+                CustomerContractIDText.setBackground(Color.white);
+            }
+
+            if (f != 2) {
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty");
+            } else {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        }
+
+        if (f == 0 && h==0) {
+            CustomerIDText.setText("");
+            CustomerNameText.setText("");
+            CustomerAddressText.setText("");
+            CustomerPhoneText.setText("");
+            CustomerEmailText.setText("");
+            CustomerContractIDText.setText("");
+        }
+    }//GEN-LAST:event_AddCustomerButtonActionPerformed
+
+    private void ClearCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearCustomerButtonActionPerformed
+        CustomerIDText.setText("");
+        CustomerNameText.setText("");
+        CustomerAddressText.setText("");
+        CustomerPhoneText.setText("");
+        CustomerEmailText.setText("");
+        CustomerContractIDText.setText("");
+    }//GEN-LAST:event_ClearCustomerButtonActionPerformed
+
+    private void cusUpdateTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cusUpdateTableMouseClicked
+        try {
+            int raw = cusUpdateTable.getSelectedRow();
+            tableClick = (cusUpdateTable.getModel().getValueAt(raw, 0).toString());
+            String sql = "select address,phone,email,contract_id from customers where customer_id='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("address");
+                cusUpAddtxt.setText(add1);
+                String add2 = rs.getString("phone");
+                cusUpPhonetxt.setText(add2);
+                String add3 = rs.getString("email");
+                cusUpMailtxt.setText(add3);
+                String add4 = rs.getString("contract_id");
+                cusUpContarcttxt.setText(add4);
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_cusUpdateTableMouseClicked
+
+    private void cusSearchUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusSearchUpdateButtonActionPerformed
+        if(searchmethod.equals("customer_id"))
+        {
+            try {
+                String sn=cusSearchUpdatetxt.getText();
+                String sql = "select customer_id as 'Customer ID',customer_name as 'Customer Name',address as 'Address',phone as 'Phone',email 'Email',contract_id as 'Contarct ID' from customers where customer_id='"+sn+"'";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                cusUpdateTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else{
+            try {
+                String sn=cusSearchUpdatetxt.getText();
+                String sql = "select customer_id as 'Customer ID',customer_name as 'Customer Name',address as 'Address',phone as 'Phone',email 'Email',contract_id as 'Contarct ID' from customers where customer_name='"+sn+"'";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                cusUpdateTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_cusSearchUpdateButtonActionPerformed
+
+    private void upCusNameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upCusNameRadioButtonActionPerformed
+        searchmethod="customer_name";
+    }//GEN-LAST:event_upCusNameRadioButtonActionPerformed
+
+    private void upcusIDRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upcusIDRadioButtonActionPerformed
+        searchmethod="customer_id";
+    }//GEN-LAST:event_upcusIDRadioButtonActionPerformed
+
+    private void cusUpAddtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusUpAddtxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cusUpAddtxtActionPerformed
+
+    private void cusUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusUpdateActionPerformed
+        try{
+
+            String vs = cusUpAddtxt.getText();
+            String vq = cusUpPhonetxt.getText();
+            String vm = cusUpMailtxt.getText();
+            String vds = cusUpContarcttxt.getText();
+
+            String sql = "update customers set address='"+vs+"',phone='"+vq+"',email='"+vm+"',contract_id='"+vds+"' where customer_id='"+tableClick+"'";
+
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Item Updated");
+            update_CustomerTable();
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        update_CustomerTable();
+    }//GEN-LAST:event_cusUpdateActionPerformed
+
+    private void cusRefreshUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusRefreshUpButtonActionPerformed
+        update_CustomerTable();
+    }//GEN-LAST:event_cusRefreshUpButtonActionPerformed
+
+    private void cusDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusDeleteButtonActionPerformed
+        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete This Customers", "Warning!", JOptionPane.YES_NO_OPTION);
+        if(ans==0)
+        {
+            int raw = cusUpdateTable.getSelectedRow();
+            tableClick = (cusUpdateTable.getModel().getValueAt(raw, 0).toString());
+            String sql="delete from customers where customer_id='"+tableClick+"'";
+            try{
+                pst=conn.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Customer Deleted!");
+                update_CustomerTable();
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        }
+        if (ans==1)
+        {}
+
+    }//GEN-LAST:event_cusDeleteButtonActionPerformed
+
+    private void cusIDRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusIDRadioButtonActionPerformed
+        searchmethod="customer_id";
+    }//GEN-LAST:event_cusIDRadioButtonActionPerformed
+
+    private void cusNameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusNameRadioButtonActionPerformed
+        searchmethod="customer_name";
+    }//GEN-LAST:event_cusNameRadioButtonActionPerformed
+
+    private void cusSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusSearchButtonActionPerformed
+        if(searchmethod.equals("customer_id"))
+        {
+            try {
+                String sn=cusSearchtxt.getText();
+                String sql = "select customer_id as 'Customer ID',customer_name as 'Customer Name',address as 'Address',phone as 'Phone',email 'Email',contract_id as 'Contarct ID' from customers where customer_id='"+sn+"'";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                cusSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else{
+            try {
+                String sn=cusSearchtxt.getText();
+                String sql = "select customer_id as 'Customer ID',customer_name as 'Customer Name',adderss as 'Address',phone as 'Phone',email 'Email',contract_id as 'Contarct ID' from customers where customer_name='"+sn+"'";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                cusSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_cusSearchButtonActionPerformed
+
+    private void cusSearchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cusSearchTableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cusSearchTableMouseClicked
+
+    private void cusRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusRefreshButtonActionPerformed
+        update_Customer_SearchTable();
+    }//GEN-LAST:event_cusRefreshButtonActionPerformed
+
+    private void customerTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customerTabMouseClicked
+        update_CustomerTable();
+        update_Customer_SearchTable();
+    }//GEN-LAST:event_customerTabMouseClicked
+
     
     /**
      * @param args the command line arguments
@@ -1506,21 +1818,23 @@ import net.proteanit.sql.DbUtils;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(welcome00.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(welcome0.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(welcome00.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(welcome0.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(welcome00.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(welcome0.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(welcome00.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(welcome0.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new welcome00().setVisible(true);
+                new welcome0().setVisible(true);
                 
                 
             }
@@ -1551,9 +1865,35 @@ import net.proteanit.sql.DbUtils;
             JOptionPane.showMessageDialog(null, e);
         }
     }
+     
+           private void update_Customer_SearchTable(){
+        try {
+            String sql = "select customer_id as 'Customer ID',customer_name as 'Customer Name',address as 'Address',phone as 'Phone',email 'Email',contract_id as 'Contarct ID' from customers";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            cusSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+      
+      private void update_CustomerTable(){
+        try {
+            String sql = "select customer_id as 'Customer ID',customer_name as 'Customer Name',address as 'Address',phone as 'Phone',email 'Email',contract_id as 'Contarct ID' from customers";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            cusUpdateTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
+    private javax.swing.JButton AddCustomerButton;
+    private javax.swing.JPanel AddCustomerPanel;
     private javax.swing.JPanel AddWorkerPanel;
     private javax.swing.JLabel AddressLabel;
     private javax.swing.JLabel AddressLabel1;
@@ -1564,6 +1904,7 @@ import net.proteanit.sql.DbUtils;
     private com.toedter.calendar.JDateChooser BirthdayDateChooserText;
     private com.toedter.calendar.JDateChooser BirthdayDateChooserText1;
     private javax.swing.JButton ClearButton;
+    private javax.swing.JButton ClearCustomerButton;
     private javax.swing.JTextField ContracdIDText;
     private javax.swing.JLabel ContractIDLabel;
     private javax.swing.JLabel ContractIDLabel1;
@@ -1571,6 +1912,18 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JTextField ContractIDText1;
     private javax.swing.JTextField ContractIDText2;
     private javax.swing.JPanel ContractPanel;
+    private javax.swing.JLabel CustomerAddressLabel;
+    private javax.swing.JTextField CustomerAddressText;
+    private javax.swing.JTextField CustomerContractIDText;
+    private javax.swing.JLabel CustomerContractLabel;
+    private javax.swing.JLabel CustomerEmailLabel;
+    private javax.swing.JTextField CustomerEmailText;
+    private javax.swing.JLabel CustomerIDLabel;
+    private javax.swing.JTextField CustomerIDText;
+    private javax.swing.JLabel CustomerNameLabel;
+    private javax.swing.JTextField CustomerNameText;
+    private javax.swing.JLabel CustomerPhoneLabel;
+    private javax.swing.JTextField CustomerPhoneText;
     private javax.swing.JButton DeleteButton;
     private javax.swing.JLabel EmailLabel;
     private javax.swing.JLabel EmailLabel1;
@@ -1578,6 +1931,8 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JTextField EmailText1;
     private javax.swing.JLabel EnterYourSearchLabel;
     private javax.swing.JLabel EnterYourSearchLabel1;
+    private javax.swing.JLabel EnterYourSearchLabel3;
+    private javax.swing.JLabel EnterYourSearchLabel4;
     private javax.swing.JTextField FirstNameText1;
     private javax.swing.JLabel FirstNamerLabel;
     private javax.swing.JLabel FirstNamerLabel1;
@@ -1598,11 +1953,13 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JTextField PhoneText1;
     private javax.swing.JButton RefreshButton;
     private javax.swing.JButton RefreshButton1;
+    private javax.swing.JPanel SearchCustomerPanel;
     private javax.swing.JPanel SearchPanel;
     private javax.swing.JTextField SearchText;
     private javax.swing.JTextField SearchText1;
     private javax.swing.JButton ShowContractButton;
     private javax.swing.JButton Show_Contract_Button;
+    private javax.swing.JPanel UpdateDetailsCustomerPanel;
     private javax.swing.JPanel UpdateDetailsPanel;
     private javax.swing.JButton UploadContractButton;
     private javax.swing.JButton UploadContractButton1;
@@ -1618,10 +1975,32 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JTable WorkersTable;
     private javax.swing.JTable WorkersTable1;
     private javax.swing.JLabel background_green;
+    private javax.swing.JLabel background_green5;
+    private javax.swing.JLabel background_green6;
+    private javax.swing.JLabel background_green7;
     private javax.swing.JLabel contract_Label1;
+    private javax.swing.JButton cusDeleteButton;
+    private javax.swing.JRadioButton cusIDRadioButton;
+    private javax.swing.JRadioButton cusNameRadioButton;
+    private javax.swing.JButton cusRefreshButton;
+    private javax.swing.JButton cusRefreshUpButton;
+    private javax.swing.JButton cusSearchButton;
+    private javax.swing.JTable cusSearchTable;
+    private javax.swing.JButton cusSearchUpdateButton;
+    private javax.swing.JTextField cusSearchUpdatetxt;
+    private javax.swing.JTextField cusSearchtxt;
+    private javax.swing.JLabel cusUpAddLabel;
+    private javax.swing.JTextField cusUpAddtxt;
+    private javax.swing.JLabel cusUpContarctLabel;
+    private javax.swing.JTextField cusUpContarcttxt;
+    private javax.swing.JLabel cusUpMailLabel;
+    private javax.swing.JTextField cusUpMailtxt;
+    private javax.swing.JLabel cusUpPhoneLabel;
+    private javax.swing.JTextField cusUpPhonetxt;
+    private javax.swing.JButton cusUpdate;
+    private javax.swing.JTable cusUpdateTable;
     private javax.swing.JTabbedPane customerTab;
     private javax.swing.JButton customersButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
@@ -1631,41 +2010,20 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel16;
-    private javax.swing.JPanel jPanel17;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel20;
-    private javax.swing.JPanel jPanel21;
-    private javax.swing.JPanel jPanel22;
-    private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton logoutButton;
-    private javax.swing.JTabbedPane ordersTab;
-    private javax.swing.JTabbedPane projectTab;
-    private javax.swing.JTabbedPane reportTab;
     private javax.swing.JButton reportsButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JButton searchButton1;
     private javax.swing.ButtonGroup searchGroup;
-    private javax.swing.JTabbedPane suppliers;
+    private javax.swing.JRadioButton upCusNameRadioButton;
+    private javax.swing.JRadioButton upcusIDRadioButton;
     private javax.swing.JButton updateButton;
-    private javax.swing.JTabbedPane userTab;
-    private javax.swing.JButton usersButton;
-    private javax.swing.JTabbedPane woekerTab;
+    private javax.swing.JButton workersButton;
     // End of variables declaration//GEN-END:variables
 
 }

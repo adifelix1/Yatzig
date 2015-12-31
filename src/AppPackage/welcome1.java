@@ -4,18 +4,52 @@
  * and open the template in the editor.
  */
 package AppPackage;
+import static AppPackage.welcome3.pst;
+import java.util.Date;
+import java.sql.*;
+import javax.swing.JOptionPane;
+import java.io.File;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import net.proteanit.sql.DbUtils;
+import java.awt.*;
+import java.awt.Desktop;
+import java.io.File;
+import java.lang.Object; 
+import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
  * @author Adi
  */
 public class welcome1 extends javax.swing.JFrame {
-
+    static Connection conn=loginGUI.conn;
+    static PreparedStatement pst=null;
+    static ResultSet rs=null;
+    public String filename_supplier;
+    public String supplier_filename_update;
+    public String supplier_filename_show_contract;
+    public String sn; 
+    public String fn;
+    String tableClick;
+    String searchmethod;
+    String oq;
+    String iid;
+     
+     
     /**
      * Creates new form welcome
      */
     public welcome1() {
         initComponents();
+        ordersTab.setVisible(false);
+        suppliersTab.setVisible(false);
+        update_table();
     }
 
     /**
@@ -28,145 +62,2849 @@ public class welcome1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu3 = new javax.swing.JMenu();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jPanel13 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        ordersButton = new javax.swing.JButton();
+        suppliersButton = new javax.swing.JButton();
+        inventoryButton = new javax.swing.JButton();
+        reportsButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
-        label1 = new java.awt.Label();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        inventoryTab = new javax.swing.JTabbedPane();
+        AddItemPanel = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        serialText = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        nameText = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        descriptionText = new javax.swing.JTextArea();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        quantityText = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        supplierText = new javax.swing.JTextField();
+        jLabel16 = new javax.swing.JLabel();
+        categoryChoice = new java.awt.Choice();
+        eDate = new com.toedter.calendar.JDateChooser();
+        addButton = new javax.swing.JButton();
+        clearButton = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        minLevelText = new javax.swing.JTextField();
+        Storage_panel = new javax.swing.JPanel();
+        Storage_Label = new javax.swing.JLabel();
+        Comments_Label = new javax.swing.JLabel();
+        Shelf_Text = new javax.swing.JTextField();
+        warehouse_label = new javax.swing.JLabel();
+        Row_label = new javax.swing.JLabel();
+        Row_Text = new javax.swing.JTextField();
+        Shelf__label = new javax.swing.JLabel();
+        Warehouse_Text = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Comments_Text = new javax.swing.JTextArea();
+        background_green = new javax.swing.JLabel();
+        jScrollBar2 = new javax.swing.JScrollBar();
+        UpdateItemPanel = new javax.swing.JPanel();
+        searchtxt = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        itemTable = new javax.swing.JTable();
+        searchButton = new javax.swing.JButton();
+        minQtxt = new javax.swing.JTextField();
+        datetxt = new com.toedter.calendar.JDateChooser();
+        suppliertxt = new javax.swing.JTextField();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        descriptiontxt = new javax.swing.JTextArea();
+        updateButton = new javax.swing.JButton();
+        EnterYourSearchLabel = new javax.swing.JLabel();
+        itemNameRadioButton = new javax.swing.JRadioButton();
+        itemIdRadioButton = new javax.swing.JRadioButton();
+        SupplierNameLabel2 = new javax.swing.JLabel();
+        MinQuantityLabel1 = new javax.swing.JLabel();
+        DescriptionLabel = new javax.swing.JLabel();
+        ExpirationDateLabel2 = new javax.swing.JLabel();
+        RefreshButton = new javax.swing.JButton();
+        Storage_panel2 = new javax.swing.JPanel();
+        Storage_Label2 = new javax.swing.JLabel();
+        warehouse_label2 = new javax.swing.JLabel();
+        Row_label2 = new javax.swing.JLabel();
+        Shelf__label2 = new javax.swing.JLabel();
+        wherhoustxt1 = new javax.swing.JTextField();
+        rawtxt1 = new javax.swing.JTextField();
+        shelftxt1 = new javax.swing.JTextField();
+        Storage_panel1 = new javax.swing.JPanel();
+        Storage_Label1 = new javax.swing.JLabel();
+        warehouse_label1 = new javax.swing.JLabel();
+        Row_label1 = new javax.swing.JLabel();
+        Shelf__label1 = new javax.swing.JLabel();
+        wherhoustxt = new javax.swing.JTextField();
+        rawtxt = new javax.swing.JTextField();
+        shelftxt = new javax.swing.JTextField();
+        jPanel24 = new javax.swing.JPanel();
+        Storage_Label4 = new javax.swing.JLabel();
+        quantitytxt = new javax.swing.JTextField();
+        QuantityLabel1 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        submitQButton = new javax.swing.JButton();
+        QuantityLabel2 = new javax.swing.JLabel();
+        commentQtxt = new javax.swing.JTextField();
+        deleteItemButton = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        StatusItemPanel = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        statusTable = new javax.swing.JTable();
+        searchStatustxt = new javax.swing.JTextField();
+        EnterYourSearchLabel2 = new javax.swing.JLabel();
+        searchStatusButton = new javax.swing.JButton();
+        sWorkerIdtxt = new javax.swing.JTextField();
+        amountFor = new javax.swing.JTextField();
+        sItemIdtxt = new javax.swing.JTextField();
+        dateStatus = new com.toedter.calendar.JDateChooser();
+        addStatusButton = new javax.swing.JButton();
+        oporationType = new java.awt.Choice();
+        refreshStausButton = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        SearchItemPanel = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        itemSearchTable = new javax.swing.JTable();
+        searchtxt1 = new javax.swing.JTextField();
+        EnterYourSearchLabel1 = new javax.swing.JLabel();
+        searchButton1 = new javax.swing.JButton();
+        itemIdRadioButton1 = new javax.swing.JRadioButton();
+        itemNameRadioButton1 = new javax.swing.JRadioButton();
+        RefreshButton1 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        ordersTab = new javax.swing.JTabbedPane();
+        AddOrderPanel = new javax.swing.JPanel();
+        orderIDtxt = new javax.swing.JTextField();
+        orderTptxt = new javax.swing.JTextField();
+        orderIDLabel = new javax.swing.JLabel();
+        orderTimeLabel = new javax.swing.JLabel();
+        orderArrivalLabel = new javax.swing.JLabel();
+        orderDescriptionLabel = new javax.swing.JLabel();
+        orderPriceLabel = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        orderDesctxt = new javax.swing.JTextArea();
+        tooDate = new com.toedter.calendar.JDateChooser();
+        toaDate = new com.toedter.calendar.JDateChooser();
+        addOrderButton = new javax.swing.JButton();
+        orderClearButton = new javax.swing.JButton();
+        background_green4 = new javax.swing.JLabel();
+        UpdateOrderPanel = new javax.swing.JPanel();
+        EnterYourSearchLabel5 = new javax.swing.JLabel();
+        searchUpOrdertxt = new javax.swing.JTextField();
+        searchOrderUpButton = new javax.swing.JButton();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        orderUpdateTable = new javax.swing.JTable();
+        toaUpdate = new com.toedter.calendar.JDateChooser();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        orderDescUptxt = new javax.swing.JTextArea();
+        tpUptxt = new javax.swing.JTextField();
+        refreshUpdateOrderButton = new javax.swing.JButton();
+        orderUpdateButton = new javax.swing.JButton();
+        UpdatetoaLabel = new javax.swing.JLabel();
+        UpdateDescriptionLabel = new javax.swing.JLabel();
+        UpdatetpLabel = new javax.swing.JLabel();
+        background_green9 = new javax.swing.JLabel();
+        PriceListPanel = new javax.swing.JPanel();
+        itemIDPricetxt = new javax.swing.JTextField();
+        searchPLButton = new javax.swing.JButton();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        priceListTable = new javax.swing.JTable();
+        refreshPLButton = new javax.swing.JButton();
+        itemIdPLtxt = new javax.swing.JTextField();
+        pricePLtxt = new javax.swing.JTextField();
+        supplierIdPLtxt = new javax.swing.JTextField();
+        supplierNamePLtxt = new javax.swing.JTextField();
+        addPLButton = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        EnterYourSearchLabel11 = new javax.swing.JLabel();
+        background_green15 = new javax.swing.JLabel();
+        SearchOrderPanel = new javax.swing.JPanel();
+        searchOrdertxt = new javax.swing.JTextField();
+        searchOrderButton = new javax.swing.JButton();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        orderSearchTable = new javax.swing.JTable();
+        orderRefreshButton = new javax.swing.JButton();
+        EnterYourSearchLabel8 = new javax.swing.JLabel();
+        background_green10 = new javax.swing.JLabel();
+        suppliersTab = new javax.swing.JTabbedPane();
+        AddSupplierPanel = new javax.swing.JPanel();
+        SupplierIDLabel = new javax.swing.JLabel();
+        SupplierIDText = new javax.swing.JTextField();
+        SupplierNameLabel = new javax.swing.JLabel();
+        SupplierNameText = new javax.swing.JTextField();
+        SupplierAddressLabel = new javax.swing.JLabel();
+        SupplierAddressText = new javax.swing.JTextField();
+        SupplierPhoneLabel = new javax.swing.JLabel();
+        SupplierPhoneText = new javax.swing.JTextField();
+        SupplierEmailLabel = new javax.swing.JLabel();
+        SupplierEmailText = new javax.swing.JTextField();
+        SupplierContractPanel = new javax.swing.JPanel();
+        SupplierlContractLabel = new javax.swing.JLabel();
+        SupplierContractIDLabel = new javax.swing.JLabel();
+        SupplierContracdIDText = new javax.swing.JTextField();
+        SupplierUploadText = new javax.swing.JTextField();
+        SupplierUploadContractButton = new javax.swing.JButton();
+        SupplierShowContractButton = new javax.swing.JButton();
+        SupplierAddButton = new javax.swing.JButton();
+        ClearButton = new javax.swing.JButton();
+        background_green5 = new javax.swing.JLabel();
+        UpdateSupplierPanel = new javax.swing.JPanel();
+        SupplierSearchText1 = new javax.swing.JTextField();
+        EnterYourSearchLabel6 = new javax.swing.JLabel();
+        SupplierIdRadioButton = new javax.swing.JRadioButton();
+        SupplierNameRadioButton = new javax.swing.JRadioButton();
+        SupplierSearchButton = new javax.swing.JButton();
+        SupplierNameLabel1 = new javax.swing.JLabel();
+        SupplierNameText1 = new javax.swing.JTextField();
+        SupplierAddressLabel1 = new javax.swing.JLabel();
+        SupplierAddressText1 = new javax.swing.JTextField();
+        SupplierPhoneText1 = new javax.swing.JTextField();
+        SupplierPhoneLabel1 = new javax.swing.JLabel();
+        SupplierEmailLabel1 = new javax.swing.JLabel();
+        SupplierEmailText1 = new javax.swing.JTextField();
+        jScrollPane17 = new javax.swing.JScrollPane();
+        SuppliersTable = new javax.swing.JTable();
+        SupplierUpdateButton = new javax.swing.JButton();
+        SupplierDeleteButton = new javax.swing.JButton();
+        SupplierRefreshButton = new javax.swing.JButton();
+        ContractPanel = new javax.swing.JPanel();
+        contract_Label1 = new javax.swing.JLabel();
+        SupplierUploadText1 = new javax.swing.JTextField();
+        SupplierUploadContractButton1 = new javax.swing.JButton();
+        jLabel42 = new javax.swing.JLabel();
+        SupplierShowButton = new javax.swing.JButton();
+        SupplierContractIDLabel1 = new javax.swing.JLabel();
+        SupplierContractIDText1 = new javax.swing.JTextField();
+        background_green6 = new javax.swing.JLabel();
+        SearchSupplierPanel = new javax.swing.JPanel();
+        jScrollPane18 = new javax.swing.JScrollPane();
+        SuppliersSearchTable = new javax.swing.JTable();
+        SupplierRefreshButton1 = new javax.swing.JButton();
+        EnterYourSearchLabel7 = new javax.swing.JLabel();
+        SupplierSearchText2 = new javax.swing.JTextField();
+        SupplierIdRadioButton1 = new javax.swing.JRadioButton();
+        SupplierNameRadioButton1 = new javax.swing.JRadioButton();
+        SupplierSearchButton1 = new javax.swing.JButton();
+        Supplier_Show_Contract_Button = new javax.swing.JButton();
+        background_green7 = new javax.swing.JLabel();
+        SupplierContractIDText2 = new javax.swing.JTextField();
+        logoutButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jMenu3.setText("jMenu3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane1.setBackground(new java.awt.Color(255, 255, 255));
-        jTabbedPane1.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
-        jTabbedPane1.setTabPlacement(javax.swing.JTabbedPane.RIGHT);
-        jTabbedPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jSeparator1.setPreferredSize(new java.awt.Dimension(55, 10));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 222, 1240, 10));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 626, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
-        );
+        ordersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Orders icon 53 x 50.png"))); // NOI18N
+        ordersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ordersButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ordersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 65, 60));
 
-        jTabbedPane1.addTab("Inventory", jPanel1);
+        suppliersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Suppliers icon 53 x 50.png"))); // NOI18N
+        suppliersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                suppliersButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(suppliersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 65, 60));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 626, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
-        );
+        inventoryButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Inventory icon 53 x 50.png"))); // NOI18N
+        inventoryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inventoryButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(inventoryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 65, 60));
 
-        jTabbedPane1.addTab("Suppliers", jPanel5);
+        reportsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Reports icon 53 x 50.png"))); // NOI18N
+        reportsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportsButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(reportsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 65, 60));
 
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 626, Short.MAX_VALUE)
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
-        );
+        jLabel1.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 210, 50));
+        jLabel1.setText(loginGUI.username+" Is Logged in");
 
-        jTabbedPane1.addTab("Reports", jPanel13);
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1223, 4, 55, 20));
 
-        label1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        label1.setForeground(new java.awt.Color(0, 102, 255));
-        label1.setText(loginGUI.username+" Is Logged in");
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1153, 4, 30, 20));
+
+        inventoryTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        inventoryTab.setMinimumSize(new java.awt.Dimension(1255, 674));
+        inventoryTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inventoryTabMouseClicked(evt);
+            }
+        });
+
+        AddItemPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel9.setText("Name");
+        AddItemPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 40, -1));
+
+        jLabel10.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel10.setText("Item ID");
+        AddItemPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
+
+        serialText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                serialTextActionPerformed(evt);
+            }
+        });
+        AddItemPanel.add(serialText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 160, -1));
+
+        jLabel11.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel11.setText("Quantity");
+        AddItemPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 70, -1, -1));
+
+        nameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nameTextActionPerformed(evt);
+            }
+        });
+        AddItemPanel.add(nameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 160, -1));
+
+        jScrollPane1.setBorder(null);
+        jScrollPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jScrollPane1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+        jScrollPane1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(60, 60));
+
+        descriptionText.setColumns(20);
+        descriptionText.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        descriptionText.setLineWrap(true);
+        descriptionText.setRows(5);
+        descriptionText.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        descriptionText.setPreferredSize(new java.awt.Dimension(100, 60));
+        jScrollPane1.setViewportView(descriptionText);
+
+        AddItemPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 240, 80));
+
+        jLabel12.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel12.setText("Category Name");
+        AddItemPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+
+        jLabel13.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel13.setText("Supplier Name ");
+        AddItemPanel.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+
+        quantityText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quantityTextActionPerformed(evt);
+            }
+        });
+        AddItemPanel.add(quantityText, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 70, 160, -1));
+
+        jLabel14.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel14.setText("Expiration Date");
+        AddItemPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
+
+        supplierText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supplierTextActionPerformed(evt);
+            }
+        });
+        AddItemPanel.add(supplierText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 160, -1));
+
+        jLabel16.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel16.setText("Description");
+        AddItemPanel.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+
+        categoryChoice.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                categoryChoiceMouseClicked(evt);
+            }
+        });
+        AddItemPanel.add(categoryChoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 160, -1));
+        categoryChoice.addItem("paints");
+        categoryChoice.addItem("Packaging");
+        categoryChoice.addItem("Sand Blast");
+
+        eDate.setDateFormatString("yyyy-MM-dd");
+        eDate.setMinSelectableDate(new Date());
+        eDate.setPreferredSize(new java.awt.Dimension(91, 30));
+        AddItemPanel.add(eDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 160, 30));
+
+        addButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        addButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
+        addButton.setText("Add");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
+        AddItemPanel.add(addButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 330, -1, -1));
+
+        clearButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        clearButton.setText("Clear");
+        clearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearButtonActionPerformed(evt);
+            }
+        });
+        AddItemPanel.add(clearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 330, 90, 40));
+
+        jLabel5.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel5.setText("Min Quantity Level");
+        AddItemPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
+        AddItemPanel.add(minLevelText, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 160, -1));
+
+        Storage_panel.setBackground(new java.awt.Color(233, 232, 232));
+        Storage_panel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Storage_panel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Storage_Label.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        Storage_Label.setText("Storage");
+        Storage_panel.add(Storage_Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, 30));
+
+        Comments_Label.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        Comments_Label.setText("Comments");
+        Storage_panel.add(Comments_Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, -1, -1));
+
+        Shelf_Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Shelf_TextActionPerformed(evt);
+            }
+        });
+        Storage_panel.add(Shelf_Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 80, -1));
+
+        warehouse_label.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        warehouse_label.setText("Warehouse");
+        Storage_panel.add(warehouse_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+
+        Row_label.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        Row_label.setText("Row");
+        Storage_panel.add(Row_label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
+        Row_Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Row_TextActionPerformed(evt);
+            }
+        });
+        Storage_panel.add(Row_Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 80, -1));
+
+        Shelf__label.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        Shelf__label.setText("Shelf");
+        Storage_panel.add(Shelf__label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+
+        Warehouse_Text.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Warehouse_TextActionPerformed(evt);
+            }
+        });
+        Storage_panel.add(Warehouse_Text, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 80, -1));
+
+        Comments_Text.setColumns(20);
+        Comments_Text.setRows(5);
+        jScrollPane3.setViewportView(Comments_Text);
+
+        Storage_panel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, 150, 90));
+
+        AddItemPanel.add(Storage_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 470, 170));
+
+        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        AddItemPanel.add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
+        AddItemPanel.add(jScrollBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
+
+        inventoryTab.addTab("Add Item", AddItemPanel);
+
+        UpdateItemPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        UpdateItemPanel.add(searchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+
+        itemTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Item ID", "Item Name", "Expiration Date", "Supplier Name", "Quantity", "Min Quantity Level", "Description", "Warehouse", "Row", "Shelf"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        itemTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        itemTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                itemTableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(itemTable);
+
+        UpdateItemPanel.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 910, 230));
+
+        searchButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
+        searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButtonActionPerformed(evt);
+            }
+        });
+        UpdateItemPanel.add(searchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+        UpdateItemPanel.add(minQtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 100, -1));
+
+        datetxt.setDateFormatString("yyyy-MM-dd");
+        datetxt.setMinSelectableDate(new Date());
+        UpdateItemPanel.add(datetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 130, -1));
+        UpdateItemPanel.add(suppliertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 100, -1));
+
+        descriptiontxt.setColumns(20);
+        descriptiontxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        descriptiontxt.setRows(5);
+        jScrollPane4.setViewportView(descriptiontxt);
+
+        UpdateItemPanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 120, 100));
+
+        updateButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        updateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/save-icon-30.png"))); // NOI18N
+        updateButton.setText("Update");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButtonActionPerformed(evt);
+            }
+        });
+        UpdateItemPanel.add(updateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 250, -1, -1));
+
+        EnterYourSearchLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel.setText("Enter your Search");
+        UpdateItemPanel.add(EnterYourSearchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        itemNameRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        itemNameRadioButton.setText("By Name");
+        itemNameRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        itemNameRadioButton.setBorderPainted(true);
+        itemNameRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemNameRadioButtonActionPerformed(evt);
+            }
+        });
+        UpdateItemPanel.add(itemNameRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
+
+        itemIdRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        itemIdRadioButton.setText("By ID");
+        itemIdRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        itemIdRadioButton.setBorderPainted(true);
+        itemIdRadioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        itemIdRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemIdRadioButtonActionPerformed(evt);
+            }
+        });
+        UpdateItemPanel.add(itemIdRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
+
+        SupplierNameLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierNameLabel2.setText("Supplier Name ");
+        UpdateItemPanel.add(SupplierNameLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+
+        MinQuantityLabel1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        MinQuantityLabel1.setText("Min Quantity Level");
+        UpdateItemPanel.add(MinQuantityLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+
+        DescriptionLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        DescriptionLabel.setText("Description");
+        UpdateItemPanel.add(DescriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+
+        ExpirationDateLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        ExpirationDateLabel2.setText("Expiration date");
+        UpdateItemPanel.add(ExpirationDateLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+
+        RefreshButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        RefreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        RefreshButton.setText("Refresh");
+        RefreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RefreshButtonActionPerformed(evt);
+            }
+        });
+        UpdateItemPanel.add(RefreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 250, -1, -1));
+
+        Storage_panel2.setBackground(new java.awt.Color(233, 232, 232));
+        Storage_panel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Storage_panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Storage_Label2.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        Storage_Label2.setText("Storage");
+        Storage_panel2.add(Storage_Label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 30));
+
+        warehouse_label2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        warehouse_label2.setText("Warehouse");
+        Storage_panel2.add(warehouse_label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        Row_label2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        Row_label2.setText("Row");
+        Storage_panel2.add(Row_label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        Shelf__label2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        Shelf__label2.setText("Shelf");
+        Storage_panel2.add(Shelf__label2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        Storage_panel2.add(wherhoustxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 100, -1));
+        Storage_panel2.add(rawtxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 100, -1));
+        Storage_panel2.add(shelftxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 100, -1));
+
+        Storage_panel1.setBackground(new java.awt.Color(233, 232, 232));
+        Storage_panel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        Storage_panel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Storage_Label1.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        Storage_Label1.setText("Storage");
+        Storage_panel1.add(Storage_Label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 90, 30));
+
+        warehouse_label1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        warehouse_label1.setText("Warehouse");
+        Storage_panel1.add(warehouse_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        Row_label1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        Row_label1.setText("Row");
+        Storage_panel1.add(Row_label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        Shelf__label1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        Shelf__label1.setText("Shelf");
+        Storage_panel1.add(Shelf__label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        Storage_panel1.add(wherhoustxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 90, -1));
+        Storage_panel1.add(rawtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 90, -1));
+        Storage_panel1.add(shelftxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 90, -1));
+
+        Storage_panel2.add(Storage_panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 245, 210, 140));
+
+        UpdateItemPanel.add(Storage_panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 245, 210, 140));
+
+        jPanel24.setBackground(new java.awt.Color(233, 232, 232));
+        jPanel24.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        jPanel24.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Storage_Label4.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        Storage_Label4.setText("Stock Change");
+        jPanel24.add(Storage_Label4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 160, 30));
+        jPanel24.add(quantitytxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 90, -1));
+
+        QuantityLabel1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        QuantityLabel1.setText("Comments");
+        jPanel24.add(QuantityLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
+
+        jLabel19.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel19.setText("Any change requiers manager approval");
+        jPanel24.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 85, -1, -1));
+
+        submitQButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        submitQButton.setText("Submit");
+        submitQButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitQButtonActionPerformed(evt);
+            }
+        });
+        jPanel24.add(submitQButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, 130, -1));
+
+        QuantityLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        QuantityLabel2.setText("New Quantity");
+        jPanel24.add(QuantityLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        jPanel24.add(commentQtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 90, -1));
+
+        UpdateItemPanel.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 245, 230, 140));
+
+        deleteItemButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        deleteItemButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete icon.png"))); // NOI18N
+        deleteItemButton.setText("delete");
+        deleteItemButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteItemButtonActionPerformed(evt);
+            }
+        });
+        UpdateItemPanel.add(deleteItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 250, 130, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        UpdateItemPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
+
+        inventoryTab.addTab("Update", UpdateItemPanel);
+
+        StatusItemPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        statusTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Item ID", "Worker ID", "Date", "Amount Of Operation", "Quantity Trace", "Operation Type"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        statusTable.setFocusCycleRoot(true);
+        jScrollPane6.setViewportView(statusTable);
+
+        StatusItemPanel.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 790, 200));
+        StatusItemPanel.add(searchStatustxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+
+        EnterYourSearchLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel2.setText("Enter your search");
+        StatusItemPanel.add(EnterYourSearchLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        searchStatusButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        searchStatusButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
+        searchStatusButton.setText("Search");
+        searchStatusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchStatusButtonActionPerformed(evt);
+            }
+        });
+        StatusItemPanel.add(searchStatusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+        StatusItemPanel.add(sWorkerIdtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 100, -1));
+        StatusItemPanel.add(amountFor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 100, -1));
+        StatusItemPanel.add(sItemIdtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 100, -1));
+
+        dateStatus.setDateFormatString("yyyy-MM-dd");
+        dateStatus.setMinSelectableDate(new Date());
+        StatusItemPanel.add(dateStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 150, -1));
+
+        addStatusButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        addStatusButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
+        addStatusButton.setText("Add");
+        addStatusButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addStatusButtonActionPerformed(evt);
+            }
+        });
+        StatusItemPanel.add(addStatusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 240, 130, 40));
+        StatusItemPanel.add(oporationType, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 110, -1));
+        oporationType.addItem("Add");
+        oporationType.addItem("Subtract");
+
+        refreshStausButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        refreshStausButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        refreshStausButton.setText("Refresh");
+        refreshStausButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshStausButtonActionPerformed(evt);
+            }
+        });
+        StatusItemPanel.add(refreshStausButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 240, 130, 40));
+
+        jLabel15.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel15.setText("Item ID");
+        StatusItemPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel17.setText("Worker ID");
+        StatusItemPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+
+        jLabel18.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel18.setText("Amount ");
+        StatusItemPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel20.setText("Operation Type");
+        StatusItemPanel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel21.setText("Date");
+        StatusItemPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        StatusItemPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
+
+        inventoryTab.addTab("Status", StatusItemPanel);
+
+        SearchItemPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        itemSearchTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Item ID", "Item Name", "Expiration Date", "Supplier Name", "Quantity", "Min Quantity Level", "Description", "Warehouse", "Row", "Shelf"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        itemSearchTable.setFocusCycleRoot(true);
+        itemSearchTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                itemSearchTableMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(itemSearchTable);
+
+        SearchItemPanel.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 910, 230));
+        SearchItemPanel.add(searchtxt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+
+        EnterYourSearchLabel1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel1.setText("Enter your search");
+        SearchItemPanel.add(EnterYourSearchLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        searchButton1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        searchButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
+        searchButton1.setText("Search");
+        searchButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButton1ActionPerformed(evt);
+            }
+        });
+        SearchItemPanel.add(searchButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+
+        itemIdRadioButton1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        itemIdRadioButton1.setText("By ID");
+        itemIdRadioButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        itemIdRadioButton1.setBorderPainted(true);
+        itemIdRadioButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        itemIdRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemIdRadioButton1ActionPerformed(evt);
+            }
+        });
+        SearchItemPanel.add(itemIdRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
+
+        itemNameRadioButton1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        itemNameRadioButton1.setText("By Name");
+        itemNameRadioButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        itemNameRadioButton1.setBorderPainted(true);
+        itemNameRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemNameRadioButton1ActionPerformed(evt);
+            }
+        });
+        SearchItemPanel.add(itemNameRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
+
+        RefreshButton1.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        RefreshButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        RefreshButton1.setText("Refresh");
+        RefreshButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RefreshButton1ActionPerformed(evt);
+            }
+        });
+        SearchItemPanel.add(RefreshButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 250, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        SearchItemPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
+
+        inventoryTab.addTab("Search", SearchItemPanel);
+
+        ordersTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        ordersTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ordersTabMouseClicked(evt);
+            }
+        });
+
+        AddOrderPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        orderIDtxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderIDtxtActionPerformed(evt);
+            }
+        });
+        AddOrderPanel.add(orderIDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 118, -1));
+        AddOrderPanel.add(orderTptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 118, -1));
+
+        orderIDLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        orderIDLabel.setText("Order ID");
+        AddOrderPanel.add(orderIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+
+        orderTimeLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        orderTimeLabel.setText("Time Of Order");
+        AddOrderPanel.add(orderTimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+
+        orderArrivalLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        orderArrivalLabel.setText("Time Of Arrival");
+        AddOrderPanel.add(orderArrivalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+
+        orderDescriptionLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        orderDescriptionLabel.setText("Description");
+        AddOrderPanel.add(orderDescriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
+
+        orderPriceLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        orderPriceLabel.setText("Total Price");
+        AddOrderPanel.add(orderPriceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
+
+        orderDesctxt.setColumns(20);
+        orderDesctxt.setRows(5);
+        jScrollPane10.setViewportView(orderDesctxt);
+
+        AddOrderPanel.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 120, -1));
+
+        tooDate.setDateFormatString("yyyy-MM-dd");
+        AddOrderPanel.add(tooDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 140, -1));
+
+        toaDate.setDateFormatString("yyyy-MM-dd");
+        AddOrderPanel.add(toaDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 140, -1));
+
+        addOrderButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        addOrderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
+        addOrderButton.setText("Add");
+        addOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addOrderButtonActionPerformed(evt);
+            }
+        });
+        AddOrderPanel.add(addOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
+
+        orderClearButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        orderClearButton.setText("Clear");
+        orderClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderClearButtonActionPerformed(evt);
+            }
+        });
+        AddOrderPanel.add(orderClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 100, 40));
+
+        background_green4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        AddOrderPanel.add(background_green4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -220, -1, 860));
+
+        ordersTab.addTab("Add Order", AddOrderPanel);
+
+        UpdateOrderPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UpdateOrderPanelMouseClicked(evt);
+            }
+        });
+        UpdateOrderPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        EnterYourSearchLabel5.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel5.setText("Enter your search by Order ID");
+        UpdateOrderPanel.add(EnterYourSearchLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        UpdateOrderPanel.add(searchUpOrdertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+
+        searchOrderUpButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        searchOrderUpButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
+        searchOrderUpButton.setText("Search");
+        searchOrderUpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchOrderUpButtonActionPerformed(evt);
+            }
+        });
+        UpdateOrderPanel.add(searchOrderUpButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+
+        orderUpdateTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        orderUpdateTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                orderUpdateTableMouseClicked(evt);
+            }
+        });
+        jScrollPane9.setViewportView(orderUpdateTable);
+
+        UpdateOrderPanel.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
+        UpdateOrderPanel.add(toaUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 130, -1));
+
+        orderDescUptxt.setColumns(20);
+        orderDescUptxt.setRows(5);
+        jScrollPane11.setViewportView(orderDescUptxt);
+
+        UpdateOrderPanel.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 130, -1));
+        UpdateOrderPanel.add(tpUptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 106, -1));
+
+        refreshUpdateOrderButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        refreshUpdateOrderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        refreshUpdateOrderButton.setText("Refresh");
+        refreshUpdateOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshUpdateOrderButtonActionPerformed(evt);
+            }
+        });
+        UpdateOrderPanel.add(refreshUpdateOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
+
+        orderUpdateButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        orderUpdateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/save-icon-30.png"))); // NOI18N
+        orderUpdateButton.setText("Update");
+        orderUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderUpdateButtonActionPerformed(evt);
+            }
+        });
+        UpdateOrderPanel.add(orderUpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 250, -1, -1));
+
+        UpdatetoaLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        UpdatetoaLabel.setText("Time Of Arrival");
+        UpdateOrderPanel.add(UpdatetoaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+
+        UpdateDescriptionLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        UpdateDescriptionLabel.setText("Description");
+        UpdateOrderPanel.add(UpdateDescriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+
+        UpdatetpLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        UpdatetpLabel.setText("Total Price");
+        UpdateOrderPanel.add(UpdatetpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+
+        background_green9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        UpdateOrderPanel.add(background_green9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
+
+        ordersTab.addTab("Update", UpdateOrderPanel);
+
+        PriceListPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PriceListPanel.add(itemIDPricetxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+
+        searchPLButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        searchPLButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
+        searchPLButton.setText("Search");
+        searchPLButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchPLButtonActionPerformed(evt);
+            }
+        });
+        PriceListPanel.add(searchPLButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+
+        priceListTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane20.setViewportView(priceListTable);
+
+        PriceListPanel.add(jScrollPane20, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
+
+        refreshPLButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        refreshPLButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        refreshPLButton.setText("Refresh");
+        refreshPLButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshPLButtonActionPerformed(evt);
+            }
+        });
+        PriceListPanel.add(refreshPLButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
+        PriceListPanel.add(itemIdPLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 100, -1));
+        PriceListPanel.add(pricePLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 100, -1));
+        PriceListPanel.add(supplierIdPLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 100, -1));
+        PriceListPanel.add(supplierNamePLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 100, -1));
+
+        addPLButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        addPLButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
+        addPLButton.setText("Add");
+        addPLButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPLButtonActionPerformed(evt);
+            }
+        });
+        PriceListPanel.add(addPLButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 250, -1, -1));
+
+        jLabel25.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel25.setText("Item ID");
+        PriceListPanel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel26.setText("Price");
+        PriceListPanel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+
+        jLabel27.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel27.setText("Supplier ID");
+        PriceListPanel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+
+        jLabel28.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        jLabel28.setText("Supplier Name");
+        PriceListPanel.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+
+        EnterYourSearchLabel11.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel11.setText("Enter your search by Order ID");
+        PriceListPanel.add(EnterYourSearchLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        background_green15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        PriceListPanel.add(background_green15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
+
+        ordersTab.addTab("Price List", PriceListPanel);
+
+        SearchOrderPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        searchOrdertxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchOrdertxtActionPerformed(evt);
+            }
+        });
+        SearchOrderPanel.add(searchOrdertxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+
+        searchOrderButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        searchOrderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
+        searchOrderButton.setText("Search");
+        searchOrderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchOrderButtonActionPerformed(evt);
+            }
+        });
+        SearchOrderPanel.add(searchOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+
+        orderSearchTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        orderSearchTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                orderSearchTableMouseClicked(evt);
+            }
+        });
+        jScrollPane12.setViewportView(orderSearchTable);
+
+        SearchOrderPanel.add(jScrollPane12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
+
+        orderRefreshButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        orderRefreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        orderRefreshButton.setText("Refresh");
+        orderRefreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderRefreshButtonActionPerformed(evt);
+            }
+        });
+        SearchOrderPanel.add(orderRefreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
+
+        EnterYourSearchLabel8.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel8.setText("Enter your search by Order ID");
+        SearchOrderPanel.add(EnterYourSearchLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        background_green10.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        background_green10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        SearchOrderPanel.add(background_green10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
+
+        ordersTab.addTab("Search", SearchOrderPanel);
+
+        suppliersTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        suppliersTab.setMinimumSize(new java.awt.Dimension(1255, 674));
+        suppliersTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                suppliersTabMouseClicked(evt);
+            }
+        });
+
+        AddSupplierPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SupplierIDLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierIDLabel.setText("Supplier ID");
+        AddSupplierPanel.add(SupplierIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
+
+        SupplierIDText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierIDTextActionPerformed(evt);
+            }
+        });
+        AddSupplierPanel.add(SupplierIDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 160, -1));
+
+        SupplierNameLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierNameLabel.setText("Supplier Name");
+        AddSupplierPanel.add(SupplierNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
+
+        SupplierNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierNameTextActionPerformed(evt);
+            }
+        });
+        AddSupplierPanel.add(SupplierNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, 160, -1));
+
+        SupplierAddressLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierAddressLabel.setText("Address");
+        AddSupplierPanel.add(SupplierAddressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
+
+        SupplierAddressText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierAddressTextActionPerformed(evt);
+            }
+        });
+        AddSupplierPanel.add(SupplierAddressText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 150, 160, -1));
+
+        SupplierPhoneLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierPhoneLabel.setText("Phone Number");
+        AddSupplierPanel.add(SupplierPhoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
+
+        SupplierPhoneText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierPhoneTextActionPerformed(evt);
+            }
+        });
+        AddSupplierPanel.add(SupplierPhoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 160, -1));
+
+        SupplierEmailLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierEmailLabel.setText("E-mail");
+        AddSupplierPanel.add(SupplierEmailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, -1, -1));
+
+        SupplierEmailText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierEmailTextActionPerformed(evt);
+            }
+        });
+        AddSupplierPanel.add(SupplierEmailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 160, -1));
+
+        SupplierContractPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        SupplierContractPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SupplierlContractLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        SupplierlContractLabel.setText("Supplier Contract");
+        SupplierContractPanel.add(SupplierlContractLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        SupplierContractIDLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierContractIDLabel.setText("Contract ID");
+        SupplierContractPanel.add(SupplierContractIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+
+        SupplierContracdIDText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierContracdIDTextActionPerformed(evt);
+            }
+        });
+        SupplierContractPanel.add(SupplierContracdIDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 80, -1));
+
+        SupplierUploadText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierUploadTextActionPerformed(evt);
+            }
+        });
+        SupplierContractPanel.add(SupplierUploadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 150, -1));
+
+        SupplierUploadContractButton.setText("Upload");
+        SupplierUploadContractButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierUploadContractButtonActionPerformed(evt);
+            }
+        });
+        SupplierContractPanel.add(SupplierUploadContractButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, -1, -1));
+
+        SupplierShowContractButton.setText("Show");
+        SupplierShowContractButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierShowContractButtonActionPerformed(evt);
+            }
+        });
+        SupplierContractPanel.add(SupplierShowContractButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 70, -1));
+
+        AddSupplierPanel.add(SupplierContractPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 387, 130));
+
+        SupplierAddButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        SupplierAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
+        SupplierAddButton.setText("Add");
+        SupplierAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierAddButtonActionPerformed(evt);
+            }
+        });
+        AddSupplierPanel.add(SupplierAddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 210, -1, -1));
+
+        ClearButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        ClearButton.setText("Clear");
+        ClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearButtonActionPerformed(evt);
+            }
+        });
+        AddSupplierPanel.add(ClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 210, 100, 40));
+
+        background_green5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        AddSupplierPanel.add(background_green5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
+
+        suppliersTab.addTab("Add Suppliers", AddSupplierPanel);
+
+        UpdateSupplierPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        UpdateSupplierPanel.add(SupplierSearchText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+
+        EnterYourSearchLabel6.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel6.setText("Enter your search");
+        UpdateSupplierPanel.add(EnterYourSearchLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        SupplierIdRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierIdRadioButton.setText("By ID");
+        SupplierIdRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        SupplierIdRadioButton.setBorderPainted(true);
+        SupplierIdRadioButton.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        SupplierIdRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierIdRadioButtonActionPerformed(evt);
+            }
+        });
+        UpdateSupplierPanel.add(SupplierIdRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
+
+        SupplierNameRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierNameRadioButton.setText("By Name");
+        SupplierNameRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        SupplierNameRadioButton.setBorderPainted(true);
+        SupplierNameRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierNameRadioButtonActionPerformed(evt);
+            }
+        });
+        UpdateSupplierPanel.add(SupplierNameRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
+
+        SupplierSearchButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        SupplierSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
+        SupplierSearchButton.setText("Search");
+        SupplierSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierSearchButtonActionPerformed(evt);
+            }
+        });
+        UpdateSupplierPanel.add(SupplierSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+
+        SupplierNameLabel1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierNameLabel1.setText("Supplier Name");
+        UpdateSupplierPanel.add(SupplierNameLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+
+        SupplierNameText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierNameText1ActionPerformed(evt);
+            }
+        });
+        UpdateSupplierPanel.add(SupplierNameText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 130, -1));
+
+        SupplierAddressLabel1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierAddressLabel1.setText("Address");
+        UpdateSupplierPanel.add(SupplierAddressLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 70, -1));
+
+        SupplierAddressText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierAddressText1ActionPerformed(evt);
+            }
+        });
+        UpdateSupplierPanel.add(SupplierAddressText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 130, -1));
+
+        SupplierPhoneText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierPhoneText1ActionPerformed(evt);
+            }
+        });
+        UpdateSupplierPanel.add(SupplierPhoneText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 130, -1));
+
+        SupplierPhoneLabel1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierPhoneLabel1.setText("Phone");
+        UpdateSupplierPanel.add(SupplierPhoneLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 70, -1));
+
+        SupplierEmailLabel1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierEmailLabel1.setText("Email");
+        UpdateSupplierPanel.add(SupplierEmailLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 70, -1));
+
+        SupplierEmailText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierEmailText1ActionPerformed(evt);
+            }
+        });
+        UpdateSupplierPanel.add(SupplierEmailText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 130, -1));
+
+        SuppliersTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        SuppliersTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SuppliersTableMouseClicked(evt);
+            }
+        });
+        jScrollPane17.setViewportView(SuppliersTable);
+
+        UpdateSupplierPanel.add(jScrollPane17, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 810, 220));
+
+        SupplierUpdateButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        SupplierUpdateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/save-icon-30.png"))); // NOI18N
+        SupplierUpdateButton.setText("Update");
+        SupplierUpdateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierUpdateButtonActionPerformed(evt);
+            }
+        });
+        UpdateSupplierPanel.add(SupplierUpdateButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 250, -1, -1));
+
+        SupplierDeleteButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        SupplierDeleteButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/delete icon.png"))); // NOI18N
+        SupplierDeleteButton.setText("Delete");
+        SupplierDeleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierDeleteButtonActionPerformed(evt);
+            }
+        });
+        UpdateSupplierPanel.add(SupplierDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 250, -1, -1));
+
+        SupplierRefreshButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        SupplierRefreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        SupplierRefreshButton.setText("Refresh");
+        SupplierRefreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierRefreshButtonActionPerformed(evt);
+            }
+        });
+        UpdateSupplierPanel.add(SupplierRefreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
+
+        ContractPanel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        ContractPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        contract_Label1.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        contract_Label1.setText("Contract Update");
+        ContractPanel.add(contract_Label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 170, 30));
+
+        SupplierUploadText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierUploadText1ActionPerformed(evt);
+            }
+        });
+        ContractPanel.add(SupplierUploadText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 150, -1));
+
+        SupplierUploadContractButton1.setText("Upload");
+        SupplierUploadContractButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierUploadContractButton1ActionPerformed(evt);
+            }
+        });
+        ContractPanel.add(SupplierUploadContractButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, -1, -1));
+
+        jLabel42.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
+        jLabel42.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel42.setText("Please upload the new contract if changes are made");
+        ContractPanel.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
+
+        SupplierShowButton.setText("Show");
+        SupplierShowButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierShowButtonActionPerformed(evt);
+            }
+        });
+        ContractPanel.add(SupplierShowButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 70, -1));
+
+        SupplierContractIDLabel1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierContractIDLabel1.setText("Contract ID");
+        ContractPanel.add(SupplierContractIDLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        SupplierContractIDText1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierContractIDText1ActionPerformed(evt);
+            }
+        });
+        ContractPanel.add(SupplierContractIDText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 80, -1));
+
+        UpdateSupplierPanel.add(ContractPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 370, 130));
+
+        background_green6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        UpdateSupplierPanel.add(background_green6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
+
+        suppliersTab.addTab("Update", UpdateSupplierPanel);
+
+        SearchSupplierPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        SuppliersSearchTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        SuppliersSearchTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                SuppliersSearchTableMouseClicked(evt);
+            }
+        });
+        jScrollPane18.setViewportView(SuppliersSearchTable);
+
+        SearchSupplierPanel.add(jScrollPane18, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 810, 220));
+
+        SupplierRefreshButton1.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        SupplierRefreshButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        SupplierRefreshButton1.setText("Refresh");
+        SupplierRefreshButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierRefreshButton1ActionPerformed(evt);
+            }
+        });
+        SearchSupplierPanel.add(SupplierRefreshButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
+
+        EnterYourSearchLabel7.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel7.setText("Enter your search");
+        SearchSupplierPanel.add(EnterYourSearchLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        SearchSupplierPanel.add(SupplierSearchText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+
+        SupplierIdRadioButton1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierIdRadioButton1.setText("By ID");
+        SupplierIdRadioButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        SupplierIdRadioButton1.setBorderPainted(true);
+        SupplierIdRadioButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        SupplierIdRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierIdRadioButton1ActionPerformed(evt);
+            }
+        });
+        SearchSupplierPanel.add(SupplierIdRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
+
+        SupplierNameRadioButton1.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        SupplierNameRadioButton1.setText("By Name");
+        SupplierNameRadioButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        SupplierNameRadioButton1.setBorderPainted(true);
+        SupplierNameRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierNameRadioButton1ActionPerformed(evt);
+            }
+        });
+        SearchSupplierPanel.add(SupplierNameRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
+
+        SupplierSearchButton1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        SupplierSearchButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
+        SupplierSearchButton1.setText("Search");
+        SupplierSearchButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupplierSearchButton1ActionPerformed(evt);
+            }
+        });
+        SearchSupplierPanel.add(SupplierSearchButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+
+        Supplier_Show_Contract_Button.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        Supplier_Show_Contract_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon-service-contract.png"))); // NOI18N
+        Supplier_Show_Contract_Button.setText("Show Contract");
+        Supplier_Show_Contract_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Supplier_Show_Contract_ButtonActionPerformed(evt);
+            }
+        });
+        SearchSupplierPanel.add(Supplier_Show_Contract_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 250, 190, 40));
+
+        background_green7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        SearchSupplierPanel.add(background_green7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
+
+        SupplierContractIDText2.setText("jTextField1");
+        SearchSupplierPanel.add(SupplierContractIDText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
+
+        suppliersTab.addTab("Search", SearchSupplierPanel);
+
+        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, 608, Short.MAX_VALUE))
+            .addComponent(ordersTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(suppliersTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addComponent(inventoryTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1245, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                .addComponent(label1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(ordersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(suppliersTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(inventoryTab, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(154, Short.MAX_VALUE)))
         );
-        jLayeredPane1.setLayer(label1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jMenu1.setText("File");
+        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setText("Exit");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout button.png"))); // NOI18N
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        getContentPane().add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 30, 30));
 
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Help");
-
-        jMenuItem1.setText("About");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu2);
-
-        setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 483, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 680));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        // TODO add your handling code here:
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         System.exit(0);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_jLabel4MouseClicked
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        this.setState(welcome0.ICONIFIED);
+    }//GEN-LAST:event_jLabel3MouseClicked
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        this.setVisible(false);
+        loginGUI lg = new loginGUI(1);
+        lg.setVisible(true);
+    }//GEN-LAST:event_logoutButtonActionPerformed
+
+    private void ordersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordersButtonActionPerformed
+        ordersTab.setVisible(true);
+        inventoryTab.setVisible(false);
+        //reportsTab.setVisible(false);
+        suppliersTab.setVisible(false);
+    }//GEN-LAST:event_ordersButtonActionPerformed
+
+    private void suppliersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_suppliersButtonActionPerformed
+        suppliersTab.setVisible(true);
+        ordersTab.setVisible(false);
+        inventoryTab.setVisible(false);
+       // reportsTab.setVisible(false);
+    }//GEN-LAST:event_suppliersButtonActionPerformed
+
+    private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
+        inventoryTab.setVisible(true);
+       // reportsTab.setVisible(false);
+        suppliersTab.setVisible(false);
+        ordersTab.setVisible(false);       
+    }//GEN-LAST:event_inventoryButtonActionPerformed
+
+    private void reportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportsButtonActionPerformed
+      //  reportsTab.setVisible(true);
+        ordersTab.setVisible(false);
+        inventoryTab.setVisible(false);
+        suppliersTab.setVisible(false);
+    }//GEN-LAST:event_reportsButtonActionPerformed
+
+    private void orderIDtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderIDtxtActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_orderIDtxtActionPerformed
+
+    private void addOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrderButtonActionPerformed
+        int f = 0;
+        int h = 0;
         
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+        try {
+            String sql = "Insert into orders (orders_id,order_date,description,price,arrivel_date) values(?,?,?,?,?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, orderIDtxt.getText());
+            pst.setDate(2, new java.sql.Date(tooDate.getDate().getTime()));
+            pst.setString(3, orderDesctxt.getText());
+            pst.setDate(4, new java.sql.Date(toaDate.getDate().getTime()));
+            pst.setString(5, orderTptxt.getText());
+
+            pst.executeQuery();
+            JOptionPane.showMessageDialog(null, "Order Added");
+            
+        } catch (Exception e) {
+            h=1;
+            
+            if (orderIDtxt.getText().isEmpty()) 
+                orderIDtxt.setBackground(Color.red);
+            else orderIDtxt.setBackground(Color.white);
+            
+            if (orderDesctxt.getText().isEmpty()) 
+                orderDesctxt.setBackground(Color.red);
+            else orderDesctxt.setBackground(Color.white);            
+
+            if (orderTptxt.getText().isEmpty()) 
+                orderTptxt.setBackground(Color.red);
+            else orderTptxt.setBackground(Color.white);            
+            
+            if (f != 2) {
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+            } else {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+
+        if (f == 0 && h==0) {
+            orderIDtxt.setText("");
+            orderDesctxt.setText("");
+            orderTptxt.setText("");
+            tooDate.setCalendar(null);
+            toaDate.setCalendar(null);
+        }
+    }//GEN-LAST:event_addOrderButtonActionPerformed
+
+    private void orderClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderClearButtonActionPerformed
+        orderIDtxt.setText("");
+        orderDesctxt.setText("");
+        orderTptxt.setText("");
+        tooDate.setCalendar(null);
+        toaDate.setCalendar(null);
+    }//GEN-LAST:event_orderClearButtonActionPerformed
+
+    private void searchOrderUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrderUpButtonActionPerformed
+        try {
+            String sn=searchUpOrdertxt.getText();
+            String sql = "select orders_id as 'Order ID',order_date as 'Order Date',description as 'Description',price as 'Total Price',arrivel_date as 'Arrivel Date' from orders where orders_id='"+sn+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            orderUpdateTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_searchOrderUpButtonActionPerformed
+
+    private void orderUpdateTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderUpdateTableMouseClicked
+        try {
+            int raw = orderUpdateTable.getSelectedRow();
+            tableClick = (orderUpdateTable.getModel().getValueAt(raw, 0).toString());
+            String sql = "select orders_id,order_date,description,price,arrivel_date from orders where orders_id ='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("description");
+                orderDescUptxt.setText(add1);
+                String add2 = rs.getString("price");
+                tpUptxt.setText(add2);
+                Date add3 = rs.getDate("arrivel_date");
+                toaDate.setDate(add3);
+
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_orderUpdateTableMouseClicked
+
+    private void refreshUpdateOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshUpdateOrderButtonActionPerformed
+        update_OrderTable();
+    }//GEN-LAST:event_refreshUpdateOrderButtonActionPerformed
+
+    private void orderUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderUpdateButtonActionPerformed
+        try{
+
+            String vs = orderDescUptxt.getText();
+            String vq = tpUptxt.getText();
+            Date vd =  new java.sql.Date(toaUpdate.getDate().getTime());
+
+            String sql = "update orers set description='"+vs+"',price='"+vq+"',arrivel_date='"+vd+"' where order_id='"+tableClick+"'";
+
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Order Updated");
+            update_OrderTable();
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        update_OrderTable();
+    }//GEN-LAST:event_orderUpdateButtonActionPerformed
+
+    private void UpdateOrderPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UpdateOrderPanelMouseClicked
+
+    }//GEN-LAST:event_UpdateOrderPanelMouseClicked
+
+    private void searchPLButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPLButtonActionPerformed
+        try {
+            String sn=itemIDPricetxt.getText();
+            String sql = "select item_id as 'Item ID',item_price as 'Item Price',supplier_id as 'Supplier ID',supplier_name as 'Supplier Name' from item_from_supplier where item_id='"+sn+"' order by item_price";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            priceListTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_searchPLButtonActionPerformed
+
+    private void refreshPLButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPLButtonActionPerformed
+        price_list_table();
+    }//GEN-LAST:event_refreshPLButtonActionPerformed
+
+    private void addPLButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPLButtonActionPerformed
+        int f = 0;
+        int h = 0;
+
+        try {
+            String sql = "Insert into item_from_supplier (item_id,item_price,supplier_id,supplier_name) values(?,?,?,?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, itemIdPLtxt.getText());
+            pst.setString(2, pricePLtxt.getText());
+            pst.setString(3, supplierIdPLtxt.getText());
+            pst.setString(4, supplierNamePLtxt.getText());
+
+            pst.executeQuery();
+            JOptionPane.showMessageDialog(null, "Supplier Price Added");
+        }
+        catch (Exception e) {
+            h=1;
+            
+            if (itemIdPLtxt.getText().isEmpty()) 
+                    itemIdPLtxt.setBackground(Color.red);      
+            else 
+                itemIdPLtxt.setBackground(Color.white); 
+            
+            if (pricePLtxt.getText().isEmpty()) 
+                    pricePLtxt.setBackground(Color.red);      
+            else 
+                pricePLtxt.setBackground(Color.white); 
+            
+            if (supplierIdPLtxt.getText().isEmpty()) 
+                    supplierIdPLtxt.setBackground(Color.red);      
+            else 
+                supplierIdPLtxt.setBackground(Color.white); 
+            
+            if (supplierNamePLtxt.getText().isEmpty()) 
+                    supplierNamePLtxt.setBackground(Color.red);      
+            else 
+                supplierNamePLtxt.setBackground(Color.white); 
+            
+            if (f != 2) {
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+            } else {
+                JOptionPane.showMessageDialog(null, e);
+            }        
+        }
+        if (f==0 && h==0) {
+            itemIdPLtxt.setText("");
+            pricePLtxt.setText("");
+            supplierIdPLtxt.setText("");
+            supplierNamePLtxt.setText("");
+        }
+
+    }//GEN-LAST:event_addPLButtonActionPerformed
+
+    private void searchOrdertxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrdertxtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_searchOrdertxtActionPerformed
+
+    private void searchOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrderButtonActionPerformed
+        try {
+            String sn=searchOrdertxt.getText();
+            String sql = "select orders_id as 'Order ID',order_date as 'Order Date',description as 'Description',price as 'Total Price',arrivel_date as 'Arrivel Date' from orders where orders_id='"+sn+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            orderSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        // update_OrderTable();
+    }//GEN-LAST:event_searchOrderButtonActionPerformed
+
+    private void orderSearchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderSearchTableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_orderSearchTableMouseClicked
+
+    private void orderRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderRefreshButtonActionPerformed
+        update_Search_OrderTable();
+    }//GEN-LAST:event_orderRefreshButtonActionPerformed
+
+    private void ordersTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ordersTabMouseClicked
+        update_OrderTable();
+        update_Search_OrderTable();
+        price_list_table();
+    }//GEN-LAST:event_ordersTabMouseClicked
+
+    private void SupplierIDTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierIDTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupplierIDTextActionPerformed
+
+    private void SupplierNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierNameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupplierNameTextActionPerformed
+
+    private void SupplierAddressTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierAddressTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupplierAddressTextActionPerformed
+
+    private void SupplierPhoneTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierPhoneTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupplierPhoneTextActionPerformed
+
+    private void SupplierEmailTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierEmailTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupplierEmailTextActionPerformed
+
+    private void SupplierContracdIDTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierContracdIDTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupplierContracdIDTextActionPerformed
+
+    private void SupplierUploadTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierUploadTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupplierUploadTextActionPerformed
+
+    private void SupplierUploadContractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierUploadContractButtonActionPerformed
+
+        try{
+
+            JFileChooser supplier_chooser = new JFileChooser();
+            supplier_chooser.setDialogTitle("Open a File");
+            FileNameExtensionFilter docFilter = new FileNameExtensionFilter("Word Files","docx");
+            FileNameExtensionFilter pdfFilter = new FileNameExtensionFilter("PDF Documents","pdf");
+            supplier_chooser.addChoosableFileFilter(docFilter);
+            supplier_chooser.addChoosableFileFilter(pdfFilter);
+            int result = supplier_chooser.showOpenDialog(null);
+            if (result == 0) {
+                File f = supplier_chooser.getSelectedFile();
+                filename_supplier = f.getAbsolutePath();
+                SupplierUploadText.setText(filename_supplier);
+                f.getAbsoluteFile();
+
+            }
+
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+
+        }
+    }//GEN-LAST:event_SupplierUploadContractButtonActionPerformed
+
+    private void SupplierShowContractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierShowContractButtonActionPerformed
+        try {
+
+            Desktop.getDesktop().open(new File(filename_supplier));
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_SupplierShowContractButtonActionPerformed
+
+    private void SupplierAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierAddButtonActionPerformed
+        int f = 0;
+        int h = 0;            
+        sn = SupplierContracdIDText.getText();
+        int ans;
+       
+        try {
+            String sql = "Insert into suppliers (supplier_id,supplier_name,supplier_address,supplier_phone,supplier_email,supplier_contract_id) values(?,?,?,?,?,?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, SupplierIDText.getText());
+            pst.setString(2, SupplierNameText.getText());
+            pst.setString(3, SupplierAddressText.getText());
+            pst.setString(4, SupplierPhoneText.getText());
+            pst.setString(5, SupplierEmailText.getText());
+            pst.setString(6, SupplierContracdIDText.getText());
+
+            if(SupplierUploadText.getText().isEmpty()) {
+                ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Add a Supplier Without a Contract?", "Warning!", JOptionPane.YES_NO_OPTION);
+                if(ans==0)
+                pst.executeQuery();
+                if(ans==1) {}
+            }
+
+            else  {
+
+                Path dest = Paths.get( "C:/Users/Adi/Documents/NetBeansProjects/Yatzig/src/SupplierContracts/"+sn+".pdf");
+                Path source = Paths.get(filename_supplier);
+                Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);
+            }
+
+            JOptionPane.showMessageDialog(null, "Supplier Has Been Added");
+        }
+        catch (Exception e){
+            h=1;
+            
+            if (SupplierIDText.getText().isEmpty()) 
+                    SupplierIDText.setBackground(Color.red);      
+            else 
+                SupplierIDText.setBackground(Color.white); 
+            
+            if (SupplierNameText.getText().isEmpty()) 
+                    SupplierNameText.setBackground(Color.red);      
+            else 
+                SupplierNameText.setBackground(Color.white); 
+            
+            if (SupplierAddressText.getText().isEmpty()) 
+                    SupplierAddressText.setBackground(Color.red);      
+            else 
+                SupplierAddressText.setBackground(Color.white); 
+            
+            if (SupplierPhoneText.getText().isEmpty()) 
+                    SupplierPhoneText.setBackground(Color.red);      
+            else 
+                SupplierPhoneText.setBackground(Color.white); 
+            
+            if (SupplierEmailText.getText().isEmpty()) 
+                    SupplierEmailText.setBackground(Color.red);      
+            else 
+                SupplierEmailText.setBackground(Color.white); 
+            
+            if (SupplierContracdIDText.getText().isEmpty()) 
+                    SupplierContracdIDText.setBackground(Color.red);      
+            else 
+                SupplierContracdIDText.setBackground(Color.white); 
+
+            if (f != 2) {
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+            } else {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        
+        if (f == 0 && h==0) {       
+        SupplierIDText.setText("");
+        SupplierNameText.setText("");
+        SupplierAddressText.setText("");
+        SupplierPhoneText.setText("");
+        SupplierEmailText.setText("");
+        SupplierContracdIDText.setText("");
+        SupplierUploadText.setText("");
+        }
+    }//GEN-LAST:event_SupplierAddButtonActionPerformed
+
+    private void ClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearButtonActionPerformed
+
+        SupplierIDText.setText("");
+        SupplierNameText.setText("");
+        SupplierAddressText.setText("");
+        SupplierPhoneText.setText("");
+        SupplierEmailText.setText("");
+        SupplierContracdIDText.setText("");
+        SupplierUploadText.setText("");
+    }//GEN-LAST:event_ClearButtonActionPerformed
+
+    private void SupplierIdRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierIdRadioButtonActionPerformed
+        searchmethod="supplier_id";
+    }//GEN-LAST:event_SupplierIdRadioButtonActionPerformed
+
+    private void SupplierNameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierNameRadioButtonActionPerformed
+        searchmethod="supplier_name";
+    }//GEN-LAST:event_SupplierNameRadioButtonActionPerformed
+
+    private void SupplierSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierSearchButtonActionPerformed
+        if(searchmethod.equals("supplier_id"))
+        {
+            try {
+                String ss=SupplierSearchText1.getText();
+                String sql = "select supplier_id,supplier_name,supplier_address,supplier_phone,supplier_email,supplier_contract_id from suppliers where supplier_id='" + ss + "' ";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                SuppliersTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else
+        {
+            try {
+                String ss=SupplierSearchText1.getText();
+                String sql = "select supplier_id, supplier_name, supplier_address, supplier_phone, supplier_email, supplier_contract_id from suppliers where supplier_name='" + ss + "' " ;
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                SuppliersTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_SupplierSearchButtonActionPerformed
+
+    private void SupplierNameText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierNameText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupplierNameText1ActionPerformed
+
+    private void SupplierAddressText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierAddressText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupplierAddressText1ActionPerformed
+
+    private void SupplierPhoneText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierPhoneText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupplierPhoneText1ActionPerformed
+
+    private void SupplierEmailText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierEmailText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupplierEmailText1ActionPerformed
+
+    private void SuppliersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SuppliersTableMouseClicked
+
+        try {
+            int raw = SuppliersTable.getSelectedRow();
+            tableClick = (SuppliersTable.getModel().getValueAt(raw, 0).toString());
+            String sql = "select supplier_id, supplier_name, supplier_address,supplier_phone, supplier_email, supplier_contract_id from suppliers where supplier_id='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("supplier_name");
+                SupplierNameText1.setText(add1);
+                String add2 = rs.getString("supplier_address");
+                SupplierAddressText1.setText(add2);
+                String add3 = rs.getString("supplier_phone");
+                SupplierPhoneText1.setText(add3);
+                String add4 = rs.getString("supplier_email");
+                SupplierEmailText1.setText(add4);
+                String add5 = rs.getString("supplier_contract_id");
+                SupplierContractIDText1.setText(add5);
+
+            }
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+
+        }
+    }//GEN-LAST:event_SuppliersTableMouseClicked
+
+    private void SupplierUpdateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierUpdateButtonActionPerformed
+
+        fn = SupplierContractIDText1.getText();
+
+        try{
+
+            String sn = SupplierNameText1.getText();
+            String sa = SupplierAddressText1.getText();
+            String sp = SupplierPhoneText1.getText();
+            String se = SupplierEmailText1.getText();
+            String sc = SupplierContractIDText1.getText();
+
+            String sql = "update suppliers set supplier_name='"+sn+"',supplier_address='"+sa+"',supplier_phone='"+sp+"',supplier_email='"+se+"',supplier_contract_id='"+sc+"' where supplier_id='"+tableClick+"'";
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Supplier Details Updated");
+            update_Supplier_table();
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        try {
+
+            if (!SupplierUploadText1.getText().isEmpty()) {
+                Path dest = Paths.get( "C:/Users/Felix/Documents/NetBeansProjects/Yatzig/src/Contracts/"+fn+".pdf");
+                Path source = Paths.get(supplier_filename_update);
+                Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);
+
+                SupplierNameText1.setText(" ");
+                SupplierAddressText1.setText(" ");
+                SupplierPhoneText1.setText(" ");
+                SupplierEmailText1.setText(" ");
+                SupplierContractIDText1.setText(" ");
+                SupplierUploadText1.setText(" ");
+
+            }
+
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_SupplierUpdateButtonActionPerformed
+
+    private void SupplierDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierDeleteButtonActionPerformed
+
+        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete " +SupplierNameText1.getText()+" From The List ?", "Warning!",JOptionPane.YES_NO_OPTION);
+        if(ans==0)
+        {
+            int raw = SuppliersTable.getSelectedRow();
+            tableClick = (SuppliersTable.getModel().getValueAt(raw, 0).toString());
+            String sql="delete from suppliers where supplier_id='"+tableClick+"'";
+            try{
+                pst=conn.prepareStatement(sql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Supplier Deleted!");
+                update_Supplier_table();
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        }
+        if (ans==1)
+        {}
+    }//GEN-LAST:event_SupplierDeleteButtonActionPerformed
+
+    private void SupplierRefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierRefreshButtonActionPerformed
+        update_Supplier_table();
+    }//GEN-LAST:event_SupplierRefreshButtonActionPerformed
+
+    private void SupplierUploadText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierUploadText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupplierUploadText1ActionPerformed
+
+    private void SupplierUploadContractButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierUploadContractButton1ActionPerformed
+        try{
+
+            JFileChooser supplier_chooser = new JFileChooser();
+            supplier_chooser.setDialogTitle("Open a File");
+            FileNameExtensionFilter docFilter = new FileNameExtensionFilter("Word Files","docx");
+            FileNameExtensionFilter pdfFilter = new FileNameExtensionFilter("PDF Documents","pdf");
+            supplier_chooser.addChoosableFileFilter(docFilter);
+            supplier_chooser.addChoosableFileFilter(pdfFilter);
+            int result = supplier_chooser.showOpenDialog(null);
+            if (result == 0) {
+                File f = supplier_chooser.getSelectedFile();
+                supplier_filename_update = f.getAbsolutePath();
+                SupplierUploadText1.setText(supplier_filename_update);
+                f.getAbsoluteFile();
+
+            }
+
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+
+        }
+    }//GEN-LAST:event_SupplierUploadContractButton1ActionPerformed
+
+    private void SupplierShowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierShowButtonActionPerformed
+        try {
+
+            Desktop.getDesktop().open(new File(supplier_filename_update));
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_SupplierShowButtonActionPerformed
+
+    private void SupplierContractIDText1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierContractIDText1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SupplierContractIDText1ActionPerformed
+
+    private void SuppliersSearchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_SuppliersSearchTableMouseClicked
+        try {
+            int raw = SuppliersSearchTable.getSelectedRow();
+            tableClick = (SuppliersSearchTable.getModel().getValueAt(raw, 0).toString());
+            String sql = "select supplier_id, supplier_name, supplier_address,supplier_phone, supplier_email, supplier_contract_id from suppliers where supplier_id='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("supplier_id");
+                SupplierContractIDText2.setText(add1);
+
+            }
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_SuppliersSearchTableMouseClicked
+
+    private void SupplierRefreshButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierRefreshButton1ActionPerformed
+        update_Supplier_Search_table();
+    }//GEN-LAST:event_SupplierRefreshButton1ActionPerformed
+
+    private void SupplierIdRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierIdRadioButton1ActionPerformed
+        searchmethod="supplier_id";
+    }//GEN-LAST:event_SupplierIdRadioButton1ActionPerformed
+
+    private void SupplierNameRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierNameRadioButton1ActionPerformed
+        searchmethod="supplier_name";
+    }//GEN-LAST:event_SupplierNameRadioButton1ActionPerformed
+
+    private void SupplierSearchButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierSearchButton1ActionPerformed
+
+        if(searchmethod.equals("supplier_id"))
+        {
+            try {
+                String ss=SupplierSearchText2.getText();
+                String sql = "select supplier_id,supplier_name,supplier_address,supplier_phone,supplier_email,supplier_contract_id from suppliers where supplier_id='" + ss + "' ";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                SuppliersSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else
+        {
+            try {
+                String ss=SupplierSearchText2.getText();
+                String sql = "select supplier_id, supplier_name, supplier_address, supplier_phone, supplier_email, supplier_contract_id from suppliers where supplier_name='" + ss + "' " ;
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                SuppliersSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_SupplierSearchButton1ActionPerformed
+
+    private void Supplier_Show_Contract_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Supplier_Show_Contract_ButtonActionPerformed
+        supplier_filename_show_contract = "C:/Users/Felix/Documents/NetBeansProjects/Yatzig/src/SupplierContracts/"+SupplierContractIDText2.getText()+".pdf" ;
+        try {
+
+            Desktop.getDesktop().open(new File(supplier_filename_show_contract));
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_Supplier_Show_Contract_ButtonActionPerformed
+
+    private void suppliersTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_suppliersTabMouseClicked
+        update_Supplier_table();
+        update_Supplier_Search_table();
+    }//GEN-LAST:event_suppliersTabMouseClicked
+
+    private void serialTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serialTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_serialTextActionPerformed
+
+    private void nameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nameTextActionPerformed
+
+    private void quantityTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantityTextActionPerformed
+
+    private void supplierTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplierTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supplierTextActionPerformed
+
+    private void categoryChoiceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_categoryChoiceMouseClicked
+
+    }//GEN-LAST:event_categoryChoiceMouseClicked
+
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        int f = 0;
+        int h = 0;
+        String q, mq;
+        int q1, mq1;
+        
+        try {
+            String sql = "Insert into items (item_id,item_name,expiration_date,category_id,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf,comments) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, serialText.getText());
+            pst.setString(2, nameText.getText());
+            pst.setDate(3, new java.sql.Date(eDate.getDate().getTime()));
+            pst.setString(4, supplierText.getText());
+            pst.setString(5, quantityText.getText());
+            pst.setInt(6, categoryChoice.getSelectedIndex());
+            pst.setString(7, descriptionText.getText());
+            pst.setString(8, minLevelText.getText());
+            pst.setString(9, Warehouse_Text.getText());
+            pst.setString(10, Row_Text.getText());
+            pst.setString(11, Shelf_Text.getText());
+            pst.setString(12, Comments_Text.getText());
+            
+            q = quantityText.getText();
+            mq = minLevelText.getText();
+            q1 = Integer.parseInt(q);
+            mq1 = Integer.parseInt(mq);
+            if (mq1 > q1) {
+                f = 2;
+                throw new Exception("Min Quantity Level Is Higher Then Quantity Level");
+            }
+            pst.executeQuery();
+            JOptionPane.showMessageDialog(null, "Item Added");
+            
+        } catch (Exception e) {
+            h=1;
+            if (serialText.getText().isEmpty()) 
+                serialText.setBackground(Color.red);
+            else 
+                serialText.setBackground(Color.white);
+                        
+            if (nameText.getText().isEmpty()) 
+                nameText.setBackground(Color.red);
+            else 
+                nameText.setBackground(Color.white);                       
+            
+            if (categoryChoice.getSelectedItem().isEmpty()) 
+                categoryChoice.setBackground(Color.red);
+            else 
+                categoryChoice.setBackground(Color.white); 
+            
+            if (supplierText.getText().isEmpty()) 
+                supplierText.setBackground(Color.red);
+            else 
+                supplierText.setBackground(Color.white);  
+            
+            if (quantityText.getText().isEmpty()) 
+                quantityText.setBackground(Color.red);
+            else 
+                quantityText.setBackground(Color.white);  
+            
+            if (descriptionText.getText().isEmpty()) 
+                descriptionText.setBackground(Color.red);
+            else 
+                descriptionText.setBackground(Color.white);  
+            
+            if (minLevelText.getText().isEmpty()) 
+                minLevelText.setBackground(Color.red);
+            else 
+                minLevelText.setBackground(Color.white);  
+            
+            if (Comments_Text.getText().isEmpty()) 
+                Comments_Text.setBackground(Color.red);
+            else 
+                Comments_Text.setBackground(Color.white);  
+            
+            if (Warehouse_Text.getText().isEmpty()) 
+                Warehouse_Text.setBackground(Color.red);
+            else 
+                Warehouse_Text.setBackground(Color.white);  
+            
+            if (Row_Text.getText().isEmpty()) 
+                Row_Text.setBackground(Color.red);
+            else 
+                Row_Text.setBackground(Color.white);  
+            
+            if (Shelf_Text.getText().isEmpty()) 
+                Shelf_Text.setBackground(Color.red);
+            else 
+                Shelf_Text.setBackground(Color.white);  
+            
+           if (f != 2) {
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+            } else {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+
+        if (f == 0 && h==0) {
+            serialText.setText("");
+            nameText.setText("");
+            supplierText.setText("");
+            quantityText.setText("");
+            descriptionText.setText("");
+            minLevelText.setText("");
+            Warehouse_Text.setText("");
+            Row_Text.setText("");
+            Shelf_Text.setText("");
+            Comments_Text.setText("");
+            eDate.setCalendar(null);
+        }
+        //f=0;
+    }//GEN-LAST:event_addButtonActionPerformed
+
+    private void clearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearButtonActionPerformed
+        serialText.setText("");
+        nameText.setText("");
+        supplierText.setText("");
+        quantityText.setText("");
+        descriptionText.setText("");
+        minLevelText.setText("");
+        Warehouse_Text.setText("");
+        Row_Text.setText("");
+        Shelf_Text.setText("");
+        Comments_Text.setText("");
+        eDate.setCalendar(null);
+    }//GEN-LAST:event_clearButtonActionPerformed
+
+    private void Shelf_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Shelf_TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Shelf_TextActionPerformed
+
+    private void Row_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Row_TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Row_TextActionPerformed
+
+    private void Warehouse_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Warehouse_TextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Warehouse_TextActionPerformed
+
+    private void itemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemTableMouseClicked
+        try {
+            int raw = itemTable.getSelectedRow();
+            tableClick = (itemTable.getModel().getValueAt(raw, 0).toString());
+            String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_id='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                iid=rs.getString("item_id");
+                String add1 = rs.getString("quantity");
+                quantitytxt.setText(add1);
+                oq=quantitytxt.getText();
+                String add2 = rs.getString("min_quantity_level");
+                minQtxt.setText(add2);
+                String add3 = rs.getString("description");
+                descriptiontxt.setText(add3);
+                String add4 = rs.getString("supplier_name");
+                suppliertxt.setText(add4);
+                String add5 = rs.getString("warehouse");
+                wherhoustxt1.setText(add5);
+                String add6 = rs.getString("row");
+                rawtxt1.setText(add6);
+                String add7 = rs.getString("shelf");
+                shelftxt1.setText(add7);
+                Date add8 = rs.getDate("expiration_date");
+                datetxt.setDate(add8);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_itemTableMouseClicked
+
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+        if(searchmethod.equals("item_id"))
+        {
+            try {
+                String sn=searchtxt.getText();
+                String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_id='" + sn + "' ";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                itemTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else{
+            try {
+                String sn=searchtxt.getText();
+                String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_name='" + sn + "' ";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                itemTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_searchButtonActionPerformed
+
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+        try{
+
+            String vs = suppliertxt.getText();
+            // String vq = quantitytxt.getText();
+            Date vd =  new java.sql.Date(datetxt.getDate().getTime());
+            String vm = minQtxt.getText();
+            String vds = descriptiontxt.getText();
+            String vw = wherhoustxt1.getText();
+            String vr = rawtxt1.getText();
+            String vsl =shelftxt1.getText();
+
+            /* if(vd.isEmpty())
+            {
+                vd="Select expiration_date from items where item_id='" + tableClick+"' ";
+
+            }*/
+
+            String sql = "update items set supplier_name='"+vs+"',expiration_date='"+vd+"',min_quantity_level='"+vm+"',description='"+vds+"',warehouse='"+vw+"',row='"+vr+"',shelf='"+vsl+"' where item_id='"+tableClick+"'";
+
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Item Updated");
+            update_table();
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_updateButtonActionPerformed
+
+    private void itemNameRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNameRadioButtonActionPerformed
+        searchmethod="item_name";
+    }//GEN-LAST:event_itemNameRadioButtonActionPerformed
+
+    private void itemIdRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIdRadioButtonActionPerformed
+        searchmethod="item_id";
+    }//GEN-LAST:event_itemIdRadioButtonActionPerformed
+
+    private void RefreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshButtonActionPerformed
+        update_table();
+    }//GEN-LAST:event_RefreshButtonActionPerformed
+
+    private void submitQButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitQButtonActionPerformed
+        try {
+
+            String sql = "update users set flag=1 where user_type=3";
+
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+        }
+
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+
+        try {
+
+            String sql = "Insert into quantity_change (item_id,user_name,old_quantity,new_quantity,comments) values(?,?,?,?,?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, iid);
+            pst.setString(2, loginGUI.username);
+            pst.setString(3,oq);
+            pst.setString(4,quantitytxt.getText());
+            pst.setString(5,commentQtxt.getText());
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "Request Has Been Sent");
+        }
+
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_submitQButtonActionPerformed
+
+    private void deleteItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteItemButtonActionPerformed
+        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete This Item", "Warning!", JOptionPane.YES_NO_OPTION);
+        if(ans==0)
+        {
+            int raw = itemTable.getSelectedRow();
+            tableClick = (itemTable.getModel().getValueAt(raw, 0).toString());
+            String sql="delete from items where item_id='"+tableClick+"'";
+            try{
+                pst=conn.prepareStatement(sql);
+                pst.execute();
+                //JOptionPane.showMessageDialog(null, "Item Deleted!");
+                update_table();
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+            String qsql="delete from quantity where item_id='"+tableClick+"'";
+            try{
+                pst=conn.prepareStatement(qsql);
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "Item Deleted!");
+                update_table();
+            }
+            catch(Exception e){
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        }
+        if (ans==1)
+        {}
+    }//GEN-LAST:event_deleteItemButtonActionPerformed
+
+    private void searchStatusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchStatusButtonActionPerformed
+
+        try {
+            String sn=searchStatustxt.getText();
+            String sql = "select item_id as 'Item ID',worker_id as 'Worker ID',date as 'Date',amount_for_operation as 'Amount Of Operation',quantity_trace 'Quantity Trace',operation_type as 'Operation Type' from quantity where item_id='"+sn+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            statusTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }//GEN-LAST:event_searchStatusButtonActionPerformed
+
+    private void addStatusButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addStatusButtonActionPerformed
+        int f = 0;
+        int h = 0;
+        String ot, iid,afo, ssum = null,opnum;
+        int q1, mq1,sum = 0,ml,on;
+        try {
+            iid= sItemIdtxt.getText();
+            String sql="select quantity,min_quantity_level from items where item_id='"+iid+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            rs.next();
+            String add1 = rs.getString("quantity");
+            String add2 = rs.getString("min_quantity_level");
+
+            sql="SELECT opnum FROM quantity ORDER BY opnum DESC LIMIT 1";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            rs.next();
+            opnum=rs.getString("opnum");
+            on=Integer.parseInt(opnum);
+            on++;
+            opnum=Integer.toString(on);
+
+            afo=amountFor.getText();
+            ot = oporationType.getSelectedItem();
+            if(ot.equals("Add"))
+            {
+                q1=Integer.parseInt(add1);
+                mq1=Integer.parseInt(afo);
+                sum=q1+mq1;
+                ssum=Integer.toString(sum);
+                f=0;
+                sql="update items set quantity='"+ssum+"'where item_id='"+iid+"'";
+                pst = conn.prepareStatement(sql);
+                pst.execute();
+            }
+
+            if(ot.equals("Subtract"))
+            {
+                ml=Integer.parseInt(add2);
+                q1=Integer.parseInt(add1);
+                mq1=Integer.parseInt(afo);
+                sum=q1-mq1;
+                if(sum<ml)
+                JOptionPane.showMessageDialog(null, "Warning! The Current Quantity Is Lower Than The Min Level");
+                ssum=Integer.toString(sum);
+                f=0;
+                sql="update items set quantity='"+ssum+"'where item_id='"+iid+"'";
+                pst = conn.prepareStatement(sql);
+                pst.execute();
+            }
+
+            sql = "Insert into quantity (opnum,item_id,worker_id,date,operation_type,amount_for_operation,quantity_trace) values(?,?,?,?,?,?,?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setString(1, opnum);
+            pst.setString(2, sItemIdtxt.getText());
+            pst.setString(3, sWorkerIdtxt.getText());
+            pst.setDate(4, new java.sql.Date(dateStatus.getDate().getTime()));
+            pst.setString(6, amountFor.getText());
+            pst.setString(5, oporationType.getSelectedItem());
+            pst.setString(7, ssum);
+            pst.executeQuery();
+
+            /*if (mq1 > q1) {
+                f = 2;
+                throw new Exception("Min Quantity Level Is Higher Then Quantity Level");
+            }*/
+            JOptionPane.showMessageDialog(null, "Operation Added");
+            } 
+        
+            catch (Exception e) {
+            h=1;
+            
+            if (sItemIdtxt.getText().isEmpty()) 
+                sItemIdtxt.setBackground(Color.red);
+            else sItemIdtxt.setBackground(Color.white);
+            
+            if (sWorkerIdtxt.getText().isEmpty()) 
+                sWorkerIdtxt.setBackground(Color.red);
+            else sWorkerIdtxt.setBackground(Color.white);
+            
+            if (oporationType.getSelectedItem().isEmpty()) 
+                oporationType.setBackground(Color.red);
+            else oporationType.setBackground(Color.white);
+            
+            if (amountFor.getText().isEmpty()) 
+                amountFor.setBackground(Color.red);
+            else amountFor.setBackground(Color.white);
+
+            JOptionPane.showMessageDialog(null, e);
+
+            if (f != 2) {
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+            } else {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        
+        if (f == 0 && h==0) {
+            sItemIdtxt.setText("");
+            sWorkerIdtxt.setText("");
+            amountFor.setText("");
+            dateStatus.setCalendar(null);
+        }
+        
+     update_statusTable();
+    }//GEN-LAST:event_addStatusButtonActionPerformed
+
+    private void refreshStausButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshStausButtonActionPerformed
+        update_statusTable();
+    }//GEN-LAST:event_refreshStausButtonActionPerformed
+
+    private void itemSearchTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemSearchTableMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_itemSearchTableMouseClicked
+
+    private void searchButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton1ActionPerformed
+        if(searchmethod.equals("item_id"))
+        {
+            try {
+                String sn=searchtxt1.getText();
+                String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_id='" + sn + "' ";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                itemSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else{
+            try {
+                String sn=searchtxt1.getText();
+                String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_name='" + sn + "' ";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                itemSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_searchButton1ActionPerformed
+
+    private void itemIdRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemIdRadioButton1ActionPerformed
+        searchmethod="item_id";
+    }//GEN-LAST:event_itemIdRadioButton1ActionPerformed
+
+    private void itemNameRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemNameRadioButton1ActionPerformed
+        searchmethod="item_name";
+    }//GEN-LAST:event_itemNameRadioButton1ActionPerformed
+
+    private void RefreshButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshButton1ActionPerformed
+        update_Search_table();
+    }//GEN-LAST:event_RefreshButton1ActionPerformed
+
+    private void inventoryTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inventoryTabMouseClicked
+        update_table();
+        update_Search_table();
+        update_statusTable();
+    }//GEN-LAST:event_inventoryTabMouseClicked
 
     /**
      * @param args the command line arguments
@@ -203,20 +2941,348 @@ public class welcome1 extends javax.swing.JFrame {
             }
         });
     }
+ private void update_table() {
+        try {
+            String sql = "select item_id as 'Item ID',item_name as 'Item Name',expiration_date 'Expiration Date',supplier_name as 'Supplier Name',quantity as 'Quantity',description as'Description',min_quantity_level as 'Min Quantity Level',warehouse as 'Warehouse',row as 'Row',shelf as 'Shelf' from items";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            itemTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
 
+    }
+     private void update_Search_table() {
+        try {
+            String sql = "select item_id as 'Item ID',item_name as 'Item Name',expiration_date 'Expiration Date',supplier_name as 'Supplier Name',quantity as 'Quantity',description as'Description',min_quantity_level as 'Min Quantity Level',warehouse as 'Warehouse',row as 'Row',shelf as 'Shelf' from items";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            itemSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+    }
+     
+     
+     private void update_statusTable(){
+        try {
+            String sql = "select item_id as 'Item ID',worker_id as 'Worker ID',date as 'Date',amount_for_operation as 'Amount For Operation',quantity_trace as 'Quantity Trace',operation_type as 'Operation Type' from quantity";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            statusTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+     
+        
+     private void update_OrderTable(){
+        try {
+            String sql = "select orders_id as 'Order ID',order_date as 'Order Date',description as 'Description',price as 'Total Price',arrivel_date as 'Arrivel Date' from orders";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            orderUpdateTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    } 
+     
+       private void update_Search_OrderTable(){
+        try {
+            String sql = "select orders_id as 'Order ID',order_date as 'Order Date',description as 'Description',price as 'Total Price',arrivel_date as 'Arrivel Date' from orders";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            orderSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+       
+            private void update_Supplier_table() {
+        try {
+            String sql = "select supplier_id as 'Supplier ID',supplier_name as 'Supplier Name', supplier_address as 'Address',supplier_phone as 'Phone', supplier_email as 'Email', supplier_contract_id as 'Contract ID' from suppliers";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            SuppliersTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+         
+              private void update_Supplier_Search_table() {
+        try {
+            String sql = "select supplier_id as 'Supplier ID',supplier_name as 'Supplier Name', supplier_address as 'Address',supplier_phone as 'Phone', supplier_email as 'Email', supplier_contract_id as 'Contract ID' from suppliers";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            SuppliersSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+    }
+            private void price_list_table(){
+        try{
+           String sql = "select item_id as 'Item ID',item_price as 'Item Price',supplier_id as 'Supplier ID',supplier_name as 'Supplier Name' from item_from_supplier";
+           pst=conn.prepareStatement(sql);
+           rs=pst.executeQuery(sql);
+           priceListTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+
+    
+  
+     
+     
+     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel AddItemPanel;
+    private javax.swing.JPanel AddOrderPanel;
+    private javax.swing.JPanel AddSupplierPanel;
+    private javax.swing.JButton ClearButton;
+    private javax.swing.JLabel Comments_Label;
+    private javax.swing.JTextArea Comments_Text;
+    private javax.swing.JPanel ContractPanel;
+    private javax.swing.JLabel DescriptionLabel;
+    private javax.swing.JLabel EnterYourSearchLabel;
+    private javax.swing.JLabel EnterYourSearchLabel1;
+    private javax.swing.JLabel EnterYourSearchLabel11;
+    private javax.swing.JLabel EnterYourSearchLabel2;
+    private javax.swing.JLabel EnterYourSearchLabel5;
+    private javax.swing.JLabel EnterYourSearchLabel6;
+    private javax.swing.JLabel EnterYourSearchLabel7;
+    private javax.swing.JLabel EnterYourSearchLabel8;
+    private javax.swing.JLabel ExpirationDateLabel2;
+    private javax.swing.JLabel MinQuantityLabel1;
+    private javax.swing.JPanel PriceListPanel;
+    private javax.swing.JLabel QuantityLabel1;
+    private javax.swing.JLabel QuantityLabel2;
+    private javax.swing.JButton RefreshButton;
+    private javax.swing.JButton RefreshButton1;
+    private javax.swing.JTextField Row_Text;
+    private javax.swing.JLabel Row_label;
+    private javax.swing.JLabel Row_label1;
+    private javax.swing.JLabel Row_label2;
+    private javax.swing.JPanel SearchItemPanel;
+    private javax.swing.JPanel SearchOrderPanel;
+    private javax.swing.JPanel SearchSupplierPanel;
+    private javax.swing.JTextField Shelf_Text;
+    private javax.swing.JLabel Shelf__label;
+    private javax.swing.JLabel Shelf__label1;
+    private javax.swing.JLabel Shelf__label2;
+    private javax.swing.JPanel StatusItemPanel;
+    private javax.swing.JLabel Storage_Label;
+    private javax.swing.JLabel Storage_Label1;
+    private javax.swing.JLabel Storage_Label2;
+    private javax.swing.JLabel Storage_Label4;
+    private javax.swing.JPanel Storage_panel;
+    private javax.swing.JPanel Storage_panel1;
+    private javax.swing.JPanel Storage_panel2;
+    private javax.swing.JButton SupplierAddButton;
+    private javax.swing.JLabel SupplierAddressLabel;
+    private javax.swing.JLabel SupplierAddressLabel1;
+    private javax.swing.JTextField SupplierAddressText;
+    private javax.swing.JTextField SupplierAddressText1;
+    private javax.swing.JTextField SupplierContracdIDText;
+    private javax.swing.JLabel SupplierContractIDLabel;
+    private javax.swing.JLabel SupplierContractIDLabel1;
+    private javax.swing.JTextField SupplierContractIDText1;
+    private javax.swing.JTextField SupplierContractIDText2;
+    private javax.swing.JPanel SupplierContractPanel;
+    private javax.swing.JButton SupplierDeleteButton;
+    private javax.swing.JLabel SupplierEmailLabel;
+    private javax.swing.JLabel SupplierEmailLabel1;
+    private javax.swing.JTextField SupplierEmailText;
+    private javax.swing.JTextField SupplierEmailText1;
+    private javax.swing.JLabel SupplierIDLabel;
+    private javax.swing.JTextField SupplierIDText;
+    private javax.swing.JRadioButton SupplierIdRadioButton;
+    private javax.swing.JRadioButton SupplierIdRadioButton1;
+    private javax.swing.JLabel SupplierNameLabel;
+    private javax.swing.JLabel SupplierNameLabel1;
+    private javax.swing.JLabel SupplierNameLabel2;
+    private javax.swing.JRadioButton SupplierNameRadioButton;
+    private javax.swing.JRadioButton SupplierNameRadioButton1;
+    private javax.swing.JTextField SupplierNameText;
+    private javax.swing.JTextField SupplierNameText1;
+    private javax.swing.JLabel SupplierPhoneLabel;
+    private javax.swing.JLabel SupplierPhoneLabel1;
+    private javax.swing.JTextField SupplierPhoneText;
+    private javax.swing.JTextField SupplierPhoneText1;
+    private javax.swing.JButton SupplierRefreshButton;
+    private javax.swing.JButton SupplierRefreshButton1;
+    private javax.swing.JButton SupplierSearchButton;
+    private javax.swing.JButton SupplierSearchButton1;
+    private javax.swing.JTextField SupplierSearchText1;
+    private javax.swing.JTextField SupplierSearchText2;
+    private javax.swing.JButton SupplierShowButton;
+    private javax.swing.JButton SupplierShowContractButton;
+    private javax.swing.JButton SupplierUpdateButton;
+    private javax.swing.JButton SupplierUploadContractButton;
+    private javax.swing.JButton SupplierUploadContractButton1;
+    private javax.swing.JTextField SupplierUploadText;
+    private javax.swing.JTextField SupplierUploadText1;
+    private javax.swing.JButton Supplier_Show_Contract_Button;
+    private javax.swing.JLabel SupplierlContractLabel;
+    private javax.swing.JTable SuppliersSearchTable;
+    private javax.swing.JTable SuppliersTable;
+    private javax.swing.JLabel UpdateDescriptionLabel;
+    private javax.swing.JPanel UpdateItemPanel;
+    private javax.swing.JPanel UpdateOrderPanel;
+    private javax.swing.JPanel UpdateSupplierPanel;
+    private javax.swing.JLabel UpdatetoaLabel;
+    private javax.swing.JLabel UpdatetpLabel;
+    private javax.swing.JTextField Warehouse_Text;
+    private javax.swing.JButton addButton;
+    private javax.swing.JButton addOrderButton;
+    private javax.swing.JButton addPLButton;
+    private javax.swing.JButton addStatusButton;
+    private javax.swing.JTextField amountFor;
+    private javax.swing.JLabel background_green;
+    private javax.swing.JLabel background_green10;
+    private javax.swing.JLabel background_green15;
+    private javax.swing.JLabel background_green4;
+    private javax.swing.JLabel background_green5;
+    private javax.swing.JLabel background_green6;
+    private javax.swing.JLabel background_green7;
+    private javax.swing.JLabel background_green9;
+    private java.awt.Choice categoryChoice;
+    private javax.swing.JButton clearButton;
+    private javax.swing.JTextField commentQtxt;
+    private javax.swing.JLabel contract_Label1;
+    private com.toedter.calendar.JDateChooser dateStatus;
+    private com.toedter.calendar.JDateChooser datetxt;
+    private javax.swing.JButton deleteItemButton;
+    private javax.swing.JTextArea descriptionText;
+    private javax.swing.JTextArea descriptiontxt;
+    private com.toedter.calendar.JDateChooser eDate;
+    private javax.swing.JButton inventoryButton;
+    private javax.swing.JTabbedPane inventoryTab;
+    private javax.swing.JTextField itemIDPricetxt;
+    private javax.swing.JTextField itemIdPLtxt;
+    private javax.swing.JRadioButton itemIdRadioButton;
+    private javax.swing.JRadioButton itemIdRadioButton1;
+    private javax.swing.JRadioButton itemNameRadioButton;
+    private javax.swing.JRadioButton itemNameRadioButton1;
+    private javax.swing.JTable itemSearchTable;
+    private javax.swing.JTable itemTable;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private java.awt.Label label1;
+    private javax.swing.JPanel jPanel24;
+    private javax.swing.JScrollBar jScrollBar2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane17;
+    private javax.swing.JScrollPane jScrollPane18;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane20;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton logoutButton;
+    private javax.swing.JTextField minLevelText;
+    private javax.swing.JTextField minQtxt;
+    private javax.swing.JTextField nameText;
+    private java.awt.Choice oporationType;
+    private javax.swing.JLabel orderArrivalLabel;
+    private javax.swing.JButton orderClearButton;
+    private javax.swing.JTextArea orderDescUptxt;
+    private javax.swing.JLabel orderDescriptionLabel;
+    private javax.swing.JTextArea orderDesctxt;
+    private javax.swing.JLabel orderIDLabel;
+    private javax.swing.JTextField orderIDtxt;
+    private javax.swing.JLabel orderPriceLabel;
+    private javax.swing.JButton orderRefreshButton;
+    private javax.swing.JTable orderSearchTable;
+    private javax.swing.JLabel orderTimeLabel;
+    private javax.swing.JTextField orderTptxt;
+    private javax.swing.JButton orderUpdateButton;
+    private javax.swing.JTable orderUpdateTable;
+    private javax.swing.JButton ordersButton;
+    private javax.swing.JTabbedPane ordersTab;
+    private javax.swing.JTable priceListTable;
+    private javax.swing.JTextField pricePLtxt;
+    private javax.swing.JTextField quantityText;
+    private javax.swing.JTextField quantitytxt;
+    private javax.swing.JTextField rawtxt;
+    private javax.swing.JTextField rawtxt1;
+    private javax.swing.JButton refreshPLButton;
+    private javax.swing.JButton refreshStausButton;
+    private javax.swing.JButton refreshUpdateOrderButton;
+    private javax.swing.JButton reportsButton;
+    private javax.swing.JTextField sItemIdtxt;
+    private javax.swing.JTextField sWorkerIdtxt;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JButton searchButton1;
+    private javax.swing.JButton searchOrderButton;
+    private javax.swing.JButton searchOrderUpButton;
+    private javax.swing.JTextField searchOrdertxt;
+    private javax.swing.JButton searchPLButton;
+    private javax.swing.JButton searchStatusButton;
+    private javax.swing.JTextField searchStatustxt;
+    private javax.swing.JTextField searchUpOrdertxt;
+    private javax.swing.JTextField searchtxt;
+    private javax.swing.JTextField searchtxt1;
+    private javax.swing.JTextField serialText;
+    private javax.swing.JTextField shelftxt;
+    private javax.swing.JTextField shelftxt1;
+    private javax.swing.JTable statusTable;
+    private javax.swing.JButton submitQButton;
+    private javax.swing.JTextField supplierIdPLtxt;
+    private javax.swing.JTextField supplierNamePLtxt;
+    private javax.swing.JTextField supplierText;
+    private javax.swing.JButton suppliersButton;
+    private javax.swing.JTabbedPane suppliersTab;
+    private javax.swing.JTextField suppliertxt;
+    private com.toedter.calendar.JDateChooser toaDate;
+    private com.toedter.calendar.JDateChooser toaUpdate;
+    private com.toedter.calendar.JDateChooser tooDate;
+    private javax.swing.JTextField tpUptxt;
+    private javax.swing.JButton updateButton;
+    private javax.swing.JLabel warehouse_label;
+    private javax.swing.JLabel warehouse_label1;
+    private javax.swing.JLabel warehouse_label2;
+    private javax.swing.JTextField wherhoustxt;
+    private javax.swing.JTextField wherhoustxt1;
     // End of variables declaration//GEN-END:variables
 
 }
