@@ -192,6 +192,7 @@ public class welcome2 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -211,7 +212,7 @@ public class welcome2 extends javax.swing.JFrame {
         jSeparator1.setPreferredSize(new java.awt.Dimension(55, 10));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 222, 1240, 10));
 
-        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/logout button.png"))); // NOI18N
+        logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout button.png"))); // NOI18N
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButtonActionPerformed(evt);
@@ -219,7 +220,7 @@ public class welcome2 extends javax.swing.JFrame {
         });
         getContentPane().add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 30, 30));
 
-        suppliersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Suppliers icon 53 x 50.png"))); // NOI18N
+        suppliersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Suppliers icon 53 x 50.png"))); // NOI18N
         suppliersButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 suppliersButtonActionPerformed(evt);
@@ -227,7 +228,7 @@ public class welcome2 extends javax.swing.JFrame {
         });
         getContentPane().add(suppliersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 65, 60));
 
-        reportsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Reports icon 53 x 50.png"))); // NOI18N
+        reportsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Reports icon 53 x 50.png"))); // NOI18N
         reportsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 reportsButtonActionPerformed(evt);
@@ -930,10 +931,6 @@ public class welcome2 extends javax.swing.JFrame {
 
         reportsTab.addTab("History", jPanel15);
 
-        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -974,10 +971,13 @@ public class welcome2 extends javax.swing.JFrame {
                     .addComponent(reportsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
+        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1250, 440));
 
-        projectsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/Projects icon 53 x 50.png"))); // NOI18N
+        projectsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Projects icon 53 x 50.png"))); // NOI18N
         projectsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 projectsButtonActionPerformed(evt);
@@ -1640,7 +1640,7 @@ public class welcome2 extends javax.swing.JFrame {
         }
 
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null,e);
+                JOptionPane.showMessageDialog(null,"This Supplier Does Not Have a Contract");  
         }
     }//GEN-LAST:event_Supplier_Show_Contract_ButtonActionPerformed
 

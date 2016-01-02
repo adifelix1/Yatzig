@@ -991,9 +991,6 @@ import net.proteanit.sql.DbUtils;
 
         customerTab.addTab("Search", SearchCustomerPanel);
 
-        jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -1012,6 +1009,8 @@ import net.proteanit.sql.DbUtils;
                     .addComponent(customerTab)
                     .addContainerGap()))
         );
+        jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -1533,13 +1532,9 @@ import net.proteanit.sql.DbUtils;
            }
         
         catch (Exception e) {
-              JOptionPane.showMessageDialog(null,e); 
+              JOptionPane.showMessageDialog(null,"This Worker Does Not Have a Contract"); 
            }
     }//GEN-LAST:event_Show_Contract_ButtonActionPerformed
-
-    private void ContractIDText2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContractIDText2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ContractIDText2ActionPerformed
 
     private void CustomerIDTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerIDTextActionPerformed
         // TODO add your handling code here:
@@ -1799,6 +1794,10 @@ import net.proteanit.sql.DbUtils;
         update_CustomerTable();
         update_Customer_SearchTable();
     }//GEN-LAST:event_customerTabMouseClicked
+
+    private void ContractIDText2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContractIDText2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ContractIDText2ActionPerformed
 
     
     /**

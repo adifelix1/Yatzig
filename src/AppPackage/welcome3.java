@@ -29,7 +29,27 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import net.proteanit.sql.DbUtils;
+import java.io.FileOutputStream;
+import java.text.DecimalFormat;
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Font.FontFamily;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.io.FileNotFoundException;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -152,6 +172,10 @@ public class welcome3 extends javax.swing.JFrame {
         jDateChooser3 = new com.toedter.calendar.JDateChooser();
         background_green14 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        genRepButton = new javax.swing.JToggleButton();
+        pBeginDateChooser = new com.toedter.calendar.JDateChooser();
+        pEndDateChooser = new com.toedter.calendar.JDateChooser();
         usersTab = new javax.swing.JTabbedPane();
         AddUserPanel = new javax.swing.JPanel();
         jScrollPane19 = new javax.swing.JScrollPane();
@@ -536,6 +560,47 @@ public class welcome3 extends javax.swing.JFrame {
 
         reportsTab.addTab("History", jPanel15);
 
+        genRepButton.setText("Generate Report");
+        genRepButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                genRepButtonActionPerformed(evt);
+            }
+        });
+
+        pBeginDateChooser.setDateFormatString("yyyy-MM-dd");
+
+        pEndDateChooser.setDateFormatString("yyyy-MM-dd");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(325, 325, 325)
+                        .addComponent(genRepButton))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pEndDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pBeginDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(812, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(75, 75, 75)
+                .addComponent(pBeginDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(pEndDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addComponent(genRepButton)
+                .addContainerGap(217, Short.MAX_VALUE))
+        );
+
+        reportsTab.addTab("tab3", jPanel3);
+
         usersTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         usersTab.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -704,10 +769,6 @@ public class welcome3 extends javax.swing.JFrame {
 
         usersTab.addTab("Add User", AddUserPanel);
 
-        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -748,6 +809,9 @@ public class welcome3 extends javax.swing.JFrame {
                     .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
+        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -1132,6 +1196,112 @@ public class welcome3 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_UserPermissionChoiseMouseClicked
 
+    private void genRepButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genRepButtonActionPerformed
+  Document doc = new Document();
+  PdfWriter docWriter = null;
+  DecimalFormat df = new DecimalFormat("0.00");
+
+  try {
+  
+   //special font sizes
+   Font bfBold12 = new Font(FontFamily.TIMES_ROMAN, 12, Font.BOLD, new BaseColor(0, 0, 0)); 
+   Font bf12 = new Font(FontFamily.TIMES_ROMAN, 12); 
+ 
+   DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+   Date date = new Date();
+   //file path
+   String dt=dateFormat.format(date);
+   String path = "C:/Users/Adi/Documents/NetBeansProjects/Yatzig/src/" + "Project Report- " + dt + ".pdf";   
+   docWriter = PdfWriter.getInstance(doc , new FileOutputStream(path));
+   
+   //document header attributes
+   doc.addCreationDate();
+   doc.setPageSize(PageSize.LETTER);
+  
+   //open document
+   doc.open();
+
+   //create a paragraph
+   Paragraph paragraph = new Paragraph("iText ® is a library that allows you to create and " +
+     "manipulate PDF documents. It enables developers looking to enhance web and other " +
+     "applications with dynamic PDF document generation and/or manipulation.");
+   
+   
+   //specify column widths
+   float[] columnWidths = {2f, 2f, 2f, 2f, 2f};
+   //create PDF table with the given widths
+   PdfPTable table = new PdfPTable(columnWidths);
+   // set table width a percentage of the page width
+   table.setWidthPercentage(100f);
+
+   //insert column headings
+   insertCell(table, "Project ID", Element.ALIGN_LEFT, 1, bfBold12);
+   insertCell(table, "Project Name", Element.ALIGN_LEFT, 1, bfBold12);
+   insertCell(table, "Start Date", Element.ALIGN_LEFT, 1, bfBold12);
+   insertCell(table, "Due Date", Element.ALIGN_LEFT, 1, bfBold12);
+   insertCell(table, "Status", Element.ALIGN_LEFT, 1, bfBold12);
+   table.setHeaderRows(1);
+
+   //insert an empty row
+  /* insertCell(table, "", Element.ALIGN_LEFT, 4, bfBold12);*/
+   //create section heading by cell merging
+  /* insertCell(table, "New York Orders ...", Element.ALIGN_LEFT, 4, bfBold12);*/
+   /*double orderTotal, total = 0;*/
+   
+   String add1,add2,add3,add4,add5,add6;
+   String sd= dateFormat.format(pBeginDateChooser.getDate());
+   String ed=dateFormat.format(pEndDateChooser.getDate());
+   try {
+            String sql = "select project_id,project_name,start_date,due_date,status from projects where due_date >= '"+sd+"' and due_date <= '"+ed+"' and start_date >= '"+sd+"'and start_date <= '"+ed+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) { 
+                 add1 = rs.getString("project_id");
+                 add2 = rs.getString("project_name");
+                 add3 = rs.getString("start_date");
+                 add4 = rs.getString("due_date");
+                 add5 = rs.getString("status");   
+                 insertCell(table,add1 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add2 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add3 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add4 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add5 , Element.ALIGN_CENTER, 1, bf12);
+
+        }                                         
+         }
+          catch (Exception e){
+    JOptionPane.showMessageDialog(null,e);
+    
+        }
+
+   //add the PDF table to the paragraph 
+   paragraph.add(table);
+   // add the paragraph to the document
+   doc.add(paragraph);
+
+  }
+  catch (DocumentException dex)
+  {
+   dex.printStackTrace();
+  }    
+  catch (Exception ex)
+  {
+   ex.printStackTrace();
+  }
+  finally
+  {
+   if (doc != null){
+    //close the document
+    doc.close();
+    JOptionPane.showMessageDialog(null, "Report Generated!");
+   }
+   if (docWriter != null){
+    //close the writer
+    docWriter.close();
+   }
+  }        
+    }//GEN-LAST:event_genRepButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1213,6 +1383,24 @@ public class welcome3 extends javax.swing.JFrame {
     public void setAlertIconVisible() {
         AlertIcon.setVisible(false);
     }
+    
+     private void insertCell(PdfPTable table, String text, int align, int colspan, Font font){
+  
+  //create a new cell with the specified Text and Font
+  PdfPCell cell = new PdfPCell(new Phrase(text.trim(), font));
+  //set the cell alignment
+  cell.setHorizontalAlignment(align);
+  //set the cell column span in case you want to merge two or more cells
+  cell.setColspan(colspan);
+  //in case there is no text and you wan to create an empty row
+  if(text.trim().equalsIgnoreCase("")){
+   cell.setMinimumHeight(10f);
+  }
+  //add the call to the table
+  table.addCell(cell);
+  
+ }
+
                         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1256,6 +1444,7 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JLabel background_green13;
     private javax.swing.JLabel background_green14;
     private javax.swing.JLabel background_green4;
+    private javax.swing.JToggleButton genRepButton;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDateChooser jDateChooser3;
@@ -1271,6 +1460,7 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
@@ -1279,6 +1469,8 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton logoutButton;
     private com.toedter.components.JSpinField monthRepjSpin;
+    private com.toedter.calendar.JDateChooser pBeginDateChooser;
+    private com.toedter.calendar.JDateChooser pEndDateChooser;
     private javax.swing.JButton projAddButton;
     private javax.swing.JButton projClearButton;
     private javax.swing.JTextArea projComUptxt;

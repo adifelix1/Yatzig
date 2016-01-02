@@ -305,6 +305,7 @@ public class welcome1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSeparator1.setPreferredSize(new java.awt.Dimension(55, 10));
@@ -1643,10 +1644,6 @@ public class welcome1 extends javax.swing.JFrame {
 
         suppliersTab.addTab("Search", SearchSupplierPanel);
 
-        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -1668,6 +1665,9 @@ public class welcome1 extends javax.swing.JFrame {
                     .addComponent(inventoryTab, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(154, Short.MAX_VALUE)))
         );
+        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -2387,7 +2387,7 @@ public class welcome1 extends javax.swing.JFrame {
         }
 
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null,e);
+            JOptionPane.showMessageDialog(null,"This Supplier Does Not Have a Contract");
         }
     }//GEN-LAST:event_Supplier_Show_Contract_ButtonActionPerformed
 
@@ -2831,7 +2831,7 @@ public class welcome1 extends javax.swing.JFrame {
                 amountFor.setBackground(Color.red);
             else amountFor.setBackground(Color.white);
 
-            JOptionPane.showMessageDialog(null, e);
+            //JOptionPane.showMessageDialog(null, e);
 
             if (f != 2) {
                 JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
