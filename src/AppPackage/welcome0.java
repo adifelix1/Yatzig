@@ -228,6 +228,11 @@ import net.proteanit.sql.DbUtils;
         getContentPane().add(customersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 67, 60));
 
         reportsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Reports icon 53 x 50.png"))); // NOI18N
+        reportsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportsButtonActionPerformed(evt);
+            }
+        });
         getContentPane().add(reportsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 65, 60));
 
         workersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Workers icon 53 x 50.png"))); // NOI18N
@@ -991,6 +996,9 @@ import net.proteanit.sql.DbUtils;
 
         customerTab.addTab("Search", SearchCustomerPanel);
 
+        jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -1009,8 +1017,6 @@ import net.proteanit.sql.DbUtils;
                     .addComponent(customerTab)
                     .addContainerGap()))
         );
-        jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -1798,6 +1804,10 @@ import net.proteanit.sql.DbUtils;
     private void ContractIDText2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContractIDText2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ContractIDText2ActionPerformed
+
+    private void reportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportsButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reportsButtonActionPerformed
 
     
     /**

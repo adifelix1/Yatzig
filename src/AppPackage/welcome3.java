@@ -45,9 +45,11 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.io.FileNotFoundException;
+import com.itextpdf.text.Image;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -63,6 +65,7 @@ public class welcome3 extends javax.swing.JFrame {
     public String filename_supplier;
     public String supplier_filename_update;
     public String supplier_filename_show_contract;
+    public String filename_show_report;
     public String sn; 
     public String fn;
     String tableClick;
@@ -171,11 +174,19 @@ public class welcome3 extends javax.swing.JFrame {
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jDateChooser3 = new com.toedter.calendar.JDateChooser();
         background_green14 = new javax.swing.JLabel();
-        jPanel15 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
+        HistoryPanel = new javax.swing.JPanel();
+        background_green16 = new javax.swing.JLabel();
+        ProjectReportPanel = new javax.swing.JPanel();
         genRepButton = new javax.swing.JToggleButton();
         pBeginDateChooser = new com.toedter.calendar.JDateChooser();
         pEndDateChooser = new com.toedter.calendar.JDateChooser();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        Show_report_Button = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        background_green15 = new javax.swing.JLabel();
         usersTab = new javax.swing.JTabbedPane();
         AddUserPanel = new javax.swing.JPanel();
         jScrollPane19 = new javax.swing.JScrollPane();
@@ -547,59 +558,67 @@ public class welcome3 extends javax.swing.JFrame {
 
         reportsTab.addTab("Generate", jPanel14);
 
-        javax.swing.GroupLayout jPanel15Layout = new javax.swing.GroupLayout(jPanel15);
-        jPanel15.setLayout(jPanel15Layout);
-        jPanel15Layout.setHorizontalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1250, Short.MAX_VALUE)
-        );
-        jPanel15Layout.setVerticalGroup(
-            jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
-        );
+        HistoryPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        reportsTab.addTab("History", jPanel15);
+        background_green16.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        background_green16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        HistoryPanel.add(background_green16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
+        reportsTab.addTab("History", HistoryPanel);
+
+        ProjectReportPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        genRepButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         genRepButton.setText("Generate Report");
+        genRepButton.setOpaque(true);
         genRepButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 genRepButtonActionPerformed(evt);
             }
         });
+        ProjectReportPanel.add(genRepButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, 50));
 
         pBeginDateChooser.setDateFormatString("yyyy-MM-dd");
+        ProjectReportPanel.add(pBeginDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, 130, -1));
 
         pEndDateChooser.setDateFormatString("yyyy-MM-dd");
+        ProjectReportPanel.add(pEndDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 170, 130, -1));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(325, 325, 325)
-                        .addComponent(genRepButton))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pEndDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pBeginDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(812, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(75, 75, 75)
-                .addComponent(pBeginDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(pEndDateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(genRepButton)
-                .addContainerGap(217, Short.MAX_VALUE))
-        );
+        jLabel2.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        jLabel2.setText("This report shows all projects from two chosen dates.");
+        ProjectReportPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
 
-        reportsTab.addTab("tab3", jPanel3);
+        jLabel5.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        jLabel5.setText("You can see the report by clicking on this button ");
+        ProjectReportPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        jLabel6.setText("In order to start, please chose a start date ");
+        ProjectReportPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        jLabel7.setText("Chose a due date");
+        ProjectReportPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
+
+        Show_report_Button.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        Show_report_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon-service-contract.png"))); // NOI18N
+        Show_report_Button.setText("Show Report");
+        Show_report_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Show_report_ButtonActionPerformed(evt);
+            }
+        });
+        ProjectReportPanel.add(Show_report_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 290, 190, 40));
+
+        jLabel8.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        jLabel8.setText("Click on this button");
+        ProjectReportPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, -1, -1));
+
+        background_green15.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        background_green15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        ProjectReportPanel.add(background_green15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
+
+        reportsTab.addTab("Project Report", ProjectReportPanel);
 
         usersTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         usersTab.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -769,6 +788,10 @@ public class welcome3 extends javax.swing.JFrame {
 
         usersTab.addTab("Add User", AddUserPanel);
 
+        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -809,9 +832,6 @@ public class welcome3 extends javax.swing.JFrame {
                     .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -1200,7 +1220,8 @@ public class welcome3 extends javax.swing.JFrame {
   Document doc = new Document();
   PdfWriter docWriter = null;
   DecimalFormat df = new DecimalFormat("0.00");
-
+  Date d = Calendar.getInstance().getTime();
+  
   try {
   
    //special font sizes
@@ -1211,7 +1232,7 @@ public class welcome3 extends javax.swing.JFrame {
    Date date = new Date();
    //file path
    String dt=dateFormat.format(date);
-   String path = "C:/Users/Adi/Documents/NetBeansProjects/Yatzig/src/" + "Project Report- " + dt + ".pdf";   
+   String path = "C:\\Users\\Felix\\Documents\\NetBeansProjects\\Projct\\Yatzig\\src\\" + "Project Report- " + dt + ".pdf";   
    docWriter = PdfWriter.getInstance(doc , new FileOutputStream(path));
    
    //document header attributes
@@ -1221,11 +1242,18 @@ public class welcome3 extends javax.swing.JFrame {
    //open document
    doc.open();
 
-   //create a paragraph
-   Paragraph paragraph = new Paragraph("iText ® is a library that allows you to create and " +
-     "manipulate PDF documents. It enables developers looking to enhance web and other " +
-     "applications with dynamic PDF document generation and/or manipulation.");
    
+   //create a paragraph
+   DateFormat dateFormat2 = new SimpleDateFormat("dd/MM/yyyy");
+   String sd2= dateFormat2.format(pBeginDateChooser.getDate());
+   String ed2=dateFormat2.format(pEndDateChooser.getDate());
+   Image image = Image.getInstance("src/Images/logo for pdf.png");
+   Font font1 = new Font(Font.FontFamily.HELVETICA  , 25, Font.BOLD);
+   Paragraph paragraph = new Paragraph();
+   Paragraph paragraph2 = new Paragraph("This report was generated by " +loginGUI.username+ " at "+d+
+    "\nYou can see all projects from "+sd2+" to "+ed2);
+   image.setAlignment(Image.RIGHT);
+   doc.add(image);
    
    //specify column widths
    float[] columnWidths = {2f, 2f, 2f, 2f, 2f};
@@ -1235,11 +1263,11 @@ public class welcome3 extends javax.swing.JFrame {
    table.setWidthPercentage(100f);
 
    //insert column headings
-   insertCell(table, "Project ID", Element.ALIGN_LEFT, 1, bfBold12);
-   insertCell(table, "Project Name", Element.ALIGN_LEFT, 1, bfBold12);
-   insertCell(table, "Start Date", Element.ALIGN_LEFT, 1, bfBold12);
-   insertCell(table, "Due Date", Element.ALIGN_LEFT, 1, bfBold12);
-   insertCell(table, "Status", Element.ALIGN_LEFT, 1, bfBold12);
+   insertCell(table, "Project ID", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Project Name", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Start Date", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Due Date", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Status", Element.ALIGN_CENTER, 1, bfBold12);
    table.setHeaderRows(1);
 
    //insert an empty row
@@ -1248,9 +1276,10 @@ public class welcome3 extends javax.swing.JFrame {
   /* insertCell(table, "New York Orders ...", Element.ALIGN_LEFT, 4, bfBold12);*/
    /*double orderTotal, total = 0;*/
    
-   String add1,add2,add3,add4,add5,add6;
-   String sd= dateFormat.format(pBeginDateChooser.getDate());
-   String ed=dateFormat.format(pEndDateChooser.getDate());
+   String add1,add2,add3,add4,add5;
+   DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
+   String sd= dateFormat1.format(pBeginDateChooser.getDate());
+   String ed=dateFormat1.format(pEndDateChooser.getDate());
    try {
             String sql = "select project_id,project_name,start_date,due_date,status from projects where due_date >= '"+sd+"' and due_date <= '"+ed+"' and start_date >= '"+sd+"'and start_date <= '"+ed+"'";
             pst = conn.prepareStatement(sql);
@@ -1258,8 +1287,8 @@ public class welcome3 extends javax.swing.JFrame {
             while (rs.next()) { 
                  add1 = rs.getString("project_id");
                  add2 = rs.getString("project_name");
-                 add3 = rs.getString("start_date");
-                 add4 = rs.getString("due_date");
+                 add3 = dateFormat.format(rs.getDate("start_date"));
+                 add4 = dateFormat.format(rs.getDate("due_date"));
                  add5 = rs.getString("status");   
                  insertCell(table,add1 , Element.ALIGN_CENTER, 1, bf12);
                  insertCell(table,add2 , Element.ALIGN_CENTER, 1, bf12);
@@ -1275,10 +1304,11 @@ public class welcome3 extends javax.swing.JFrame {
         }
 
    //add the PDF table to the paragraph 
-   paragraph.add(table);
+   paragraph2.add(table);
+   
    // add the paragraph to the document
-   doc.add(paragraph);
-
+   doc.add(new Paragraph("\nProject Status Report "+ dt + "\n", font1));
+   doc.add(paragraph2);
   }
   catch (DocumentException dex)
   {
@@ -1301,6 +1331,21 @@ public class welcome3 extends javax.swing.JFrame {
    }
   }        
     }//GEN-LAST:event_genRepButtonActionPerformed
+
+    private void Show_report_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_report_ButtonActionPerformed
+        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+        Date date = new Date();
+        String dt=dateFormat.format(date);
+        filename_show_report = "C:\\Users\\Felix\\Documents\\NetBeansProjects\\Projct\\Yatzig\\src\\" + "Project Report- " + dt + ".pdf" ;
+        try {
+
+            Desktop.getDesktop().open(new File(filename_show_report));
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"The Report Generetad Wasn't Found");
+        }
+    }//GEN-LAST:event_Show_report_ButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1384,7 +1429,7 @@ public class welcome3 extends javax.swing.JFrame {
         AlertIcon.setVisible(false);
     }
     
-     private void insertCell(PdfPTable table, String text, int align, int colspan, Font font){
+  private void insertCell(PdfPTable table, String text, int align, int colspan, Font font){
   
   //create a new cell with the specified Text and Font
   PdfPCell cell = new PdfPCell(new Phrase(text.trim(), font));
@@ -1410,13 +1455,16 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JLabel AlertIcon;
     private javax.swing.JLabel EnterYourSearchLabel10;
     private javax.swing.JLabel EnterYourSearchLabel9;
+    private javax.swing.JPanel HistoryPanel;
     private javax.swing.JLabel ProjectCommentsLabel;
     private javax.swing.JLabel ProjectDuedateLabel;
     private javax.swing.JLabel ProjectIDLabel;
     private javax.swing.JLabel ProjectNameLabel;
+    private javax.swing.JPanel ProjectReportPanel;
     private javax.swing.JLabel ProjectStartdateLabel;
     private javax.swing.JButton QuantityChangeButton;
     private javax.swing.JPanel SearchProjectPanel;
+    private javax.swing.JButton Show_report_Button;
     private javax.swing.JPanel StatusProjectPanel;
     private javax.swing.ButtonGroup SupplierButtonGroup;
     private javax.swing.JButton UserAddButton;
@@ -1443,24 +1491,29 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JLabel background_green12;
     private javax.swing.JLabel background_green13;
     private javax.swing.JLabel background_green14;
+    private javax.swing.JLabel background_green15;
+    private javax.swing.JLabel background_green16;
     private javax.swing.JLabel background_green4;
     private javax.swing.JToggleButton genRepButton;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
