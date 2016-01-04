@@ -221,6 +221,7 @@ public class welcome2 extends javax.swing.JFrame {
         jDateChooser3 = new com.toedter.calendar.JDateChooser();
         background_green14 = new javax.swing.JLabel();
         projectsButton = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1010,10 +1011,6 @@ public class welcome2 extends javax.swing.JFrame {
 
         reportsTab.addTab("Generate", jPanel14);
 
-        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -1054,6 +1051,9 @@ public class welcome2 extends javax.swing.JFrame {
                     .addComponent(reportsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
+        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1250, 440));
 
@@ -1064,6 +1064,10 @@ public class welcome2 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(projectsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 65, 60));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 180, 40));
+        jLabel9.setText(loginGUI.username+" Is Logged in");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N
@@ -2093,6 +2097,7 @@ public class welcome2 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JScrollPane jScrollPane13;

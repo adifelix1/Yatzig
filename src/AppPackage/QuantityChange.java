@@ -5,6 +5,7 @@
  */
 package AppPackage;
 
+import static AppPackage.welcome1.pst;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -114,17 +115,54 @@ public class QuantityChange extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
         
-        delete_row();
+        //delete_row();
         JOptionPane.showMessageDialog(null, "Quantity Change Approved");
+        
+         try {
+
+            String sql = "update quantity_change set status='Approved' where item_id='"+itemId+"'";
+
+            pst = conn.prepareStatement(sql);
+            pst.executeUpdate(sql);
+        }
+
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        
+        
         user_update_table();
          checkIfTableEmpty();
     }//GEN-LAST:event_aproveButtonActionPerformed
 
     private void rejectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectButtonActionPerformed
-        delete_row();
+       // delete_row();
         user_update_table();
         JOptionPane.showMessageDialog(null, "Quantity Change Rejected");
         checkIfTableEmpty();
+         try {
+
+            String sql = "update items set qchanges=0 where item_id='"+itemId+"'";
+
+            pst = conn.prepareStatement(sql);
+            pst.executeUpdate(sql);
+        }
+
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+         
+         try {
+
+            String sql = "update quantity_change set status='Rejected' where item_id='"+itemId+"'";
+
+            pst = conn.prepareStatement(sql);
+            pst.executeUpdate(sql);
+        }
+
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
         
     }//GEN-LAST:event_rejectButtonActionPerformed
 
@@ -166,7 +204,7 @@ public class QuantityChange extends javax.swing.JFrame {
     
       private void user_update_table(){
         try{
-                 String sql = "select item_id as 'Item ID',user_name as 'User Name',old_quantity as 'Old Quantity',new_quantity as 'New Quantity',comments as 'Comments' from quantity_change";
+                 String sql = "select item_id as 'Item ID',user_name as 'User Name',old_quantity as 'Old Quantity',new_quantity as 'New Quantity',comments as 'Comments' from quantity_change where status='null'";
                  pst=conn.prepareStatement(sql);
                  rs=pst.executeQuery(sql);
                  quantityChangeTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -177,7 +215,7 @@ public class QuantityChange extends javax.swing.JFrame {
         }
     }
                
-       private void delete_row() {
+      /* private void delete_row() {
           try{
               
               String sql = "delete from quantity_change where item_id='"+itemId+"' ";
@@ -187,20 +225,27 @@ public class QuantityChange extends javax.swing.JFrame {
           catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
           }
-        }
+        }*/
        
         private void checkIfTableEmpty(){
-           boolean checkEmpty=true;
+           int checkEmpty=0;
+           String ck;
            try{
             String sql = "select * from quantity_change";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery(sql);
-             checkEmpty=rs.next();
+            // checkEmpty=rs.next();
+            while(rs.next())
+            {
+              ck=rs.getString("status");
+              if(ck.equals(null))
+                  checkEmpty=1;
+            }
         }
         catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        if(!checkEmpty)
+        if(checkEmpty==0)
            {   
           resetUserFlag();
           iconChange();
@@ -223,6 +268,7 @@ public class QuantityChange extends javax.swing.JFrame {
        private void iconChange(){
            welcome3 wel = loginGUI.w;
            wel.setAlertIconVisible();
+           wel.setButtonEnable();
            this.setVisible(false);
            wel.validate();
        }

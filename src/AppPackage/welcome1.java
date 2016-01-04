@@ -21,6 +21,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import javax.swing.JTextField;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -49,7 +50,9 @@ public class welcome1 extends javax.swing.JFrame {
         initComponents();
         ordersTab.setVisible(false);
         suppliersTab.setVisible(false);
+        levelWarningsButton.setEnabled(false);
         update_table();
+        checkQReqTable();
     }
 
     /**
@@ -168,6 +171,7 @@ public class welcome1 extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        levelWarningsButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         SearchItemPanel = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -851,6 +855,14 @@ public class welcome1 extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel21.setText("Date");
         StatusItemPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+
+        levelWarningsButton.setText("Min Level Warnings");
+        levelWarningsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                levelWarningsButtonActionPerformed(evt);
+            }
+        });
+        StatusItemPanel.add(levelWarningsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 283, -1, 30));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         StatusItemPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
@@ -2662,6 +2674,21 @@ public class welcome1 extends javax.swing.JFrame {
     }//GEN-LAST:event_RefreshButtonActionPerformed
 
     private void submitQButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitQButtonActionPerformed
+        int checkRequest=0;
+         try {
+            String sql = "select qchanges from items where item_id='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+    
+               checkRequest = rs.getInt("qchanges");   
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+         
+        if(checkRequest==0)
+        {
         try {
 
             String sql = "update users set flag=1 where user_type=3";
@@ -2691,6 +2718,22 @@ public class welcome1 extends javax.swing.JFrame {
         catch (Exception e){
             JOptionPane.showMessageDialog(null,e);
         }
+        
+        try {
+
+            String sql = "update items set qchanges=1 where item_id='"+iid+"'";
+
+            pst = conn.prepareStatement(sql);
+            pst.execute();
+        }
+
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        
+        }
+        else
+            JOptionPane.showMessageDialog(null,"A Request has already been made for this item");
     }//GEN-LAST:event_submitQButtonActionPerformed
 
     private void deleteItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteItemButtonActionPerformed
@@ -2776,6 +2819,7 @@ public class welcome1 extends javax.swing.JFrame {
                 sql="update items set quantity='"+ssum+"'where item_id='"+iid+"'";
                 pst = conn.prepareStatement(sql);
                 pst.execute();
+                
             }
 
             if(ot.equals("Subtract"))
@@ -2792,7 +2836,8 @@ public class welcome1 extends javax.swing.JFrame {
                 pst = conn.prepareStatement(sql);
                 pst.execute();
             }
-
+            
+            JOptionPane.showMessageDialog(null, "Operation Added");
             sql = "Insert into quantity (opnum,item_id,worker_id,date,operation_type,amount_for_operation,quantity_trace) values(?,?,?,?,?,?,?)";
 
             pst = conn.prepareStatement(sql);
@@ -2803,42 +2848,62 @@ public class welcome1 extends javax.swing.JFrame {
             pst.setString(6, amountFor.getText());
             pst.setString(5, oporationType.getSelectedItem());
             pst.setString(7, ssum);
-            pst.executeQuery();
+            pst.executeUpdate();
 
             /*if (mq1 > q1) {
                 f = 2;
                 throw new Exception("Min Quantity Level Is Higher Then Quantity Level");
             }*/
-            JOptionPane.showMessageDialog(null, "Operation Added");
+            
             } 
         
             catch (Exception e) {
             h=1;
             
             if (sItemIdtxt.getText().isEmpty()) 
+            {   
+                f=2;
                 sItemIdtxt.setBackground(Color.red);
+            }
             else sItemIdtxt.setBackground(Color.white);
             
-            if (sWorkerIdtxt.getText().isEmpty()) 
+            if (sWorkerIdtxt.getText().isEmpty())
+            {
+                f=2;
                 sWorkerIdtxt.setBackground(Color.red);
+            }
             else sWorkerIdtxt.setBackground(Color.white);
             
-            if (oporationType.getSelectedItem().isEmpty()) 
+            if (oporationType.getSelectedItem().isEmpty())
+            {
+                f=2;
                 oporationType.setBackground(Color.red);
+            }
             else oporationType.setBackground(Color.white);
             
-            if (amountFor.getText().isEmpty()) 
+            if (amountFor.getText().isEmpty())
+            {
+                f=2;
                 amountFor.setBackground(Color.red);
+            }
             else amountFor.setBackground(Color.white);
+            String s = ((JTextField)dateStatus.getDateEditor().getUiComponent()).getText();
+            if (s.isEmpty())
+            {
+                f=2;
+                dateStatus.setBackground(Color.red);
+            }
+            else dateStatus.setBackground(Color.white);
 
             //JOptionPane.showMessageDialog(null, e);
-
-            if (f != 2) {
+            
+            if (f == 2) {
                 JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
             } else {
                 JOptionPane.showMessageDialog(null, e);
             }
-        }
+            }
+        
         
         if (f == 0 && h==0) {
             sItemIdtxt.setText("");
@@ -2905,6 +2970,11 @@ public class welcome1 extends javax.swing.JFrame {
         update_Search_table();
         update_statusTable();
     }//GEN-LAST:event_inventoryTabMouseClicked
+
+    private void levelWarningsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelWarningsButtonActionPerformed
+        quantityRequest qr= new quantityRequest();
+        qr.setVisible(true);
+    }//GEN-LAST:event_levelWarningsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3037,6 +3107,21 @@ public class welcome1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+            
+            private void checkQReqTable()
+            {
+                String un=loginGUI.username;
+                 try{
+         String sql = "select * from quantity_change where user_name='"+un+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) 
+              levelWarningsButton.setEnabled(true);
+            } 
+            catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+            }
 
     
   
@@ -3218,6 +3303,7 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton levelWarningsButton;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTextField minLevelText;
     private javax.swing.JTextField minQtxt;

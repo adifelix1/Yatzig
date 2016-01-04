@@ -83,6 +83,7 @@ public class welcome3 extends javax.swing.JFrame {
         reportsTab.setVisible(false);
         usersTab.setVisible(false);
         AlertIcon.setVisible(false);
+        QuantityChangeButton.setEnabled(false);
         
        
         int check=0;
@@ -95,6 +96,7 @@ public class welcome3 extends javax.swing.JFrame {
             }
             if(check==1){
                AlertIcon.setVisible(true);
+               QuantityChangeButton.setEnabled(true);
                }  
             } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -217,6 +219,7 @@ public class welcome3 extends javax.swing.JFrame {
         background_green4 = new javax.swing.JLabel();
         AlertIcon = new javax.swing.JLabel();
         QuantityChangeButton = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -788,10 +791,6 @@ public class welcome3 extends javax.swing.JFrame {
 
         usersTab.addTab("Add User", AddUserPanel);
 
-        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -832,6 +831,9 @@ public class welcome3 extends javax.swing.JFrame {
                     .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
+        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -845,6 +847,10 @@ public class welcome3 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(QuantityChangeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 65, 60));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 180, 40));
+        jLabel9.setText(loginGUI.username+" Is Logged in");
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N
@@ -1232,7 +1238,7 @@ public class welcome3 extends javax.swing.JFrame {
    Date date = new Date();
    //file path
    String dt=dateFormat.format(date);
-   String path = "C:\\Users\\Felix\\Documents\\NetBeansProjects\\Projct\\Yatzig\\src\\" + "Project Report- " + dt + ".pdf";   
+   String path = "C:\\Users\\Adi\\Documents\\NetBeansProjects\\Projct\\Yatzig\\src\\" + "Project Report- " + dt + ".pdf";   
    docWriter = PdfWriter.getInstance(doc , new FileOutputStream(path));
    
    //document header attributes
@@ -1429,6 +1435,10 @@ public class welcome3 extends javax.swing.JFrame {
         AlertIcon.setVisible(false);
     }
     
+    public void setButtonEnable() {
+        QuantityChangeButton.setEnabled(false);
+    }
+    
   private void insertCell(PdfPTable table, String text, int align, int colspan, Font font){
   
   //create a new cell with the specified Text and Font
@@ -1510,6 +1520,7 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel14;
