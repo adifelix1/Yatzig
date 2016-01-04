@@ -50,9 +50,12 @@ public class welcome1 extends javax.swing.JFrame {
         initComponents();
         ordersTab.setVisible(false);
         suppliersTab.setVisible(false);
-        levelWarningsButton.setEnabled(false);
+        quantityChangesReqButton.setEnabled(false);
+        MinLevelWarningButton.setEnabled(false);
+         minLvlWarIcon.setVisible(false);
         update_table();
         checkQReqTable();
+        checkMinQLvl();
     }
 
     /**
@@ -152,6 +155,7 @@ public class welcome1 extends javax.swing.JFrame {
         QuantityLabel2 = new javax.swing.JLabel();
         commentQtxt = new javax.swing.JTextField();
         deleteItemButton = new javax.swing.JButton();
+        quantityChangesReqButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         StatusItemPanel = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
@@ -171,7 +175,8 @@ public class welcome1 extends javax.swing.JFrame {
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        levelWarningsButton = new javax.swing.JButton();
+        minLvlWarIcon = new javax.swing.JLabel();
+        MinLevelWarningButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         SearchItemPanel = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -760,6 +765,14 @@ public class welcome1 extends javax.swing.JFrame {
         });
         UpdateItemPanel.add(deleteItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 250, 130, -1));
 
+        quantityChangesReqButton.setText("Quantity Change Requests");
+        quantityChangesReqButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quantityChangesReqButtonActionPerformed(evt);
+            }
+        });
+        UpdateItemPanel.add(quantityChangesReqButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 320, -1, 30));
+
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         UpdateItemPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
 
@@ -856,13 +869,16 @@ public class welcome1 extends javax.swing.JFrame {
         jLabel21.setText("Date");
         StatusItemPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
 
-        levelWarningsButton.setText("Min Level Warnings");
-        levelWarningsButton.addActionListener(new java.awt.event.ActionListener() {
+        minLvlWarIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/applet-critical-48.png"))); // NOI18N
+        StatusItemPanel.add(minLvlWarIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, -1, 30));
+
+        MinLevelWarningButton.setText("Min Level Warnings");
+        MinLevelWarningButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                levelWarningsButtonActionPerformed(evt);
+                MinLevelWarningButtonActionPerformed(evt);
             }
         });
-        StatusItemPanel.add(levelWarningsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 283, -1, 30));
+        StatusItemPanel.add(MinLevelWarningButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, -1, 30));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         StatusItemPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
@@ -2913,6 +2929,8 @@ public class welcome1 extends javax.swing.JFrame {
         }
         
      update_statusTable();
+     checkMinQLvl();
+     this.validate();
     }//GEN-LAST:event_addStatusButtonActionPerformed
 
     private void refreshStausButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshStausButtonActionPerformed
@@ -2971,10 +2989,15 @@ public class welcome1 extends javax.swing.JFrame {
         update_statusTable();
     }//GEN-LAST:event_inventoryTabMouseClicked
 
-    private void levelWarningsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelWarningsButtonActionPerformed
+    private void quantityChangesReqButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityChangesReqButtonActionPerformed
         quantityRequest qr= new quantityRequest();
         qr.setVisible(true);
-    }//GEN-LAST:event_levelWarningsButtonActionPerformed
+    }//GEN-LAST:event_quantityChangesReqButtonActionPerformed
+
+    private void MinLevelWarningButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinLevelWarningButtonActionPerformed
+        minLevelWarnings mlw = new minLevelWarnings();
+        mlw.setVisible(true);
+    }//GEN-LAST:event_MinLevelWarningButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3116,8 +3139,34 @@ public class welcome1 extends javax.swing.JFrame {
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             if (rs.next()) 
-              levelWarningsButton.setEnabled(true);
+              quantityChangesReqButton.setEnabled(true);
             } 
+            catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+            }
+            
+            private void checkMinQLvl()
+            {
+                int q,mql;
+                 try{
+         String sql = "select * from items";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while(rs.next())
+            {
+                 q=rs.getInt("quantity");
+                 mql=rs.getInt("min_quantity_level");
+                 if(mql>=q)
+                 {
+                        MinLevelWarningButton.setEnabled(true);
+                        minLvlWarIcon.setVisible(true);
+                        return;
+                 }
+                 MinLevelWarningButton.setEnabled(false);
+                        minLvlWarIcon.setVisible(false);
+            }
+                 }
             catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -3146,6 +3195,7 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JLabel EnterYourSearchLabel7;
     private javax.swing.JLabel EnterYourSearchLabel8;
     private javax.swing.JLabel ExpirationDateLabel2;
+    private javax.swing.JButton MinLevelWarningButton;
     private javax.swing.JLabel MinQuantityLabel1;
     private javax.swing.JPanel PriceListPanel;
     private javax.swing.JLabel QuantityLabel1;
@@ -3303,9 +3353,9 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton levelWarningsButton;
     private javax.swing.JButton logoutButton;
     private javax.swing.JTextField minLevelText;
+    private javax.swing.JLabel minLvlWarIcon;
     private javax.swing.JTextField minQtxt;
     private javax.swing.JTextField nameText;
     private java.awt.Choice oporationType;
@@ -3327,6 +3377,7 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JTabbedPane ordersTab;
     private javax.swing.JTable priceListTable;
     private javax.swing.JTextField pricePLtxt;
+    private javax.swing.JButton quantityChangesReqButton;
     private javax.swing.JTextField quantityText;
     private javax.swing.JTextField quantitytxt;
     private javax.swing.JTextField rawtxt;
