@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package AppPackage;
+import static AppPackage.welcome2.pst;
 import static AppPackage.welcome3.pst;
 import java.util.Date;
 import java.sql.*;
@@ -46,6 +47,7 @@ import net.proteanit.sql.DbUtils;
 
         initComponents();
         customerTab.setVisible(false);
+        usersTab.setVisible(false);
         update_table();
         
     }
@@ -67,6 +69,7 @@ import net.proteanit.sql.DbUtils;
         customersButton = new javax.swing.JButton();
         reportsButton = new javax.swing.JButton();
         workersButton = new javax.swing.JButton();
+        usersButton = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         WorkersTab = new javax.swing.JTabbedPane();
         AddWorkerPanel = new javax.swing.JPanel();
@@ -190,6 +193,58 @@ import net.proteanit.sql.DbUtils;
         cusSearchTable = new javax.swing.JTable();
         cusRefreshButton = new javax.swing.JButton();
         background_green7 = new javax.swing.JLabel();
+        usersTab = new javax.swing.JTabbedPane();
+        AddUserPanel = new javax.swing.JPanel();
+        jScrollPane19 = new javax.swing.JScrollPane();
+        AddUserTable = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        WorkerDetailsLabel = new javax.swing.JLabel();
+        UserFirstNameLabel = new javax.swing.JLabel();
+        UserFirstNameText = new javax.swing.JTextField();
+        UserLastNameText = new javax.swing.JTextField();
+        UserLastNameLabel = new javax.swing.JLabel();
+        UserPhoneLabel = new javax.swing.JLabel();
+        UserPhoneText = new javax.swing.JTextField();
+        UserJobTitleText = new javax.swing.JTextField();
+        UserJobTitleLabel = new javax.swing.JLabel();
+        UserEmailText = new javax.swing.JTextField();
+        UserEmailLabel = new javax.swing.JLabel();
+        UserAddButton = new javax.swing.JButton();
+        UserClearButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        UserDetailsLabel = new javax.swing.JLabel();
+        UserNameLabel = new javax.swing.JLabel();
+        UserNameText = new javax.swing.JTextField();
+        UserPasswordLabel = new javax.swing.JLabel();
+        UserPasswordText = new javax.swing.JTextField();
+        jLabel43 = new javax.swing.JLabel();
+        UserPermissionLabel = new javax.swing.JLabel();
+        UserPermissionChoise = new java.awt.Choice();
+        EnterYourSearchLabel2 = new javax.swing.JLabel();
+        SearchText2 = new javax.swing.JTextField();
+        searchButton2 = new javax.swing.JButton();
+        WorkerIdRadioButton2 = new javax.swing.JRadioButton();
+        WorkerNameRadioButton2 = new javax.swing.JRadioButton();
+        background_green4 = new javax.swing.JLabel();
+        ExistingUserPanel = new javax.swing.JPanel();
+        jScrollPane20 = new javax.swing.JScrollPane();
+        ExistingUserTable = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        WorkerDetailsLabel1 = new javax.swing.JLabel();
+        ExistUserFirstNameLabel = new javax.swing.JLabel();
+        ExistUserLastNameLabel = new javax.swing.JLabel();
+        ExistUsernameLabel = new javax.swing.JLabel();
+        ExistUserPasswordLabel = new javax.swing.JLabel();
+        ExistUserPermissionLabel = new javax.swing.JLabel();
+        ExistUserPasswordText = new javax.swing.JTextField();
+        ExistUserFirstNameText = new javax.swing.JTextField();
+        ExistUserameText = new javax.swing.JTextField();
+        ExistUserLastNameText = new javax.swing.JTextField();
+        ExistUserPermissionText = new javax.swing.JTextField();
+        choice1 = new java.awt.Choice();
+        updateExistUserButton = new javax.swing.JButton();
+        orderClearButton = new javax.swing.JButton();
+        background_green8 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -242,6 +297,14 @@ import net.proteanit.sql.DbUtils;
             }
         });
         getContentPane().add(workersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 65, 60));
+
+        usersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Users icon 53 x 50.png"))); // NOI18N
+        usersButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usersButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(usersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 65, -1));
 
         WorkersTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         WorkersTab.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -409,6 +472,7 @@ import net.proteanit.sql.DbUtils;
         UpdateDetailsPanel.add(EnterYourSearchLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
         UpdateDetailsPanel.add(SearchText, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
 
+        searchButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         searchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -651,6 +715,7 @@ import net.proteanit.sql.DbUtils;
         });
         SearchPanel.add(WorkerNameRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
 
+        searchButton1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         searchButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
         searchButton1.setText("Search");
         searchButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -996,8 +1061,300 @@ import net.proteanit.sql.DbUtils;
 
         customerTab.addTab("Search", SearchCustomerPanel);
 
+        usersTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        usersTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                usersTabMouseClicked(evt);
+            }
+        });
+
+        AddUserPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        AddUserTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        AddUserTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                AddUserTableMouseClicked(evt);
+            }
+        });
+        jScrollPane19.setViewportView(AddUserTable);
+
+        AddUserPanel.add(jScrollPane19, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        WorkerDetailsLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        WorkerDetailsLabel.setText("Worker Details");
+        jPanel1.add(WorkerDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        UserFirstNameLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        UserFirstNameLabel.setText("First Name");
+        jPanel1.add(UserFirstNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        UserFirstNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserFirstNameTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(UserFirstNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 130, -1));
+
+        UserLastNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserLastNameTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(UserLastNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 130, -1));
+
+        UserLastNameLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        UserLastNameLabel.setText("Last Name");
+        jPanel1.add(UserLastNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, -1));
+
+        UserPhoneLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        UserPhoneLabel.setText("Phone");
+        jPanel1.add(UserPhoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 70, -1));
+
+        UserPhoneText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserPhoneTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(UserPhoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 130, -1));
+
+        UserJobTitleText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserJobTitleTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(UserJobTitleText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 130, -1));
+
+        UserJobTitleLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        UserJobTitleLabel.setText("Job Title");
+        jPanel1.add(UserJobTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 70, -1));
+
+        UserEmailText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserEmailTextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(UserEmailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 160, -1));
+
+        UserEmailLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        UserEmailLabel.setText("Email");
+        jPanel1.add(UserEmailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 70, -1));
+
+        AddUserPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 320, 260));
+
+        UserAddButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        UserAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
+        UserAddButton.setText("Add");
+        UserAddButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserAddButtonActionPerformed(evt);
+            }
+        });
+        AddUserPanel.add(UserAddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 260, -1, -1));
+
+        UserClearButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        UserClearButton.setText("Clear");
+        UserClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserClearButtonActionPerformed(evt);
+            }
+        });
+        AddUserPanel.add(UserClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 260, 110, 40));
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        UserDetailsLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        UserDetailsLabel.setText("Fill User Details");
+        jPanel2.add(UserDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        UserNameLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        UserNameLabel.setText("Username");
+        jPanel2.add(UserNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+
+        UserNameText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserNameTextActionPerformed(evt);
+            }
+        });
+        jPanel2.add(UserNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 130, -1));
+
+        UserPasswordLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        UserPasswordLabel.setText("Password");
+        jPanel2.add(UserPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+
+        UserPasswordText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserPasswordTextActionPerformed(evt);
+            }
+        });
+        jPanel2.add(UserPasswordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 130, -1));
+
+        jLabel43.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
+        jLabel43.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel43.setText("Password Must be 6 letters at least ");
+        jPanel2.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+
+        UserPermissionLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        UserPermissionLabel.setText("Permission Level");
+        jPanel2.add(UserPermissionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, -1));
+
+        UserPermissionChoise.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                UserPermissionChoiseMouseClicked(evt);
+            }
+        });
+        jPanel2.add(UserPermissionChoise, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 60, -1));
+        UserPermissionChoise.addItem("0");
+        UserPermissionChoise.addItem("1");
+        UserPermissionChoise.addItem("2");
+        UserPermissionChoise.addItem("3");
+
+        AddUserPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 480, 140));
+
+        EnterYourSearchLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel2.setText("Enter your search");
+        AddUserPanel.add(EnterYourSearchLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        AddUserPanel.add(SearchText2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 160, -1));
+
+        searchButton2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        searchButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
+        searchButton2.setText("Search");
+        searchButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchButton2ActionPerformed(evt);
+            }
+        });
+        AddUserPanel.add(searchButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
+
+        WorkerIdRadioButton2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        WorkerIdRadioButton2.setText("By ID");
+        WorkerIdRadioButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        WorkerIdRadioButton2.setBorderPainted(true);
+        WorkerIdRadioButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        WorkerIdRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WorkerIdRadioButton2ActionPerformed(evt);
+            }
+        });
+        AddUserPanel.add(WorkerIdRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
+
+        WorkerNameRadioButton2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        WorkerNameRadioButton2.setText("By Name");
+        WorkerNameRadioButton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        WorkerNameRadioButton2.setBorderPainted(true);
+        WorkerNameRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                WorkerNameRadioButton2ActionPerformed(evt);
+            }
+        });
+        AddUserPanel.add(WorkerNameRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
+
+        background_green4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        AddUserPanel.add(background_green4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1250, 470));
+
+        usersTab.addTab("Add User", AddUserPanel);
+
+        ExistingUserPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        ExistingUserTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        ExistingUserTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ExistingUserTableMouseClicked(evt);
+            }
+        });
+        jScrollPane20.setViewportView(ExistingUserTable);
+
+        ExistingUserPanel.add(jScrollPane20, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        WorkerDetailsLabel1.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
+        WorkerDetailsLabel1.setText("User Details");
+        jPanel3.add(WorkerDetailsLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        ExistUserFirstNameLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        ExistUserFirstNameLabel.setText("First Name");
+        jPanel3.add(ExistUserFirstNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        ExistUserLastNameLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        ExistUserLastNameLabel.setText("Last Name");
+        jPanel3.add(ExistUserLastNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, -1));
+
+        ExistUsernameLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        ExistUsernameLabel.setText("User Name");
+        jPanel3.add(ExistUsernameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 80, -1));
+
+        ExistUserPasswordLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        ExistUserPasswordLabel.setText("Password");
+        jPanel3.add(ExistUserPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 70, -1));
+
+        ExistUserPermissionLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        ExistUserPermissionLabel.setText("Permission Level");
+        jPanel3.add(ExistUserPermissionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 110, -1));
+        jPanel3.add(ExistUserPasswordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 130, -1));
+        jPanel3.add(ExistUserFirstNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 130, -1));
+        jPanel3.add(ExistUserameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 130, -1));
+        jPanel3.add(ExistUserLastNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 130, -1));
+        jPanel3.add(ExistUserPermissionText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 50, -1));
+        jPanel3.add(choice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 90, -1));
+        choice1.addItem("0");
+        choice1.addItem("1");
+        choice1.addItem("2");
+        choice1.addItem("3");
+
+        ExistingUserPanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 320, 260));
+
+        updateExistUserButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        updateExistUserButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/save-icon-30.png"))); // NOI18N
+        updateExistUserButton.setText("Update");
+        updateExistUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateExistUserButtonActionPerformed(evt);
+            }
+        });
+        ExistingUserPanel.add(updateExistUserButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 250, -1, -1));
+
+        orderClearButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        orderClearButton.setText("Clear");
+        orderClearButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                orderClearButtonActionPerformed(evt);
+            }
+        });
+        ExistingUserPanel.add(orderClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 250, 100, 40));
+
+        background_green8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        ExistingUserPanel.add(background_green8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1250, 470));
+
+        usersTab.addTab("Existing User", ExistingUserPanel);
+
         jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -1008,14 +1365,22 @@ import net.proteanit.sql.DbUtils;
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
                     .addComponent(customerTab)
                     .addContainerGap()))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 8, Short.MAX_VALUE)))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(WorkersTab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 475, Short.MAX_VALUE)
+            .addComponent(WorkersTab, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addComponent(customerTab)
                     .addContainerGap()))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
@@ -1053,6 +1418,7 @@ import net.proteanit.sql.DbUtils;
     private void customersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customersButtonActionPerformed
        WorkersTab.setVisible(false);
        customerTab.setVisible(true);
+       usersTab.setVisible(false);
     }//GEN-LAST:event_customersButtonActionPerformed
 
     private void FirstNamerTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstNamerTextActionPerformed
@@ -1076,6 +1442,7 @@ import net.proteanit.sql.DbUtils;
     private void workersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_workersButtonActionPerformed
        WorkersTab.setVisible(true);
        customerTab.setVisible(false);
+       usersTab.setVisible(false);
     }//GEN-LAST:event_workersButtonActionPerformed
 
     private void LastNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastNameTextActionPerformed
@@ -1143,6 +1510,7 @@ import net.proteanit.sql.DbUtils;
         int f = 0;
         int h = 0;
         fn = ContracdIDText.getText(); 
+        int ans;
         try {
             String sql = "Insert into workers (worker_id,first_name,last_name,worker_phone,worker_add,contract_id,job_title,birth_date,email) values(?,?,?,?,?,?,?,?,?)";
 
@@ -1157,12 +1525,22 @@ import net.proteanit.sql.DbUtils;
             pst.setDate(8, new java.sql.Date(BirthdayDateChooserText.getDate().getTime()));
             pst.setString(9, EmailText.getText());
           
-            pst.executeQuery();
-            Path dest = Paths.get( "C:/Users/Felix/Documents/NetBeansProjects/Yatzig/src/Contracts/"+fn+".pdf");
-            Path source = Paths.get(filename);
-            Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);
-            JOptionPane.showMessageDialog(null, "Worker Has Been Added");
+        if (UploadText.getText().isEmpty()) {
+              ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Add a Worker Without a Contract?", "Warning!", JOptionPane.YES_NO_OPTION);
+              if(ans==0)
+              pst.execute();
+              if(ans==1) {}
+           }
+        else {
+                
+          Path dest = Paths.get( "src/WorkerContracts/"+fn+".pdf");
+          Path source = Paths.get(filename);
+          Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);
+          pst.execute();
+          
+        }
             
+         JOptionPane.showMessageDialog(null, "Worker Has Been Added");
         }
         catch (Exception e){
             h=1;
@@ -1221,6 +1599,8 @@ import net.proteanit.sql.DbUtils;
             ContracdIDText.setText("");
             JobTitleText.setText("");
             EmailText.setText("");
+            BirthdayDateChooserText.setCalendar(null);
+            UploadText.setText("");
         }
                        
     }//GEN-LAST:event_AddButtonActionPerformed
@@ -1236,6 +1616,7 @@ import net.proteanit.sql.DbUtils;
         JobTitleText.setText("");
         BirthdayDateChooserText.setCalendar(null);
         EmailText.setText("");
+        UploadText.setText("");
     }//GEN-LAST:event_ClearButtonActionPerformed
 
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
@@ -1309,7 +1690,7 @@ import net.proteanit.sql.DbUtils;
         try {
             
            if (!UploadText1.getText().isEmpty()) {
-           Path dest = Paths.get( "C:/Users/Felix/Documents/NetBeansProjects/Yatzig/src/Contracts/"+fn+".pdf");
+           Path dest = Paths.get( "src/WorkerContracts/"+fn+".pdf");
            Path source = Paths.get(filename_update);
            Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);    
          
@@ -1531,7 +1912,7 @@ import net.proteanit.sql.DbUtils;
     }//GEN-LAST:event_RefreshButton1ActionPerformed
 
     private void Show_Contract_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_Contract_ButtonActionPerformed
-        filename_show_contract = "C:/Users/Felix/Documents/NetBeansProjects/Yatzig/src/Contracts/"+ContractIDText2.getText()+".pdf" ;       
+        filename_show_contract = "src/WorkerContracts/"+ContractIDText2.getText()+".pdf" ;       
         try {
                
               Desktop.getDesktop().open(new File(filename_show_contract));          
@@ -1809,6 +2190,225 @@ import net.proteanit.sql.DbUtils;
         // TODO add your handling code here:
     }//GEN-LAST:event_reportsButtonActionPerformed
 
+    private void AddUserTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddUserTableMouseClicked
+
+        try {
+            int raw = AddUserTable.getSelectedRow();
+            tableClick = (AddUserTable.getModel().getValueAt(raw, 0).toString());
+            String sql = "select worker_id,first_name,last_name,worker_phone,worker_add,birth_date,email,contract_id,job_title from workers where worker_id='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("first_name");
+                UserFirstNameText.setText(add1);
+                String add2 = rs.getString("last_name");
+                UserLastNameText.setText(add2);
+                String add3 = rs.getString("worker_phone");
+                UserPhoneText.setText(add3);
+                String add4 = rs.getString("job_title");
+                UserJobTitleText.setText(add4);
+                String add5 = rs.getString("email");
+                UserEmailText.setText(add5);
+            }
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+
+        }
+    }//GEN-LAST:event_AddUserTableMouseClicked
+
+    private void UserFirstNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserFirstNameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserFirstNameTextActionPerformed
+
+    private void UserLastNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserLastNameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserLastNameTextActionPerformed
+
+    private void UserPhoneTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserPhoneTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserPhoneTextActionPerformed
+
+    private void UserJobTitleTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserJobTitleTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserJobTitleTextActionPerformed
+
+    private void UserEmailTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserEmailTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserEmailTextActionPerformed
+
+    private void UserAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserAddButtonActionPerformed
+
+        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Give" +UserFirstNameText.getText()+" "+UserLastNameText.getText()+" Selected Permission ?", "Warning!", JOptionPane.YES_NO_OPTION);
+        if(ans==0) {
+            try {
+
+                String sql = "Insert into users (password,user_name,user_type) values(?,?,?)";
+
+                pst = conn.prepareStatement(sql);
+                pst.setString(1, UserPasswordText.getText());
+                pst.setString(2, UserNameText.getText());
+                pst.setInt(3, UserPermissionChoise.getSelectedIndex());
+
+                pst.execute();
+                JOptionPane.showMessageDialog(null, "User Has Been Given Permission");
+            }
+
+            catch (Exception e){
+                JOptionPane.showMessageDialog(null,e);
+            }
+        }
+        if (ans==1) {}
+    }//GEN-LAST:event_UserAddButtonActionPerformed
+
+    private void UserClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserClearButtonActionPerformed
+        UserFirstNameText.setText("");
+        UserLastNameText.setText("");
+        UserPhoneText.setText("");
+        UserJobTitleText.setText("");
+        UserEmailText.setText("");
+        UserNameText.setText("");
+        UserPasswordText.setText("");
+
+    }//GEN-LAST:event_UserClearButtonActionPerformed
+
+    private void UserNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserNameTextActionPerformed
+
+    private void UserPasswordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserPasswordTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserPasswordTextActionPerformed
+
+    private void UserPermissionChoiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserPermissionChoiseMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UserPermissionChoiseMouseClicked
+
+    private void searchButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButton2ActionPerformed
+        if(searchmethod.equals("worker_id"))
+        {
+            try {
+                String sn=SearchText.getText();
+                String sql = "select worker_id,first_name,last_name,worker_phone,worker_add,contract_id,job_title,birth_date,email from workers where worker_id='" + sn + "' ";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                AddUserTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else if (searchmethod.equals("first_name")||searchmethod2.equals("last_name"))
+        {
+            try {
+                String sn=SearchText.getText();
+                String sql = "select worker_id,first_name,last_name,worker_phone,worker_add,contract_id,job_title,birth_date,email from workers where first_name='" + sn + "' OR last_name='" + sn + "'" ;
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                AddUserTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_searchButton2ActionPerformed
+
+    private void WorkerIdRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WorkerIdRadioButton2ActionPerformed
+        searchmethod="worker_id";
+    }//GEN-LAST:event_WorkerIdRadioButton2ActionPerformed
+
+    private void WorkerNameRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WorkerNameRadioButton2ActionPerformed
+        searchmethod="first_name";
+        searchmethod2="last_name";
+    }//GEN-LAST:event_WorkerNameRadioButton2ActionPerformed
+
+    private void ExistingUserTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExistingUserTableMouseClicked
+
+        try {
+            int raw = ExistingUserTable.getSelectedRow();
+            tableClick = (ExistingUserTable.getModel().getValueAt(raw, 0).toString());
+            String sql = "select worker_id,first_name,last_name,user_name,password,user_type from users where worker_id='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("first_name");
+                ExistUserFirstNameText.setText(add1);
+                String add2 = rs.getString("last_name");
+                ExistUserLastNameText.setText(add2);
+                String add3 = rs.getString("user_name");
+                ExistUserameText.setText(add3);
+                String add4 = rs.getString("password");
+                ExistUserPasswordText.setText(add4);
+                String add5 = rs.getString("user_type");
+                ExistUserPermissionText.setText(add5);
+
+            }
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+
+        }
+    }//GEN-LAST:event_ExistingUserTableMouseClicked
+
+    private void usersTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersTabMouseClicked
+        user_update_table();
+        user_existing_table();
+    }//GEN-LAST:event_usersTabMouseClicked
+
+    private void usersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersButtonActionPerformed
+        WorkersTab.setVisible(false);
+        customerTab.setVisible(false);
+        usersTab.setVisible(true);
+        user_update_table();
+    }//GEN-LAST:event_usersButtonActionPerformed
+
+    private void updateExistUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateExistUserButtonActionPerformed
+        
+        int ans;
+        
+        try{
+           
+            int raw = ExistingUserTable.getSelectedRow();
+            tableClick = (ExistingUserTable.getModel().getValueAt(raw, 0).toString());
+            
+            String un = ExistUserameText.getText();
+            String up = ExistUserPasswordText.getText();      
+            String ul = ExistUserPermissionText.getText();
+
+            String sql = "update users set user_name='"+un+"',password='"+up+"',user_type='"+ul+"' where worker_id='"+tableClick+"'";
+            pst = conn.prepareStatement(sql);
+            
+            ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Update User Details ?", "Warning!", JOptionPane.YES_NO_OPTION);
+            if(ans==0) {
+            pst.execute();
+            JOptionPane.showMessageDialog(null, "User Details Updated");
+            }
+            else {}
+ 
+            user_existing_table();
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+            ExistUserFirstNameText.setText("");
+            ExistUserLastNameText.setText("");
+            ExistUserameText.setText("");
+            ExistUserPasswordText.setText("");    
+            ExistUserPermissionText.setText("");
+       
+    }//GEN-LAST:event_updateExistUserButtonActionPerformed
+
+    private void orderClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderClearButtonActionPerformed
+            ExistUserFirstNameText.setText("");
+            ExistUserLastNameText.setText("");
+            ExistUserameText.setText("");
+            ExistUserPasswordText.setText("");    
+            ExistUserPermissionText.setText("");
+    }//GEN-LAST:event_orderClearButtonActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -1898,11 +2498,39 @@ import net.proteanit.sql.DbUtils;
         }
 
     }
+    
+            private void user_update_table(){
+        try{
+                 String sql = "select worker_id as 'Worker ID',first_name as 'First Name',last_name as 'Last Name',worker_phone as 'Phone',worker_add as 'Address', birth_date as 'Birthdate', email as 'Email',contract_id as 'Contract ID',job_title as 'Job Title' from workers";
+                 pst=conn.prepareStatement(sql);
+                 rs=pst.executeQuery(sql);
+                 AddUserTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
+        
+         private void user_existing_table(){
+        try{
+                 String sql = "select worker_id as 'Worker ID',first_name as 'First Name',last_name as 'Last Name',user_name as 'User Name',password as 'Password', user_type as 'Permission Level' from users";
+                 pst=conn.prepareStatement(sql);
+                 rs=pst.executeQuery(sql);
+                 ExistingUserTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
     private javax.swing.JButton AddCustomerButton;
     private javax.swing.JPanel AddCustomerPanel;
+    private javax.swing.JPanel AddUserPanel;
+    private javax.swing.JTable AddUserTable;
     private javax.swing.JPanel AddWorkerPanel;
     private javax.swing.JLabel AddressLabel;
     private javax.swing.JLabel AddressLabel1;
@@ -1940,8 +2568,21 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JTextField EmailText1;
     private javax.swing.JLabel EnterYourSearchLabel;
     private javax.swing.JLabel EnterYourSearchLabel1;
+    private javax.swing.JLabel EnterYourSearchLabel2;
     private javax.swing.JLabel EnterYourSearchLabel3;
     private javax.swing.JLabel EnterYourSearchLabel4;
+    private javax.swing.JLabel ExistUserFirstNameLabel;
+    private javax.swing.JTextField ExistUserFirstNameText;
+    private javax.swing.JLabel ExistUserLastNameLabel;
+    private javax.swing.JTextField ExistUserLastNameText;
+    private javax.swing.JLabel ExistUserPasswordLabel;
+    private javax.swing.JTextField ExistUserPasswordText;
+    private javax.swing.JLabel ExistUserPermissionLabel;
+    private javax.swing.JTextField ExistUserPermissionText;
+    private javax.swing.JTextField ExistUserameText;
+    private javax.swing.JLabel ExistUsernameLabel;
+    private javax.swing.JPanel ExistingUserPanel;
+    private javax.swing.JTable ExistingUserTable;
     private javax.swing.JTextField FirstNameText1;
     private javax.swing.JLabel FirstNamerLabel;
     private javax.swing.JLabel FirstNamerLabel1;
@@ -1966,6 +2607,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JPanel SearchPanel;
     private javax.swing.JTextField SearchText;
     private javax.swing.JTextField SearchText1;
+    private javax.swing.JTextField SearchText2;
     private javax.swing.JButton ShowContractButton;
     private javax.swing.JButton Show_Contract_Button;
     private javax.swing.JPanel UpdateDetailsCustomerPanel;
@@ -1974,19 +2616,45 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JButton UploadContractButton1;
     private javax.swing.JTextField UploadText;
     private javax.swing.JTextField UploadText1;
+    private javax.swing.JButton UserAddButton;
+    private javax.swing.JButton UserClearButton;
+    private javax.swing.JLabel UserDetailsLabel;
+    private javax.swing.JLabel UserEmailLabel;
+    private javax.swing.JTextField UserEmailText;
+    private javax.swing.JLabel UserFirstNameLabel;
+    private javax.swing.JTextField UserFirstNameText;
+    private javax.swing.JLabel UserJobTitleLabel;
+    private javax.swing.JTextField UserJobTitleText;
+    private javax.swing.JLabel UserLastNameLabel;
+    private javax.swing.JTextField UserLastNameText;
+    private javax.swing.JLabel UserNameLabel;
+    private javax.swing.JTextField UserNameText;
+    private javax.swing.JLabel UserPasswordLabel;
+    private javax.swing.JTextField UserPasswordText;
+    private java.awt.Choice UserPermissionChoise;
+    private javax.swing.JLabel UserPermissionLabel;
+    private javax.swing.JLabel UserPhoneLabel;
+    private javax.swing.JTextField UserPhoneText;
+    private javax.swing.JLabel WorkerDetailsLabel;
+    private javax.swing.JLabel WorkerDetailsLabel1;
     private javax.swing.JLabel WorkerIDLabel;
     private javax.swing.JTextField WorkerIDText;
     private javax.swing.JRadioButton WorkerIdRadioButton;
     private javax.swing.JRadioButton WorkerIdRadioButton1;
+    private javax.swing.JRadioButton WorkerIdRadioButton2;
     private javax.swing.JRadioButton WorkerNameRadioButton;
     private javax.swing.JRadioButton WorkerNameRadioButton1;
+    private javax.swing.JRadioButton WorkerNameRadioButton2;
     private javax.swing.JTabbedPane WorkersTab;
     private javax.swing.JTable WorkersTable;
     private javax.swing.JTable WorkersTable1;
     private javax.swing.JLabel background_green;
+    private javax.swing.JLabel background_green4;
     private javax.swing.JLabel background_green5;
     private javax.swing.JLabel background_green6;
     private javax.swing.JLabel background_green7;
+    private javax.swing.JLabel background_green8;
+    private java.awt.Choice choice1;
     private javax.swing.JLabel contract_Label1;
     private javax.swing.JButton cusDeleteButton;
     private javax.swing.JRadioButton cusIDRadioButton;
@@ -2016,22 +2684,33 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton logoutButton;
+    private javax.swing.JButton orderClearButton;
     private javax.swing.JButton reportsButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JButton searchButton1;
+    private javax.swing.JButton searchButton2;
     private javax.swing.ButtonGroup searchGroup;
     private javax.swing.JRadioButton upCusNameRadioButton;
     private javax.swing.JRadioButton upcusIDRadioButton;
     private javax.swing.JButton updateButton;
+    private javax.swing.JButton updateExistUserButton;
+    private javax.swing.JButton usersButton;
+    private javax.swing.JTabbedPane usersTab;
     private javax.swing.JButton workersButton;
     // End of variables declaration//GEN-END:variables
 

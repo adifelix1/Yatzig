@@ -70,6 +70,8 @@ public class welcome3 extends javax.swing.JFrame {
     public String fn;
     String tableClick;
     String searchmethod;
+    String searchmethod2;
+    String report_status;
     String oq;
     String iid;
     
@@ -81,7 +83,6 @@ public class welcome3 extends javax.swing.JFrame {
 
         initComponents();
         reportsTab.setVisible(false);
-        usersTab.setVisible(false);
         AlertIcon.setVisible(false);
         QuantityChangeButton.setEnabled(false);
         
@@ -115,12 +116,13 @@ public class welcome3 extends javax.swing.JFrame {
 
         searchGroup = new javax.swing.ButtonGroup();
         SupplierButtonGroup = new javax.swing.ButtonGroup();
+        AddUserSearchGroup = new javax.swing.ButtonGroup();
+        ProjectStatusReportGroup = new javax.swing.ButtonGroup();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         projectsButton = new javax.swing.JButton();
         reportsButton = new javax.swing.JButton();
-        usersButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         projectsTab = new javax.swing.JTabbedPane();
@@ -188,35 +190,12 @@ public class welcome3 extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         Show_report_Button = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        PendingRadioButton = new javax.swing.JRadioButton();
+        AllRadioButton = new javax.swing.JRadioButton();
+        ProgressRadioButton = new javax.swing.JRadioButton();
+        CompletedRadioButton = new javax.swing.JRadioButton();
         background_green15 = new javax.swing.JLabel();
-        usersTab = new javax.swing.JTabbedPane();
-        AddUserPanel = new javax.swing.JPanel();
-        jScrollPane19 = new javax.swing.JScrollPane();
-        AddUserTable = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
-        WorkerDetailsLabel = new javax.swing.JLabel();
-        UserFirstNameLabel = new javax.swing.JLabel();
-        UserFirstNameText = new javax.swing.JTextField();
-        UserLastNameText = new javax.swing.JTextField();
-        UserLastNameLabel = new javax.swing.JLabel();
-        UserPhoneLabel = new javax.swing.JLabel();
-        UserPhoneText = new javax.swing.JTextField();
-        UserJobTitleText = new javax.swing.JTextField();
-        UserJobTitleLabel = new javax.swing.JLabel();
-        UserEmailText = new javax.swing.JTextField();
-        UserEmailLabel = new javax.swing.JLabel();
-        UserAddButton = new javax.swing.JButton();
-        UserClearButton = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        UserDetailsLabel = new javax.swing.JLabel();
-        UserNameLabel = new javax.swing.JLabel();
-        UserNameText = new javax.swing.JTextField();
-        UserPasswordLabel = new javax.swing.JLabel();
-        UserPasswordText = new javax.swing.JTextField();
-        jLabel43 = new javax.swing.JLabel();
-        UserPermissionLabel = new javax.swing.JLabel();
-        UserPermissionChoise = new java.awt.Choice();
-        background_green4 = new javax.swing.JLabel();
         AlertIcon = new javax.swing.JLabel();
         QuantityChangeButton = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
@@ -259,14 +238,6 @@ public class welcome3 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(reportsButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 65, 60));
-
-        usersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Users icon 53 x 50.png"))); // NOI18N
-        usersButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usersButtonActionPerformed(evt);
-            }
-        });
-        getContentPane().add(usersButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 110, 65, -1));
 
         logoutButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/logout button.png"))); // NOI18N
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
@@ -579,7 +550,7 @@ public class welcome3 extends javax.swing.JFrame {
                 genRepButtonActionPerformed(evt);
             }
         });
-        ProjectReportPanel.add(genRepButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, 50));
+        ProjectReportPanel.add(genRepButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, 50));
 
         pBeginDateChooser.setDateFormatString("yyyy-MM-dd");
         ProjectReportPanel.add(pBeginDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, 130, -1));
@@ -592,8 +563,8 @@ public class welcome3 extends javax.swing.JFrame {
         ProjectReportPanel.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        jLabel5.setText("You can see the report by clicking on this button ");
-        ProjectReportPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, -1, -1));
+        jLabel5.setText("You can see the report here ");
+        ProjectReportPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         jLabel6.setText("In order to start, please chose a start date ");
@@ -611,11 +582,63 @@ public class welcome3 extends javax.swing.JFrame {
                 Show_report_ButtonActionPerformed(evt);
             }
         });
-        ProjectReportPanel.add(Show_report_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 290, 190, 40));
+        ProjectReportPanel.add(Show_report_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 330, 190, 40));
 
         jLabel8.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        jLabel8.setText("Click on this button");
-        ProjectReportPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, -1, -1));
+        jLabel8.setText("Click on ");
+        ProjectReportPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        jLabel10.setText("Chose relevant project status");
+        ProjectReportPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, -1, -1));
+
+        ProjectStatusReportGroup.add(PendingRadioButton);
+        PendingRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        PendingRadioButton.setText("Pending");
+        PendingRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        PendingRadioButton.setBorderPainted(true);
+        PendingRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PendingRadioButtonActionPerformed(evt);
+            }
+        });
+        ProjectReportPanel.add(PendingRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 80, -1));
+
+        ProjectStatusReportGroup.add(AllRadioButton);
+        AllRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        AllRadioButton.setText("All");
+        AllRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        AllRadioButton.setBorderPainted(true);
+        AllRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AllRadioButtonActionPerformed(evt);
+            }
+        });
+        ProjectReportPanel.add(AllRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 220, 50, -1));
+
+        ProjectStatusReportGroup.add(ProgressRadioButton);
+        ProgressRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        ProgressRadioButton.setText("In Progress");
+        ProgressRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        ProgressRadioButton.setBorderPainted(true);
+        ProgressRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ProgressRadioButtonActionPerformed(evt);
+            }
+        });
+        ProjectReportPanel.add(ProgressRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 220, 100, -1));
+
+        ProjectStatusReportGroup.add(CompletedRadioButton);
+        CompletedRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        CompletedRadioButton.setText("Completed");
+        CompletedRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        CompletedRadioButton.setBorderPainted(true);
+        CompletedRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CompletedRadioButtonActionPerformed(evt);
+            }
+        });
+        ProjectReportPanel.add(CompletedRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, 100, -1));
 
         background_green15.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         background_green15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
@@ -623,173 +646,8 @@ public class welcome3 extends javax.swing.JFrame {
 
         reportsTab.addTab("Project Report", ProjectReportPanel);
 
-        usersTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        usersTab.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                usersTabMouseClicked(evt);
-            }
-        });
-
-        AddUserPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        AddUserTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        AddUserTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                AddUserTableMouseClicked(evt);
-            }
-        });
-        jScrollPane19.setViewportView(AddUserTable);
-
-        AddUserPanel.add(jScrollPane19, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        WorkerDetailsLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        WorkerDetailsLabel.setText("Worker Details");
-        jPanel1.add(WorkerDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        UserFirstNameLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        UserFirstNameLabel.setText("First Name");
-        jPanel1.add(UserFirstNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
-
-        UserFirstNameText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserFirstNameTextActionPerformed(evt);
-            }
-        });
-        jPanel1.add(UserFirstNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 130, -1));
-
-        UserLastNameText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserLastNameTextActionPerformed(evt);
-            }
-        });
-        jPanel1.add(UserLastNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 130, -1));
-
-        UserLastNameLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        UserLastNameLabel.setText("Last Name");
-        jPanel1.add(UserLastNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 70, -1));
-
-        UserPhoneLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        UserPhoneLabel.setText("Phone");
-        jPanel1.add(UserPhoneLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 70, -1));
-
-        UserPhoneText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserPhoneTextActionPerformed(evt);
-            }
-        });
-        jPanel1.add(UserPhoneText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 130, -1));
-
-        UserJobTitleText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserJobTitleTextActionPerformed(evt);
-            }
-        });
-        jPanel1.add(UserJobTitleText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 130, -1));
-
-        UserJobTitleLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        UserJobTitleLabel.setText("Job Title");
-        jPanel1.add(UserJobTitleLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, 70, -1));
-
-        UserEmailText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserEmailTextActionPerformed(evt);
-            }
-        });
-        jPanel1.add(UserEmailText, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 160, -1));
-
-        UserEmailLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        UserEmailLabel.setText("Email");
-        jPanel1.add(UserEmailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 70, -1));
-
-        AddUserPanel.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 260));
-
-        UserAddButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        UserAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
-        UserAddButton.setText("Add");
-        UserAddButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserAddButtonActionPerformed(evt);
-            }
-        });
-        AddUserPanel.add(UserAddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 260, -1, -1));
-
-        UserClearButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        UserClearButton.setText("Clear");
-        UserClearButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserClearButtonActionPerformed(evt);
-            }
-        });
-        AddUserPanel.add(UserClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 260, 110, 40));
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        UserDetailsLabel.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
-        UserDetailsLabel.setText("Fill User Details");
-        jPanel2.add(UserDetailsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        UserNameLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        UserNameLabel.setText("Username");
-        jPanel2.add(UserNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
-
-        UserNameText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserNameTextActionPerformed(evt);
-            }
-        });
-        jPanel2.add(UserNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 130, -1));
-
-        UserPasswordLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        UserPasswordLabel.setText("Password");
-        jPanel2.add(UserPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
-
-        UserPasswordText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UserPasswordTextActionPerformed(evt);
-            }
-        });
-        jPanel2.add(UserPasswordText, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 130, -1));
-
-        jLabel43.setFont(new java.awt.Font("Calibri", 0, 11)); // NOI18N
-        jLabel43.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel43.setText("Password Must be 6 letters at least ");
-        jPanel2.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
-
-        UserPermissionLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        UserPermissionLabel.setText("Permission Level");
-        jPanel2.add(UserPermissionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, -1, -1));
-
-        UserPermissionChoise.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                UserPermissionChoiseMouseClicked(evt);
-            }
-        });
-        jPanel2.add(UserPermissionChoise, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 60, -1));
-        UserPermissionChoise.addItem("0");
-        UserPermissionChoise.addItem("1");
-        UserPermissionChoise.addItem("2");
-        UserPermissionChoise.addItem("3");
-
-        AddUserPanel.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 480, 140));
-
-        background_green4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
-        AddUserPanel.add(background_green4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1250, 470));
-
-        usersTab.addTab("Add User", AddUserPanel);
+        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -806,11 +664,6 @@ public class welcome3 extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(reportsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -825,15 +678,7 @@ public class welcome3 extends javax.swing.JFrame {
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(reportsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -877,7 +722,6 @@ public class welcome3 extends javax.swing.JFrame {
     private void projectsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projectsButtonActionPerformed
         projectsTab.setVisible(true);
         reportsTab.setVisible(false);
-        usersTab.setVisible(false);
     }//GEN-LAST:event_projectsButtonActionPerformed
 
     private void projAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_projAddButtonActionPerformed
@@ -1109,118 +953,12 @@ public class welcome3 extends javax.swing.JFrame {
     private void reportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportsButtonActionPerformed
         projectsTab.setVisible(false);
         reportsTab.setVisible(true);
-        usersTab.setVisible(false);
     }//GEN-LAST:event_reportsButtonActionPerformed
-
-    private void usersTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usersTabMouseClicked
-        user_update_table();
-    }//GEN-LAST:event_usersTabMouseClicked
-
-    private void AddUserTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddUserTableMouseClicked
-            
-        try {
-            int raw = AddUserTable.getSelectedRow();
-            tableClick = (AddUserTable.getModel().getValueAt(raw, 0).toString());
-            String sql = "select worker_id,first_name,last_name,worker_phone,worker_add,birth_date,email,contract_id,job_title from workers where worker_id='" + tableClick + "' ";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            if (rs.next()) {
-                String add1 = rs.getString("first_name");
-                UserFirstNameText.setText(add1);
-                String add2 = rs.getString("last_name");
-                UserLastNameText.setText(add2);
-                String add3 = rs.getString("worker_phone");
-                UserPhoneText.setText(add3);
-                String add4 = rs.getString("job_title");
-                UserJobTitleText.setText(add4);
-                String add5 = rs.getString("email");
-                UserEmailText.setText(add5);                    
-            }                                         
-         }
-          catch (Exception e){
-    JOptionPane.showMessageDialog(null,e);
-    
-          }
-    }//GEN-LAST:event_AddUserTableMouseClicked
-
-    private void UserFirstNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserFirstNameTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserFirstNameTextActionPerformed
-
-    private void UserLastNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserLastNameTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserLastNameTextActionPerformed
-
-    private void UserPhoneTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserPhoneTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserPhoneTextActionPerformed
-
-    private void UserJobTitleTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserJobTitleTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserJobTitleTextActionPerformed
-
-    private void UserEmailTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserEmailTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserEmailTextActionPerformed
-
-    private void UserAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserAddButtonActionPerformed
-      
-      int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Give" +UserFirstNameText.getText()+" "+UserLastNameText.getText()+" Selected Permission ?", "Warning!", JOptionPane.YES_NO_OPTION);
-      if(ans==0) {
-         try {
-
-            String sql = "Insert into users (password,user_name,user_type) values(?,?,?)";
-            
-            pst = conn.prepareStatement(sql);
-            pst.setString(1, UserPasswordText.getText());
-            pst.setString(2, UserNameText.getText());
-            pst.setInt(3, UserPermissionChoise.getSelectedIndex());
-       
-            pst.execute();
-            JOptionPane.showMessageDialog(null, "User Has Been Given Permission");
-            }
-        
-        catch (Exception e){
-            JOptionPane.showMessageDialog(null,e);
-        }
-       }
-      if (ans==1) {}
-    }//GEN-LAST:event_UserAddButtonActionPerformed
-
-    private void UserClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserClearButtonActionPerformed
-        UserFirstNameText.setText("");
-        UserLastNameText.setText("");
-        UserPhoneText.setText("");
-        UserJobTitleText.setText("");
-        UserEmailText.setText("");
-        UserNameText.setText("");
-        UserPasswordText.setText("");
-        
-    }//GEN-LAST:event_UserClearButtonActionPerformed
-
-    private void usersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersButtonActionPerformed
-        projectsTab.setVisible(false);
-        reportsTab.setVisible(false);
-        usersTab.setVisible(true);
-        user_update_table();
-    }//GEN-LAST:event_usersButtonActionPerformed
 
     private void QuantityChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuantityChangeButtonActionPerformed
         QuantityChange qc = new QuantityChange();
         qc.setVisible(true);
     }//GEN-LAST:event_QuantityChangeButtonActionPerformed
-
-    private void UserNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserNameTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserNameTextActionPerformed
-
-    private void UserPasswordTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserPasswordTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserPasswordTextActionPerformed
-
-    private void UserPermissionChoiseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_UserPermissionChoiseMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UserPermissionChoiseMouseClicked
 
     private void genRepButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genRepButtonActionPerformed
   Document doc = new Document();
@@ -1238,7 +976,7 @@ public class welcome3 extends javax.swing.JFrame {
    Date date = new Date();
    //file path
    String dt=dateFormat.format(date);
-   String path = "C:\\Users\\Adi\\Documents\\NetBeansProjects\\Projct\\Yatzig\\src\\" + "Project Report- " + dt + ".pdf";   
+   String path = "src/ProjectReports/" + "Project Report- " + dt + " Status " + report_status + " .pdf";     
    docWriter = PdfWriter.getInstance(doc , new FileOutputStream(path));
    
    //document header attributes
@@ -1286,7 +1024,11 @@ public class welcome3 extends javax.swing.JFrame {
    DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
    String sd= dateFormat1.format(pBeginDateChooser.getDate());
    String ed=dateFormat1.format(pEndDateChooser.getDate());
-   try {
+   
+   if(report_status.equals("All"))
+   {   
+        try {
+            
             String sql = "select project_id,project_name,start_date,due_date,status from projects where due_date >= '"+sd+"' and due_date <= '"+ed+"' and start_date >= '"+sd+"'and start_date <= '"+ed+"'";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -1308,6 +1050,33 @@ public class welcome3 extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(null,e);
     
         }
+   }
+   else 
+   {
+      try {
+            
+            String sql = "select project_id,project_name,start_date,due_date,status from projects where status = '"+report_status+"' and due_date >= '"+sd+"' and due_date <= '"+ed+"' and start_date >= '"+sd+"'and start_date <= '"+ed+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) { 
+                 add1 = rs.getString("project_id");
+                 add2 = rs.getString("project_name");
+                 add3 = dateFormat.format(rs.getDate("start_date"));
+                 add4 = dateFormat.format(rs.getDate("due_date"));
+                 add5 = rs.getString("status");   
+                 insertCell(table,add1 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add2 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add3 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add4 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add5 , Element.ALIGN_CENTER, 1, bf12);
+
+        }                                         
+         }
+          catch (Exception e){
+    JOptionPane.showMessageDialog(null,e);
+    
+        } 
+   }
 
    //add the PDF table to the paragraph 
    paragraph2.add(table);
@@ -1342,7 +1111,7 @@ public class welcome3 extends javax.swing.JFrame {
         DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
         String dt=dateFormat.format(date);
-        filename_show_report = "C:\\Users\\Felix\\Documents\\NetBeansProjects\\Projct\\Yatzig\\src\\" + "Project Report- " + dt + ".pdf" ;
+        filename_show_report = "src/ProjectReports/" + "Project Report- " + dt + " Status " + report_status + " .pdf";
         try {
 
             Desktop.getDesktop().open(new File(filename_show_report));
@@ -1352,6 +1121,22 @@ public class welcome3 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"The Report Generetad Wasn't Found");
         }
     }//GEN-LAST:event_Show_report_ButtonActionPerformed
+
+    private void PendingRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PendingRadioButtonActionPerformed
+        report_status = "Pending";
+    }//GEN-LAST:event_PendingRadioButtonActionPerformed
+
+    private void ProgressRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ProgressRadioButtonActionPerformed
+        report_status = "In Progress";
+    }//GEN-LAST:event_ProgressRadioButtonActionPerformed
+
+    private void AllRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllRadioButtonActionPerformed
+        report_status = "All";
+    }//GEN-LAST:event_AllRadioButtonActionPerformed
+
+    private void CompletedRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CompletedRadioButtonActionPerformed
+         report_status = "Completed";
+    }//GEN-LAST:event_CompletedRadioButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1414,18 +1199,6 @@ public class welcome3 extends javax.swing.JFrame {
 
     }
             
-        private void user_update_table(){
-        try{
-                 String sql = "select worker_id as 'Worker ID',first_name as 'First Name',last_name as 'Last Name',worker_phone as 'Phone',worker_add as 'Address', birth_date as 'Birthdate', email as 'Email',contract_id as 'Contract ID',job_title as 'Job Title' from workers";
-                 pst=conn.prepareStatement(sql);
-                 rs=pst.executeQuery(sql);
-                 AddUserTable.setModel(DbUtils.resultSetToTableModel(rs));
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(null, e);
-        }
-    }
    
     /**
      *
@@ -1460,76 +1233,56 @@ public class welcome3 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AddProjectPanel;
-    private javax.swing.JPanel AddUserPanel;
-    private javax.swing.JTable AddUserTable;
+    private javax.swing.ButtonGroup AddUserSearchGroup;
     private javax.swing.JLabel AlertIcon;
+    private javax.swing.JRadioButton AllRadioButton;
+    private javax.swing.JRadioButton CompletedRadioButton;
     private javax.swing.JLabel EnterYourSearchLabel10;
     private javax.swing.JLabel EnterYourSearchLabel9;
     private javax.swing.JPanel HistoryPanel;
+    private javax.swing.JRadioButton PendingRadioButton;
+    private javax.swing.JRadioButton ProgressRadioButton;
     private javax.swing.JLabel ProjectCommentsLabel;
     private javax.swing.JLabel ProjectDuedateLabel;
     private javax.swing.JLabel ProjectIDLabel;
     private javax.swing.JLabel ProjectNameLabel;
     private javax.swing.JPanel ProjectReportPanel;
     private javax.swing.JLabel ProjectStartdateLabel;
+    private javax.swing.ButtonGroup ProjectStatusReportGroup;
     private javax.swing.JButton QuantityChangeButton;
     private javax.swing.JPanel SearchProjectPanel;
     private javax.swing.JButton Show_report_Button;
     private javax.swing.JPanel StatusProjectPanel;
     private javax.swing.ButtonGroup SupplierButtonGroup;
-    private javax.swing.JButton UserAddButton;
-    private javax.swing.JButton UserClearButton;
-    private javax.swing.JLabel UserDetailsLabel;
-    private javax.swing.JLabel UserEmailLabel;
-    private javax.swing.JTextField UserEmailText;
-    private javax.swing.JLabel UserFirstNameLabel;
-    private javax.swing.JTextField UserFirstNameText;
-    private javax.swing.JLabel UserJobTitleLabel;
-    private javax.swing.JTextField UserJobTitleText;
-    private javax.swing.JLabel UserLastNameLabel;
-    private javax.swing.JTextField UserLastNameText;
-    private javax.swing.JLabel UserNameLabel;
-    private javax.swing.JTextField UserNameText;
-    private javax.swing.JLabel UserPasswordLabel;
-    private javax.swing.JTextField UserPasswordText;
-    private java.awt.Choice UserPermissionChoise;
-    private javax.swing.JLabel UserPermissionLabel;
-    private javax.swing.JLabel UserPhoneLabel;
-    private javax.swing.JTextField UserPhoneText;
-    private javax.swing.JLabel WorkerDetailsLabel;
     private javax.swing.JLabel background_green11;
     private javax.swing.JLabel background_green12;
     private javax.swing.JLabel background_green13;
     private javax.swing.JLabel background_green14;
     private javax.swing.JLabel background_green15;
     private javax.swing.JLabel background_green16;
-    private javax.swing.JLabel background_green4;
     private javax.swing.JToggleButton genRepButton;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser2;
     private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
-    private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton logoutButton;
     private com.toedter.components.JSpinField monthRepjSpin;
@@ -1564,8 +1317,6 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JButton reportsButton;
     private javax.swing.JTabbedPane reportsTab;
     private javax.swing.ButtonGroup searchGroup;
-    private javax.swing.JButton usersButton;
-    private javax.swing.JTabbedPane usersTab;
     private com.toedter.components.JSpinField yearRepjSpin;
     // End of variables declaration//GEN-END:variables
 

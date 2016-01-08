@@ -1381,18 +1381,19 @@ public class welcome2 extends javax.swing.JFrame {
             if(SupplierUploadText.getText().isEmpty()) {
                 ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Add a Supplier Without a Contract?", "Warning!", JOptionPane.YES_NO_OPTION);
                 if(ans==0)
-                pst.executeQuery();
+                pst.execute();
                 if(ans==1) {}
             }
 
             else  {
 
-                Path dest = Paths.get( "C:/Users/Adi/Documents/NetBeansProjects/Yatzig/src/SupplierContracts/"+sn+".pdf");
+                Path dest = Paths.get("src/SupplierContracts/"+sn+".pdf");
                 Path source = Paths.get(filename_supplier);
                 Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);
+                pst.execute();
             }
 
-            JOptionPane.showMessageDialog(null, "Supplier Has Been Added");
+           JOptionPane.showMessageDialog(null, "Supplier Has Been Added");
         }
         catch (Exception e){
             h=1;

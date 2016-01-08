@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package AppPackage;
+import static AppPackage.welcome2.pst;
 import static AppPackage.welcome3.pst;
 import java.util.Date;
 import java.sql.*;
@@ -35,6 +36,7 @@ public class welcome1 extends javax.swing.JFrame {
     public String filename_supplier;
     public String supplier_filename_update;
     public String supplier_filename_show_contract;
+    public String filename_order;
     public String sn; 
     public String fn;
     String tableClick;
@@ -190,9 +192,7 @@ public class welcome1 extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         ordersTab = new javax.swing.JTabbedPane();
         AddOrderPanel = new javax.swing.JPanel();
-        orderIDtxt = new javax.swing.JTextField();
         orderTptxt = new javax.swing.JTextField();
-        orderIDLabel = new javax.swing.JLabel();
         orderTimeLabel = new javax.swing.JLabel();
         orderArrivalLabel = new javax.swing.JLabel();
         orderDescriptionLabel = new javax.swing.JLabel();
@@ -203,6 +203,13 @@ public class welcome1 extends javax.swing.JFrame {
         toaDate = new com.toedter.calendar.JDateChooser();
         addOrderButton = new javax.swing.JButton();
         orderClearButton = new javax.swing.JButton();
+        SupplierContractPanel1 = new javax.swing.JPanel();
+        OrderContractLabel = new javax.swing.JLabel();
+        OrderUploadText = new javax.swing.JTextField();
+        OrderUploadContractButton = new javax.swing.JButton();
+        OrderShowContractButton = new javax.swing.JButton();
+        OrderIDLabel = new javax.swing.JLabel();
+        OrderIDText = new javax.swing.JTextField();
         background_green4 = new javax.swing.JLabel();
         UpdateOrderPanel = new javax.swing.JPanel();
         EnterYourSearchLabel5 = new javax.swing.JLabel();
@@ -977,46 +984,35 @@ public class welcome1 extends javax.swing.JFrame {
         });
 
         AddOrderPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        orderIDtxt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                orderIDtxtActionPerformed(evt);
-            }
-        });
-        AddOrderPanel.add(orderIDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 118, -1));
-        AddOrderPanel.add(orderTptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 210, 118, -1));
-
-        orderIDLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        orderIDLabel.setText("Order ID");
-        AddOrderPanel.add(orderIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, -1, -1));
+        AddOrderPanel.add(orderTptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 118, -1));
 
         orderTimeLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
-        orderTimeLabel.setText("Time Of Order");
-        AddOrderPanel.add(orderTimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, -1, -1));
+        orderTimeLabel.setText("Order Date");
+        AddOrderPanel.add(orderTimeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
 
         orderArrivalLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         orderArrivalLabel.setText("Time Of Arrival");
-        AddOrderPanel.add(orderArrivalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        AddOrderPanel.add(orderArrivalLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
 
         orderDescriptionLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         orderDescriptionLabel.setText("Description");
-        AddOrderPanel.add(orderDescriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
+        AddOrderPanel.add(orderDescriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 260, -1, -1));
 
         orderPriceLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         orderPriceLabel.setText("Total Price");
-        AddOrderPanel.add(orderPriceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, -1, -1));
+        AddOrderPanel.add(orderPriceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
 
         orderDesctxt.setColumns(20);
         orderDesctxt.setRows(5);
         jScrollPane10.setViewportView(orderDesctxt);
 
-        AddOrderPanel.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 120, -1));
+        AddOrderPanel.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 120, -1));
 
         tooDate.setDateFormatString("yyyy-MM-dd");
-        AddOrderPanel.add(tooDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 140, -1));
+        AddOrderPanel.add(tooDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 140, -1));
 
         toaDate.setDateFormatString("yyyy-MM-dd");
-        AddOrderPanel.add(toaDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 140, -1));
+        AddOrderPanel.add(toaDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 140, -1));
 
         addOrderButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         addOrderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
@@ -1026,7 +1022,7 @@ public class welcome1 extends javax.swing.JFrame {
                 addOrderButtonActionPerformed(evt);
             }
         });
-        AddOrderPanel.add(addOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, -1, -1));
+        AddOrderPanel.add(addOrderButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, -1, -1));
 
         orderClearButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         orderClearButton.setText("Clear");
@@ -1035,7 +1031,50 @@ public class welcome1 extends javax.swing.JFrame {
                 orderClearButtonActionPerformed(evt);
             }
         });
-        AddOrderPanel.add(orderClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, 100, 40));
+        AddOrderPanel.add(orderClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 210, 100, 40));
+
+        SupplierContractPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
+        SupplierContractPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        OrderContractLabel.setFont(new java.awt.Font("Calibri", 0, 24)); // NOI18N
+        OrderContractLabel.setText("Order Receipt");
+        SupplierContractPanel1.add(OrderContractLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        OrderUploadText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OrderUploadTextActionPerformed(evt);
+            }
+        });
+        SupplierContractPanel1.add(OrderUploadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, -1));
+
+        OrderUploadContractButton.setText("Upload");
+        OrderUploadContractButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OrderUploadContractButtonActionPerformed(evt);
+            }
+        });
+        SupplierContractPanel1.add(OrderUploadContractButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+
+        OrderShowContractButton.setText("Show");
+        OrderShowContractButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OrderShowContractButtonActionPerformed(evt);
+            }
+        });
+        SupplierContractPanel1.add(OrderShowContractButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 70, -1));
+
+        AddOrderPanel.add(SupplierContractPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 260, 130));
+
+        OrderIDLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        OrderIDLabel.setText("Order ID");
+        AddOrderPanel.add(OrderIDLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
+
+        OrderIDText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                OrderIDTextActionPerformed(evt);
+            }
+        });
+        AddOrderPanel.add(OrderIDText, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 120, -1));
 
         background_green4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         AddOrderPanel.add(background_green4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -220, -1, 860));
@@ -1672,6 +1711,10 @@ public class welcome1 extends javax.swing.JFrame {
 
         suppliersTab.addTab("Search", SearchSupplierPanel);
 
+        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -1693,9 +1736,6 @@ public class welcome1 extends javax.swing.JFrame {
                     .addComponent(inventoryTab, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(154, Short.MAX_VALUE)))
         );
-        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -1757,33 +1797,46 @@ public class welcome1 extends javax.swing.JFrame {
         suppliersTab.setVisible(false);
     }//GEN-LAST:event_reportsButtonActionPerformed
 
-    private void orderIDtxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderIDtxtActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_orderIDtxtActionPerformed
-
     private void addOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrderButtonActionPerformed
         int f = 0;
         int h = 0;
+        sn = OrderIDText.getText();
+        int ans;
         
         try {
             String sql = "Insert into orders (orders_id,order_date,description,price,arrivel_date) values(?,?,?,?,?)";
 
             pst = conn.prepareStatement(sql);
-            pst.setString(1, orderIDtxt.getText());
+            pst.setString(1, OrderIDText.getText());
             pst.setDate(2, new java.sql.Date(tooDate.getDate().getTime()));
             pst.setString(3, orderDesctxt.getText());
-            pst.setDate(4, new java.sql.Date(toaDate.getDate().getTime()));
-            pst.setString(5, orderTptxt.getText());
+            pst.setString(4, orderTptxt.getText());
+            pst.setDate(5, new java.sql.Date(toaDate.getDate().getTime()));
+          
+        if(OrderUploadText.getText().isEmpty()) {
+              ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Add an Order Without a description ?", "Warning!", JOptionPane.YES_NO_OPTION);
+              if(ans==0)
+              pst.execute();
+              if(ans==1) {}
+            }
 
-            pst.executeQuery();
-            JOptionPane.showMessageDialog(null, "Order Added");
+        else  {
+
+                Path dest = Paths.get("src/OrderContracts/"+sn+".pdf");
+                Path source = Paths.get(filename_order);
+                Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);
+                pst.execute();
+        }
+
+        JOptionPane.showMessageDialog(null, "Order Has Been Added");        
             
-        } catch (Exception e) {
+        } 
+        catch (Exception e) {
             h=1;
             
-            if (orderIDtxt.getText().isEmpty()) 
-                orderIDtxt.setBackground(Color.red);
-            else orderIDtxt.setBackground(Color.white);
+            if (OrderIDText.getText().isEmpty()) 
+                OrderIDText.setBackground(Color.red);
+            else OrderIDText.setBackground(Color.white);
             
             if (orderDesctxt.getText().isEmpty()) 
                 orderDesctxt.setBackground(Color.red);
@@ -1801,20 +1854,22 @@ public class welcome1 extends javax.swing.JFrame {
         }
 
         if (f == 0 && h==0) {
-            orderIDtxt.setText("");
+            OrderIDText.setText("");
             orderDesctxt.setText("");
             orderTptxt.setText("");
             tooDate.setCalendar(null);
             toaDate.setCalendar(null);
+            OrderUploadText.setText("");
         }
     }//GEN-LAST:event_addOrderButtonActionPerformed
 
     private void orderClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderClearButtonActionPerformed
-        orderIDtxt.setText("");
+        OrderIDText.setText("");
         orderDesctxt.setText("");
         orderTptxt.setText("");
         tooDate.setCalendar(null);
         toaDate.setCalendar(null);
+        OrderUploadText.setText("");
     }//GEN-LAST:event_orderClearButtonActionPerformed
 
     private void searchOrderUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrderUpButtonActionPerformed
@@ -2077,7 +2132,7 @@ public class welcome1 extends javax.swing.JFrame {
 
             else  {
 
-                Path dest = Paths.get( "C:/Users/Adi/Documents/NetBeansProjects/Yatzig/src/SupplierContracts/"+sn+".pdf");
+                Path dest = Paths.get("src/SupplierContracts/"+sn+".pdf");
                 Path source = Paths.get(filename_supplier);
                 Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);
             }
@@ -2255,7 +2310,7 @@ public class welcome1 extends javax.swing.JFrame {
         try {
 
             if (!SupplierUploadText1.getText().isEmpty()) {
-                Path dest = Paths.get( "C:/Users/Felix/Documents/NetBeansProjects/Yatzig/src/Contracts/"+fn+".pdf");
+                Path dest = Paths.get("src/SupplierContracts/"+fn+".pdf");
                 Path source = Paths.get(supplier_filename_update);
                 Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);
 
@@ -2999,6 +3054,50 @@ public class welcome1 extends javax.swing.JFrame {
         mlw.setVisible(true);
     }//GEN-LAST:event_MinLevelWarningButtonActionPerformed
 
+    private void OrderIDTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderIDTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OrderIDTextActionPerformed
+
+    private void OrderUploadTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderUploadTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_OrderUploadTextActionPerformed
+
+    private void OrderUploadContractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderUploadContractButtonActionPerformed
+
+        try{
+
+            JFileChooser supplier_chooser = new JFileChooser();
+            supplier_chooser.setDialogTitle("Open a File");
+            FileNameExtensionFilter docFilter = new FileNameExtensionFilter("Word Files","docx");
+            FileNameExtensionFilter pdfFilter = new FileNameExtensionFilter("PDF Documents","pdf");
+            supplier_chooser.addChoosableFileFilter(docFilter);
+            supplier_chooser.addChoosableFileFilter(pdfFilter);
+            int result = supplier_chooser.showOpenDialog(null);
+            if (result == 0) {
+                File f = supplier_chooser.getSelectedFile();
+                filename_order = f.getAbsolutePath();
+                OrderUploadText.setText(filename_order);
+                f.getAbsoluteFile();
+
+            }
+
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+
+        }
+    }//GEN-LAST:event_OrderUploadContractButtonActionPerformed
+
+    private void OrderShowContractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OrderShowContractButtonActionPerformed
+        try {
+
+            Desktop.getDesktop().open(new File(filename_order));
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_OrderShowContractButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3197,6 +3296,12 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JLabel ExpirationDateLabel2;
     private javax.swing.JButton MinLevelWarningButton;
     private javax.swing.JLabel MinQuantityLabel1;
+    private javax.swing.JLabel OrderContractLabel;
+    private javax.swing.JLabel OrderIDLabel;
+    private javax.swing.JTextField OrderIDText;
+    private javax.swing.JButton OrderShowContractButton;
+    private javax.swing.JButton OrderUploadContractButton;
+    private javax.swing.JTextField OrderUploadText;
     private javax.swing.JPanel PriceListPanel;
     private javax.swing.JLabel QuantityLabel1;
     private javax.swing.JLabel QuantityLabel2;
@@ -3232,6 +3337,7 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JTextField SupplierContractIDText1;
     private javax.swing.JTextField SupplierContractIDText2;
     private javax.swing.JPanel SupplierContractPanel;
+    private javax.swing.JPanel SupplierContractPanel1;
     private javax.swing.JButton SupplierDeleteButton;
     private javax.swing.JLabel SupplierEmailLabel;
     private javax.swing.JLabel SupplierEmailLabel1;
@@ -3364,8 +3470,6 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JTextArea orderDescUptxt;
     private javax.swing.JLabel orderDescriptionLabel;
     private javax.swing.JTextArea orderDesctxt;
-    private javax.swing.JLabel orderIDLabel;
-    private javax.swing.JTextField orderIDtxt;
     private javax.swing.JLabel orderPriceLabel;
     private javax.swing.JButton orderRefreshButton;
     private javax.swing.JTable orderSearchTable;
