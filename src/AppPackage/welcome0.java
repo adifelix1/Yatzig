@@ -22,6 +22,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import javax.swing.BorderFactory;
 import net.proteanit.sql.DbUtils;
 
 
@@ -40,6 +41,8 @@ import net.proteanit.sql.DbUtils;
      String searchmethod;
      String searchmethod2;
      String tableClick;
+     boolean openClose;
+    
     /**
      * Creates new form welcome
      */
@@ -48,6 +51,8 @@ import net.proteanit.sql.DbUtils;
         initComponents();
         customerTab.setVisible(false);
         usersTab.setVisible(false);
+         dropManageUserLabel.setVisible(false);
+         changePasswordLabel.setVisible(false);
         update_table();
         
     }
@@ -241,11 +246,14 @@ import net.proteanit.sql.DbUtils;
         ExistUserameText = new javax.swing.JTextField();
         ExistUserLastNameText = new javax.swing.JTextField();
         ExistUserPermissionText = new javax.swing.JTextField();
-        choice1 = new java.awt.Choice();
+        perlvlchoice = new java.awt.Choice();
         updateExistUserButton = new javax.swing.JButton();
         orderClearButton = new javax.swing.JButton();
         background_green8 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
+        manageUserButtonLabel = new javax.swing.JLabel();
+        changePasswordLabel = new javax.swing.JLabel();
+        dropManageUserLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -267,12 +275,17 @@ import net.proteanit.sql.DbUtils;
         });
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1223, 4, 55, 20));
 
+        jLabel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel3MouseMoved(evt);
+            }
+        });
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1153, 4, 30, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1151, 3, 35, 22));
 
         customersButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Customers icon 60 x 50.png"))); // NOI18N
         customersButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1319,12 +1332,14 @@ import net.proteanit.sql.DbUtils;
         jPanel3.add(ExistUserFirstNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 130, -1));
         jPanel3.add(ExistUserameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 130, -1));
         jPanel3.add(ExistUserLastNameText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 130, -1));
+
+        ExistUserPermissionText.setEditable(false);
         jPanel3.add(ExistUserPermissionText, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 50, -1));
-        jPanel3.add(choice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 90, -1));
-        choice1.addItem("0");
-        choice1.addItem("1");
-        choice1.addItem("2");
-        choice1.addItem("3");
+        jPanel3.add(perlvlchoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 90, -1));
+        perlvlchoice.addItem("0");
+        perlvlchoice.addItem("1");
+        perlvlchoice.addItem("2");
+        perlvlchoice.addItem("3");
 
         ExistingUserPanel.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 320, 260));
 
@@ -1352,10 +1367,6 @@ import net.proteanit.sql.DbUtils;
 
         usersTab.addTab("Existing User", ExistingUserPanel);
 
-        jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -1382,6 +1393,9 @@ import net.proteanit.sql.DbUtils;
                     .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
+        jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -1393,8 +1407,45 @@ import net.proteanit.sql.DbUtils;
         });
         getContentPane().add(logoutButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 30, 30));
 
+        manageUserButtonLabel.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        manageUserButtonLabel.setText("Manage user");
+        manageUserButtonLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        manageUserButtonLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                manageUserButtonLabelMouseReleased(evt);
+            }
+        });
+        getContentPane().add(manageUserButtonLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 80, 20));
+
+        changePasswordLabel.setText(" Change Password");
+        changePasswordLabel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                changePasswordLabelMouseMoved(evt);
+            }
+        });
+        changePasswordLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changePasswordLabelMouseClicked(evt);
+            }
+        });
+        getContentPane().add(changePasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 110, 20));
+
+        dropManageUserLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        dropManageUserLabel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                dropManageUserLabelMouseMoved(evt);
+            }
+        });
+        getContentPane().add(dropManageUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 110, 60));
+
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N
+        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jLabel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel2MouseMoved(evt);
+            }
+        });
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 680));
 
         pack();
@@ -2375,7 +2426,7 @@ import net.proteanit.sql.DbUtils;
             
             String un = ExistUserameText.getText();
             String up = ExistUserPasswordText.getText();      
-            String ul = ExistUserPermissionText.getText();
+            String ul = perlvlchoice.getSelectedItem();
 
             String sql = "update users set user_name='"+un+"',password='"+up+"',user_type='"+ul+"' where worker_id='"+tableClick+"'";
             pst = conn.prepareStatement(sql);
@@ -2408,6 +2459,43 @@ import net.proteanit.sql.DbUtils;
             ExistUserPasswordText.setText("");    
             ExistUserPermissionText.setText("");
     }//GEN-LAST:event_orderClearButtonActionPerformed
+
+    private void manageUserButtonLabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageUserButtonLabelMouseReleased
+        if(openClose == false)
+        {
+            dropManageUserLabel.setVisible(true);
+            changePasswordLabel.setVisible(true);
+            openClose=true;
+        }
+        else
+        {
+            dropManageUserLabel.setVisible(false);
+            changePasswordLabel.setVisible(false);
+            openClose=false;
+        }
+    }//GEN-LAST:event_manageUserButtonLabelMouseReleased
+
+    private void dropManageUserLabelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropManageUserLabelMouseMoved
+        changePasswordLabel.setBorder(null);
+    }//GEN-LAST:event_dropManageUserLabelMouseMoved
+
+    private void changePasswordLabelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseMoved
+        changePasswordLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+    }//GEN-LAST:event_changePasswordLabelMouseMoved
+
+    private void changePasswordLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseClicked
+        changePassword cp = new changePassword();
+        cp.setVisible(true);
+    }//GEN-LAST:event_changePasswordLabelMouseClicked
+
+    private void jLabel2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseMoved
+        changePasswordLabel.setBorder(null);
+        jLabel3.setBorder(null);
+    }//GEN-LAST:event_jLabel2MouseMoved
+
+    private void jLabel3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseMoved
+       jLabel3.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
+    }//GEN-LAST:event_jLabel3MouseMoved
 
     
     /**
@@ -2654,7 +2742,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JLabel background_green6;
     private javax.swing.JLabel background_green7;
     private javax.swing.JLabel background_green8;
-    private java.awt.Choice choice1;
+    private javax.swing.JLabel changePasswordLabel;
     private javax.swing.JLabel contract_Label1;
     private javax.swing.JButton cusDeleteButton;
     private javax.swing.JRadioButton cusIDRadioButton;
@@ -2678,6 +2766,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JTable cusUpdateTable;
     private javax.swing.JTabbedPane customerTab;
     private javax.swing.JButton customersButton;
+    private javax.swing.JLabel dropManageUserLabel;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel19;
@@ -2699,7 +2788,9 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton logoutButton;
+    private javax.swing.JLabel manageUserButtonLabel;
     private javax.swing.JButton orderClearButton;
+    private java.awt.Choice perlvlchoice;
     private javax.swing.JButton reportsButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JButton searchButton1;

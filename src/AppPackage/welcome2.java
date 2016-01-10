@@ -52,6 +52,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 
 /**
  *
@@ -69,6 +70,7 @@ public class welcome2 extends javax.swing.JFrame {
     public String fn;
     String tableClick;
     String searchmethod;
+    boolean openClose;
     /**
      * Creates new form welcome
      */
@@ -76,6 +78,8 @@ public class welcome2 extends javax.swing.JFrame {
         initComponents();
         reportsTab.setVisible(false);
         suppliersTab.setVisible(false);
+         dropManageUserLabel.setVisible(false);
+         changePasswordLabel.setVisible(false);
     }
 
     /**
@@ -222,6 +226,9 @@ public class welcome2 extends javax.swing.JFrame {
         background_green14 = new javax.swing.JLabel();
         projectsButton = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
+        manageUserButtonLabel = new javax.swing.JLabel();
+        changePasswordLabel = new javax.swing.JLabel();
+        dropManageUserLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1069,8 +1076,45 @@ public class welcome2 extends javax.swing.JFrame {
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 180, 40));
         jLabel9.setText(loginGUI.username+" Is Logged in");
 
+        manageUserButtonLabel.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
+        manageUserButtonLabel.setText("Manage user");
+        manageUserButtonLabel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        manageUserButtonLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                manageUserButtonLabelMouseReleased(evt);
+            }
+        });
+        getContentPane().add(manageUserButtonLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 80, 20));
+
+        changePasswordLabel.setText(" Change Password");
+        changePasswordLabel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                changePasswordLabelMouseMoved(evt);
+            }
+        });
+        changePasswordLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changePasswordLabelMouseClicked(evt);
+            }
+        });
+        getContentPane().add(changePasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 110, 20));
+
+        dropManageUserLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        dropManageUserLabel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                dropManageUserLabelMouseMoved(evt);
+            }
+        });
+        getContentPane().add(dropManageUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 110, 40));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N
+        jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
+        jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel1MouseMoved(evt);
+            }
+        });
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 680));
 
         pack();
@@ -1078,7 +1122,7 @@ public class welcome2 extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        this.setState(welcome3.ICONIFIED);
+        this.setState(welcome2.ICONIFIED);
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
@@ -1904,6 +1948,38 @@ public class welcome2 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_Show_report_ButtonActionPerformed
 
+    private void manageUserButtonLabelMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_manageUserButtonLabelMouseReleased
+        if(openClose == false)
+        {
+            dropManageUserLabel.setVisible(true);
+            changePasswordLabel.setVisible(true);
+            openClose=true;
+        }
+        else
+        {
+            dropManageUserLabel.setVisible(false);
+            changePasswordLabel.setVisible(false);
+            openClose=false;
+        }
+    }//GEN-LAST:event_manageUserButtonLabelMouseReleased
+
+    private void dropManageUserLabelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropManageUserLabelMouseMoved
+        changePasswordLabel.setBorder(null);
+    }//GEN-LAST:event_dropManageUserLabelMouseMoved
+
+    private void changePasswordLabelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseMoved
+        changePasswordLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+    }//GEN-LAST:event_changePasswordLabelMouseMoved
+
+    private void changePasswordLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseClicked
+        changePassword cp = new changePassword();
+        cp.setVisible(true);
+    }//GEN-LAST:event_changePasswordLabelMouseClicked
+
+    private void jLabel1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseMoved
+        changePasswordLabel.setBorder(null);
+    }//GEN-LAST:event_jLabel1MouseMoved
+
     /**
      * @param args the command line arguments
      */
@@ -2081,7 +2157,9 @@ public class welcome2 extends javax.swing.JFrame {
     private javax.swing.JLabel background_green16;
     private javax.swing.JLabel background_green2;
     private javax.swing.JLabel background_green3;
+    private javax.swing.JLabel changePasswordLabel;
     private javax.swing.JLabel contract_Label1;
+    private javax.swing.JLabel dropManageUserLabel;
     private javax.swing.JToggleButton genRepButton;
     private javax.swing.JButton jButton2;
     private com.toedter.calendar.JDateChooser jDateChooser2;
@@ -2109,6 +2187,7 @@ public class welcome2 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane18;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton logoutButton;
+    private javax.swing.JLabel manageUserButtonLabel;
     private com.toedter.components.JSpinField monthRepjSpin;
     private com.toedter.calendar.JDateChooser pBeginDateChooser;
     private com.toedter.calendar.JDateChooser pEndDateChooser;
