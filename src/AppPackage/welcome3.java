@@ -1103,7 +1103,7 @@ public class welcome3 extends javax.swing.JFrame {
   //Date d = Calendar.getInstance().getTime();
  DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
    Date date = new Date();
-   String fileName=null;
+  // String fileName=null;
   
   try {
   
@@ -1114,8 +1114,8 @@ public class welcome3 extends javax.swing.JFrame {
   
    //file path
    String dt=dateFormat.format(date);
-   fileName = "Report No- " + repID + " Project Report- " + dt + " Status " + report_status + " .pdf";
-   String path = "src/ProjectReports/" + fileName;     
+   sFileName = "Report No- " + repID + " Project Report- " + dt + " Status " + report_status + " .pdf";
+   String path = "src/ProjectReports/" + sFileName;     
    docWriter = PdfWriter.getInstance(doc , new FileOutputStream(path));
    
    DateFormat dateFormat3 = new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -1248,14 +1248,14 @@ public class welcome3 extends javax.swing.JFrame {
     docWriter.close();
    }
   }     
-  saveToDB(report_status,date,repID,fileName);
+  saveToDB(report_status,date,repID);
     }//GEN-LAST:event_genRepButtonActionPerformed
 
     private void Show_report_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_report_ButtonActionPerformed
-        DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+       /* DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
-        String dt=dateFormat.format(date);
-        filename_show_report = "src/ProjectReports/" + "Project Report- " + dt + " Status " + report_status + " .pdf";
+        String dt=dateFormat.format(date);*/
+        filename_show_report = "src/ProjectReports/" + sFileName;
         try {
 
             Desktop.getDesktop().open(new File(filename_show_report));
@@ -1509,7 +1509,7 @@ public class welcome3 extends javax.swing.JFrame {
   
  }
   
-  private void saveToDB(String s,Date date,int pi,String fn)
+  private void saveToDB(String s,Date date,int pi)
   {
       try {
             String sql = "Insert into reports (report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus,fileName) values(?,?,?,?,?,?)";
@@ -1520,7 +1520,7 @@ public class welcome3 extends javax.swing.JFrame {
             pst.setDate(3, new java.sql.Date(pBeginDateChooser.getDate().getTime()));
             pst.setDate(4,new java.sql.Date(pEndDateChooser.getDate().getTime()));
             pst.setString(5,s );
-            pst.setString(6,fn);
+            pst.setString(6,sFileName);
             pst.execute();
       }
        catch (Exception e){
