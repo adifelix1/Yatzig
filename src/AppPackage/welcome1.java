@@ -2002,6 +2002,11 @@ public class welcome1 extends javax.swing.JFrame {
 
         reportTab.addTab("tab2", jPanel2);
 
+        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -2033,10 +2038,6 @@ public class welcome1 extends javax.swing.JFrame {
                     .addComponent(reportTab, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -2058,7 +2059,6 @@ public class welcome1 extends javax.swing.JFrame {
         });
         getContentPane().add(manageUserButtonLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 80, 20));
 
-        changePasswordLabel.setText(" Change Password");
         changePasswordLabel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 changePasswordLabelMouseMoved(evt);
@@ -2069,15 +2069,15 @@ public class welcome1 extends javax.swing.JFrame {
                 changePasswordLabelMouseClicked(evt);
             }
         });
-        getContentPane().add(changePasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 110, 20));
+        getContentPane().add(changePasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 112, 106, 17));
 
-        dropManageUserLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        dropManageUserLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menu.png"))); // NOI18N
         dropManageUserLabel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 dropManageUserLabelMouseMoved(evt);
             }
         });
-        getContentPane().add(dropManageUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 110, 40));
+        getContentPane().add(dropManageUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 120, 40));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N

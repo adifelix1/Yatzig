@@ -91,7 +91,7 @@ public class welcome3 extends javax.swing.JFrame {
         AlertIcon.setVisible(false);
         QuantityChangeButton.setEnabled(false);
         dropManageUserLabel.setVisible(false);
-         changePasswordLabel.setVisible(false);
+        changePasswordLabel.setVisible(false);
         repDateSearchtxt.setVisible(false);
         repDateSearchtxt.setEnabled(false);
        
@@ -219,8 +219,9 @@ public class welcome3 extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         manageUserButtonLabel = new javax.swing.JLabel();
         changePasswordLabel = new javax.swing.JLabel();
-        dropManageUserLabel = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        dropManageUserLabel = new javax.swing.JLabel();
+        changeLogoLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -758,6 +759,9 @@ public class welcome3 extends javax.swing.JFrame {
 
         reportsTab.addTab("Project Report", ProjectReportPanel);
 
+        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -788,8 +792,6 @@ public class welcome3 extends javax.swing.JFrame {
                     .addComponent(reportsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -805,7 +807,7 @@ public class welcome3 extends javax.swing.JFrame {
         getContentPane().add(QuantityChangeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 65, 60));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 180, 40));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 180, 40));
         jLabel9.setText(loginGUI.username+" Is Logged in");
 
         manageUserButtonLabel.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
@@ -818,7 +820,7 @@ public class welcome3 extends javax.swing.JFrame {
         });
         getContentPane().add(manageUserButtonLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 80, 20));
 
-        changePasswordLabel.setText(" Change Password");
+        changePasswordLabel.setForeground(new java.awt.Color(240, 240, 240));
         changePasswordLabel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 changePasswordLabelMouseMoved(evt);
@@ -829,16 +831,24 @@ public class welcome3 extends javax.swing.JFrame {
                 changePasswordLabelMouseClicked(evt);
             }
         });
-        getContentPane().add(changePasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 110, 20));
+        getContentPane().add(changePasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 112, 106, 17));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 0, 40, 30));
 
-        dropManageUserLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        dropManageUserLabel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+        dropManageUserLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menu.png"))); // NOI18N
+        getContentPane().add(dropManageUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
+
+        changeLogoLabel.setForeground(new java.awt.Color(240, 240, 240));
+        changeLogoLabel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
-                dropManageUserLabelMouseMoved(evt);
+                changeLogoLabelMouseMoved(evt);
             }
         });
-        getContentPane().add(dropManageUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 110, 40));
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 0, 40, 30));
+        changeLogoLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                changeLogoLabelMouseClicked(evt);
+            }
+        });
+        getContentPane().add(changeLogoLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, 106, 17));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N
@@ -1309,10 +1319,6 @@ public class welcome3 extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_manageUserButtonLabelMouseReleased
 
-    private void dropManageUserLabelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropManageUserLabelMouseMoved
-        changePasswordLabel.setBorder(null);
-    }//GEN-LAST:event_dropManageUserLabelMouseMoved
-
     private void changePasswordLabelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseMoved
         changePasswordLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
     }//GEN-LAST:event_changePasswordLabelMouseMoved
@@ -1440,6 +1446,14 @@ public class welcome3 extends javax.swing.JFrame {
     private void jLabel3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseMoved
             jLabel3.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
     }//GEN-LAST:event_jLabel3MouseMoved
+
+    private void changeLogoLabelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeLogoLabelMouseMoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_changeLogoLabelMouseMoved
+
+    private void changeLogoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeLogoLabelMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_changeLogoLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1596,6 +1610,7 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JLabel background_green14;
     private javax.swing.JLabel background_green15;
     private javax.swing.JLabel background_green16;
+    private javax.swing.JLabel changeLogoLabel;
     private javax.swing.JLabel changePasswordLabel;
     private javax.swing.JLabel dropManageUserLabel;
     private javax.swing.JToggleButton genRepButton;

@@ -1522,7 +1522,6 @@ import net.proteanit.sql.DbUtils;
         });
         getContentPane().add(manageUserButtonLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 80, 20));
 
-        changePasswordLabel.setText(" Change Password");
         changePasswordLabel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 changePasswordLabelMouseMoved(evt);
@@ -1533,15 +1532,15 @@ import net.proteanit.sql.DbUtils;
                 changePasswordLabelMouseClicked(evt);
             }
         });
-        getContentPane().add(changePasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 110, 20));
+        getContentPane().add(changePasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(164, 112, 106, 17));
 
-        dropManageUserLabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        dropManageUserLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/menu.png"))); // NOI18N
         dropManageUserLabel.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 dropManageUserLabelMouseMoved(evt);
             }
         });
-        getContentPane().add(dropManageUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 110, 60));
+        getContentPane().add(dropManageUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 120, 40));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N
@@ -2588,19 +2587,6 @@ import net.proteanit.sql.DbUtils;
         }
     }//GEN-LAST:event_manageUserButtonLabelMouseReleased
 
-    private void dropManageUserLabelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropManageUserLabelMouseMoved
-        changePasswordLabel.setBorder(null);
-    }//GEN-LAST:event_dropManageUserLabelMouseMoved
-
-    private void changePasswordLabelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseMoved
-        changePasswordLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
-    }//GEN-LAST:event_changePasswordLabelMouseMoved
-
-    private void changePasswordLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseClicked
-        changePassword cp = new changePassword();
-        cp.setVisible(true);
-    }//GEN-LAST:event_changePasswordLabelMouseClicked
-
     private void jLabel2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseMoved
         changePasswordLabel.setBorder(null);
         jLabel3.setBorder(null);
@@ -2807,6 +2793,19 @@ import net.proteanit.sql.DbUtils;
     private void reportsTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportsTabMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_reportsTabMouseClicked
+
+    private void dropManageUserLabelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropManageUserLabelMouseMoved
+        changePasswordLabel.setBorder(null);
+    }//GEN-LAST:event_dropManageUserLabelMouseMoved
+
+    private void changePasswordLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseClicked
+        changePassword cp = new changePassword();
+        cp.setVisible(true);
+    }//GEN-LAST:event_changePasswordLabelMouseClicked
+
+    private void changePasswordLabelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseMoved
+        changePasswordLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
+    }//GEN-LAST:event_changePasswordLabelMouseMoved
 
     
     /**
