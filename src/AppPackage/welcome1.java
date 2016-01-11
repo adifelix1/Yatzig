@@ -6,6 +6,19 @@
 package AppPackage;
 import static AppPackage.welcome2.pst;
 import static AppPackage.welcome3.pst;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Font.FontFamily;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.Image;
 import java.util.Date;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -16,12 +29,18 @@ import net.proteanit.sql.DbUtils;
 import java.awt.*;
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.lang.Object; 
 import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 import net.proteanit.sql.DbUtils;
@@ -42,10 +61,11 @@ public class welcome1 extends javax.swing.JFrame {
     public String fn;
     String tableClick;
     String searchmethod;
+    String itemRepChoice="All";
     String oq;
     String iid;
      boolean openClose;
-     
+     String sFileName;
     /**
      * Creates new form welcome
      */
@@ -58,6 +78,12 @@ public class welcome1 extends javax.swing.JFrame {
          minLvlWarIcon.setVisible(false);
          dropManageUserLabel.setVisible(false);
          changePasswordLabel.setVisible(false);
+         wareHouschoice.setVisible(false);
+          repDateSearchtxt.setVisible(false);
+        repDateSearchtxt.setEnabled(false);
+        repStatusSearchtxt.setVisible(false);
+        repStatusSearchtxt.setEnabled(false);
+         
         update_table();
         checkQReqTable();
         checkMinQLvl();
@@ -73,6 +99,7 @@ public class welcome1 extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenu3 = new javax.swing.JMenu();
+        itemRepbuttonGroup = new javax.swing.ButtonGroup();
         jSeparator1 = new javax.swing.JSeparator();
         ordersButton = new javax.swing.JButton();
         suppliersButton = new javax.swing.JButton();
@@ -319,6 +346,25 @@ public class welcome1 extends javax.swing.JFrame {
         Supplier_Show_Contract_Button = new javax.swing.JButton();
         background_green7 = new javax.swing.JLabel();
         SupplierContractIDText2 = new javax.swing.JTextField();
+        reportTab = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        allItemRepRadioButton = new javax.swing.JRadioButton();
+        minLevelRepRadioButton = new javax.swing.JRadioButton();
+        wareHousRepRadioButton = new javax.swing.JRadioButton();
+        wareHouschoice = new java.awt.Choice();
+        genrateItemRepButton = new javax.swing.JButton();
+        showInventoryRepButton = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        items_rep_Search_Table = new javax.swing.JTable();
+        searchRepDateRadioButton = new javax.swing.JRadioButton();
+        searchRepStatRadioButton = new javax.swing.JRadioButton();
+        searchRepIDRadioButton = new javax.swing.JRadioButton();
+        repDateSearchtxt = new com.toedter.calendar.JDateChooser();
+        repSearchButton = new javax.swing.JButton();
+        showRepSearchButton = new javax.swing.JButton();
+        repStatusSearchtxt = new java.awt.Choice();
+        repIDSearchTxt = new javax.swing.JTextField();
         logoutButton = new javax.swing.JButton();
         manageUserButtonLabel = new javax.swing.JLabel();
         changePasswordLabel = new javax.swing.JLabel();
@@ -1739,6 +1785,219 @@ public class welcome1 extends javax.swing.JFrame {
 
         suppliersTab.addTab("Search", SearchSupplierPanel);
 
+        reportTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reportTabMouseClicked(evt);
+            }
+        });
+
+        itemRepbuttonGroup.add(allItemRepRadioButton);
+        allItemRepRadioButton.setText("All");
+        allItemRepRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                allItemRepRadioButtonActionPerformed(evt);
+            }
+        });
+
+        itemRepbuttonGroup.add(minLevelRepRadioButton);
+        minLevelRepRadioButton.setText("Min Level");
+        minLevelRepRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minLevelRepRadioButtonActionPerformed(evt);
+            }
+        });
+
+        itemRepbuttonGroup.add(wareHousRepRadioButton);
+        wareHousRepRadioButton.setText("By Warehous");
+        wareHousRepRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                wareHousRepRadioButtonActionPerformed(evt);
+            }
+        });
+
+        wareHouschoice.add("A");
+        wareHouschoice.add("B");
+
+        genrateItemRepButton.setText("Generate");
+        genrateItemRepButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                genrateItemRepButtonActionPerformed(evt);
+            }
+        });
+
+        showInventoryRepButton.setText("Show");
+        showInventoryRepButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showInventoryRepButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(allItemRepRadioButton)
+                        .addGap(68, 68, 68)
+                        .addComponent(minLevelRepRadioButton)
+                        .addGap(45, 45, 45)
+                        .addComponent(wareHousRepRadioButton))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(135, 135, 135)
+                        .addComponent(wareHouschoice, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(284, 284, 284)
+                        .addComponent(genrateItemRepButton)
+                        .addGap(63, 63, 63)
+                        .addComponent(showInventoryRepButton)))
+                .addContainerGap(932, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(77, 77, 77)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(allItemRepRadioButton)
+                    .addComponent(minLevelRepRadioButton)
+                    .addComponent(wareHousRepRadioButton))
+                .addGap(29, 29, 29)
+                .addComponent(wareHouschoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(75, 75, 75)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(genrateItemRepButton)
+                    .addComponent(showInventoryRepButton))
+                .addContainerGap(201, Short.MAX_VALUE))
+        );
+
+        reportTab.addTab("tab1", jPanel1);
+
+        items_rep_Search_Table.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(items_rep_Search_Table);
+
+        itemRepbuttonGroup.add(searchRepDateRadioButton);
+        searchRepDateRadioButton.setText("By Project Date");
+        searchRepDateRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        searchRepDateRadioButton.setBorderPainted(true);
+        searchRepDateRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchRepDateRadioButtonActionPerformed(evt);
+            }
+        });
+
+        itemRepbuttonGroup.add(searchRepStatRadioButton);
+        searchRepStatRadioButton.setText("By Project Status");
+        searchRepStatRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        searchRepStatRadioButton.setBorderPainted(true);
+        searchRepStatRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchRepStatRadioButtonActionPerformed(evt);
+            }
+        });
+
+        itemRepbuttonGroup.add(searchRepIDRadioButton);
+        searchRepIDRadioButton.setSelected(true);
+        searchRepIDRadioButton.setText("By Reoprt ID");
+        searchRepIDRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        searchRepIDRadioButton.setBorderPainted(true);
+        searchRepIDRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchRepIDRadioButtonActionPerformed(evt);
+            }
+        });
+
+        repDateSearchtxt.setDateFormatString("yyyy-MM-dd");
+
+        repSearchButton.setText("Search");
+        repSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                repSearchButtonActionPerformed(evt);
+            }
+        });
+
+        showRepSearchButton.setText("Show Report");
+        showRepSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showRepSearchButtonActionPerformed(evt);
+            }
+        });
+
+        repStatusSearchtxt.add("All");
+        repStatusSearchtxt.add("Min Level");
+        repStatusSearchtxt.add("Warehous");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(searchRepIDRadioButton)
+                        .addGap(27, 27, 27)
+                        .addComponent(searchRepStatRadioButton)
+                        .addGap(15, 15, 15)
+                        .addComponent(searchRepDateRadioButton))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(100, 100, 100)
+                        .addComponent(showRepSearchButton))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(repStatusSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(repIDSearchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(repDateSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(repSearchButton)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(156, 156, 156))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(56, 56, 56)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(searchRepIDRadioButton)
+                            .addComponent(searchRepStatRadioButton)
+                            .addComponent(searchRepDateRadioButton))
+                        .addGap(23, 23, 23)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(repDateSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(repSearchButton))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(repStatusSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(3, 3, 3)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(repIDSearchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70)
+                        .addComponent(showRepSearchButton)))
+                .addContainerGap(66, Short.MAX_VALUE))
+        );
+
+        reportTab.addTab("tab2", jPanel2);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -1749,6 +2008,11 @@ public class welcome1 extends javax.swing.JFrame {
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addComponent(inventoryTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1245, Short.MAX_VALUE)
                     .addContainerGap()))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(reportTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1759,10 +2023,16 @@ public class welcome1 extends javax.swing.JFrame {
                     .addContainerGap()
                     .addComponent(inventoryTab, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(154, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(reportTab, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -1856,7 +2126,7 @@ public class welcome1 extends javax.swing.JFrame {
     }//GEN-LAST:event_inventoryButtonActionPerformed
 
     private void reportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportsButtonActionPerformed
-      //  reportsTab.setVisible(true);
+        reportTab.setVisible(true);
         ordersTab.setVisible(false);
         inventoryTab.setVisible(false);
         suppliersTab.setVisible(false);
@@ -3222,6 +3492,308 @@ public class welcome1 extends javax.swing.JFrame {
         cp.setVisible(true);
     }//GEN-LAST:event_changePasswordLabelMouseClicked
 
+    private void wareHousRepRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wareHousRepRadioButtonActionPerformed
+        wareHouschoice.setVisible(true);
+        itemRepChoice="Warehous";
+        this.validate();
+    }//GEN-LAST:event_wareHousRepRadioButtonActionPerformed
+
+    private void allItemRepRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allItemRepRadioButtonActionPerformed
+        itemRepChoice="All";
+        wareHouschoice.setVisible(false);
+        this.validate();
+    }//GEN-LAST:event_allItemRepRadioButtonActionPerformed
+
+    private void minLevelRepRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minLevelRepRadioButtonActionPerformed
+        itemRepChoice="Min Level";
+        wareHouschoice.setVisible(false);   
+        this.validate();
+    }//GEN-LAST:event_minLevelRepRadioButtonActionPerformed
+
+    private void genrateItemRepButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genrateItemRepButtonActionPerformed
+        Document doc = new Document();
+  PdfWriter docWriter = null;
+ int repID=ThreadLocalRandom.current().nextInt(10000, 99999 + 1);
+  DecimalFormat df = new DecimalFormat("0.00");
+  //Date d = Calendar.getInstance().getTime();
+ DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+   Date date = new Date();
+
+  
+  try {
+  
+    //special font sizes
+   com.itextpdf.text.Font bfBold12 = new com.itextpdf.text.Font(FontFamily.TIMES_ROMAN, 12, com.itextpdf.text.Font.BOLD, new BaseColor(0, 0, 0)); 
+   com.itextpdf.text.Font bf12 = new com.itextpdf.text.Font(FontFamily.TIMES_ROMAN, 12); 
+ 
+  
+   //file path
+   String dt=dateFormat.format(date);
+   sFileName = "Report No- " + repID + " Items Report- " + dt + " Status " + itemRepChoice + " .pdf";
+   String path = "src/ItemsReports/" + sFileName;     
+   docWriter = PdfWriter.getInstance(doc , new FileOutputStream(path));
+   
+   DateFormat dateFormat3 = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+   String d = dateFormat3.format(Calendar.getInstance().getTime());
+   
+   //document header attributes
+   doc.addCreationDate();
+   doc.setPageSize(PageSize.LETTER);
+  
+   //open document
+   doc.open();
+
+   
+   //create a paragraph
+   Image image = Image.getInstance("src/Images/logo for pdf.png");
+   Font font1 = new Font(Font.FontFamily.HELVETICA  , 25, Font.BOLD);
+   Paragraph paragraph = new Paragraph();
+   Paragraph paragraph2 = new Paragraph("This report was generated by " +loginGUI.username+ " at "+d+
+    "\nYou can see " +itemRepChoice+ " Items");
+   image.setAlignment(Image.RIGHT);
+   doc.add(image);
+   
+   //specify column widths
+   float[] columnWidths = {2f, 2f, 2f, 3f, 2f};
+   //create PDF table with the given widths
+   PdfPTable table = new PdfPTable(columnWidths);
+   // set table width a percentage of the page width
+   table.setWidthPercentage(100f);
+
+   //insert column headings
+   insertCell(table, "Item ID", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Item Name", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Quantity", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Min Quantity Level", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Warehous", Element.ALIGN_CENTER, 1, bfBold12);
+   table.setHeaderRows(1);
+
+   //insert an empty row
+  /* insertCell(table, "", Element.ALIGN_LEFT, 4, bfBold12);*/
+   //create section heading by cell merging
+  /* insertCell(table, "New York Orders ...", Element.ALIGN_LEFT, 4, bfBold12);*/
+   /*double orderTotal, total = 0;*/
+   
+   String add1,add2,add3,add4,add5;
+   
+   if(itemRepChoice.equals("All"))
+   {   
+        try {
+            
+            String sql = "select item_id,item_name,quantity,min_quantity_level,warehouse from items";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) { 
+                 add1 = rs.getString("item_id");
+                 add2 = rs.getString("item_name");
+                 add3 = rs.getString("quantity");
+                 add4 = rs.getString("min_quantity_level");
+                 add5 = rs.getString("warehouse");   
+                 insertCell(table,add1 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add2 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add3 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add4 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add5 , Element.ALIGN_CENTER, 1, bf12);
+
+        }                                         
+         }
+          catch (Exception e){
+    JOptionPane.showMessageDialog(null,e);
+    
+        }
+   }
+   else if(itemRepChoice.equals("Warehous")) 
+   {
+       String wh=wareHouschoice.getSelectedItem();
+      try {
+            
+            String sql = "select item_id,item_name,quantity,min_quantity_level,warehouse from items where warehous='"+wh+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) { 
+                add1 = rs.getString("item_id");
+                 add2 = rs.getString("item_name");
+                 add3 = rs.getString("quantity");
+                 add4 = rs.getString("min_quantity_level");
+                 add5 = rs.getString("warehouse");  
+                 insertCell(table,add1 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add2 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add3 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add4 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add5 , Element.ALIGN_CENTER, 1, bf12);
+
+        }                                         
+         }
+          catch (Exception e){
+    JOptionPane.showMessageDialog(null,e);
+    
+        } 
+   }
+    else if(itemRepChoice.equals("Min Level")) 
+   {
+       String wh=wareHouschoice.getSelectedItem();
+      try {
+            
+                 String sql = "select item_id,item_name,quantity,min_quantity_level,warehouse from items where min_quantity_level>=quantity";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) { 
+                add1 = rs.getString("item_id");
+                 add2 = rs.getString("item_name");
+                 add3 = rs.getString("quantity");
+                 add4 = rs.getString("min_quantity_level");
+                 add5 = rs.getString("warehouse");    
+                 insertCell(table,add1 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add2 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add3 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add4 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add5 , Element.ALIGN_CENTER, 1, bf12);
+
+        }                                         
+         }
+          catch (Exception e){
+    JOptionPane.showMessageDialog(null,e);
+    
+        }
+   }
+
+   //add the PDF table to the paragraph 
+   paragraph2.add(table);
+   
+   // add the paragraph to the document
+   doc.add(new Paragraph("\nItems Status Report "+ dt + "\n", font1));
+   doc.add(paragraph2);
+  }
+  catch (DocumentException dex)
+  {
+   dex.printStackTrace();
+  }    
+  catch (Exception ex)
+  {
+   ex.printStackTrace();
+  }
+  finally
+  {
+   if (doc != null){
+    //close the document
+    doc.close();
+    JOptionPane.showMessageDialog(null, "Report No " + repID + " Generated!");
+   }
+   if (docWriter != null){
+    //close the writer
+    docWriter.close();
+   }
+  }     
+  saveToDB(itemRepChoice,date,repID);
+    }//GEN-LAST:event_genrateItemRepButtonActionPerformed
+
+    private void showInventoryRepButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showInventoryRepButtonActionPerformed
+         String filename_show_report = "src/ItemsReports/" + sFileName;
+        try {
+
+            Desktop.getDesktop().open(new File(filename_show_report));
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"The Report Generetad Wasn't Found");
+        }
+    }//GEN-LAST:event_showInventoryRepButtonActionPerformed
+
+    private void searchRepDateRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchRepDateRadioButtonActionPerformed
+        searchmethod="Date";
+        repStatusSearchtxt.setVisible(false);
+        repStatusSearchtxt.setEnabled(false);
+        repDateSearchtxt.setVisible(true);
+        repDateSearchtxt.setEnabled(true);
+        repIDSearchTxt.setVisible(false);
+        repIDSearchTxt.setEnabled(false);
+        this.validate();
+    }//GEN-LAST:event_searchRepDateRadioButtonActionPerformed
+
+    private void searchRepStatRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchRepStatRadioButtonActionPerformed
+        searchmethod="Stat";
+        repStatusSearchtxt.setVisible(true);
+        repStatusSearchtxt.setEnabled(true);
+        repDateSearchtxt.setVisible(false);
+        repDateSearchtxt.setEnabled(false);
+        repIDSearchTxt.setVisible(false);
+        repIDSearchTxt.setEnabled(false);
+        this.validate();
+    }//GEN-LAST:event_searchRepStatRadioButtonActionPerformed
+
+    private void searchRepIDRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchRepIDRadioButtonActionPerformed
+        searchmethod="ID";
+        repDateSearchtxt.setVisible(false);
+        repDateSearchtxt.setEnabled(false);
+        repStatusSearchtxt.setVisible(false);
+        repStatusSearchtxt.setEnabled(false);
+        repIDSearchTxt.setVisible(true);
+        repIDSearchTxt.setEnabled(true);
+        this.validate();
+    }//GEN-LAST:event_searchRepIDRadioButtonActionPerformed
+
+    private void repSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repSearchButtonActionPerformed
+        if(searchmethod.equals("ID"))
+        {
+            try {
+                String sn=repIDSearchTxt.getText();
+                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where report_no='" + sn + "' ";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                items_rep_Search_Table.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else if (searchmethod.equals("Stat"))
+        {
+            try {
+                String sn=repStatusSearchtxt.getSelectedItem();
+                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where reportStatus='" + sn + "' ";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                items_rep_Search_Table.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else if (searchmethod.equals("Date"))
+        {
+            DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
+            String sd= dateFormat1.format(repDateSearchtxt.getDate());
+            try {
+                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where report_create_date='"+sd+"' by report_create_date";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                items_rep_Search_Table.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_repSearchButtonActionPerformed
+
+    private void showRepSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showRepSearchButtonActionPerformed
+        String fn = "src/ProjectReports/" + sFileName;
+        try {
+
+            Desktop.getDesktop().open(new File(fn));
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_showRepSearchButtonActionPerformed
+
+    private void reportTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportTabMouseClicked
+        update_rep_Search_Table();
+    }//GEN-LAST:event_reportTabMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -3414,6 +3986,56 @@ public class welcome1 extends javax.swing.JFrame {
         }
   }
      
+   private void insertCell(PdfPTable table, String text, int align, int colspan, Font font){
+  
+  //create a new cell with the specified Text and Font
+  PdfPCell cell = new PdfPCell(new Phrase(text.trim(), font));
+  //set the cell alignment
+  cell.setHorizontalAlignment(align);
+  //set the cell column span in case you want to merge two or more cells
+  cell.setColspan(colspan);
+  //in case there is no text and you wan to create an empty row
+  if(text.trim().equalsIgnoreCase("")){
+   cell.setMinimumHeight(10f);
+  }
+  //add the call to the table
+  table.addCell(cell);
+  
+ }
+  
+  private void saveToDB(String s,Date date,int pi)
+  {
+      try {
+            String sql = "Insert into reports (report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus,fileName,reportCategory) values(?,?,?,?,?,?,?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setInt(1,pi);
+            pst.setDate(2, new java.sql.Date(date.getTime()));
+            pst.setDate(3,null);
+            pst.setDate(4,null);
+            pst.setString(5,s );
+            pst.setString(6,sFileName);
+            pst.setString(7,"Items");
+            pst.execute();
+      }
+       catch (Exception e){
+       JOptionPane.showMessageDialog(null, e);
+       }
+  }
+  
+  private void update_rep_Search_Table()
+  {
+      try{
+                 String sql = "select report_no as 'Report ID',report_create_date as 'Creation Date',repStatus as 'Items Status' from reports where reportCategory='Items' ORDER by report_create_date";
+                 pst=conn.prepareStatement(sql);
+                 rs=pst.executeQuery(sql);
+                 items_rep_Search_Table.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+        }
+  }
      
      
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -3526,6 +4148,7 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JButton addOrderButton;
     private javax.swing.JButton addPLButton;
     private javax.swing.JButton addStatusButton;
+    private javax.swing.JRadioButton allItemRepRadioButton;
     private javax.swing.JTextField amountFor;
     private javax.swing.JLabel background_green;
     private javax.swing.JLabel background_green10;
@@ -3547,6 +4170,7 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JTextArea descriptiontxt;
     private javax.swing.JLabel dropManageUserLabel;
     private com.toedter.calendar.JDateChooser eDate;
+    private javax.swing.JButton genrateItemRepButton;
     private javax.swing.JButton inventoryButton;
     private javax.swing.JTabbedPane inventoryTab;
     private javax.swing.JTextField itemIDPricetxt;
@@ -3555,8 +4179,10 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JRadioButton itemIdRadioButton1;
     private javax.swing.JRadioButton itemNameRadioButton;
     private javax.swing.JRadioButton itemNameRadioButton1;
+    private javax.swing.ButtonGroup itemRepbuttonGroup;
     private javax.swing.JTable itemSearchTable;
     private javax.swing.JTable itemTable;
+    private javax.swing.JTable items_rep_Search_Table;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -3586,6 +4212,8 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JScrollBar jScrollBar2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -3600,10 +4228,12 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel manageUserButtonLabel;
+    private javax.swing.JRadioButton minLevelRepRadioButton;
     private javax.swing.JTextField minLevelText;
     private javax.swing.JLabel minLvlWarIcon;
     private javax.swing.JTextField minQtxt;
@@ -3633,6 +4263,11 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JButton refreshPLButton;
     private javax.swing.JButton refreshStausButton;
     private javax.swing.JButton refreshUpdateOrderButton;
+    private com.toedter.calendar.JDateChooser repDateSearchtxt;
+    private javax.swing.JTextField repIDSearchTxt;
+    private javax.swing.JButton repSearchButton;
+    private java.awt.Choice repStatusSearchtxt;
+    private javax.swing.JTabbedPane reportTab;
     private javax.swing.JButton reportsButton;
     private javax.swing.JTextField sItemIdtxt;
     private javax.swing.JTextField sWorkerIdtxt;
@@ -3642,6 +4277,9 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JButton searchOrderUpButton;
     private javax.swing.JTextField searchOrdertxt;
     private javax.swing.JButton searchPLButton;
+    private javax.swing.JRadioButton searchRepDateRadioButton;
+    private javax.swing.JRadioButton searchRepIDRadioButton;
+    private javax.swing.JRadioButton searchRepStatRadioButton;
     private javax.swing.JButton searchStatusButton;
     private javax.swing.JTextField searchStatustxt;
     private javax.swing.JTextField searchUpOrdertxt;
@@ -3650,6 +4288,8 @@ public class welcome1 extends javax.swing.JFrame {
     private javax.swing.JTextField serialText;
     private javax.swing.JTextField shelftxt;
     private javax.swing.JTextField shelftxt1;
+    private javax.swing.JButton showInventoryRepButton;
+    private javax.swing.JButton showRepSearchButton;
     private javax.swing.JTable statusTable;
     private javax.swing.JButton submitQButton;
     private java.awt.Choice suppNamechoice;
@@ -3664,12 +4304,16 @@ public class welcome1 extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser tooDate;
     private javax.swing.JTextField tpUptxt;
     private javax.swing.JButton updateButton;
+    private javax.swing.JRadioButton wareHousRepRadioButton;
+    private java.awt.Choice wareHouschoice;
     private javax.swing.JLabel warehouse_label;
     private javax.swing.JLabel warehouse_label1;
     private javax.swing.JLabel warehouse_label2;
     private javax.swing.JTextField wherhoustxt;
     private javax.swing.JTextField wherhoustxt1;
     // End of variables declaration//GEN-END:variables
+
+
 
 }
 
