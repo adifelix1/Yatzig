@@ -4,24 +4,36 @@
  * and open the template in the editor.
  */
 package AppPackage;
-import static AppPackage.welcome2.pst;
 import static AppPackage.welcome3.pst;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.util.Date;
 import java.sql.*;
 import javax.swing.JOptionPane;
-import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import net.proteanit.sql.DbUtils;
 import java.awt.*;
 import java.awt.Desktop;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.lang.Object; 
-import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.concurrent.ThreadLocalRandom;
 import javax.swing.BorderFactory;
 import net.proteanit.sql.DbUtils;
 
@@ -41,7 +53,9 @@ import net.proteanit.sql.DbUtils;
      String searchmethod;
      String searchmethod2;
      String tableClick;
+     String job_title;
      boolean openClose;
+     String sFileName;
     
     /**
      * Creates new form welcome
@@ -51,8 +65,9 @@ import net.proteanit.sql.DbUtils;
         initComponents();
         customerTab.setVisible(false);
         usersTab.setVisible(false);
-         dropManageUserLabel.setVisible(false);
-         changePasswordLabel.setVisible(false);
+        reportsTab.setVisible(false);
+        dropManageUserLabel.setVisible(false);
+        changePasswordLabel.setVisible(false);
         update_table();
         
     }
@@ -250,6 +265,16 @@ import net.proteanit.sql.DbUtils;
         updateExistUserButton = new javax.swing.JButton();
         orderClearButton = new javax.swing.JButton();
         background_green8 = new javax.swing.JLabel();
+        reportsTab = new javax.swing.JTabbedPane();
+        WorkersReportPanel = new javax.swing.JPanel();
+        genRepButton1 = new javax.swing.JToggleButton();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        Show_report_Button1 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        JobTitleChoice = new java.awt.Choice();
+        JobTitleChoice1 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
         manageUserButtonLabel = new javax.swing.JLabel();
         changePasswordLabel = new javax.swing.JLabel();
@@ -1367,11 +1392,84 @@ import net.proteanit.sql.DbUtils;
 
         usersTab.addTab("Existing User", ExistingUserPanel);
 
+        reportsTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        reportsTab.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                reportsTabMouseClicked(evt);
+            }
+        });
+
+        WorkersReportPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        genRepButton1.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        genRepButton1.setText("Generate Report");
+        genRepButton1.setOpaque(true);
+        genRepButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                genRepButton1ActionPerformed(evt);
+            }
+        });
+        WorkersReportPanel.add(genRepButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, 50));
+
+        jLabel14.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        jLabel14.setText("This report shows all workers by their job titles. ");
+        WorkersReportPanel.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        jLabel9.setText("You can see the report here ");
+        WorkersReportPanel.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, -1, -1));
+
+        Show_report_Button1.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        Show_report_Button1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon-service-contract.png"))); // NOI18N
+        Show_report_Button1.setText("Show Report");
+        Show_report_Button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Show_report_Button1ActionPerformed(evt);
+            }
+        });
+        WorkersReportPanel.add(Show_report_Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 190, 40));
+
+        jLabel11.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        jLabel11.setText("Click on ");
+        WorkersReportPanel.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
+
+        jLabel12.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        jLabel12.setText("Choose worker job title");
+        WorkersReportPanel.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
+
+        try {
+            String sn;
+            String sql = "select distinct job_title from workers";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while(rs.next())
+            {
+                sn=rs.getString("job_title");
+                JobTitleChoice.addItem(sn);
+            }
+            JobTitleChoice.addItem("All");
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        WorkersReportPanel.add(JobTitleChoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 120, -1));
+
+        JobTitleChoice1.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        JobTitleChoice1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        WorkersReportPanel.add(JobTitleChoice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
+
+        reportsTab.addTab("Workers Report", WorkersReportPanel);
+
+        jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(WorkersTab, javax.swing.GroupLayout.DEFAULT_SIZE, 1265, Short.MAX_VALUE)
+            .addComponent(WorkersTab, javax.swing.GroupLayout.DEFAULT_SIZE, 1270, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
                     .addComponent(customerTab)
@@ -1379,7 +1477,12 @@ import net.proteanit.sql.DbUtils;
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 8, Short.MAX_VALUE)))
+                    .addGap(0, 13, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(reportsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap()))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1392,10 +1495,12 @@ import net.proteanit.sql.DbUtils;
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap(77, Short.MAX_VALUE)
+                    .addComponent(reportsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(57, 57, 57)))
         );
-        jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -1470,6 +1575,8 @@ import net.proteanit.sql.DbUtils;
        WorkersTab.setVisible(false);
        customerTab.setVisible(true);
        usersTab.setVisible(false);
+       reportsTab.setVisible(false);
+       
     }//GEN-LAST:event_customersButtonActionPerformed
 
     private void FirstNamerTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FirstNamerTextActionPerformed
@@ -1494,6 +1601,7 @@ import net.proteanit.sql.DbUtils;
        WorkersTab.setVisible(true);
        customerTab.setVisible(false);
        usersTab.setVisible(false);
+       reportsTab.setVisible(false);
     }//GEN-LAST:event_workersButtonActionPerformed
 
     private void LastNameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LastNameTextActionPerformed
@@ -2238,7 +2346,11 @@ import net.proteanit.sql.DbUtils;
     }//GEN-LAST:event_ContractIDText2ActionPerformed
 
     private void reportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportsButtonActionPerformed
-        // TODO add your handling code here:
+       reportsTab.setVisible(true);
+       WorkersTab.setVisible(false);
+       customerTab.setVisible(false);
+       usersTab.setVisible(false);
+
     }//GEN-LAST:event_reportsButtonActionPerformed
 
     private void AddUserTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AddUserTableMouseClicked
@@ -2411,6 +2523,7 @@ import net.proteanit.sql.DbUtils;
     private void usersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usersButtonActionPerformed
         WorkersTab.setVisible(false);
         customerTab.setVisible(false);
+        reportsTab.setVisible(false);
         usersTab.setVisible(true);
         user_update_table();
     }//GEN-LAST:event_usersButtonActionPerformed
@@ -2496,6 +2609,204 @@ import net.proteanit.sql.DbUtils;
     private void jLabel3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseMoved
        jLabel3.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
     }//GEN-LAST:event_jLabel3MouseMoved
+  
+            
+    private void genRepButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genRepButton1ActionPerformed
+         
+    Document doc = new Document();
+    PdfWriter docWriter = null;
+    int repID=ThreadLocalRandom.current().nextInt(10000, 99999 + 1);
+    DecimalFormat df = new DecimalFormat("0.00");
+     //Date d = Calendar.getInstance().getTime();
+    DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+    Date date = new Date();
+    String fileName=null;
+    job_title = JobTitleChoice.getSelectedItem();
+  try {
+  
+   //special font sizes
+   com.itextpdf.text.Font bfBold12 = new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.TIMES_ROMAN, 12, com.itextpdf.text.Font.BOLD, new BaseColor(0, 0, 0)); 
+   com.itextpdf.text.Font bf12 = new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.TIMES_ROMAN, 12); 
+ 
+  
+   //file path
+   String dt=dateFormat.format(date);
+   sFileName = "Report No- " + repID + " Workers Report- " + dt + " Job Title " + job_title + " .pdf";
+   String path = "src/WorkerReports/" + sFileName;     
+   docWriter = PdfWriter.getInstance(doc , new FileOutputStream(path));
+   
+   DateFormat dateFormat3 = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+   String d = dateFormat3.format(Calendar.getInstance().getTime());
+   
+   //document header attributes
+   doc.addCreationDate();
+   doc.setPageSize(PageSize.LETTER);
+  
+   //open document
+   doc.open();
+   //create a paragraph
+
+   com.itextpdf.text.Image image = com.itextpdf.text.Image.getInstance("src/Images/logo for pdf.png");
+   com.itextpdf.text.Font font1 = new com.itextpdf.text.Font(com.itextpdf.text.Font.FontFamily.HELVETICA  , 25, com.itextpdf.text.Font.BOLD);
+   Paragraph paragraph = new Paragraph();
+   Paragraph paragraph2 = new Paragraph("This report was generated by " +loginGUI.username+ " at "+d+
+    "\nYou can see Yatzig's workers by the job title you chose");
+   image.setAlignment(com.itextpdf.text.Image.RIGHT);
+   doc.add(image);
+   
+   //specify column widths
+   float[] columnWidths = {3f, 3f, 3f, 4f, 3f, 3f, 5f, 3f};
+   //create PDF table with the given widths
+   PdfPTable table = new PdfPTable(columnWidths);
+   // set table width a percentage of the page width
+   table.setWidthPercentage(100f);
+
+   //insert column headings
+   insertCell(table, "Worker ID", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "First Name", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Last Name", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Phone", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Address", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Birth Date", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Email", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Job Title", Element.ALIGN_CENTER, 1, bfBold12);
+   table.setHeaderRows(1);
+
+   //insert an empty row
+  /* insertCell(table, "", Element.ALIGN_LEFT, 4, bfBold12);*/
+   //create section heading by cell merging
+  /* insertCell(table, "New York Orders ...", Element.ALIGN_LEFT, 4, bfBold12);*/
+   /*double orderTotal, total = 0;*/
+   
+   String add1,add2,add3,add4,add5,add6,add7,add8;
+        
+        if(job_title.equals("All")) 
+        try {
+            
+            String sql = "select worker_id,first_name,last_name,worker_phone,worker_add,birth_date,email,job_title from workers order by job_title ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) { 
+                 add1 = rs.getString("worker_id");
+                 add2 = rs.getString("first_name");
+                 add3 = rs.getString("last_name");
+                 add4 = rs.getString("worker_phone");
+                 add5 = rs.getString("worker_add");   
+                 add6 = dateFormat.format(rs.getDate("birth_date")); 
+                 add7 = rs.getString("email"); 
+                 add8 = rs.getString("job_title"); 
+                 insertCell(table,add1 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add2 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add3 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add4 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add5 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add6 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add7 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add8 , Element.ALIGN_CENTER, 1, bf12);
+
+        }                                         
+         }
+          catch (Exception e){
+    JOptionPane.showMessageDialog(null,e);
+    
+        }    
+                         
+        else try {
+            
+            String sql = "select worker_id,first_name,last_name,worker_phone,worker_add,birth_date,email,job_title from workers where job_title='"+job_title+"' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while (rs.next()) { 
+                 add1 = rs.getString("worker_id");
+                 add2 = rs.getString("first_name");
+                 add3 = rs.getString("last_name");
+                 add4 = rs.getString("worker_phone");
+                 add5 = rs.getString("worker_add");   
+                 add6 = dateFormat.format(rs.getDate("birth_date")); 
+                 add7 = rs.getString("email"); 
+                 add8 = rs.getString("job_title"); 
+                 insertCell(table,add1 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add2 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add3 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add4 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add5 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add6 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add7 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add8 , Element.ALIGN_CENTER, 1, bf12);
+        }                                         
+         }
+          catch (Exception e){
+    JOptionPane.showMessageDialog(null,e);
+    
+        }
+
+   //add the PDF table to the paragraph 
+   paragraph2.add(table);
+   
+   // add the paragraph to the document
+   doc.add(new Paragraph("\nWorkers Report "+ dt + "\n", font1));
+   doc.add(paragraph2);
+  }
+  catch (DocumentException dex)
+  {
+   dex.printStackTrace();
+  }    
+  catch (Exception ex)
+  {
+   ex.printStackTrace();
+  }
+  finally
+  {
+   if (doc != null){
+    //close the document
+    doc.close();
+    JOptionPane.showMessageDialog(null, "Report No " + repID + " Generated!");
+   }
+   if (docWriter != null){
+    //close the writer
+    docWriter.close();
+   }
+  }     
+  saveToDB(job_title,date,repID);
+    
+    }//GEN-LAST:event_genRepButton1ActionPerformed
+
+    private void saveToDB(String s,Date date,int pi)
+  {
+      try {
+            String sql = "Insert into reports (report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus,fileName) values(?,?,?,?,?,?)";
+
+            pst = conn.prepareStatement(sql);
+            pst.setInt(1,pi);
+            pst.setDate(2,new java.sql.Date(date.getTime()));
+            pst.setDate(3,null);
+            pst.setDate(4,null);
+            pst.setString(5,s );
+            pst.setString(6,sFileName);
+            pst.execute();
+      }
+       catch (Exception e){
+       JOptionPane.showMessageDialog(null, e);
+       }
+  }
+    
+    
+    private void Show_report_Button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_report_Button1ActionPerformed
+       
+        String filename_show_report = "src/WorkerReports/" + sFileName;
+        try {
+
+            Desktop.getDesktop().open(new File(filename_show_report));
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"The Report Generetad Wasn't Found");
+        }
+    }//GEN-LAST:event_Show_report_Button1ActionPerformed
+
+    private void reportsTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportsTabMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reportsTabMouseClicked
 
     
     /**
@@ -2611,7 +2922,25 @@ import net.proteanit.sql.DbUtils;
         {
             JOptionPane.showMessageDialog(null, e);
         }
-    }  
+    } 
+         
+  private void insertCell(PdfPTable table, String text, int align, int colspan, com.itextpdf.text.Font font){
+  
+  //create a new cell with the specified Text and Font
+  PdfPCell cell = new PdfPCell(new Phrase(text.trim(), font));
+  //set the cell alignment
+  cell.setHorizontalAlignment(align);
+  //set the cell column span in case you want to merge two or more cells
+  cell.setColspan(colspan);
+  //in case there is no text and you wan to create an empty row
+  if(text.trim().equalsIgnoreCase("")){
+   cell.setMinimumHeight(10f);
+  }
+  //add the call to the table
+  table.addCell(cell);
+  
+ }     
+         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
@@ -2675,6 +3004,8 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JLabel FirstNamerLabel;
     private javax.swing.JLabel FirstNamerLabel1;
     private javax.swing.JTextField FirstNamerText;
+    private java.awt.Choice JobTitleChoice;
+    private javax.swing.JLabel JobTitleChoice1;
     private javax.swing.JLabel JobTitleLabel;
     private javax.swing.JLabel JobTitleLabel1;
     private javax.swing.JTextField JobTitleText;
@@ -2698,6 +3029,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JTextField SearchText2;
     private javax.swing.JButton ShowContractButton;
     private javax.swing.JButton Show_Contract_Button;
+    private javax.swing.JButton Show_report_Button1;
     private javax.swing.JPanel UpdateDetailsCustomerPanel;
     private javax.swing.JPanel UpdateDetailsPanel;
     private javax.swing.JButton UploadContractButton;
@@ -2733,6 +3065,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JRadioButton WorkerNameRadioButton;
     private javax.swing.JRadioButton WorkerNameRadioButton1;
     private javax.swing.JRadioButton WorkerNameRadioButton2;
+    private javax.swing.JPanel WorkersReportPanel;
     private javax.swing.JTabbedPane WorkersTab;
     private javax.swing.JTable WorkersTable;
     private javax.swing.JTable WorkersTable1;
@@ -2767,8 +3100,12 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JTabbedPane customerTab;
     private javax.swing.JButton customersButton;
     private javax.swing.JLabel dropManageUserLabel;
+    private javax.swing.JToggleButton genRepButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -2776,6 +3113,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -2792,6 +3130,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JButton orderClearButton;
     private java.awt.Choice perlvlchoice;
     private javax.swing.JButton reportsButton;
+    private javax.swing.JTabbedPane reportsTab;
     private javax.swing.JButton searchButton;
     private javax.swing.JButton searchButton1;
     private javax.swing.JButton searchButton2;
