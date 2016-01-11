@@ -424,12 +424,17 @@ public class welcome1 extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1223, 4, 55, 20));
 
+        jLabel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel3MouseMoved(evt);
+            }
+        });
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1153, 4, 30, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1151, 3, 35, 22));
 
         inventoryTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         inventoryTab.setMinimumSize(new java.awt.Dimension(1255, 674));
@@ -1989,7 +1994,6 @@ public class welcome1 extends javax.swing.JFrame {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(repStatusSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(3, 3, 3)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(repIDSearchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(70, 70, 70)
                         .addComponent(showRepSearchButton)))
@@ -3485,6 +3489,7 @@ public class welcome1 extends javax.swing.JFrame {
 
     private void jLabel2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseMoved
         changePasswordLabel.setBorder(null);
+        jLabel3.setBorder(null);
     }//GEN-LAST:event_jLabel2MouseMoved
 
     private void changePasswordLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseClicked
@@ -3793,6 +3798,10 @@ public class welcome1 extends javax.swing.JFrame {
     private void reportTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportTabMouseClicked
         update_rep_Search_Table();
     }//GEN-LAST:event_reportTabMouseClicked
+
+    private void jLabel3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseMoved
+        jLabel3.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
+    }//GEN-LAST:event_jLabel3MouseMoved
 
     /**
      * @param args the command line arguments

@@ -64,11 +64,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Events>
+        <EventHandler event="mouseMoved" listener="java.awt.event.MouseMotionListener" parameters="java.awt.event.MouseEvent" handler="jLabel3MouseMoved"/>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jLabel3MouseClicked"/>
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="1153" y="4" width="30" height="20"/>
+          <AbsoluteConstraints x="1151" y="3" width="35" height="22"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -1004,6 +1005,9 @@
                   </Constraints>
                 </Component>
                 <Component class="com.toedter.calendar.JDateChooser" name="repDateSearchtxt">
+                  <Properties>
+                    <Property name="dateFormatString" type="java.lang.String" value="yyyy-MM-dd"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="60" y="80" width="120" height="-1"/>
@@ -1015,7 +1019,7 @@
                     <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                       <ComponentRef name="searchGroup"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="By Report Date"/>
+                    <Property name="text" type="java.lang.String" value="By Project Date"/>
                     <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                       <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                         <EtchetBorder/>
@@ -1077,7 +1081,7 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JTextField" name="repIDStatusSearchtxt">
+                <Component class="javax.swing.JTextField" name="repIDSearchtxt">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="60" y="80" width="120" height="-1"/>
@@ -1094,6 +1098,16 @@
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="150" y="200" width="-1" height="-1"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="java.awt.Choice" name="repProjStatchoice">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="repProjStatchoice.add(&quot;All&quot;);&#xa;repProjStatchoice.add(&quot;Pending&quot;);&#xa;repProjStatchoice.add(&quot;In Progress&quot;);&#xa;repProjStatchoice.add(&quot;Completed&quot;);"/>
+                  </AuxValues>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="60" y="80" width="120" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>

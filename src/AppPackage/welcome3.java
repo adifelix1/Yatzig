@@ -67,11 +67,11 @@ public class welcome3 extends javax.swing.JFrame {
     public String filename_supplier;
     public String supplier_filename_update;
     public String supplier_filename_show_contract;
-    public String filename_show_report;
+   // public String filename_show_report;
     public String sn; 
     public String fn;
     String tableClick;
-    String searchmethod;
+    String searchmethod="ID";
     String searchmethod2;
     String report_status;
     String oq;
@@ -194,8 +194,9 @@ public class welcome3 extends javax.swing.JFrame {
         searchRepDateRadioButton = new javax.swing.JRadioButton();
         searchRepIDRadioButton = new javax.swing.JRadioButton();
         searchRepStatRadioButton = new javax.swing.JRadioButton();
-        repIDStatusSearchtxt = new javax.swing.JTextField();
+        repIDSearchtxt = new javax.swing.JTextField();
         showRepSearchButton = new javax.swing.JButton();
+        repProjStatchoice = new java.awt.Choice();
         background_green16 = new javax.swing.JLabel();
         ProjectReportPanel = new javax.swing.JPanel();
         genRepButton = new javax.swing.JToggleButton();
@@ -237,12 +238,17 @@ public class welcome3 extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1223, 4, 55, 20));
 
+        jLabel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel3MouseMoved(evt);
+            }
+        });
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1153, 4, 30, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1151, 3, 35, 22));
 
         projectsButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Projects icon 53 x 50.png"))); // NOI18N
         projectsButton.addActionListener(new java.awt.event.ActionListener() {
@@ -587,10 +593,12 @@ public class welcome3 extends javax.swing.JFrame {
             }
         });
         HistoryPanel.add(repSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
+
+        repDateSearchtxt.setDateFormatString("yyyy-MM-dd");
         HistoryPanel.add(repDateSearchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 120, -1));
 
         searchGroup.add(searchRepDateRadioButton);
-        searchRepDateRadioButton.setText("By Report Date");
+        searchRepDateRadioButton.setText("By Project Date");
         searchRepDateRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         searchRepDateRadioButton.setBorderPainted(true);
         searchRepDateRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -622,7 +630,7 @@ public class welcome3 extends javax.swing.JFrame {
             }
         });
         HistoryPanel.add(searchRepStatRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
-        HistoryPanel.add(repIDStatusSearchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 120, -1));
+        HistoryPanel.add(repIDSearchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 120, -1));
 
         showRepSearchButton.setText("Show Report");
         showRepSearchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -631,6 +639,12 @@ public class welcome3 extends javax.swing.JFrame {
             }
         });
         HistoryPanel.add(showRepSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
+
+        repProjStatchoice.add("All");
+        repProjStatchoice.add("Pending");
+        repProjStatchoice.add("In Progress");
+        repProjStatchoice.add("Completed");
+        HistoryPanel.add(repProjStatchoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 120, -1));
 
         background_green16.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         background_green16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
@@ -1103,7 +1117,7 @@ public class welcome3 extends javax.swing.JFrame {
   //Date d = Calendar.getInstance().getTime();
  DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
    Date date = new Date();
-  // String fileName=null;
+
   
   try {
   
@@ -1252,10 +1266,8 @@ public class welcome3 extends javax.swing.JFrame {
     }//GEN-LAST:event_genRepButtonActionPerformed
 
     private void Show_report_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_report_ButtonActionPerformed
-       /* DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-        Date date = new Date();
-        String dt=dateFormat.format(date);*/
-        filename_show_report = "src/ProjectReports/" + sFileName;
+     
+       String filename_show_report = "src/ProjectReports/" + sFileName;
         try {
 
             Desktop.getDesktop().open(new File(filename_show_report));
@@ -1312,32 +1324,39 @@ public class welcome3 extends javax.swing.JFrame {
 
     private void jLabel1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseMoved
         changePasswordLabel.setBorder(null);
+        jLabel3.setBorder(null);
     }//GEN-LAST:event_jLabel1MouseMoved
 
     private void searchRepIDRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchRepIDRadioButtonActionPerformed
         searchmethod="ID";
         repDateSearchtxt.setVisible(false);
         repDateSearchtxt.setEnabled(false);
-        repIDStatusSearchtxt.setVisible(true);
-        repIDStatusSearchtxt.setEnabled(true);
+        repIDSearchtxt.setVisible(true);
+        repIDSearchtxt.setEnabled(true);
+        repProjStatchoice.setVisible(false);
+        repProjStatchoice.setEnabled(false);
         this.validate();
     }//GEN-LAST:event_searchRepIDRadioButtonActionPerformed
 
     private void searchRepStatRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchRepStatRadioButtonActionPerformed
         searchmethod="Stat";
-        repIDStatusSearchtxt.setVisible(true);
-        repIDStatusSearchtxt.setEnabled(true);
+        repIDSearchtxt.setVisible(false);
+        repIDSearchtxt.setEnabled(false);
         repDateSearchtxt.setVisible(false);
         repDateSearchtxt.setEnabled(false);
+        repProjStatchoice.setVisible(true);
+        repProjStatchoice.setEnabled(true);
         this.validate();
     }//GEN-LAST:event_searchRepStatRadioButtonActionPerformed
 
     private void searchRepDateRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchRepDateRadioButtonActionPerformed
         searchmethod="Date";
-        repIDStatusSearchtxt.setVisible(false);
-        repIDStatusSearchtxt.setEnabled(false);
+        repIDSearchtxt.setVisible(false);
+        repIDSearchtxt.setEnabled(false);
         repDateSearchtxt.setVisible(true);
         repDateSearchtxt.setEnabled(true);
+        repProjStatchoice.setVisible(false);
+        repProjStatchoice.setEnabled(false);
         this.validate();
     }//GEN-LAST:event_searchRepDateRadioButtonActionPerformed
 
@@ -1345,7 +1364,7 @@ public class welcome3 extends javax.swing.JFrame {
                 if(searchmethod.equals("ID"))
         {
             try {
-                String sn=repIDStatusSearchtxt.getText();
+                String sn=repIDSearchtxt.getText();
                 String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where report_no='" + sn + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
@@ -1359,7 +1378,7 @@ public class welcome3 extends javax.swing.JFrame {
         else if (searchmethod.equals("Stat"))
              {
             try {
-                String sn=repIDStatusSearchtxt.getText();
+                String sn=repProjStatchoice.getSelectedItem();
                 String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where reportStatus='" + sn + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
@@ -1417,6 +1436,10 @@ public class welcome3 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,e);
         }
     }//GEN-LAST:event_showRepSearchButtonActionPerformed
+
+    private void jLabel3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseMoved
+            jLabel3.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
+    }//GEN-LAST:event_jLabel3MouseMoved
 
     /**
      * @param args the command line arguments
@@ -1512,7 +1535,7 @@ public class welcome3 extends javax.swing.JFrame {
   private void saveToDB(String s,Date date,int pi)
   {
       try {
-            String sql = "Insert into reports (report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus,fileName) values(?,?,?,?,?,?)";
+            String sql = "Insert into reports (report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus,fileName,reportCategory) values(?,?,?,?,?,?,?)";
 
             pst = conn.prepareStatement(sql);
             pst.setInt(1,pi);
@@ -1521,6 +1544,7 @@ public class welcome3 extends javax.swing.JFrame {
             pst.setDate(4,new java.sql.Date(pEndDateChooser.getDate().getTime()));
             pst.setString(5,s );
             pst.setString(6,sFileName);
+            pst.setString(7,"Projects");
             pst.execute();
       }
        catch (Exception e){
@@ -1531,7 +1555,7 @@ public class welcome3 extends javax.swing.JFrame {
   private void rep_Search_Table()
   {
        try{
-                 String sql = "select report_no as 'Report ID',report_create_date as 'Creation Date',repProj_start_date as 'Project Start Date',repProj_due_date as 'Project Due Date',repStatus as 'Project Status' from reports";
+                 String sql = "select report_no as 'Report ID',report_create_date as 'Creation Date',repProj_start_date as 'Project Start Date',repProj_due_date as 'Project Due Date',repStatus as 'Project Status' from reports where reportCategory='Projects' ORDER by report_create_date";
                  pst=conn.prepareStatement(sql);
                  rs=pst.executeQuery(sql);
                  repHistoryTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1632,8 +1656,9 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JTabbedPane projectsTab;
     private com.toedter.calendar.JDateChooser repDateSearchtxt;
     private javax.swing.JTable repHistoryTable;
-    private javax.swing.JTextField repIDStatusSearchtxt;
+    private javax.swing.JTextField repIDSearchtxt;
     private javax.swing.JTextField repItemIDtxt;
+    private java.awt.Choice repProjStatchoice;
     private javax.swing.JButton repSearchButton;
     private javax.swing.JButton reportsButton;
     private javax.swing.JTabbedPane reportsTab;

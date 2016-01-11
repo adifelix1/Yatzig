@@ -236,12 +236,17 @@ public class welcome2 extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel3.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jLabel3MouseMoved(evt);
+            }
+        });
         jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel3MouseClicked(evt);
             }
         });
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1153, 4, 30, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1151, 3, 35, 22));
 
         jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1978,7 +1983,12 @@ public class welcome2 extends javax.swing.JFrame {
 
     private void jLabel1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseMoved
         changePasswordLabel.setBorder(null);
+        jLabel3.setBorder(null);
     }//GEN-LAST:event_jLabel1MouseMoved
+
+    private void jLabel3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseMoved
+        jLabel3.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
+    }//GEN-LAST:event_jLabel3MouseMoved
 
     /**
      * @param args the command line arguments
