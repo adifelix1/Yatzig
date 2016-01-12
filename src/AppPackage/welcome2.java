@@ -58,6 +58,9 @@ import javax.swing.BorderFactory;
  *
  * @author Adi
  */
+/** 
+    * This class display all the options that a user with a level 2 permission has  
+    */ 
 public class welcome2 extends javax.swing.JFrame {
     static Connection conn = loginGUI.conn;
     static PreparedStatement pst = null;
@@ -1978,6 +1981,8 @@ public class welcome2 extends javax.swing.JFrame {
 
     private void changePasswordLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseClicked
         changePassword cp = new changePassword();
+         cp.pack();
+        cp.setLocationRelativeTo(null);
         cp.setVisible(true);
     }//GEN-LAST:event_changePasswordLabelMouseClicked
 
@@ -2026,7 +2031,9 @@ public class welcome2 extends javax.swing.JFrame {
         });
     }
     
-      
+      /**
+     * Retrieves the information from the DB and Display it in the jTable component 
+     */
         private void update_Status_ProjTable(){
         try {
             String sql = "select project_id as 'Project ID',project_name as 'Project Name',start_date as 'Start Date',due_date as 'Due Date',status as 'Status',comments as 'Comments' from projects";
@@ -2075,7 +2082,7 @@ public class welcome2 extends javax.swing.JFrame {
 
     }
               
-                private void insertCell(PdfPTable table, String text, int align, int colspan, Font font){
+    private void insertCell(PdfPTable table, String text, int align, int colspan, Font font){
   
   //create a new cell with the specified Text and Font
   PdfPCell cell = new PdfPCell(new Phrase(text.trim(), font));

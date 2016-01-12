@@ -1517,10 +1517,7 @@ public class welcome3 extends javax.swing.JFrame {
     }
             
    
-    /**
-     *
-     * @return
-     */
+   
     public void setAlertIconVisible() {
         AlertIcon.setVisible(false);
     }

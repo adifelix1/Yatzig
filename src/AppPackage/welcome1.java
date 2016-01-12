@@ -49,7 +49,12 @@ import net.proteanit.sql.DbUtils;
  *
  * @author Adi
  */
-public class welcome1 extends javax.swing.JFrame {
+
+   /** 
+    * This class display all the options that a user with a level 1 permission has  
+    */ 
+    public class welcome1 extends javax.swing.JFrame {
+   
     static Connection conn=loginGUI.conn;
     static PreparedStatement pst=null;
     static ResultSet rs=null;
@@ -66,8 +71,11 @@ public class welcome1 extends javax.swing.JFrame {
     String iid;
      boolean openClose;
      String sFileName;
+    
     /**
      * Creates new form welcome
+     * Settings for GUI
+     * Calling primary functions 
      */
     public welcome1() {
         initComponents();
@@ -453,12 +461,6 @@ public class welcome1 extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel10.setText("Item ID");
         AddItemPanel.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
-
-        serialText.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                serialTextActionPerformed(evt);
-            }
-        });
         AddItemPanel.add(serialText, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 160, -1));
 
         jLabel11.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
@@ -2002,11 +2004,6 @@ public class welcome1 extends javax.swing.JFrame {
 
         reportTab.addTab("tab2", jPanel2);
 
-        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -2038,6 +2035,10 @@ public class welcome1 extends javax.swing.JFrame {
                     .addComponent(reportTab, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
+        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -2092,11 +2093,17 @@ public class welcome1 extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * @param evt 
+ * Closing program when 'X' icon is pressed
+ */
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         System.exit(0);
     }//GEN-LAST:event_jLabel4MouseClicked
-
+/**
+ * @param evt 
+ * Minimizing window when '-' icon is pressed
+ */
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
         this.setState(welcome1.ICONIFIED);
     }//GEN-LAST:event_jLabel3MouseClicked
@@ -2110,7 +2117,7 @@ public class welcome1 extends javax.swing.JFrame {
     private void ordersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ordersButtonActionPerformed
         ordersTab.setVisible(true);
         inventoryTab.setVisible(false);
-        //reportsTab.setVisible(false);
+        reportTab.setVisible(false);
         suppliersTab.setVisible(false);
         updateChoice();
     }//GEN-LAST:event_ordersButtonActionPerformed
@@ -2119,12 +2126,12 @@ public class welcome1 extends javax.swing.JFrame {
         suppliersTab.setVisible(true);
         ordersTab.setVisible(false);
         inventoryTab.setVisible(false);
-       // reportsTab.setVisible(false);
+        reportTab.setVisible(false);
     }//GEN-LAST:event_suppliersButtonActionPerformed
 
     private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
         inventoryTab.setVisible(true);
-       // reportsTab.setVisible(false);
+        reportTab.setVisible(false);
         suppliersTab.setVisible(false);
         ordersTab.setVisible(false);       
     }//GEN-LAST:event_inventoryButtonActionPerformed
@@ -2135,7 +2142,11 @@ public class welcome1 extends javax.swing.JFrame {
         inventoryTab.setVisible(false);
         suppliersTab.setVisible(false);
     }//GEN-LAST:event_reportsButtonActionPerformed
-
+/**
+ * Adding new order to DB 
+ * checking if fields are empty
+ * @param evt 
+ */
     private void addOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrderButtonActionPerformed
         int f = 0;
         int h = 0;
@@ -2195,7 +2206,7 @@ public class welcome1 extends javax.swing.JFrame {
             else orderTptxt.setBackground(Color.white);            
             
             if (f == 2) {
-                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields","Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, e);
             }
@@ -2210,7 +2221,10 @@ public class welcome1 extends javax.swing.JFrame {
             OrderUploadText.setText("");
         }
     }//GEN-LAST:event_addOrderButtonActionPerformed
-
+/**
+ * Clears 'add order' fields
+ * @param evt 
+ */
     private void orderClearButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_orderClearButtonActionPerformed
         OrderIDText.setText("");
         orderDesctxt.setText("");
@@ -2219,7 +2233,10 @@ public class welcome1 extends javax.swing.JFrame {
         toaDate.setCalendar(null);
         OrderUploadText.setText("");
     }//GEN-LAST:event_orderClearButtonActionPerformed
-
+/**
+ * Searching order in DB
+ * @param evt 
+ */
     private void searchOrderUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchOrderUpButtonActionPerformed
         try {
             String sn=searchUpOrdertxt.getText();
@@ -2234,7 +2251,10 @@ public class welcome1 extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_searchOrderUpButtonActionPerformed
-
+/**
+ * Updating order details in DB
+ * @param evt 
+ */
     private void orderUpdateTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderUpdateTableMouseClicked
         try {
             int raw = orderUpdateTable.getSelectedRow();
@@ -2302,7 +2322,10 @@ public class welcome1 extends javax.swing.JFrame {
     private void refreshPLButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshPLButtonActionPerformed
         price_list_table();
     }//GEN-LAST:event_refreshPLButtonActionPerformed
-
+/**
+ * Adding new price from supplier to DB
+ * @param evt 
+ */
     private void addPLButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPLButtonActionPerformed
         int f = 0;
         int h = 0;
@@ -2343,7 +2366,7 @@ public class welcome1 extends javax.swing.JFrame {
                 supplierNamePLtxt.setBackground(Color.white); 
             
             if (f != 2) {
-                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields","Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, e);
             }        
@@ -2845,10 +2868,6 @@ public class welcome1 extends javax.swing.JFrame {
         update_Supplier_Search_table();
     }//GEN-LAST:event_suppliersTabMouseClicked
 
-    private void serialTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serialTextActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_serialTextActionPerformed
-
     private void nameTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nameTextActionPerformed
@@ -2864,7 +2883,11 @@ public class welcome1 extends javax.swing.JFrame {
     private void categoryChoiceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_categoryChoiceMouseClicked
 
     }//GEN-LAST:event_categoryChoiceMouseClicked
-
+/**
+ * Adds new Item To DB
+ * Checks if There are any empty fields 
+ * @param evt 
+ */
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         int f = 0;
         int h = 0;
@@ -2957,9 +2980,9 @@ public class welcome1 extends javax.swing.JFrame {
                 Shelf_Text.setBackground(Color.white);  
             
            if (f != 2) {
-                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields","Error", JOptionPane.ERROR_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(null, e);
+                JOptionPane.showMessageDialog(null, e,"Attension", JOptionPane.ERROR_MESSAGE);
             }
         }
 
@@ -3004,11 +3027,14 @@ public class welcome1 extends javax.swing.JFrame {
     private void Warehouse_TextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Warehouse_TextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Warehouse_TextActionPerformed
-
+/**
+ * Displaying the details from the clicked table in the text fields 
+ * @param evt 
+ */
     private void itemTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_itemTableMouseClicked
         try {
             int raw = itemTable.getSelectedRow();
-            tableClick = (itemTable.getModel().getValueAt(raw, 0).toString());
+            tableClick = (itemTable.getModel().getValueAt(raw, 0).toString()); /** getting the item ID*/
             String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_id='" + tableClick + "' ";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
@@ -3494,6 +3520,8 @@ public class welcome1 extends javax.swing.JFrame {
 
     private void changePasswordLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseClicked
         changePassword cp = new changePassword();
+         cp.pack();
+        cp.setLocationRelativeTo(null);
         cp.setVisible(true);
     }//GEN-LAST:event_changePasswordLabelMouseClicked
 
@@ -3838,6 +3866,9 @@ public class welcome1 extends javax.swing.JFrame {
             }
         });
     }
+    /**
+     * Retrieves the information from the DB and Display it in the jTable component 
+     */
  private void update_table() {
         try {
             String sql = "select item_id as 'Item ID',item_name as 'Item Name',expiration_date 'Expiration Date',supplier_name as 'Supplier Name',quantity as 'Quantity',description as'Description',min_quantity_level as 'Min Quantity Level',warehouse as 'Warehouse',row as 'Row',shelf as 'Shelf' from items";
@@ -3934,7 +3965,9 @@ public class welcome1 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
-            
+            /**
+             * Checks if there is a quantity change request in the DB
+             */
             private void checkQReqTable()
             {
                 String un=loginGUI.username;
@@ -3950,6 +3983,10 @@ public class welcome1 extends javax.swing.JFrame {
         }
             }
             
+            /**
+             * Checks if there are items that their quantity is lower then the minimum level allowed
+             * if there is, it updates the DB
+             */
             private void checkMinQLvl()
             {
                 int q,mql;
@@ -3976,7 +4013,9 @@ public class welcome1 extends javax.swing.JFrame {
         }
             }
 
-    
+    /**
+     * Retrieve All the suppliers names from DB 
+     */
   private void updateChoice(){
       try {
             suppNamechoice.removeAll();
@@ -3995,6 +4034,14 @@ public class welcome1 extends javax.swing.JFrame {
         }
   }
      
+  /**
+   * insert single cells to the PDF file ad fills them with text 
+   * @param table
+   * @param text
+   * @param align
+   * @param colspan
+   * @param font 
+   */
    private void insertCell(PdfPTable table, String text, int align, int colspan, Font font){
   
   //create a new cell with the specified Text and Font
@@ -4012,6 +4059,12 @@ public class welcome1 extends javax.swing.JFrame {
   
  }
   
+   /**
+    * Saves the report information to the DB
+    * @param s
+    * @param date
+    * @param pi 
+    */
   private void saveToDB(String s,Date date,int pi)
   {
       try {
