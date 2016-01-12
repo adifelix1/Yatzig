@@ -68,6 +68,8 @@ import net.proteanit.sql.DbUtils;
         reportsTab.setVisible(false);
         dropManageUserLabel.setVisible(false);
         changePasswordLabel.setVisible(false);
+        repWorkerDateSearchtxt.setVisible(false);
+        repWorkerJobTitlechoice.setVisible(false);
         update_table();
         
     }
@@ -82,6 +84,7 @@ import net.proteanit.sql.DbUtils;
     private void initComponents() {
 
         searchGroup = new javax.swing.ButtonGroup();
+        WorkerHistoryGroup = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
@@ -275,6 +278,20 @@ import net.proteanit.sql.DbUtils;
         jLabel12 = new javax.swing.JLabel();
         JobTitleChoice = new java.awt.Choice();
         JobTitleChoice1 = new javax.swing.JLabel();
+        WorkersHistoryReportPanel = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        WorkersRepHistoryTable = new javax.swing.JTable();
+        showRepSearchButton = new javax.swing.JButton();
+        EnterYourSearchLabel5 = new javax.swing.JLabel();
+        repSearchButton = new javax.swing.JButton();
+        searchWorkerRepIDRadioButton = new javax.swing.JRadioButton();
+        searchWorkerRepJobTitleRadioButton = new javax.swing.JRadioButton();
+        searchWorkerRepDateRadioButton = new javax.swing.JRadioButton();
+        repWorkerJobTitlechoice = new java.awt.Choice();
+        repWorkerIDSearchtxt = new javax.swing.JTextField();
+        repWorkerDateSearchtxt = new com.toedter.calendar.JDateChooser();
+        RefreshButton2 = new javax.swing.JButton();
+        background_green9 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
         manageUserButtonLabel = new javax.swing.JLabel();
         changePasswordLabel = new javax.swing.JLabel();
@@ -1459,6 +1476,124 @@ import net.proteanit.sql.DbUtils;
         WorkersReportPanel.add(JobTitleChoice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         reportsTab.addTab("Workers Report", WorkersReportPanel);
+
+        WorkersHistoryReportPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        WorkersRepHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        WorkersRepHistoryTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                WorkersRepHistoryTableMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(WorkersRepHistoryTable);
+
+        WorkersHistoryReportPanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 700, 290));
+
+        showRepSearchButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        showRepSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon-service-contract.png"))); // NOI18N
+        showRepSearchButton.setText("Show Report");
+        showRepSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showRepSearchButtonActionPerformed(evt);
+            }
+        });
+        WorkersHistoryReportPanel.add(showRepSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 320, -1, -1));
+
+        EnterYourSearchLabel5.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel5.setText("Enter your search");
+        WorkersHistoryReportPanel.add(EnterYourSearchLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        repSearchButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        repSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
+        repSearchButton.setText("Search");
+        repSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                repSearchButtonActionPerformed(evt);
+            }
+        });
+        WorkersHistoryReportPanel.add(repSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
+
+        WorkerHistoryGroup.add(searchWorkerRepIDRadioButton);
+        searchWorkerRepIDRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        searchWorkerRepIDRadioButton.setText("By Report ID");
+        searchWorkerRepIDRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        searchWorkerRepIDRadioButton.setBorderPainted(true);
+        searchWorkerRepIDRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchWorkerRepIDRadioButtonActionPerformed(evt);
+            }
+        });
+        WorkersHistoryReportPanel.add(searchWorkerRepIDRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, 110, -1));
+
+        WorkerHistoryGroup.add(searchWorkerRepJobTitleRadioButton);
+        searchWorkerRepJobTitleRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        searchWorkerRepJobTitleRadioButton.setText("By Job Title");
+        searchWorkerRepJobTitleRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        searchWorkerRepJobTitleRadioButton.setBorderPainted(true);
+        searchWorkerRepJobTitleRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchWorkerRepJobTitleRadioButtonActionPerformed(evt);
+            }
+        });
+        WorkersHistoryReportPanel.add(searchWorkerRepJobTitleRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 100, -1));
+
+        WorkerHistoryGroup.add(searchWorkerRepDateRadioButton);
+        searchWorkerRepDateRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        searchWorkerRepDateRadioButton.setText("By Creation Date");
+        searchWorkerRepDateRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        searchWorkerRepDateRadioButton.setBorderPainted(true);
+        searchWorkerRepDateRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchWorkerRepDateRadioButtonActionPerformed(evt);
+            }
+        });
+        WorkersHistoryReportPanel.add(searchWorkerRepDateRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 140, -1));
+
+        try {
+            String sn;
+            String sql = "select distinct job_title from workers";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            while(rs.next())
+            {
+                sn=rs.getString("job_title");
+                repWorkerJobTitlechoice.addItem(sn);
+            }
+            repWorkerJobTitlechoice.addItem("All");
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        WorkersHistoryReportPanel.add(repWorkerJobTitlechoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, -1));
+        WorkersHistoryReportPanel.add(repWorkerIDSearchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, -1));
+
+        repWorkerDateSearchtxt.setDateFormatString("yyyy-MM-dd");
+        WorkersHistoryReportPanel.add(repWorkerDateSearchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, -1));
+
+        RefreshButton2.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        RefreshButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        RefreshButton2.setText("Refresh");
+        RefreshButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RefreshButton2ActionPerformed(evt);
+            }
+        });
+        WorkersHistoryReportPanel.add(RefreshButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 320, -1, -1));
+
+        background_green9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        WorkersHistoryReportPanel.add(background_green9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
+
+        reportsTab.addTab("History", WorkersHistoryReportPanel);
 
         jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -2757,10 +2892,10 @@ import net.proteanit.sql.DbUtils;
     
     }//GEN-LAST:event_genRepButton1ActionPerformed
 
-    private void saveToDB(String s,Date date,int pi)
+  private void saveToDB(String s,Date date,int pi)
   {
       try {
-            String sql = "Insert into reports (report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus,fileName) values(?,?,?,?,?,?)";
+            String sql = "Insert into reports (report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus,fileName,reportCategory) values(?,?,?,?,?,?,?)";
 
             pst = conn.prepareStatement(sql);
             pst.setInt(1,pi);
@@ -2769,6 +2904,7 @@ import net.proteanit.sql.DbUtils;
             pst.setDate(4,null);
             pst.setString(5,s );
             pst.setString(6,sFileName);
+            pst.setString(7,"Workers");
             pst.execute();
       }
        catch (Exception e){
@@ -2791,7 +2927,7 @@ import net.proteanit.sql.DbUtils;
     }//GEN-LAST:event_Show_report_Button1ActionPerformed
 
     private void reportsTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reportsTabMouseClicked
-        // TODO add your handling code here:
+       Workers_rep_Search_Table();
     }//GEN-LAST:event_reportsTabMouseClicked
 
     private void dropManageUserLabelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dropManageUserLabelMouseMoved
@@ -2806,6 +2942,116 @@ import net.proteanit.sql.DbUtils;
     private void changePasswordLabelMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseMoved
         changePasswordLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK, 1));
     }//GEN-LAST:event_changePasswordLabelMouseMoved
+
+    private void WorkersRepHistoryTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WorkersRepHistoryTableMouseClicked
+        try {
+            int raw = WorkersRepHistoryTable.getSelectedRow();
+            tableClick = (WorkersRepHistoryTable.getModel().getValueAt(raw, 0).toString());
+            String sql = "select fileName from reports where report_no='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next())
+            sFileName = rs.getString("fileName");
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_WorkersRepHistoryTableMouseClicked
+
+    private void showRepSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showRepSearchButtonActionPerformed
+        String fn = "src/WorkerReports/" + sFileName;
+        try {
+
+            Desktop.getDesktop().open(new File(fn));
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,e);
+        }
+    }//GEN-LAST:event_showRepSearchButtonActionPerformed
+
+    private void repSearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repSearchButtonActionPerformed
+        if(searchmethod.equals("ID"))
+        {
+            try {
+                String sn=repWorkerIDSearchtxt.getText();
+                String sql = "select report_no,report_create_date,repStatus from reports where report_no='" + sn + "' and reportCategory = 'Workers' ";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                WorkersRepHistoryTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else if (searchmethod.equals("JobTitle"))
+        {
+            try {
+                String sn=repWorkerJobTitlechoice.getSelectedItem();
+                String sql = "select report_no,report_create_date,repStatus from reports where repStatus='" + sn + "' and reportCategory = 'Workers' ";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                WorkersRepHistoryTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+        else if (searchmethod.equals("Date"))
+        {
+            DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
+            String sd= dateFormat1.format(repWorkerDateSearchtxt.getDate());
+            try {
+                String sql = "select report_no,report_create_date,repStatus from reports where repProj_start_date<='"+sd+"' and repProj_due_date>='"+sd+"' and reportCategory = 'Workers' order by report_create_date";
+                pst = conn.prepareStatement(sql);
+                rs = pst.executeQuery(sql);
+                WorkersRepHistoryTable.setModel(DbUtils.resultSetToTableModel(rs));
+            }
+
+            catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
+    }//GEN-LAST:event_repSearchButtonActionPerformed
+
+    private void searchWorkerRepIDRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchWorkerRepIDRadioButtonActionPerformed
+        searchmethod="ID";
+        repWorkerDateSearchtxt.setVisible(false);
+        repWorkerDateSearchtxt.setEnabled(false);
+        repWorkerIDSearchtxt.setVisible(true);
+        repWorkerIDSearchtxt.setEnabled(true);
+        repWorkerJobTitlechoice.setVisible(false);
+        repWorkerJobTitlechoice.setEnabled(false);
+        this.validate();
+    }//GEN-LAST:event_searchWorkerRepIDRadioButtonActionPerformed
+
+    private void searchWorkerRepJobTitleRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchWorkerRepJobTitleRadioButtonActionPerformed
+        searchmethod="JobTitle";
+        repWorkerIDSearchtxt.setVisible(false);
+        repWorkerIDSearchtxt.setEnabled(false);
+        repWorkerDateSearchtxt.setVisible(false);
+        repWorkerDateSearchtxt.setEnabled(false);
+        repWorkerJobTitlechoice.setVisible(true);
+        repWorkerJobTitlechoice.setEnabled(true);
+        this.validate();
+    }//GEN-LAST:event_searchWorkerRepJobTitleRadioButtonActionPerformed
+
+    private void searchWorkerRepDateRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchWorkerRepDateRadioButtonActionPerformed
+        searchmethod="Date";
+        repWorkerIDSearchtxt.setVisible(false);
+        repWorkerIDSearchtxt.setEnabled(false);
+        repWorkerDateSearchtxt.setVisible(true);
+        repWorkerDateSearchtxt.setEnabled(true);
+        repWorkerJobTitlechoice.setVisible(false);
+        repWorkerJobTitlechoice.setEnabled(false);
+        this.validate();
+    }//GEN-LAST:event_searchWorkerRepDateRadioButtonActionPerformed
+
+    private void RefreshButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshButton2ActionPerformed
+       Workers_rep_Search_Table();
+    }//GEN-LAST:event_RefreshButton2ActionPerformed
 
     
     /**
@@ -2922,6 +3168,20 @@ import net.proteanit.sql.DbUtils;
             JOptionPane.showMessageDialog(null, e);
         }
     } 
+       
+    private void Workers_rep_Search_Table()
+  {
+       try{
+                 String sql = "select report_no as 'Report ID',report_create_date as 'Creation Date',repStatus as 'Workers Job Title' from reports where reportCategory='Workers' ORDER by report_create_date";
+                 pst=conn.prepareStatement(sql);
+                 rs=pst.executeQuery(sql);
+                 WorkersRepHistoryTable.setModel(DbUtils.resultSetToTableModel(rs));
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null, e);
+        }
+  }       
          
   private void insertCell(PdfPTable table, String text, int align, int colspan, com.itextpdf.text.Font font){
   
@@ -2987,6 +3247,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JLabel EnterYourSearchLabel2;
     private javax.swing.JLabel EnterYourSearchLabel3;
     private javax.swing.JLabel EnterYourSearchLabel4;
+    private javax.swing.JLabel EnterYourSearchLabel5;
     private javax.swing.JLabel ExistUserFirstNameLabel;
     private javax.swing.JTextField ExistUserFirstNameText;
     private javax.swing.JLabel ExistUserLastNameLabel;
@@ -3021,6 +3282,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JTextField PhoneText1;
     private javax.swing.JButton RefreshButton;
     private javax.swing.JButton RefreshButton1;
+    private javax.swing.JButton RefreshButton2;
     private javax.swing.JPanel SearchCustomerPanel;
     private javax.swing.JPanel SearchPanel;
     private javax.swing.JTextField SearchText;
@@ -3056,6 +3318,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JTextField UserPhoneText;
     private javax.swing.JLabel WorkerDetailsLabel;
     private javax.swing.JLabel WorkerDetailsLabel1;
+    private javax.swing.ButtonGroup WorkerHistoryGroup;
     private javax.swing.JLabel WorkerIDLabel;
     private javax.swing.JTextField WorkerIDText;
     private javax.swing.JRadioButton WorkerIdRadioButton;
@@ -3064,6 +3327,8 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JRadioButton WorkerNameRadioButton;
     private javax.swing.JRadioButton WorkerNameRadioButton1;
     private javax.swing.JRadioButton WorkerNameRadioButton2;
+    private javax.swing.JPanel WorkersHistoryReportPanel;
+    private javax.swing.JTable WorkersRepHistoryTable;
     private javax.swing.JPanel WorkersReportPanel;
     private javax.swing.JTabbedPane WorkersTab;
     private javax.swing.JTable WorkersTable;
@@ -3074,6 +3339,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JLabel background_green6;
     private javax.swing.JLabel background_green7;
     private javax.swing.JLabel background_green8;
+    private javax.swing.JLabel background_green9;
     private javax.swing.JLabel changePasswordLabel;
     private javax.swing.JLabel contract_Label1;
     private javax.swing.JButton cusDeleteButton;
@@ -3121,6 +3387,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JScrollPane jScrollPane19;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane20;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JSeparator jSeparator1;
@@ -3128,12 +3395,20 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JLabel manageUserButtonLabel;
     private javax.swing.JButton orderClearButton;
     private java.awt.Choice perlvlchoice;
+    private javax.swing.JButton repSearchButton;
+    private com.toedter.calendar.JDateChooser repWorkerDateSearchtxt;
+    private javax.swing.JTextField repWorkerIDSearchtxt;
+    private java.awt.Choice repWorkerJobTitlechoice;
     private javax.swing.JButton reportsButton;
     private javax.swing.JTabbedPane reportsTab;
     private javax.swing.JButton searchButton;
     private javax.swing.JButton searchButton1;
     private javax.swing.JButton searchButton2;
     private javax.swing.ButtonGroup searchGroup;
+    private javax.swing.JRadioButton searchWorkerRepDateRadioButton;
+    private javax.swing.JRadioButton searchWorkerRepIDRadioButton;
+    private javax.swing.JRadioButton searchWorkerRepJobTitleRadioButton;
+    private javax.swing.JButton showRepSearchButton;
     private javax.swing.JRadioButton upCusNameRadioButton;
     private javax.swing.JRadioButton upcusIDRadioButton;
     private javax.swing.JButton updateButton;
