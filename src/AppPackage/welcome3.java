@@ -186,18 +186,6 @@ public class welcome3 extends javax.swing.JFrame {
         jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jDateChooser3 = new com.toedter.calendar.JDateChooser();
         background_green14 = new javax.swing.JLabel();
-        HistoryPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        repHistoryTable = new javax.swing.JTable();
-        repSearchButton = new javax.swing.JButton();
-        repDateSearchtxt = new com.toedter.calendar.JDateChooser();
-        searchRepDateRadioButton = new javax.swing.JRadioButton();
-        searchRepIDRadioButton = new javax.swing.JRadioButton();
-        searchRepStatRadioButton = new javax.swing.JRadioButton();
-        repIDSearchtxt = new javax.swing.JTextField();
-        showRepSearchButton = new javax.swing.JButton();
-        repProjStatchoice = new java.awt.Choice();
-        background_green16 = new javax.swing.JLabel();
         ProjectReportPanel = new javax.swing.JPanel();
         genRepButton = new javax.swing.JToggleButton();
         pBeginDateChooser = new com.toedter.calendar.JDateChooser();
@@ -214,6 +202,20 @@ public class welcome3 extends javax.swing.JFrame {
         ProgressRadioButton = new javax.swing.JRadioButton();
         CompletedRadioButton = new javax.swing.JRadioButton();
         background_green15 = new javax.swing.JLabel();
+        HistoryPanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        repHistoryTable = new javax.swing.JTable();
+        repSearchButton = new javax.swing.JButton();
+        repDateSearchtxt = new com.toedter.calendar.JDateChooser();
+        searchRepDateRadioButton = new javax.swing.JRadioButton();
+        searchRepIDRadioButton = new javax.swing.JRadioButton();
+        searchRepStatRadioButton = new javax.swing.JRadioButton();
+        repIDSearchtxt = new javax.swing.JTextField();
+        showRepSearchButton = new javax.swing.JButton();
+        repProjStatchoice = new java.awt.Choice();
+        EnterYourSearchLabel2 = new javax.swing.JLabel();
+        RefreshButton2 = new javax.swing.JButton();
+        background_green16 = new javax.swing.JLabel();
         AlertIcon = new javax.swing.JLabel();
         QuantityChangeButton = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
@@ -565,94 +567,6 @@ public class welcome3 extends javax.swing.JFrame {
 
         reportsTab.addTab("Generate", jPanel14);
 
-        HistoryPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        repHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        repHistoryTable.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                repHistoryTableMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(repHistoryTable);
-
-        HistoryPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 700, 290));
-
-        repSearchButton.setText("Search");
-        repSearchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                repSearchButtonActionPerformed(evt);
-            }
-        });
-        HistoryPanel.add(repSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
-
-        repDateSearchtxt.setDateFormatString("yyyy-MM-dd");
-        HistoryPanel.add(repDateSearchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 120, -1));
-
-        searchGroup.add(searchRepDateRadioButton);
-        searchRepDateRadioButton.setText("By Project Date");
-        searchRepDateRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        searchRepDateRadioButton.setBorderPainted(true);
-        searchRepDateRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchRepDateRadioButtonActionPerformed(evt);
-            }
-        });
-        HistoryPanel.add(searchRepDateRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 40, -1, -1));
-
-        searchGroup.add(searchRepIDRadioButton);
-        searchRepIDRadioButton.setSelected(true);
-        searchRepIDRadioButton.setText("By Reoprt ID");
-        searchRepIDRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        searchRepIDRadioButton.setBorderPainted(true);
-        searchRepIDRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchRepIDRadioButtonActionPerformed(evt);
-            }
-        });
-        HistoryPanel.add(searchRepIDRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
-
-        searchGroup.add(searchRepStatRadioButton);
-        searchRepStatRadioButton.setText("By Project Status");
-        searchRepStatRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        searchRepStatRadioButton.setBorderPainted(true);
-        searchRepStatRadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchRepStatRadioButtonActionPerformed(evt);
-            }
-        });
-        HistoryPanel.add(searchRepStatRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
-        HistoryPanel.add(repIDSearchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 120, -1));
-
-        showRepSearchButton.setText("Show Report");
-        showRepSearchButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                showRepSearchButtonActionPerformed(evt);
-            }
-        });
-        HistoryPanel.add(showRepSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
-
-        repProjStatchoice.add("All");
-        repProjStatchoice.add("Pending");
-        repProjStatchoice.add("In Progress");
-        repProjStatchoice.add("Completed");
-        HistoryPanel.add(repProjStatchoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 120, -1));
-
-        background_green16.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        background_green16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
-        HistoryPanel.add(background_green16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
-
-        reportsTab.addTab("History", HistoryPanel);
-
         ProjectReportPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         genRepButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
@@ -758,6 +672,114 @@ public class welcome3 extends javax.swing.JFrame {
         ProjectReportPanel.add(background_green15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         reportsTab.addTab("Project Report", ProjectReportPanel);
+
+        HistoryPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        repHistoryTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        repHistoryTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                repHistoryTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(repHistoryTable);
+
+        HistoryPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 700, 290));
+
+        repSearchButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        repSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
+        repSearchButton.setText("Search");
+        repSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                repSearchButtonActionPerformed(evt);
+            }
+        });
+        HistoryPanel.add(repSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
+
+        repDateSearchtxt.setDateFormatString("yyyy-MM-dd");
+        HistoryPanel.add(repDateSearchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, -1));
+
+        searchGroup.add(searchRepDateRadioButton);
+        searchRepDateRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        searchRepDateRadioButton.setText("By Project Date");
+        searchRepDateRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        searchRepDateRadioButton.setBorderPainted(true);
+        searchRepDateRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchRepDateRadioButtonActionPerformed(evt);
+            }
+        });
+        HistoryPanel.add(searchRepDateRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 130, -1));
+
+        searchGroup.add(searchRepIDRadioButton);
+        searchRepIDRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        searchRepIDRadioButton.setText("By Report ID");
+        searchRepIDRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        searchRepIDRadioButton.setBorderPainted(true);
+        searchRepIDRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchRepIDRadioButtonActionPerformed(evt);
+            }
+        });
+        HistoryPanel.add(searchRepIDRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 110, -1));
+
+        searchGroup.add(searchRepStatRadioButton);
+        searchRepStatRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        searchRepStatRadioButton.setText("By Project Status");
+        searchRepStatRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        searchRepStatRadioButton.setBorderPainted(true);
+        searchRepStatRadioButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                searchRepStatRadioButtonActionPerformed(evt);
+            }
+        });
+        HistoryPanel.add(searchRepStatRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 140, -1));
+        HistoryPanel.add(repIDSearchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, -1));
+
+        showRepSearchButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        showRepSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon-service-contract.png"))); // NOI18N
+        showRepSearchButton.setText("Show Report");
+        showRepSearchButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showRepSearchButtonActionPerformed(evt);
+            }
+        });
+        HistoryPanel.add(showRepSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 320, -1, -1));
+
+        repProjStatchoice.add("All");
+        repProjStatchoice.add("Pending");
+        repProjStatchoice.add("In Progress");
+        repProjStatchoice.add("Completed");
+        HistoryPanel.add(repProjStatchoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, -1));
+
+        EnterYourSearchLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel2.setText("Enter your search");
+        HistoryPanel.add(EnterYourSearchLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        RefreshButton2.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        RefreshButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        RefreshButton2.setText("Refresh");
+        RefreshButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RefreshButton2ActionPerformed(evt);
+            }
+        });
+        HistoryPanel.add(RefreshButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 320, -1, -1));
+
+        background_green16.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        background_green16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        HistoryPanel.add(background_green16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
+
+        reportsTab.addTab("History", HistoryPanel);
 
         jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1069,46 +1091,6 @@ public class welcome3 extends javax.swing.JFrame {
         update_Search_ProjTable();
     }//GEN-LAST:event_projRefreshSearchButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int month = monthRepjSpin.getValue();
-        int year= yearRepjSpin.getValue();
-        int qt=0,subSum=0;
-        try{
-        String sql="select quantity_trace,MAX(date) from quantity where MONTH(date)='"+month+"'and YEAR(date)='"+year+"'and item_id='"+repItemIDtxt.getText()+"'";
-        pst = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        rs.next();
-        qt=rs.getInt("quantity_trace");
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        
-        try{
-        String sql="select sum(amount_for_operation) as asum from quantity where operation_type='Subtract' and MONTH(date)='"+month+"'and YEAR(date)='"+year+"'and item_id='"+repItemIDtxt.getText()+"'";
-        pst = conn.prepareStatement(sql);
-        rs = pst.executeQuery();
-        rs.next();
-        subSum=rs.getInt("asum");
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-        
-        DefaultCategoryDataset dataSet = new DefaultCategoryDataset();
-        dataSet.setValue(qt,"Values","Quantity" );
-        dataSet.setValue(subSum,"Values","SubItemes" );
-        
-        JFreeChart chart = ChartFactory.createBarChart3D("Values", "Quantity","Parameters", dataSet, PlotOrientation.VERTICAL, false, true, false);
-        chart.setBackgroundPaint(Color.CYAN);
-        chart.getTitle().setPaint(Color.RED);
-        CategoryPlot p=chart.getCategoryPlot();
-        p.setRangeGridlinePaint(Color.GREEN);
-        ChartFrame frame = new ChartFrame("Chart",chart);
-        frame.setVisible(true);
-        frame.setSize(450,350);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void reportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportsButtonActionPerformed
         projectsTab.setVisible(false);
         reportsTab.setVisible(true);
@@ -1371,7 +1353,7 @@ public class welcome3 extends javax.swing.JFrame {
         {
             try {
                 String sn=repIDSearchtxt.getText();
-                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where report_no='" + sn + "' ";
+                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where report_no='" + sn + "' and reportCategory = 'Projects' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 repHistoryTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1385,7 +1367,7 @@ public class welcome3 extends javax.swing.JFrame {
              {
             try {
                 String sn=repProjStatchoice.getSelectedItem();
-                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where reportStatus='" + sn + "' ";
+                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where repStatus='" + sn + "' and reportCategory = 'Projects' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 repHistoryTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1400,7 +1382,7 @@ public class welcome3 extends javax.swing.JFrame {
                  DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
                  String sd= dateFormat1.format(repDateSearchtxt.getDate());
             try {
-                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where repProj_start_date<='"+sd+"' and repProj_due_date>='"+sd+"' order by report_create_date";
+                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where repProj_start_date<='"+sd+"' and repProj_due_date>='"+sd+"' and reportCategory = 'Projects' order by report_create_date";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 repHistoryTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1454,6 +1436,50 @@ public class welcome3 extends javax.swing.JFrame {
     private void changeLogoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeLogoLabelMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_changeLogoLabelMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int month = monthRepjSpin.getValue();
+        int year= yearRepjSpin.getValue();
+        int qt=0,subSum=0;
+        try{
+            String sql="select quantity_trace,MAX(date) from quantity where MONTH(date)='"+month+"'and YEAR(date)='"+year+"'and item_id='"+repItemIDtxt.getText()+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            rs.next();
+            qt=rs.getInt("quantity_trace");
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        try{
+            String sql="select sum(amount_for_operation) as asum from quantity where operation_type='Subtract' and MONTH(date)='"+month+"'and YEAR(date)='"+year+"'and item_id='"+repItemIDtxt.getText()+"'";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            rs.next();
+            subSum=rs.getInt("asum");
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
+        DefaultCategoryDataset dataSet = new DefaultCategoryDataset();
+        dataSet.setValue(qt,"Values","Quantity" );
+        dataSet.setValue(subSum,"Values","SubItemes" );
+
+        JFreeChart chart = ChartFactory.createBarChart3D("Values", "Quantity","Parameters", dataSet, PlotOrientation.VERTICAL, false, true, false);
+        chart.setBackgroundPaint(Color.CYAN);
+        chart.getTitle().setPaint(Color.RED);
+        CategoryPlot p=chart.getCategoryPlot();
+        p.setRangeGridlinePaint(Color.GREEN);
+        ChartFrame frame = new ChartFrame("Chart",chart);
+        frame.setVisible(true);
+        frame.setSize(450,350);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void RefreshButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshButton2ActionPerformed
+       rep_Search_Table();
+    }//GEN-LAST:event_RefreshButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1588,6 +1614,7 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JRadioButton AllRadioButton;
     private javax.swing.JRadioButton CompletedRadioButton;
     private javax.swing.JLabel EnterYourSearchLabel10;
+    private javax.swing.JLabel EnterYourSearchLabel2;
     private javax.swing.JLabel EnterYourSearchLabel9;
     private javax.swing.JPanel HistoryPanel;
     private javax.swing.JRadioButton PendingRadioButton;
@@ -1600,6 +1627,7 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JLabel ProjectStartdateLabel;
     private javax.swing.ButtonGroup ProjectStatusReportGroup;
     private javax.swing.JButton QuantityChangeButton;
+    private javax.swing.JButton RefreshButton2;
     private javax.swing.JPanel SearchProjectPanel;
     private javax.swing.JButton Show_report_Button;
     private javax.swing.JPanel StatusProjectPanel;
