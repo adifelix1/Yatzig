@@ -42,6 +42,9 @@ import net.proteanit.sql.DbUtils;
  *
  * @author Adi
  */
+/** 
+    * This class display all the options that a user with a level 0 permission has  
+    */ 
      public class welcome0 extends javax.swing.JFrame {
      static Connection conn=loginGUI.conn;
      static PreparedStatement pst=null;
@@ -1819,7 +1822,7 @@ import net.proteanit.sql.DbUtils;
             pst.setString(9, EmailText.getText());
           
         if (UploadText.getText().isEmpty()) {
-              ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Add a Worker Without a Contract?", "Warning!", JOptionPane.YES_NO_OPTION);
+              ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Add a Worker Without a Contract?", "Warning!", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
               if(ans==0)
               pst.execute();
               if(ans==1) {}
@@ -1878,7 +1881,7 @@ import net.proteanit.sql.DbUtils;
                 EmailText.setBackground(Color.white);             
               
             if (f != 2) {
-                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields","Error",JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, e);
             }
@@ -2120,7 +2123,7 @@ import net.proteanit.sql.DbUtils;
 
     private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteButtonActionPerformed
 
-           int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete " +FirstNameText1.getText()+" "+LastNameText1.getText()+" From The List ?", "Warning!",JOptionPane.YES_NO_OPTION);
+           int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete " +FirstNameText1.getText()+" "+LastNameText1.getText()+" From The List ?", "Warning!",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
            if(ans==0) 
            {
             int raw = WorkersTable.getSelectedRow();
@@ -2212,7 +2215,7 @@ import net.proteanit.sql.DbUtils;
            }
         
         catch (Exception e) {
-              JOptionPane.showMessageDialog(null,"This Worker Does Not Have a Contract"); 
+              JOptionPane.showMessageDialog(null,"This Worker Does Not Have a Contract","Attention",JOptionPane.WARNING_MESSAGE); 
            }
     }//GEN-LAST:event_Show_Contract_ButtonActionPerformed
 
@@ -2284,7 +2287,7 @@ import net.proteanit.sql.DbUtils;
             }
 
             if (f != 2) {
-                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty");
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty","Error",JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, e);
             }
@@ -2402,7 +2405,7 @@ import net.proteanit.sql.DbUtils;
     }//GEN-LAST:event_cusRefreshUpButtonActionPerformed
 
     private void cusDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusDeleteButtonActionPerformed
-        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete This Customers", "Warning!", JOptionPane.YES_NO_OPTION);
+        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete This Customers", "Warning!", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
         if(ans==0)
         {
             int raw = cusUpdateTable.getSelectedRow();
@@ -2536,7 +2539,7 @@ import net.proteanit.sql.DbUtils;
 
     private void UserAddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserAddButtonActionPerformed
 
-        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Give" +UserFirstNameText.getText()+" "+UserLastNameText.getText()+" Selected Permission ?", "Warning!", JOptionPane.YES_NO_OPTION);
+        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Give" +UserFirstNameText.getText()+" "+UserLastNameText.getText()+" Selected Permission ?", "Attention", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
         if(ans==0) {
             try {
 
@@ -2678,7 +2681,7 @@ import net.proteanit.sql.DbUtils;
             String sql = "update users set user_name='"+un+"',password='"+up+"',user_type='"+ul+"' where worker_id='"+tableClick+"'";
             pst = conn.prepareStatement(sql);
             
-            ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Update User Details ?", "Warning!", JOptionPane.YES_NO_OPTION);
+            ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Update User Details ?", "Attention", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
             if(ans==0) {
             pst.execute();
             JOptionPane.showMessageDialog(null, "User Details Updated");
@@ -2922,7 +2925,7 @@ import net.proteanit.sql.DbUtils;
         }
 
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"The Report Generetad Wasn't Found");
+            JOptionPane.showMessageDialog(null,"The Report Generetad Wasn't Found","Error",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_Show_report_Button1ActionPerformed
 
@@ -3093,6 +3096,10 @@ import net.proteanit.sql.DbUtils;
             }
         });
     }
+    
+    /**
+     * Retrieves the information from the DB and Display it in the jTable component 
+     */
     private void update_table(){
         try{
                  String sql = "select worker_id as 'Worker ID',first_name as 'First Name',last_name as 'Last Name',worker_phone as 'Phone',worker_add as 'Address', birth_date as 'Birthdate', email as 'Email',contract_id as 'Contract ID',job_title as 'Job Title' from workers";
