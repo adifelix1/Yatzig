@@ -266,6 +266,7 @@ import net.proteanit.sql.DbUtils;
         UpdatetoaLabel = new javax.swing.JLabel();
         UpdateDescriptionLabel = new javax.swing.JLabel();
         UpdatetpLabel = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
         background_green9 = new javax.swing.JLabel();
         PriceListPanel = new javax.swing.JPanel();
         itemIDPricetxt = new javax.swing.JTextField();
@@ -291,6 +292,7 @@ import net.proteanit.sql.DbUtils;
         orderSearchTable = new javax.swing.JTable();
         orderRefreshButton = new javax.swing.JButton();
         EnterYourSearchLabel8 = new javax.swing.JLabel();
+        Show_Contract_Button = new javax.swing.JButton();
         background_green10 = new javax.swing.JLabel();
         suppliersTab = new javax.swing.JTabbedPane();
         AddSupplierPanel = new javax.swing.JPanel();
@@ -355,14 +357,19 @@ import net.proteanit.sql.DbUtils;
         background_green7 = new javax.swing.JLabel();
         SupplierContractIDText2 = new javax.swing.JTextField();
         reportTab = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
+        InventoryReport = new javax.swing.JPanel();
         allItemRepRadioButton = new javax.swing.JRadioButton();
         minLevelRepRadioButton = new javax.swing.JRadioButton();
         wareHousRepRadioButton = new javax.swing.JRadioButton();
         wareHouschoice = new java.awt.Choice();
         genrateItemRepButton = new javax.swing.JButton();
         showInventoryRepButton = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        background_green8 = new javax.swing.JLabel();
+        InventoryHistoryReport = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         items_rep_Search_Table = new javax.swing.JTable();
         searchRepDateRadioButton = new javax.swing.JRadioButton();
@@ -373,6 +380,9 @@ import net.proteanit.sql.DbUtils;
         showRepSearchButton = new javax.swing.JButton();
         repStatusSearchtxt = new java.awt.Choice();
         repIDSearchTxt = new javax.swing.JTextField();
+        EnterYourSearchLabel3 = new javax.swing.JLabel();
+        RefreshButton2 = new javax.swing.JButton();
+        background_green11 = new javax.swing.JLabel();
         logoutButton = new javax.swing.JButton();
         manageUserButtonLabel = new javax.swing.JLabel();
         changePasswordLabel = new javax.swing.JLabel();
@@ -556,8 +566,8 @@ import net.proteanit.sql.DbUtils;
 
         jLabel5.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel5.setText("Min Quantity Level");
-        AddItemPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, -1, -1));
-        AddItemPanel.add(minLevelText, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 160, -1));
+        AddItemPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, -1, -1));
+        AddItemPanel.add(minLevelText, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 160, -1));
 
         Storage_panel.setBackground(new java.awt.Color(233, 232, 232));
         Storage_panel.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 1, true));
@@ -834,13 +844,14 @@ import net.proteanit.sql.DbUtils;
         });
         UpdateItemPanel.add(deleteItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 250, 130, -1));
 
+        quantityChangesReqButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         quantityChangesReqButton.setText("Quantity Change Requests");
         quantityChangesReqButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantityChangesReqButtonActionPerformed(evt);
             }
         });
-        UpdateItemPanel.add(quantityChangesReqButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 320, -1, 30));
+        UpdateItemPanel.add(quantityChangesReqButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 210, 50));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         UpdateItemPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
@@ -887,13 +898,13 @@ import net.proteanit.sql.DbUtils;
             }
         });
         StatusItemPanel.add(searchStatusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
-        StatusItemPanel.add(sWorkerIdtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 150, 100, -1));
-        StatusItemPanel.add(amountFor, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 100, -1));
-        StatusItemPanel.add(sItemIdtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 100, -1));
+        StatusItemPanel.add(sWorkerIdtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 100, -1));
+        StatusItemPanel.add(amountFor, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 100, -1));
+        StatusItemPanel.add(sItemIdtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 100, -1));
 
         dateStatus.setDateFormatString("yyyy-MM-dd");
         dateStatus.setMinSelectableDate(new Date());
-        StatusItemPanel.add(dateStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 150, -1));
+        StatusItemPanel.add(dateStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 150, -1));
 
         addStatusButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         addStatusButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
@@ -903,8 +914,8 @@ import net.proteanit.sql.DbUtils;
                 addStatusButtonActionPerformed(evt);
             }
         });
-        StatusItemPanel.add(addStatusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 240, 130, 40));
-        StatusItemPanel.add(oporationType, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 110, -1));
+        StatusItemPanel.add(addStatusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 220, 130, 40));
+        StatusItemPanel.add(oporationType, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 110, -1));
         oporationType.addItem("Add");
         oporationType.addItem("Subtract");
 
@@ -916,38 +927,39 @@ import net.proteanit.sql.DbUtils;
                 refreshStausButtonActionPerformed(evt);
             }
         });
-        StatusItemPanel.add(refreshStausButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 240, 130, 40));
+        StatusItemPanel.add(refreshStausButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 220, 130, 40));
 
         jLabel15.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel15.setText("Item ID");
-        StatusItemPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
+        StatusItemPanel.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel17.setText("Worker ID");
-        StatusItemPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        StatusItemPanel.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
         jLabel18.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel18.setText("Amount ");
-        StatusItemPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
+        StatusItemPanel.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel20.setText("Operation Type");
-        StatusItemPanel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, -1));
+        StatusItemPanel.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel21.setText("Date");
-        StatusItemPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+        StatusItemPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 270, -1, -1));
 
         minLvlWarIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/applet-critical-48.png"))); // NOI18N
-        StatusItemPanel.add(minLvlWarIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 290, -1, 30));
+        StatusItemPanel.add(minLvlWarIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, -1, 30));
 
+        MinLevelWarningButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         MinLevelWarningButton.setText("Min Level Warnings");
         MinLevelWarningButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MinLevelWarningButtonActionPerformed(evt);
             }
         });
-        StatusItemPanel.add(MinLevelWarningButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 270, -1, 30));
+        StatusItemPanel.add(MinLevelWarningButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, -1, 40));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         StatusItemPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
@@ -1108,8 +1120,9 @@ import net.proteanit.sql.DbUtils;
                 OrderUploadTextActionPerformed(evt);
             }
         });
-        SupplierContractPanel1.add(OrderUploadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, -1));
+        SupplierContractPanel1.add(OrderUploadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 210, -1));
 
+        OrderUploadContractButton.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         OrderUploadContractButton.setText("Upload");
         OrderUploadContractButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1118,13 +1131,14 @@ import net.proteanit.sql.DbUtils;
         });
         SupplierContractPanel1.add(OrderUploadContractButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
+        OrderShowContractButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         OrderShowContractButton.setText("Show");
         OrderShowContractButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OrderShowContractButtonActionPerformed(evt);
             }
         });
-        SupplierContractPanel1.add(OrderShowContractButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 70, -1));
+        SupplierContractPanel1.add(OrderShowContractButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 80, -1));
 
         AddOrderPanel.add(SupplierContractPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, 260, 130));
 
@@ -1205,13 +1219,15 @@ import net.proteanit.sql.DbUtils;
         jScrollPane9.setViewportView(orderUpdateTable);
 
         UpdateOrderPanel.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
-        UpdateOrderPanel.add(toaUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 130, -1));
+        UpdateOrderPanel.add(toaUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 130, -1));
 
         orderDescUptxt.setColumns(5);
         orderDescUptxt.setRows(4);
         orderDescUptxt.setTabSize(0);
         jScrollPane11.setViewportView(orderDescUptxt);
 
+        UpdateOrderPanel.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 130, 80));
+        UpdateOrderPanel.add(tpUptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 106, -1));
         UpdateOrderPanel.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 160, 100));
         UpdateOrderPanel.add(tpUptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 106, -1));
 
@@ -1237,15 +1253,18 @@ import net.proteanit.sql.DbUtils;
 
         UpdatetoaLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         UpdatetoaLabel.setText("Time Of Arrival");
-        UpdateOrderPanel.add(UpdatetoaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        UpdateOrderPanel.add(UpdatetoaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         UpdateDescriptionLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         UpdateDescriptionLabel.setText("Description");
-        UpdateOrderPanel.add(UpdateDescriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        UpdateOrderPanel.add(UpdateDescriptionLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         UpdatetpLabel.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         UpdatetpLabel.setText("Total Price");
-        UpdateOrderPanel.add(UpdatetpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+        UpdateOrderPanel.add(UpdatetpLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+
+        jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Untitled.png"))); // NOI18N
+        UpdateOrderPanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 30, 30));
 
         background_green9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         UpdateOrderPanel.add(background_green9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
@@ -1289,10 +1308,10 @@ import net.proteanit.sql.DbUtils;
             }
         });
         PriceListPanel.add(refreshPLButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
-        PriceListPanel.add(itemIdPLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 100, -1));
-        PriceListPanel.add(pricePLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 100, -1));
-        PriceListPanel.add(supplierIdPLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 210, 100, -1));
-        PriceListPanel.add(supplierNamePLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, 100, -1));
+        PriceListPanel.add(itemIdPLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, 100, -1));
+        PriceListPanel.add(pricePLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, 100, -1));
+        PriceListPanel.add(supplierIdPLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 100, -1));
+        PriceListPanel.add(supplierNamePLtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, 100, -1));
 
         addPLButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         addPLButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
@@ -1306,19 +1325,19 @@ import net.proteanit.sql.DbUtils;
 
         jLabel25.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel25.setText("Item ID");
-        PriceListPanel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        PriceListPanel.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel26.setText("Price");
-        PriceListPanel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
+        PriceListPanel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         jLabel27.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel27.setText("Supplier ID");
-        PriceListPanel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        PriceListPanel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         jLabel28.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         jLabel28.setText("Supplier Name");
-        PriceListPanel.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        PriceListPanel.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, -1, -1));
 
         EnterYourSearchLabel11.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         EnterYourSearchLabel11.setText("Enter your search by Order ID");
@@ -1381,6 +1400,16 @@ import net.proteanit.sql.DbUtils;
         EnterYourSearchLabel8.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         EnterYourSearchLabel8.setText("Enter your search by Order ID");
         SearchOrderPanel.add(EnterYourSearchLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        Show_Contract_Button.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        Show_Contract_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon-service-contract.png"))); // NOI18N
+        Show_Contract_Button.setText("Show Order");
+        Show_Contract_Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Show_Contract_ButtonActionPerformed(evt);
+            }
+        });
+        SearchOrderPanel.add(Show_Contract_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 250, 170, 40));
 
         background_green10.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         background_green10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
@@ -1478,6 +1507,7 @@ import net.proteanit.sql.DbUtils;
         });
         SupplierContractPanel.add(SupplierUploadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 150, -1));
 
+        SupplierUploadContractButton.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         SupplierUploadContractButton.setText("Upload");
         SupplierUploadContractButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1486,6 +1516,7 @@ import net.proteanit.sql.DbUtils;
         });
         SupplierContractPanel.add(SupplierUploadContractButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, -1, -1));
 
+        SupplierShowContractButton.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         SupplierShowContractButton.setText("Show");
         SupplierShowContractButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1795,94 +1826,96 @@ import net.proteanit.sql.DbUtils;
 
         suppliersTab.addTab("Search", SearchSupplierPanel);
 
+        reportTab.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         reportTab.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 reportTabMouseClicked(evt);
             }
         });
 
+        InventoryReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         itemRepbuttonGroup.add(allItemRepRadioButton);
-        allItemRepRadioButton.setText("All");
+        allItemRepRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        allItemRepRadioButton.setText("Show All");
+        allItemRepRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        allItemRepRadioButton.setBorderPainted(true);
         allItemRepRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 allItemRepRadioButtonActionPerformed(evt);
             }
         });
+        InventoryReport.add(allItemRepRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 120, 90, -1));
 
         itemRepbuttonGroup.add(minLevelRepRadioButton);
+        minLevelRepRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         minLevelRepRadioButton.setText("Min Level");
+        minLevelRepRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        minLevelRepRadioButton.setBorderPainted(true);
         minLevelRepRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 minLevelRepRadioButtonActionPerformed(evt);
             }
         });
+        InventoryReport.add(minLevelRepRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 120, 90, -1));
 
         itemRepbuttonGroup.add(wareHousRepRadioButton);
-        wareHousRepRadioButton.setText("By Warehous");
+        wareHousRepRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        wareHousRepRadioButton.setText("By Warehouse");
+        wareHousRepRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        wareHousRepRadioButton.setBorderPainted(true);
         wareHousRepRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 wareHousRepRadioButtonActionPerformed(evt);
             }
         });
+        InventoryReport.add(wareHousRepRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 120, 120, -1));
 
         wareHouschoice.add("A");
         wareHouschoice.add("B");
+        InventoryReport.add(wareHouschoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 150, 50, -1));
 
-        genrateItemRepButton.setText("Generate");
+        genrateItemRepButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        genrateItemRepButton.setText("Generate Report");
         genrateItemRepButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 genrateItemRepButtonActionPerformed(evt);
             }
         });
+        InventoryReport.add(genrateItemRepButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, 40));
 
-        showInventoryRepButton.setText("Show");
+        showInventoryRepButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        showInventoryRepButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon-service-contract.png"))); // NOI18N
+        showInventoryRepButton.setText("Show Report");
         showInventoryRepButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showInventoryRepButtonActionPerformed(evt);
             }
         });
+        InventoryReport.add(showInventoryRepButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, 190, 40));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(allItemRepRadioButton)
-                        .addGap(68, 68, 68)
-                        .addComponent(minLevelRepRadioButton)
-                        .addGap(45, 45, 45)
-                        .addComponent(wareHousRepRadioButton))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(135, 135, 135)
-                        .addComponent(wareHouschoice, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(284, 284, 284)
-                        .addComponent(genrateItemRepButton)
-                        .addGap(63, 63, 63)
-                        .addComponent(showInventoryRepButton)))
-                .addContainerGap(932, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(allItemRepRadioButton)
-                    .addComponent(minLevelRepRadioButton)
-                    .addComponent(wareHousRepRadioButton))
-                .addGap(29, 29, 29)
-                .addComponent(wareHouschoice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(genrateItemRepButton)
-                    .addComponent(showInventoryRepButton))
-                .addContainerGap(201, Short.MAX_VALUE))
-        );
+        jLabel23.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        jLabel23.setText("This report shows current inventory by a chosen criteria. ");
+        InventoryReport.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
 
-        reportTab.addTab("tab1", jPanel1);
+        jLabel29.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        jLabel29.setText("Chose a report criteria");
+        InventoryReport.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, -1, -1));
+
+        jLabel30.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        jLabel30.setText("Click on ");
+        InventoryReport.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, -1, -1));
+
+        jLabel31.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        jLabel31.setText("You can see the report here ");
+        InventoryReport.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, -1, -1));
+
+        background_green8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        InventoryReport.add(background_green8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
+
+        reportTab.addTab("Inventory Report", InventoryReport);
+
+        InventoryHistoryReport.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         items_rep_Search_Table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1897,8 +1930,11 @@ import net.proteanit.sql.DbUtils;
         ));
         jScrollPane7.setViewportView(items_rep_Search_Table);
 
+        InventoryHistoryReport.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 700, 290));
+
         itemRepbuttonGroup.add(searchRepDateRadioButton);
-        searchRepDateRadioButton.setText("By Project Date");
+        searchRepDateRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        searchRepDateRadioButton.setText("By Report Date");
         searchRepDateRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         searchRepDateRadioButton.setBorderPainted(true);
         searchRepDateRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1906,9 +1942,11 @@ import net.proteanit.sql.DbUtils;
                 searchRepDateRadioButtonActionPerformed(evt);
             }
         });
+        InventoryHistoryReport.add(searchRepDateRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 130, -1));
 
         itemRepbuttonGroup.add(searchRepStatRadioButton);
-        searchRepStatRadioButton.setText("By Project Status");
+        searchRepStatRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        searchRepStatRadioButton.setText("By Criteria");
         searchRepStatRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         searchRepStatRadioButton.setBorderPainted(true);
         searchRepStatRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1916,10 +1954,12 @@ import net.proteanit.sql.DbUtils;
                 searchRepStatRadioButtonActionPerformed(evt);
             }
         });
+        InventoryHistoryReport.add(searchRepStatRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 100, -1));
 
         itemRepbuttonGroup.add(searchRepIDRadioButton);
+        searchRepIDRadioButton.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         searchRepIDRadioButton.setSelected(true);
-        searchRepIDRadioButton.setText("By Reoprt ID");
+        searchRepIDRadioButton.setText("By Report ID");
         searchRepIDRadioButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         searchRepIDRadioButton.setBorderPainted(true);
         searchRepIDRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1927,85 +1967,60 @@ import net.proteanit.sql.DbUtils;
                 searchRepIDRadioButtonActionPerformed(evt);
             }
         });
+        InventoryHistoryReport.add(searchRepIDRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 110, -1));
 
         repDateSearchtxt.setDateFormatString("yyyy-MM-dd");
+        InventoryHistoryReport.add(repDateSearchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 150, -1));
 
+        repSearchButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        repSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/search.png"))); // NOI18N
         repSearchButton.setText("Search");
         repSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 repSearchButtonActionPerformed(evt);
             }
         });
+        InventoryHistoryReport.add(repSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, -1, -1));
 
+        showRepSearchButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        showRepSearchButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon-service-contract.png"))); // NOI18N
         showRepSearchButton.setText("Show Report");
         showRepSearchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showRepSearchButtonActionPerformed(evt);
             }
         });
+        InventoryHistoryReport.add(showRepSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 320, -1, -1));
 
         repStatusSearchtxt.add("All");
         repStatusSearchtxt.add("Min Level");
-        repStatusSearchtxt.add("Warehous");
+        repStatusSearchtxt.add("Warehouse");
+        InventoryHistoryReport.add(repStatusSearchtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 150, -1));
+        InventoryHistoryReport.add(repIDSearchTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 150, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(searchRepIDRadioButton)
-                        .addGap(27, 27, 27)
-                        .addComponent(searchRepStatRadioButton)
-                        .addGap(15, 15, 15)
-                        .addComponent(searchRepDateRadioButton))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(showRepSearchButton))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(repStatusSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(repIDSearchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(repDateSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(repSearchButton)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 623, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(156, 156, 156))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(searchRepIDRadioButton)
-                            .addComponent(searchRepStatRadioButton)
-                            .addComponent(searchRepDateRadioButton))
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(repDateSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(repSearchButton))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(repStatusSearchtxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(3, 3, 3)))
-                        .addComponent(repIDSearchTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70)
-                        .addComponent(showRepSearchButton)))
-                .addContainerGap(66, Short.MAX_VALUE))
-        );
+        EnterYourSearchLabel3.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
+        EnterYourSearchLabel3.setText("Enter your search");
+        InventoryHistoryReport.add(EnterYourSearchLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
-        reportTab.addTab("tab2", jPanel2);
+        RefreshButton2.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        RefreshButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
+        RefreshButton2.setText("Refresh");
+        RefreshButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RefreshButton2ActionPerformed(evt);
+            }
+        });
+        InventoryHistoryReport.add(RefreshButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 320, -1, -1));
+
+        background_green11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        InventoryHistoryReport.add(background_green11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
+
+        reportTab.addTab("History", InventoryHistoryReport);
+
+        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -2038,10 +2053,6 @@ import net.proteanit.sql.DbUtils;
                     .addComponent(reportTab, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
-        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -2132,20 +2143,9 @@ import net.proteanit.sql.DbUtils;
         reportTab.setVisible(false);
     }//GEN-LAST:event_suppliersButtonActionPerformed
 
-    private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
-        inventoryTab.setVisible(true);
-        reportTab.setVisible(false);
-        suppliersTab.setVisible(false);
-        ordersTab.setVisible(false);       
-    }//GEN-LAST:event_inventoryButtonActionPerformed
-
-    private void reportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportsButtonActionPerformed
-        reportTab.setVisible(true);
-        ordersTab.setVisible(false);
-        inventoryTab.setVisible(false);
-        suppliersTab.setVisible(false);
-    }//GEN-LAST:event_reportsButtonActionPerformed
-/**
+    
+    
+    /**
  * Adding new order to DB 
  * checking if fields are empty
  * @param evt 
@@ -2509,6 +2509,7 @@ import net.proteanit.sql.DbUtils;
                 Path dest = Paths.get("src/SupplierContracts/"+sn+".pdf");
                 Path source = Paths.get(filename_supplier);
                 Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);
+                pst.execute();
             }
 
             JOptionPane.showMessageDialog(null, "Supplier Has Been Added");
@@ -2857,12 +2858,21 @@ import net.proteanit.sql.DbUtils;
     private void Supplier_Show_Contract_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Supplier_Show_Contract_ButtonActionPerformed
         supplier_filename_show_contract = "/src/SupplierContracts/"+SupplierContractIDText2.getText()+".pdf" ;
         try {
-
-            Desktop.getDesktop().open(new File(supplier_filename_show_contract));
+            int raw = SuppliersSearchTable.getSelectedRow();
+            tableClick = (SuppliersSearchTable.getModel().getValueAt(raw, 0).toString());
+            String sql = "select supplier_id, supplier_name, supplier_address,supplier_phone, supplier_email, supplier_contract_id from suppliers where supplier_id='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("supplier_id");
+  
+                String supplier_filename_show_contract = "src/SupplierContracts/"+add1+".pdf" ;
+                Desktop.getDesktop().open(new File(supplier_filename_show_contract));
+            }
         }
 
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"This Supplier Does Not Have a Contract","Attension", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null,"This Supplier Does Not Have a Contract","Attention",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_Supplier_Show_Contract_ButtonActionPerformed
 
@@ -3530,7 +3540,7 @@ import net.proteanit.sql.DbUtils;
 
     private void wareHousRepRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_wareHousRepRadioButtonActionPerformed
         wareHouschoice.setVisible(true);
-        itemRepChoice="Warehous";
+        itemRepChoice="Warehouse";
         this.validate();
     }//GEN-LAST:event_wareHousRepRadioButtonActionPerformed
 
@@ -3547,13 +3557,13 @@ import net.proteanit.sql.DbUtils;
     }//GEN-LAST:event_minLevelRepRadioButtonActionPerformed
 
     private void genrateItemRepButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genrateItemRepButtonActionPerformed
-        Document doc = new Document();
-  PdfWriter docWriter = null;
- int repID=ThreadLocalRandom.current().nextInt(10000, 99999 + 1);
-  DecimalFormat df = new DecimalFormat("0.00");
-  //Date d = Calendar.getInstance().getTime();
- DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
-   Date date = new Date();
+    Document doc = new Document();
+    PdfWriter docWriter = null;
+    int repID=ThreadLocalRandom.current().nextInt(10000, 99999 + 1);
+    DecimalFormat df = new DecimalFormat("0.00");
+    //Date d = Calendar.getInstance().getTime();
+    DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+    Date date = new Date();
 
   
   try {
@@ -3590,7 +3600,7 @@ import net.proteanit.sql.DbUtils;
    doc.add(image);
    
    //specify column widths
-   float[] columnWidths = {2f, 2f, 2f, 3f, 2f};
+   float[] columnWidths = {2f, 2f, 2f, 3f, 2f, 2f, 2f};
    //create PDF table with the given widths
    PdfPTable table = new PdfPTable(columnWidths);
    // set table width a percentage of the page width
@@ -3601,7 +3611,9 @@ import net.proteanit.sql.DbUtils;
    insertCell(table, "Item Name", Element.ALIGN_CENTER, 1, bfBold12);
    insertCell(table, "Quantity", Element.ALIGN_CENTER, 1, bfBold12);
    insertCell(table, "Min Quantity Level", Element.ALIGN_CENTER, 1, bfBold12);
-   insertCell(table, "Warehous", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Warehouse", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Row", Element.ALIGN_CENTER, 1, bfBold12);
+   insertCell(table, "Shelf", Element.ALIGN_CENTER, 1, bfBold12);
    table.setHeaderRows(1);
 
    //insert an empty row
@@ -3610,13 +3622,13 @@ import net.proteanit.sql.DbUtils;
   /* insertCell(table, "New York Orders ...", Element.ALIGN_LEFT, 4, bfBold12);*/
    /*double orderTotal, total = 0;*/
    
-   String add1,add2,add3,add4,add5;
+   String add1,add2,add3,add4,add5,add6,add7;
    
    if(itemRepChoice.equals("All"))
    {   
         try {
             
-            String sql = "select item_id,item_name,quantity,min_quantity_level,warehouse from items";
+            String sql = "select item_id,item_name,quantity,min_quantity_level,warehouse,row,shelf from items";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()) { 
@@ -3624,13 +3636,16 @@ import net.proteanit.sql.DbUtils;
                  add2 = rs.getString("item_name");
                  add3 = rs.getString("quantity");
                  add4 = rs.getString("min_quantity_level");
-                 add5 = rs.getString("warehouse");   
+                 add5 = rs.getString("warehouse");  
+                 add6 = rs.getString("row");
+                 add7 = rs.getString("shelf");
                  insertCell(table,add1 , Element.ALIGN_CENTER, 1, bf12);
                  insertCell(table,add2 , Element.ALIGN_CENTER, 1, bf12);
                  insertCell(table,add3 , Element.ALIGN_CENTER, 1, bf12);
                  insertCell(table,add4 , Element.ALIGN_CENTER, 1, bf12);
                  insertCell(table,add5 , Element.ALIGN_CENTER, 1, bf12);
-
+                 insertCell(table,add6 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add7 , Element.ALIGN_CENTER, 1, bf12);
         }                                         
          }
           catch (Exception e){
@@ -3638,12 +3653,12 @@ import net.proteanit.sql.DbUtils;
     
         }
    }
-   else if(itemRepChoice.equals("Warehous")) 
+   else if(itemRepChoice.equals("Warehouse")) 
    {
        String wh=wareHouschoice.getSelectedItem();
       try {
             
-            String sql = "select item_id,item_name,quantity,min_quantity_level,warehouse from items where warehous='"+wh+"'";
+            String sql = "select item_id,item_name,quantity,min_quantity_level,warehouse,row,shelf from items where warehouse='"+wh+"'";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()) { 
@@ -3652,12 +3667,15 @@ import net.proteanit.sql.DbUtils;
                  add3 = rs.getString("quantity");
                  add4 = rs.getString("min_quantity_level");
                  add5 = rs.getString("warehouse");  
+                 add6 = rs.getString("row");
+                 add7 = rs.getString("shelf");
                  insertCell(table,add1 , Element.ALIGN_CENTER, 1, bf12);
                  insertCell(table,add2 , Element.ALIGN_CENTER, 1, bf12);
                  insertCell(table,add3 , Element.ALIGN_CENTER, 1, bf12);
                  insertCell(table,add4 , Element.ALIGN_CENTER, 1, bf12);
                  insertCell(table,add5 , Element.ALIGN_CENTER, 1, bf12);
-
+                 insertCell(table,add6 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add7 , Element.ALIGN_CENTER, 1, bf12);                 
         }                                         
          }
           catch (Exception e){
@@ -3670,21 +3688,24 @@ import net.proteanit.sql.DbUtils;
        String wh=wareHouschoice.getSelectedItem();
       try {
             
-                 String sql = "select item_id,item_name,quantity,min_quantity_level,warehouse from items where min_quantity_level>=quantity";
+                 String sql = "select item_id,item_name,quantity,min_quantity_level,warehouse,row,shelf from items where min_quantity_level>=quantity";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
             while (rs.next()) { 
-                add1 = rs.getString("item_id");
+                 add1 = rs.getString("item_id");
                  add2 = rs.getString("item_name");
                  add3 = rs.getString("quantity");
                  add4 = rs.getString("min_quantity_level");
-                 add5 = rs.getString("warehouse");    
+                 add5 = rs.getString("warehouse");  
+                 add6 = rs.getString("row");
+                 add7 = rs.getString("shelf");                 
                  insertCell(table,add1 , Element.ALIGN_CENTER, 1, bf12);
                  insertCell(table,add2 , Element.ALIGN_CENTER, 1, bf12);
                  insertCell(table,add3 , Element.ALIGN_CENTER, 1, bf12);
                  insertCell(table,add4 , Element.ALIGN_CENTER, 1, bf12);
                  insertCell(table,add5 , Element.ALIGN_CENTER, 1, bf12);
-
+                 insertCell(table,add6 , Element.ALIGN_CENTER, 1, bf12);
+                 insertCell(table,add7 , Element.ALIGN_CENTER, 1, bf12);
         }                                         
          }
           catch (Exception e){
@@ -3833,6 +3854,45 @@ import net.proteanit.sql.DbUtils;
     private void jLabel3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseMoved
         jLabel3.setBorder(BorderFactory.createLineBorder(Color.DARK_GRAY, 1));
     }//GEN-LAST:event_jLabel3MouseMoved
+
+    private void Show_Contract_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_Contract_ButtonActionPerformed
+        try {
+            int raw = orderSearchTable.getSelectedRow();
+            tableClick = (orderSearchTable.getModel().getValueAt(raw, 0).toString());
+            String sql = "select orders_id,order_date,description,price,arrivel_date from orders where orders_id ='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+            if (rs.next()) {
+                String add1 = rs.getString("orders_id");
+            
+            String order_filename_show_contract = "src/OrderContracts/"+add1+".pdf" ;
+            Desktop.getDesktop().open(new File(order_filename_show_contract));
+            }
+        }
+
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null,"There Is No Order Aveilable","Attention",JOptionPane.WARNING_MESSAGE);
+        }
+
+    }//GEN-LAST:event_Show_Contract_ButtonActionPerformed
+
+    private void inventoryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inventoryButtonActionPerformed
+        inventoryTab.setVisible(true);
+        reportTab.setVisible(false);
+        suppliersTab.setVisible(false);
+        ordersTab.setVisible(false); 
+    }//GEN-LAST:event_inventoryButtonActionPerformed
+
+    private void reportsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportsButtonActionPerformed
+        reportTab.setVisible(true);
+        ordersTab.setVisible(false);
+        inventoryTab.setVisible(false);
+        suppliersTab.setVisible(false);
+    }//GEN-LAST:event_reportsButtonActionPerformed
+
+    private void RefreshButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshButton2ActionPerformed
+        update_rep_Search_Table();
+    }//GEN-LAST:event_RefreshButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4116,11 +4176,14 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JLabel EnterYourSearchLabel1;
     private javax.swing.JLabel EnterYourSearchLabel11;
     private javax.swing.JLabel EnterYourSearchLabel2;
+    private javax.swing.JLabel EnterYourSearchLabel3;
     private javax.swing.JLabel EnterYourSearchLabel5;
     private javax.swing.JLabel EnterYourSearchLabel6;
     private javax.swing.JLabel EnterYourSearchLabel7;
     private javax.swing.JLabel EnterYourSearchLabel8;
     private javax.swing.JLabel ExpirationDateLabel2;
+    private javax.swing.JPanel InventoryHistoryReport;
+    private javax.swing.JPanel InventoryReport;
     private javax.swing.JButton MinLevelWarningButton;
     private javax.swing.JLabel MinQuantityLabel1;
     private javax.swing.JLabel OrderContractLabel;
@@ -4134,6 +4197,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JLabel QuantityLabel2;
     private javax.swing.JButton RefreshButton;
     private javax.swing.JButton RefreshButton1;
+    private javax.swing.JButton RefreshButton2;
     private javax.swing.JTextField Row_Text;
     private javax.swing.JLabel Row_label;
     private javax.swing.JLabel Row_label1;
@@ -4145,6 +4209,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JLabel Shelf__label;
     private javax.swing.JLabel Shelf__label1;
     private javax.swing.JLabel Shelf__label2;
+    private javax.swing.JButton Show_Contract_Button;
     private javax.swing.JPanel StatusItemPanel;
     private javax.swing.JLabel Storage_Label;
     private javax.swing.JLabel Storage_Label1;
@@ -4217,11 +4282,13 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JTextField amountFor;
     private javax.swing.JLabel background_green;
     private javax.swing.JLabel background_green10;
+    private javax.swing.JLabel background_green11;
     private javax.swing.JLabel background_green15;
     private javax.swing.JLabel background_green4;
     private javax.swing.JLabel background_green5;
     private javax.swing.JLabel background_green6;
     private javax.swing.JLabel background_green7;
+    private javax.swing.JLabel background_green8;
     private javax.swing.JLabel background_green9;
     private java.awt.Choice categoryChoice;
     private javax.swing.JLabel changePasswordLabel;
@@ -4263,11 +4330,16 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel5;
@@ -4277,8 +4349,6 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenu jMenu3;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel24;
     private javax.swing.JScrollBar jScrollBar2;
     private javax.swing.JScrollPane jScrollPane1;
