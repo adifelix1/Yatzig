@@ -1112,7 +1112,7 @@
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="180" y="260" width="130" height="-1"/>
+                      <AbsoluteConstraints x="180" y="260" width="180" height="70"/>
                     </Constraint>
                   </Constraints>
 
@@ -1120,8 +1120,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="projDesctxt">
                       <Properties>
-                        <Property name="columns" type="int" value="20"/>
-                        <Property name="rows" type="int" value="5"/>
+                        <Property name="columns" type="int" value="10"/>
+                        <Property name="rows" type="int" value="2"/>
+                        <Property name="tabSize" type="int" value="0"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -1426,7 +1427,7 @@
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="160" y="210" width="130" height="-1"/>
+                      <AbsoluteConstraints x="160" y="210" width="140" height="70"/>
                     </Constraint>
                   </Constraints>
 
@@ -1434,8 +1435,9 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextArea" name="projComUptxt">
                       <Properties>
-                        <Property name="columns" type="int" value="20"/>
-                        <Property name="rows" type="int" value="5"/>
+                        <Property name="columns" type="int" value="10"/>
+                        <Property name="rows" type="int" value="2"/>
+                        <Property name="tabSize" type="int" value="0"/>
                       </Properties>
                     </Component>
                   </SubComponents>

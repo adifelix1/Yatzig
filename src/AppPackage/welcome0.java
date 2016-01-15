@@ -1920,7 +1920,7 @@ import net.proteanit.sql.DbUtils;
         {
             try {
                 String sn=SearchText.getText();
-                String sql = "select worker_id,first_name,last_name,worker_phone,worker_add,contract_id,job_title,birth_date,email from workers where worker_id='" + sn + "' ";
+                String sql = "select worker_id as 'Worker ID',first_name as 'First Name',last_name as 'Last Name',worker_phone as 'Phone No',worker_add as 'Address',contract_id as 'Contract ID',job_title as 'Job Title',birth_date as 'Birth Date',email as 'Email' from workers where worker_id='" + sn + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 WorkersTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1934,7 +1934,7 @@ import net.proteanit.sql.DbUtils;
              {
             try {
                 String sn=SearchText.getText();
-                String sql = "select worker_id,first_name,last_name,worker_phone,worker_add,contract_id,job_title,birth_date,email from workers where first_name='" + sn + "' OR last_name='" + sn + "'" ;
+                String sql = "select worker_id as 'Worker ID',first_name as 'First Name',last_name as 'Last Name',worker_phone as 'Phone No',worker_add as 'Address',contract_id as 'Contract ID',job_title as 'Job Title',birth_date as 'Birth Date',email as 'Email' from workers where first_name='" + sn + "' OR last_name='" + sn + "'" ;
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 WorkersTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -2158,7 +2158,7 @@ import net.proteanit.sql.DbUtils;
         {
             try {
                 String sn=SearchText1.getText();
-                String sql = "select worker_id,first_name,last_name,worker_phone,worker_add,contract_id,job_title,birth_date,email from workers where worker_id='" + sn + "' ";
+                String sql = "select select worker_id as 'Worker ID',first_name as 'First Name',last_name as 'Last Name',worker_phone as 'Phone No',worker_add as 'Address',contract_id as 'Contract ID',job_title as 'Job Title',birth_date as 'Birth Date',email as 'Email' from workers where worker_id='" + sn + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 WorkersTable1.setModel(DbUtils.resultSetToTableModel(rs));
@@ -2589,7 +2589,7 @@ import net.proteanit.sql.DbUtils;
         {
             try {
                 String sn=SearchText.getText();
-                String sql = "select worker_id,first_name,last_name,worker_phone,worker_add,contract_id,job_title,birth_date,email from workers where worker_id='" + sn + "' ";
+                String sql = "select worker_id as 'Worker ID',first_name as 'First Name',last_name as 'Last Name',worker_phone as 'Phone No',worker_add as 'Address',contract_id as 'Contract ID',job_title as 'Job Title',birth_date as 'Birth Date',email as 'Email' from workers where worker_id='" + sn + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 AddUserTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -2603,7 +2603,7 @@ import net.proteanit.sql.DbUtils;
         {
             try {
                 String sn=SearchText.getText();
-                String sql = "select worker_id,first_name,last_name,worker_phone,worker_add,contract_id,job_title,birth_date,email from workers where first_name='" + sn + "' OR last_name='" + sn + "'" ;
+                String sql = "select worker_id as 'Worker ID',first_name as 'First Name',last_name as 'Last Name',worker_phone as 'Phone No',worker_add as 'Address',contract_id as 'Contract ID',job_title as 'Job Title',birth_date as 'Birth Date',email as 'Email' from workers where first_name='" + sn + "' OR last_name='" + sn + "'" ;
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 AddUserTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -2978,7 +2978,7 @@ import net.proteanit.sql.DbUtils;
         {
             try {
                 String sn=repWorkerIDSearchtxt.getText();
-                String sql = "select report_no,report_create_date,repStatus from reports where report_no='" + sn + "' and reportCategory = 'Workers' ";
+                String sql = "select report_no as 'Report ID',report_create_date as 'Creation Date',repStatus as 'Status' from reports where report_no='" + sn + "' and reportCategory = 'Workers' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 WorkersRepHistoryTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -2992,7 +2992,7 @@ import net.proteanit.sql.DbUtils;
         {
             try {
                 String sn=repWorkerJobTitlechoice.getSelectedItem();
-                String sql = "select report_no,report_create_date,repStatus from reports where repStatus='" + sn + "' and reportCategory = 'Workers' ";
+                String sql = "select report_no as 'Report ID',report_create_date as 'Creation Date',repStatus as 'Status' from reports where repStatus='" + sn + "' and reportCategory = 'Workers' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 WorkersRepHistoryTable.setModel(DbUtils.resultSetToTableModel(rs));

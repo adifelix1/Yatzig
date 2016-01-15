@@ -709,11 +709,12 @@ public class welcome2 extends javax.swing.JFrame {
         projDueDate.setMinSelectableDate(new Date());
         AddProjectPanel.add(projDueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 127, -1));
 
-        projDesctxt.setColumns(20);
-        projDesctxt.setRows(5);
+        projDesctxt.setColumns(10);
+        projDesctxt.setRows(2);
+        projDesctxt.setTabSize(0);
         jScrollPane13.setViewportView(projDesctxt);
 
-        AddProjectPanel.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 130, -1));
+        AddProjectPanel.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 180, 70));
 
         projAddButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         projAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
@@ -843,11 +844,12 @@ public class welcome2 extends javax.swing.JFrame {
         });
         StatusProjectPanel.add(projIDRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
 
-        projComUptxt.setColumns(20);
-        projComUptxt.setRows(5);
+        projComUptxt.setColumns(10);
+        projComUptxt.setRows(2);
+        projComUptxt.setTabSize(0);
         jScrollPane15.setViewportView(projComUptxt);
 
-        StatusProjectPanel.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 130, -1));
+        StatusProjectPanel.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 140, 70));
 
         EnterYourSearchLabel9.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         EnterYourSearchLabel9.setText("Enter your search");
@@ -1026,10 +1028,6 @@ public class welcome2 extends javax.swing.JFrame {
 
         reportsTab.addTab("Generate", jPanel14);
 
-        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -1070,6 +1068,9 @@ public class welcome2 extends javax.swing.JFrame {
                     .addComponent(reportsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
+        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 1250, 440));
 
@@ -1196,7 +1197,7 @@ public class welcome2 extends javax.swing.JFrame {
                 projDesctxt.setBackground(Color.white); 
 
             if (f != 2) {
-                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields", "Attention",JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, e);
             }
@@ -1431,7 +1432,7 @@ public class welcome2 extends javax.swing.JFrame {
             pst.setString(6, SupplierContracdIDText.getText());
 
             if(SupplierUploadText.getText().isEmpty()) {
-                ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Add a Supplier Without a Contract?", "Warning!", JOptionPane.YES_NO_OPTION);
+                ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Add a Supplier Without a Contract?", "Warning!", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
                 if(ans==0)
                 pst.execute();
                 if(ans==1) {}
@@ -1481,7 +1482,7 @@ public class welcome2 extends javax.swing.JFrame {
                 SupplierContracdIDText.setBackground(Color.white); 
 
             if (f != 2) {
-                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields", "Attention!", JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, e);
             }
@@ -1521,7 +1522,7 @@ public class welcome2 extends javax.swing.JFrame {
         {
             try {
                 String ss=SupplierSearchText1.getText();
-                String sql = "select supplier_id,supplier_name,supplier_address,supplier_phone,supplier_email,supplier_contract_id from suppliers where supplier_id='" + ss + "' ";
+                String sql = "select supplier_id as 'Supplier ID',supplier_name as Supplier Name',supplier_address as 'Address',supplier_phone as 'Phone No' ,supplier_email as 'Email',supplier_contract_id as 'Contract No' from suppliers where supplier_id='" + ss + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 SuppliersTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1535,7 +1536,7 @@ public class welcome2 extends javax.swing.JFrame {
         {
             try {
                 String ss=SupplierSearchText1.getText();
-                String sql = "select supplier_id, supplier_name, supplier_address, supplier_phone, supplier_email, supplier_contract_id from suppliers where supplier_name='" + ss + "' " ;
+                String sql = "select supplier_id as 'Supplier ID',supplier_name as Supplier Name',supplier_address as 'Address',supplier_phone as 'Phone No' ,supplier_email as 'Email',supplier_contract_id as 'Contract No' from suppliers where supplier_name='" + ss + "' " ;
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 SuppliersTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1638,7 +1639,7 @@ public class welcome2 extends javax.swing.JFrame {
 
     private void SupplierDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierDeleteButtonActionPerformed
 
-        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete " +SupplierNameText1.getText()+" From The List ?", "Warning!",JOptionPane.YES_NO_OPTION);
+        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete " +SupplierNameText1.getText()+" From The List ?", "Attention",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
         if(ans==0)
         {
             int raw = SuppliersTable.getSelectedRow();
@@ -1743,7 +1744,7 @@ public class welcome2 extends javax.swing.JFrame {
         {
             try {
                 String ss=SupplierSearchText2.getText();
-                String sql = "select supplier_id,supplier_name,supplier_address,supplier_phone,supplier_email,supplier_contract_id from suppliers where supplier_id='" + ss + "' ";
+                String sql = "select supplier_id as 'Supplier ID',supplier_name as Supplier Name',supplier_address as 'Address',supplier_phone as 'Phone No' ,supplier_email as 'Email',supplier_contract_id as 'Contract No' from suppliers where supplier_id='" + ss + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 SuppliersSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1757,7 +1758,7 @@ public class welcome2 extends javax.swing.JFrame {
         {
             try {
                 String ss=SupplierSearchText2.getText();
-                String sql = "select supplier_id, supplier_name, supplier_address, supplier_phone, supplier_email, supplier_contract_id from suppliers where supplier_name='" + ss + "' " ;
+                String sql = "select supplier_id as 'Supplier ID',supplier_name as Supplier Name',supplier_address as 'Address',supplier_phone as 'Phone No' ,supplier_email as 'Email',supplier_contract_id as 'Contract No' from suppliers where supplier_name='" + ss + "' " ;
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 SuppliersSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1952,7 +1953,7 @@ public class welcome2 extends javax.swing.JFrame {
         }
 
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"The Report Generetad Wasn't Found");
+            JOptionPane.showMessageDialog(null,"The Report Generetad Wasn't Found","Error",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_Show_report_ButtonActionPerformed
 

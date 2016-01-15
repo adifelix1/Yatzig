@@ -483,9 +483,9 @@ import net.proteanit.sql.DbUtils;
         descriptionText.setColumns(20);
         descriptionText.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         descriptionText.setLineWrap(true);
-        descriptionText.setRows(5);
+        descriptionText.setRows(4);
+        descriptionText.setTabSize(0);
         descriptionText.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        descriptionText.setPreferredSize(new java.awt.Dimension(100, 60));
         jScrollPane1.setViewportView(descriptionText);
 
         AddItemPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 290, 240, 80));
@@ -671,10 +671,11 @@ import net.proteanit.sql.DbUtils;
 
         descriptiontxt.setColumns(20);
         descriptiontxt.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        descriptiontxt.setRows(5);
+        descriptiontxt.setRows(4);
+        descriptiontxt.setTabSize(0);
         jScrollPane4.setViewportView(descriptiontxt);
 
-        UpdateItemPanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 120, 100));
+        UpdateItemPanel.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, 150, 100));
 
         updateButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         updateButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/save-icon-30.png"))); // NOI18N
@@ -1063,11 +1064,12 @@ import net.proteanit.sql.DbUtils;
         orderPriceLabel.setText("Total Price");
         AddOrderPanel.add(orderPriceLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, -1, -1));
 
-        orderDesctxt.setColumns(20);
-        orderDesctxt.setRows(5);
+        orderDesctxt.setColumns(10);
+        orderDesctxt.setRows(4);
+        orderDesctxt.setTabSize(0);
         jScrollPane10.setViewportView(orderDesctxt);
 
-        AddOrderPanel.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 120, -1));
+        AddOrderPanel.add(jScrollPane10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 230, 100));
 
         tooDate.setDateFormatString("yyyy-MM-dd");
         AddOrderPanel.add(tooDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 140, -1));
@@ -1205,11 +1207,12 @@ import net.proteanit.sql.DbUtils;
         UpdateOrderPanel.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 800, 220));
         UpdateOrderPanel.add(toaUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, 130, -1));
 
-        orderDescUptxt.setColumns(20);
-        orderDescUptxt.setRows(5);
+        orderDescUptxt.setColumns(5);
+        orderDescUptxt.setRows(4);
+        orderDescUptxt.setTabSize(0);
         jScrollPane11.setViewportView(orderDescUptxt);
 
-        UpdateOrderPanel.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 130, -1));
+        UpdateOrderPanel.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 160, 100));
         UpdateOrderPanel.add(tpUptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 106, -1));
 
         refreshUpdateOrderButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
@@ -2164,7 +2167,7 @@ import net.proteanit.sql.DbUtils;
             pst.setDate(5, new java.sql.Date(toaDate.getDate().getTime()));
           
         if(OrderUploadText.getText().isEmpty()) {
-              ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Add an Order Without a description ?", "Warning!", JOptionPane.YES_NO_OPTION);
+              ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Add an Order Without a description ?", "Warning!", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
               if(ans==0)
               pst.execute();
               if(ans==1) {}
@@ -2206,7 +2209,7 @@ import net.proteanit.sql.DbUtils;
             else orderTptxt.setBackground(Color.white);            
             
             if (f == 2) {
-                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields","Attension", JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, e);
             }
@@ -2366,7 +2369,7 @@ import net.proteanit.sql.DbUtils;
                 supplierNamePLtxt.setBackground(Color.white); 
             
             if (f != 2) {
-                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields","Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields","Attension", JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, e);
             }        
@@ -2495,7 +2498,7 @@ import net.proteanit.sql.DbUtils;
             pst.setString(6, SupplierContracdIDText.getText());
 
             if(SupplierUploadText.getText().isEmpty()) {
-                ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Add a Supplier Without a Contract?", "Warning!", JOptionPane.YES_NO_OPTION);
+                ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Add a Supplier Without a Contract?", "Warning!", JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
                 if(ans==0)
                 pst.execute();
                 if(ans==1) {}
@@ -2562,7 +2565,7 @@ import net.proteanit.sql.DbUtils;
                 SupplierContracdIDText.setBackground(Color.white); 
 
             if (f == 2) {
-                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields","Attension", JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, e);
             }
@@ -2603,7 +2606,7 @@ import net.proteanit.sql.DbUtils;
         {
             try {
                 String ss=SupplierSearchText1.getText();
-                String sql = "select supplier_id,supplier_name,supplier_address,supplier_phone,supplier_email,supplier_contract_id from suppliers where supplier_id='" + ss + "' ";
+                String sql = "select supplier_id as 'Supplier ID',supplier_name as 'Supplier Name',supplier_address as 'Supplier Address',supplier_phone as 'Phone No',supplier_email as 'Email',supplier_contract_id as 'Contract ID' from suppliers where supplier_id='" + ss + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 SuppliersTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -2617,7 +2620,7 @@ import net.proteanit.sql.DbUtils;
         {
             try {
                 String ss=SupplierSearchText1.getText();
-                String sql = "select supplier_id, supplier_name, supplier_address, supplier_phone, supplier_email, supplier_contract_id from suppliers where supplier_name='" + ss + "' " ;
+                String sql = "select supplier_id as 'Supplier ID',supplier_name as 'Supplier Name',supplier_address as 'Supplier Address',supplier_phone as 'Phone No',supplier_email as 'Email',supplier_contract_id as 'Contract ID' from suppliers where supplier_name='" + ss + "' " ;
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 SuppliersTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -2720,7 +2723,7 @@ import net.proteanit.sql.DbUtils;
 
     private void SupplierDeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierDeleteButtonActionPerformed
 
-        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete " +SupplierNameText1.getText()+" From The List ?", "Warning!",JOptionPane.YES_NO_OPTION);
+        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete " +SupplierNameText1.getText()+" From The List ?", "Warning!",JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
         if(ans==0)
         {
             int raw = SuppliersTable.getSelectedRow();
@@ -2825,7 +2828,7 @@ import net.proteanit.sql.DbUtils;
         {
             try {
                 String ss=SupplierSearchText2.getText();
-                String sql = "select supplier_id,supplier_name,supplier_address,supplier_phone,supplier_email,supplier_contract_id from suppliers where supplier_id='" + ss + "' ";
+                String sql = "select supplier_id as 'Supplier ID',supplier_name as 'Supplier Name',supplier_address as 'Supplier Address',supplier_phone as 'Phone No',supplier_email as 'Email',supplier_contract_id as 'Contract ID' from suppliers where supplier_id='" + ss + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 SuppliersSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -2839,7 +2842,7 @@ import net.proteanit.sql.DbUtils;
         {
             try {
                 String ss=SupplierSearchText2.getText();
-                String sql = "select supplier_id, supplier_name, supplier_address, supplier_phone, supplier_email, supplier_contract_id from suppliers where supplier_name='" + ss + "' " ;
+                String sql = "select supplier_id as 'Supplier ID',supplier_name as 'Supplier Name',supplier_address as 'Supplier Address',supplier_phone as 'Phone No',supplier_email as 'Email',supplier_contract_id as 'Contract ID' from suppliers where supplier_name='" + ss + "' " ;
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 SuppliersSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -2852,14 +2855,14 @@ import net.proteanit.sql.DbUtils;
     }//GEN-LAST:event_SupplierSearchButton1ActionPerformed
 
     private void Supplier_Show_Contract_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Supplier_Show_Contract_ButtonActionPerformed
-        supplier_filename_show_contract = "C:/Users/Felix/Documents/NetBeansProjects/Yatzig/src/SupplierContracts/"+SupplierContractIDText2.getText()+".pdf" ;
+        supplier_filename_show_contract = "/src/SupplierContracts/"+SupplierContractIDText2.getText()+".pdf" ;
         try {
 
             Desktop.getDesktop().open(new File(supplier_filename_show_contract));
         }
 
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"This Supplier Does Not Have a Contract");
+            JOptionPane.showMessageDialog(null,"This Supplier Does Not Have a Contract","Attension", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_Supplier_Show_Contract_ButtonActionPerformed
 
@@ -3068,7 +3071,7 @@ import net.proteanit.sql.DbUtils;
         {
             try {
                 String sn=searchtxt.getText();
-                String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_id='" + sn + "' ";
+                String sql = "select item_id as 'Item ID',item_name as 'Item Name',expiration_date as 'Experation Date',supplier_name as 'Supplier Name',quantity as 'Quantity',description as 'Description',min_quantity_level as 'Min Quantity Level',warehouse as 'Warehouse',row as 'Row',shelf as 'Shelf' from items where item_id='" + sn + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 itemTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -3081,7 +3084,7 @@ import net.proteanit.sql.DbUtils;
         else{
             try {
                 String sn=searchtxt.getText();
-                String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_name='" + sn + "' ";
+                String sql = "select item_id as 'Item ID',item_name as 'Item Name',expiration_date as 'Experation Date',supplier_name as 'Supplier Name',quantity as 'Quantity',description as 'Description',min_quantity_level as 'Min Quantity Level',warehouse as 'Warehouse',row as 'Row',shelf as 'Shelf' from items where item_name='" + sn + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 itemTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -3196,11 +3199,11 @@ import net.proteanit.sql.DbUtils;
         
         }
         else
-            JOptionPane.showMessageDialog(null,"A Request has already been made for this item");
+            JOptionPane.showMessageDialog(null,"A Request has already been made for this item","Attension", JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_submitQButtonActionPerformed
 
     private void deleteItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteItemButtonActionPerformed
-        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete This Item", "Warning!", JOptionPane.YES_NO_OPTION);
+        int ans=JOptionPane.showConfirmDialog(null, "Are You Sure You Want To Delete This Item", "Warning!", JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE);
         if(ans==0)
         {
             int raw = itemTable.getSelectedRow();
@@ -3292,7 +3295,7 @@ import net.proteanit.sql.DbUtils;
                 mq1=Integer.parseInt(afo);
                 sum=q1-mq1;
                 if(sum<ml)
-                JOptionPane.showMessageDialog(null, "Warning! The Current Quantity Is Lower Than The Min Level");
+                JOptionPane.showMessageDialog(null, "The Current Quantity Is Lower Than The Min Level","Warning", JOptionPane.ERROR_MESSAGE);
                 ssum=Integer.toString(sum);
                 f=0;
                 sql="update items set quantity='"+ssum+"'where item_id='"+iid+"'";
@@ -3361,7 +3364,7 @@ import net.proteanit.sql.DbUtils;
             //JOptionPane.showMessageDialog(null, e);
             
             if (f == 2) {
-                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields","Attention",JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, e);
             }
@@ -3393,7 +3396,7 @@ import net.proteanit.sql.DbUtils;
         {
             try {
                 String sn=searchtxt1.getText();
-                String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_id='" + sn + "' ";
+                String sql = "select item_id as 'Item ID',item_name as 'Item Name',expiration_date as 'Experation Date',supplier_name as 'Supplier Name',quantity as 'Quantity',description as 'Description',min_quantity_level as 'Min Quantity Level',warehouse as 'Warehouse',row as 'Row',shelf as 'Shelf' from items where item_id='" + sn + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 itemSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -3406,7 +3409,7 @@ import net.proteanit.sql.DbUtils;
         else{
             try {
                 String sn=searchtxt1.getText();
-                String sql = "select item_id,item_name,expiration_date,supplier_name,quantity,description,min_quantity_level,warehouse,row,shelf from items where item_name='" + sn + "' ";
+                String sql = "select item_id as 'Item ID',item_name as 'Item Name',expiration_date as 'Experation Date',supplier_name as 'Supplier Name',quantity as 'Quantity',description as 'Description',min_quantity_level as 'Min Quantity Level',warehouse as 'Warehouse',row as 'Row',shelf as 'Shelf' from items where item_name='" + sn + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 itemSearchTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -3728,7 +3731,7 @@ import net.proteanit.sql.DbUtils;
         }
 
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"The Report Generetad Wasn't Found");
+            JOptionPane.showMessageDialog(null,"The Report Generetad Wasn't Found","Attention", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_showInventoryRepButtonActionPerformed
 
@@ -3770,7 +3773,7 @@ import net.proteanit.sql.DbUtils;
         {
             try {
                 String sn=repIDSearchTxt.getText();
-                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where report_no='" + sn + "' ";
+                String sql = "select report_no as 'Report No',report_create_date as 'Creation Date',repProj_start_date as 'Project Start Date',repProj_due_date as 'Project Due Date',repStatus as 'Status' from reports where report_no='" + sn + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 items_rep_Search_Table.setModel(DbUtils.resultSetToTableModel(rs));
@@ -3784,7 +3787,7 @@ import net.proteanit.sql.DbUtils;
         {
             try {
                 String sn=repStatusSearchtxt.getSelectedItem();
-                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where reportStatus='" + sn + "' ";
+                String sql = "select report_no as 'Report No',report_create_date as 'Creation Date',repProj_start_date as 'Project Start Date',repProj_due_date as 'Project Due Date',repStatus as 'Status' from reports where reportStatus='" + sn + "' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 items_rep_Search_Table.setModel(DbUtils.resultSetToTableModel(rs));
@@ -3799,7 +3802,7 @@ import net.proteanit.sql.DbUtils;
             DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
             String sd= dateFormat1.format(repDateSearchtxt.getDate());
             try {
-                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where report_create_date='"+sd+"' by report_create_date";
+                String sql = "select report_no as 'Report No',report_create_date as 'Creation Date',repProj_start_date as 'Project Start Date',repProj_due_date as 'Project Due Date',repStatus as 'Status' from reports where report_create_date='"+sd+"' by report_create_date";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 items_rep_Search_Table.setModel(DbUtils.resultSetToTableModel(rs));

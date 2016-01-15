@@ -59,6 +59,9 @@ import javax.swing.BorderFactory;
  *
  * @author Adi
  */
+/** 
+    * This class display all the options that a user with a level 3 permission has  
+    */
 public class welcome3 extends javax.swing.JFrame {
 
     static Connection conn = loginGUI.conn;
@@ -295,11 +298,12 @@ public class welcome3 extends javax.swing.JFrame {
         projDueDate.setMinSelectableDate(new Date());
         AddProjectPanel.add(projDueDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 127, -1));
 
-        projDesctxt.setColumns(20);
-        projDesctxt.setRows(5);
+        projDesctxt.setColumns(10);
+        projDesctxt.setRows(4);
+        projDesctxt.setTabSize(0);
         jScrollPane13.setViewportView(projDesctxt);
 
-        AddProjectPanel.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 130, -1));
+        AddProjectPanel.add(jScrollPane13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 150, 90));
 
         projAddButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         projAddButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
@@ -431,11 +435,12 @@ public class welcome3 extends javax.swing.JFrame {
         });
         StatusProjectPanel.add(projIDRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
 
-        projComUptxt.setColumns(20);
-        projComUptxt.setRows(5);
+        projComUptxt.setColumns(5);
+        projComUptxt.setRows(2);
+        projComUptxt.setTabSize(0);
         jScrollPane15.setViewportView(projComUptxt);
 
-        StatusProjectPanel.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 130, -1));
+        StatusProjectPanel.add(jScrollPane15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, 150, 60));
 
         EnterYourSearchLabel9.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
         EnterYourSearchLabel9.setText("Enter your search");
@@ -781,9 +786,6 @@ public class welcome3 extends javax.swing.JFrame {
 
         reportsTab.addTab("History", HistoryPanel);
 
-        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -814,6 +816,8 @@ public class welcome3 extends javax.swing.JFrame {
                     .addComponent(reportsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
+        jLayeredPane1.setLayer(projectsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -936,7 +940,7 @@ public class welcome3 extends javax.swing.JFrame {
             else projDesctxt.setBackground(Color.white);
             
             if (f != 2) {
-                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields");
+                JOptionPane.showMessageDialog(null, "The Marked Fields Are Empty\n Please Fill All Fields","Error", JOptionPane.ERROR_MESSAGE);
             } else {
                 JOptionPane.showMessageDialog(null, e);
             }
@@ -1266,7 +1270,7 @@ public class welcome3 extends javax.swing.JFrame {
         }
 
         catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"The Report Generetad Wasn't Found");
+            JOptionPane.showMessageDialog(null,"The Report Generetad Wasn't Found","Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_Show_report_ButtonActionPerformed
 
@@ -1353,7 +1357,7 @@ public class welcome3 extends javax.swing.JFrame {
         {
             try {
                 String sn=repIDSearchtxt.getText();
-                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where report_no='" + sn + "' and reportCategory = 'Projects' ";
+                String sql = "select report_no as 'Report No',report_create_date as 'Creation Date',repProj_start_date as 'Project Start Date',repProj_due_date as 'Project Due Date',repStatus as 'Status' from reports where report_no='" + sn + "' and reportCategory = 'Projects' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 repHistoryTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1367,7 +1371,7 @@ public class welcome3 extends javax.swing.JFrame {
              {
             try {
                 String sn=repProjStatchoice.getSelectedItem();
-                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where repStatus='" + sn + "' and reportCategory = 'Projects' ";
+                String sql = "select report_no as 'Report No',report_create_date as 'Creation Date',repProj_start_date as 'Project Start Date',repProj_due_date as 'Project Due Date',repStatus as 'Status' from reports where repStatus='" + sn + "' and reportCategory = 'Projects' ";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 repHistoryTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1382,7 +1386,7 @@ public class welcome3 extends javax.swing.JFrame {
                  DateFormat dateFormat1 = new SimpleDateFormat("yyyy-MM-dd");
                  String sd= dateFormat1.format(repDateSearchtxt.getDate());
             try {
-                String sql = "select report_no,report_create_date,repProj_start_date,repProj_due_date,repStatus from reports where repProj_start_date<='"+sd+"' and repProj_due_date>='"+sd+"' and reportCategory = 'Projects' order by report_create_date";
+                String sql = "select report_no as 'Report No',report_create_date as 'Creation Date',repProj_start_date as 'Project Start Date',repProj_due_date as 'Project Due Date',repStatus as 'Status' from reports where repProj_start_date<='"+sd+"' and repProj_due_date>='"+sd+"' and reportCategory = 'Projects' order by report_create_date";
                 pst = conn.prepareStatement(sql);
                 rs = pst.executeQuery(sql);
                 repHistoryTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -1517,6 +1521,9 @@ public class welcome3 extends javax.swing.JFrame {
         });
     }
 
+    /**
+     * Retrieves the information from the DB and Display it in the jTable component 
+     */
        
         private void update_Status_ProjTable(){
         try {
@@ -1543,7 +1550,9 @@ public class welcome3 extends javax.swing.JFrame {
     }
             
    
-   
+   /**
+    * Display the 'Alert' icon
+    */
     public void setAlertIconVisible() {
         AlertIcon.setVisible(false);
     }
