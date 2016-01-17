@@ -3451,11 +3451,15 @@ import net.proteanit.sql.DbUtils;
 
     private void quantityChangesReqButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityChangesReqButtonActionPerformed
         quantityRequest qr= new quantityRequest();
+        qr.pack();
+        qr.setLocationRelativeTo(null);
         qr.setVisible(true);
     }//GEN-LAST:event_quantityChangesReqButtonActionPerformed
 
     private void MinLevelWarningButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MinLevelWarningButtonActionPerformed
         minLevelWarnings mlw = new minLevelWarnings();
+        mlw.pack();
+        mlw.setLocationRelativeTo(null);
         mlw.setVisible(true);
     }//GEN-LAST:event_MinLevelWarningButtonActionPerformed
 
