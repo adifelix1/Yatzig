@@ -480,6 +480,7 @@ import net.proteanit.sql.DbUtils;
         });
         PersonalContractPanel.add(UploadText, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 150, -1));
 
+        UploadContractButton.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         UploadContractButton.setText("Upload");
         UploadContractButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -488,13 +489,14 @@ import net.proteanit.sql.DbUtils;
         });
         PersonalContractPanel.add(UploadContractButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 80, -1, -1));
 
+        ShowContractButton.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         ShowContractButton.setText("Show");
         ShowContractButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ShowContractButtonActionPerformed(evt);
             }
         });
-        PersonalContractPanel.add(ShowContractButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 70, -1));
+        PersonalContractPanel.add(ShowContractButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 80, 70, -1));
 
         AddWorkerPanel.add(PersonalContractPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, 387, 130));
 
@@ -673,6 +675,7 @@ import net.proteanit.sql.DbUtils;
         });
         ContractPanel.add(UploadText1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 150, -1));
 
+        UploadContractButton1.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         UploadContractButton1.setText("Upload");
         UploadContractButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -686,6 +689,7 @@ import net.proteanit.sql.DbUtils;
         jLabel19.setText("Please upload the new contract if changes are made");
         ContractPanel.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 13)); // NOI18N
         jButton2.setText("Show");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -811,7 +815,7 @@ import net.proteanit.sql.DbUtils;
                 RefreshButton1ActionPerformed(evt);
             }
         });
-        SearchPanel.add(RefreshButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 250, -1, -1));
+        SearchPanel.add(RefreshButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
 
         Show_Contract_Button.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         Show_Contract_Button.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icon-service-contract.png"))); // NOI18N
@@ -821,7 +825,7 @@ import net.proteanit.sql.DbUtils;
                 Show_Contract_ButtonActionPerformed(evt);
             }
         });
-        SearchPanel.add(Show_Contract_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 250, 190, 40));
+        SearchPanel.add(Show_Contract_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 250, 190, 40));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
         SearchPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
@@ -1429,7 +1433,7 @@ import net.proteanit.sql.DbUtils;
                 genRepButton1ActionPerformed(evt);
             }
         });
-        WorkersReportPanel.add(genRepButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, 50));
+        WorkersReportPanel.add(genRepButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, -1, 40));
 
         jLabel14.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         jLabel14.setText("This report shows all workers by their job titles. ");
@@ -1447,7 +1451,7 @@ import net.proteanit.sql.DbUtils;
                 Show_report_Button1ActionPerformed(evt);
             }
         });
-        WorkersReportPanel.add(Show_report_Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 190, 40));
+        WorkersReportPanel.add(Show_report_Button1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 180, 40));
 
         jLabel11.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         jLabel11.setText("Click on ");
@@ -1618,8 +1622,7 @@ import net.proteanit.sql.DbUtils;
                     .addGap(0, 13, Short.MAX_VALUE)))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(reportsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(reportsTab)
                     .addContainerGap()))
         );
         jLayeredPane1Layout.setVerticalGroup(
@@ -1634,10 +1637,7 @@ import net.proteanit.sql.DbUtils;
                     .addComponent(usersTab, javax.swing.GroupLayout.PREFERRED_SIZE, 564, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap(77, Short.MAX_VALUE)
-                    .addComponent(reportsTab, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(57, 57, 57)))
+                .addComponent(reportsTab, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE))
         );
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
@@ -1990,7 +1990,6 @@ import net.proteanit.sql.DbUtils;
            Path source = Paths.get(filename_update);
            Files.copy(source, dest,StandardCopyOption.REPLACE_EXISTING);    
          
-          /*  
            FirstNameText1.setText(" ");
            LastNameText1.setText(" ");
            BirthdayDateChooserText1.setCalendar(null);
@@ -2000,12 +1999,9 @@ import net.proteanit.sql.DbUtils;
            JobTitleText1.setText(" ");      
            EmailText1.setText(" ");   
            UploadText1.setText(" ");
-          */         
+                  
            }       
-
-
-      
-                   
+              
         }
         catch (Exception e) {
            JOptionPane.showMessageDialog(null, e); 
@@ -2208,12 +2204,19 @@ import net.proteanit.sql.DbUtils;
     }//GEN-LAST:event_RefreshButton1ActionPerformed
 
     private void Show_Contract_ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Show_Contract_ButtonActionPerformed
-        filename_show_contract = "src/WorkerContracts/"+ContractIDText2.getText()+".pdf" ;       
+
         try {
-               
-              Desktop.getDesktop().open(new File(filename_show_contract));          
-           }
-        
+            int raw = WorkersTable1.getSelectedRow();
+            tableClick = (WorkersTable1.getModel().getValueAt(raw, 0).toString());
+            String sql = "select worker_id,first_name,last_name,worker_phone,worker_add,birth_date,email,contract_id,job_title from workers where worker_id='" + tableClick + "' ";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery();
+              if (rs.next()) {
+                String add1 = rs.getString("contract_id");
+                String worker_filename_show_contract = "src/WorkerContracts/"+add1+".pdf" ;
+                Desktop.getDesktop().open(new File(worker_filename_show_contract));
+              }
+         }                     
         catch (Exception e) {
               JOptionPane.showMessageDialog(null,"This Worker Does Not Have a Contract","Attention",JOptionPane.WARNING_MESSAGE); 
            }
@@ -2939,6 +2942,8 @@ import net.proteanit.sql.DbUtils;
 
     private void changePasswordLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseClicked
         changePassword cp = new changePassword();
+         cp.pack();
+        cp.setLocationRelativeTo(null);
         cp.setVisible(true);
     }//GEN-LAST:event_changePasswordLabelMouseClicked
 

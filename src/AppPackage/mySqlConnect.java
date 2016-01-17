@@ -16,7 +16,6 @@ public class mySqlConnect {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/yatzig_db","root","1234");
-            JOptionPane.showMessageDialog(null, "You are conncted to the Database", "Server Status", JOptionPane.INFORMATION_MESSAGE);
             return conn; 
         }catch (Exception e){
     JOptionPane.showMessageDialog(null,e);

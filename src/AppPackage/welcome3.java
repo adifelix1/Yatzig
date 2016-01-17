@@ -181,14 +181,6 @@ public class welcome3 extends javax.swing.JFrame {
         EnterYourSearchLabel10 = new javax.swing.JLabel();
         background_green13 = new javax.swing.JLabel();
         reportsTab = new javax.swing.JTabbedPane();
-        jPanel14 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
-        monthRepjSpin = new com.toedter.components.JSpinField();
-        yearRepjSpin = new com.toedter.components.JSpinField();
-        repItemIDtxt = new javax.swing.JTextField();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jDateChooser3 = new com.toedter.calendar.JDateChooser();
-        background_green14 = new javax.swing.JLabel();
         ProjectReportPanel = new javax.swing.JPanel();
         genRepButton = new javax.swing.JToggleButton();
         pBeginDateChooser = new com.toedter.calendar.JDateChooser();
@@ -543,35 +535,6 @@ public class welcome3 extends javax.swing.JFrame {
             }
         });
 
-        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton2.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        jButton2.setText("Bar Graph");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel14.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 240, -1, -1));
-
-        monthRepjSpin.setMaximum(12);
-        monthRepjSpin.setMinimum(1);
-        monthRepjSpin.setValue(1);
-        jPanel14.add(monthRepjSpin, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, 44, -1));
-
-        yearRepjSpin.setMinimum(2000);
-        yearRepjSpin.setValue(2000);
-        jPanel14.add(yearRepjSpin, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, -1, -1));
-        jPanel14.add(repItemIDtxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 78, -1));
-        jPanel14.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, -1, -1));
-        jPanel14.add(jDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, -1, -1));
-
-        background_green14.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        background_green14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
-        jPanel14.add(background_green14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 430));
-
-        reportsTab.addTab("Generate", jPanel14);
-
         ProjectReportPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         genRepButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
@@ -582,7 +545,7 @@ public class welcome3 extends javax.swing.JFrame {
                 genRepButtonActionPerformed(evt);
             }
         });
-        ProjectReportPanel.add(genRepButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, 50));
+        ProjectReportPanel.add(genRepButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, 40));
 
         pBeginDateChooser.setDateFormatString("yyyy-MM-dd");
         ProjectReportPanel.add(pBeginDateChooser, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, 130, -1));
@@ -760,10 +723,10 @@ public class welcome3 extends javax.swing.JFrame {
         });
         HistoryPanel.add(showRepSearchButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 320, -1, -1));
 
-        repProjStatchoice.add("All");
-        repProjStatchoice.add("Pending");
-        repProjStatchoice.add("In Progress");
-        repProjStatchoice.add("Completed");
+        repProjStatchoice.add("All Projects");
+        repProjStatchoice.add("Pending Projects");
+        repProjStatchoice.add("In Progress Projects");
+        repProjStatchoice.add("Completed Projects");
         HistoryPanel.add(repProjStatchoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, -1));
 
         EnterYourSearchLabel2.setFont(new java.awt.Font("Calibri", 0, 16)); // NOI18N
@@ -1102,6 +1065,8 @@ public class welcome3 extends javax.swing.JFrame {
 
     private void QuantityChangeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuantityChangeButtonActionPerformed
         QuantityChange qc = new QuantityChange();
+         qc.pack();
+        qc.setLocationRelativeTo(null);
         qc.setVisible(true);
     }//GEN-LAST:event_QuantityChangeButtonActionPerformed
 
@@ -1311,6 +1276,8 @@ public class welcome3 extends javax.swing.JFrame {
 
     private void changePasswordLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordLabelMouseClicked
         changePassword cp = new changePassword();
+         cp.pack();
+        cp.setLocationRelativeTo(null);
         cp.setVisible(true);
     }//GEN-LAST:event_changePasswordLabelMouseClicked
 
@@ -1440,46 +1407,6 @@ public class welcome3 extends javax.swing.JFrame {
     private void changeLogoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changeLogoLabelMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_changeLogoLabelMouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        int month = monthRepjSpin.getValue();
-        int year= yearRepjSpin.getValue();
-        int qt=0,subSum=0;
-        try{
-            String sql="select quantity_trace,MAX(date) from quantity where MONTH(date)='"+month+"'and YEAR(date)='"+year+"'and item_id='"+repItemIDtxt.getText()+"'";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            rs.next();
-            qt=rs.getInt("quantity_trace");
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-
-        try{
-            String sql="select sum(amount_for_operation) as asum from quantity where operation_type='Subtract' and MONTH(date)='"+month+"'and YEAR(date)='"+year+"'and item_id='"+repItemIDtxt.getText()+"'";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            rs.next();
-            subSum=rs.getInt("asum");
-        }
-        catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-
-        DefaultCategoryDataset dataSet = new DefaultCategoryDataset();
-        dataSet.setValue(qt,"Values","Quantity" );
-        dataSet.setValue(subSum,"Values","SubItemes" );
-
-        JFreeChart chart = ChartFactory.createBarChart3D("Values", "Quantity","Parameters", dataSet, PlotOrientation.VERTICAL, false, true, false);
-        chart.setBackgroundPaint(Color.CYAN);
-        chart.getTitle().setPaint(Color.RED);
-        CategoryPlot p=chart.getCategoryPlot();
-        p.setRangeGridlinePaint(Color.GREEN);
-        ChartFrame frame = new ChartFrame("Chart",chart);
-        frame.setVisible(true);
-        frame.setSize(450,350);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void RefreshButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshButton2ActionPerformed
        rep_Search_Table();
@@ -1641,16 +1568,12 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JLabel background_green11;
     private javax.swing.JLabel background_green12;
     private javax.swing.JLabel background_green13;
-    private javax.swing.JLabel background_green14;
     private javax.swing.JLabel background_green15;
     private javax.swing.JLabel background_green16;
     private javax.swing.JLabel changeLogoLabel;
     private javax.swing.JLabel changePasswordLabel;
     private javax.swing.JLabel dropManageUserLabel;
     private javax.swing.JToggleButton genRepButton;
-    private javax.swing.JButton jButton2;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
-    private com.toedter.calendar.JDateChooser jDateChooser3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1666,7 +1589,6 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JPanel jPanel14;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
@@ -1675,7 +1597,6 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JButton logoutButton;
     private javax.swing.JLabel manageUserButtonLabel;
-    private com.toedter.components.JSpinField monthRepjSpin;
     private com.toedter.calendar.JDateChooser pBeginDateChooser;
     private com.toedter.calendar.JDateChooser pEndDateChooser;
     private javax.swing.JButton projAddButton;
@@ -1706,7 +1627,6 @@ public class welcome3 extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser repDateSearchtxt;
     private javax.swing.JTable repHistoryTable;
     private javax.swing.JTextField repIDSearchtxt;
-    private javax.swing.JTextField repItemIDtxt;
     private java.awt.Choice repProjStatchoice;
     private javax.swing.JButton repSearchButton;
     private javax.swing.JButton reportsButton;
@@ -1716,7 +1636,6 @@ public class welcome3 extends javax.swing.JFrame {
     private javax.swing.JRadioButton searchRepIDRadioButton;
     private javax.swing.JRadioButton searchRepStatRadioButton;
     private javax.swing.JButton showRepSearchButton;
-    private com.toedter.components.JSpinField yearRepjSpin;
     // End of variables declaration//GEN-END:variables
 
 }
