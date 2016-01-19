@@ -3,12 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AppPackage;
+package server;
 import java.sql.*;
 import javax.swing.*;
 /**
- *
- * @author Adi
+ *  This class holds all the queries that the applications
+ * use in the data base.
+ * @author Adi Malka and Felix Vainer
  */
 public class mySqlConnect {
     Connection conn=null;

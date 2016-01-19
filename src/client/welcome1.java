@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AppPackage;
-import static AppPackage.welcome2.pst;
-import static AppPackage.welcome3.pst;
+package client;
+
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -47,7 +46,8 @@ import net.proteanit.sql.DbUtils;
 
 /**
  *
- * @author Adi
+ * @author Adi Malka
+ * @author Felix Vainer
  */
 
    /** 
@@ -95,6 +95,7 @@ import net.proteanit.sql.DbUtils;
         update_table();
         checkQReqTable();
         checkMinQLvl();
+       
     }
 
     /**
@@ -284,6 +285,7 @@ import net.proteanit.sql.DbUtils;
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         EnterYourSearchLabel11 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
         background_green15 = new javax.swing.JLabel();
         SearchOrderPanel = new javax.swing.JPanel();
         searchOrdertxt = new javax.swing.JTextField();
@@ -622,7 +624,7 @@ import net.proteanit.sql.DbUtils;
 
         AddItemPanel.add(Storage_panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 470, 170));
 
-        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         AddItemPanel.add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
         AddItemPanel.add(jScrollBar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
 
@@ -853,7 +855,7 @@ import net.proteanit.sql.DbUtils;
         });
         UpdateItemPanel.add(quantityChangesReqButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 210, 50));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         UpdateItemPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
 
         inventoryTab.addTab("Update", UpdateItemPanel);
@@ -907,14 +909,14 @@ import net.proteanit.sql.DbUtils;
         StatusItemPanel.add(dateStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 150, -1));
 
         addStatusButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        addStatusButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plus_icon.png"))); // NOI18N
-        addStatusButton.setText("Add");
+        addStatusButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/submit.png"))); // NOI18N
+        addStatusButton.setText("Commit");
         addStatusButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addStatusButtonActionPerformed(evt);
             }
         });
-        StatusItemPanel.add(addStatusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 220, 130, 40));
+        StatusItemPanel.add(addStatusButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 220, 140, 40));
         StatusItemPanel.add(oporationType, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 110, -1));
         oporationType.addItem("Add");
         oporationType.addItem("Subtract");
@@ -961,10 +963,10 @@ import net.proteanit.sql.DbUtils;
         });
         StatusItemPanel.add(MinLevelWarningButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, -1, 40));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         StatusItemPanel.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
 
-        inventoryTab.addTab("Status", StatusItemPanel);
+        inventoryTab.addTab("Traffic", StatusItemPanel);
 
         SearchItemPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -1045,7 +1047,7 @@ import net.proteanit.sql.DbUtils;
         });
         SearchItemPanel.add(RefreshButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 250, -1, -1));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         SearchItemPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
 
         inventoryTab.addTab("Search", SearchItemPanel);
@@ -1173,7 +1175,7 @@ import net.proteanit.sql.DbUtils;
         }
         AddOrderPanel.add(suppNamechoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 120, -1));
 
-        background_green4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         AddOrderPanel.add(background_green4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -220, -1, 860));
 
         ordersTab.addTab("Add Order", AddOrderPanel);
@@ -1228,8 +1230,6 @@ import net.proteanit.sql.DbUtils;
 
         UpdateOrderPanel.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 130, 80));
         UpdateOrderPanel.add(tpUptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 106, -1));
-        UpdateOrderPanel.add(jScrollPane11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 160, 100));
-        UpdateOrderPanel.add(tpUptxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 106, -1));
 
         refreshUpdateOrderButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
         refreshUpdateOrderButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/refresh.png"))); // NOI18N
@@ -1266,7 +1266,7 @@ import net.proteanit.sql.DbUtils;
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Untitled.png"))); // NOI18N
         UpdateOrderPanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 30, 30));
 
-        background_green9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         UpdateOrderPanel.add(background_green9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
 
         ordersTab.addTab("Update", UpdateOrderPanel);
@@ -1343,8 +1343,11 @@ import net.proteanit.sql.DbUtils;
         EnterYourSearchLabel11.setText("Enter your search by Order ID");
         PriceListPanel.add(EnterYourSearchLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
-        background_green15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
-        PriceListPanel.add(background_green15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
+        jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/Untitled.png"))); // NOI18N
+        PriceListPanel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 30, 30));
+
+        background_green15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
+        PriceListPanel.add(background_green15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 440));
 
         ordersTab.addTab("Price List", PriceListPanel);
 
@@ -1412,7 +1415,7 @@ import net.proteanit.sql.DbUtils;
         SearchOrderPanel.add(Show_Contract_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 250, 170, 40));
 
         background_green10.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        background_green10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         SearchOrderPanel.add(background_green10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
 
         ordersTab.addTab("Search", SearchOrderPanel);
@@ -1546,7 +1549,7 @@ import net.proteanit.sql.DbUtils;
         });
         AddSupplierPanel.add(ClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 210, 100, 40));
 
-        background_green5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         AddSupplierPanel.add(background_green5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
 
         suppliersTab.addTab("Add Suppliers", AddSupplierPanel);
@@ -1733,7 +1736,7 @@ import net.proteanit.sql.DbUtils;
 
         UpdateSupplierPanel.add(ContractPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 370, 130));
 
-        background_green6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         UpdateSupplierPanel.add(background_green6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
 
         suppliersTab.addTab("Update", UpdateSupplierPanel);
@@ -1818,7 +1821,7 @@ import net.proteanit.sql.DbUtils;
         });
         SearchSupplierPanel.add(Supplier_Show_Contract_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 250, 190, 40));
 
-        background_green7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         SearchSupplierPanel.add(background_green7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
 
         SupplierContractIDText2.setText("jTextField1");
@@ -1910,7 +1913,7 @@ import net.proteanit.sql.DbUtils;
         jLabel31.setText("You can see the report here ");
         InventoryReport.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, -1, -1));
 
-        background_green8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         InventoryReport.add(background_green8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
 
         reportTab.addTab("Inventory Report", InventoryReport);
@@ -2012,15 +2015,10 @@ import net.proteanit.sql.DbUtils;
         });
         InventoryHistoryReport.add(RefreshButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 320, -1, -1));
 
-        background_green11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         InventoryHistoryReport.add(background_green11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
 
         reportTab.addTab("History", InventoryHistoryReport);
-
-        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -2030,7 +2028,7 @@ import net.proteanit.sql.DbUtils;
             .addComponent(suppliersTab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addComponent(inventoryTab, javax.swing.GroupLayout.PREFERRED_SIZE, 1245, Short.MAX_VALUE)
+                    .addComponent(inventoryTab, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
@@ -2046,13 +2044,17 @@ import net.proteanit.sql.DbUtils;
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(inventoryTab, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(154, Short.MAX_VALUE)))
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
                     .addComponent(reportTab, javax.swing.GroupLayout.PREFERRED_SIZE, 461, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
+        jLayeredPane1.setLayer(inventoryTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(ordersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(suppliersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -2095,7 +2097,7 @@ import net.proteanit.sql.DbUtils;
         getContentPane().add(dropManageUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 120, 40));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/מסך רקע ראשי מתוקן.png"))); // NOI18N
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jLabel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -3152,12 +3154,12 @@ import net.proteanit.sql.DbUtils;
     private void submitQButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitQButtonActionPerformed
         int checkRequest=0;
          try {
-            String sql = "select qchanges from items where item_id='" + tableClick + "' ";
+            String sql = "select item_id from quantity_change";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery();
-            if (rs.next()) {
-    
-               checkRequest = rs.getInt("qchanges");   
+            while(rs.next()) {
+               if(tableClick == rs.getString("item_id"))
+                   checkRequest=1;
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -3201,6 +3203,9 @@ import net.proteanit.sql.DbUtils;
 
             pst = conn.prepareStatement(sql);
             pst.execute();
+            
+            quantityChangesReqButton.setEnabled(true);
+            this.validate();
         }
 
         catch (Exception e){
@@ -3248,7 +3253,7 @@ import net.proteanit.sql.DbUtils;
 
         try {
             String sn=searchStatustxt.getText();
-            String sql = "select item_id as 'Item ID',worker_id as 'Worker ID',date as 'Date',amount_for_operation as 'Amount Of Operation',quantity_trace 'Quantity Trace',operation_type as 'Operation Type' from quantity where item_id='"+sn+"'";
+            String sql = "select item_id as 'Item ID',item_name as 'Item Name',worker_id as 'Worker ID',date as 'Date',amount_for_operation as 'Amount Of Operation',quantity_trace 'Quantity Trace',operation_type as 'Operation Type' from quantity where item_id='"+sn+"'";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery(sql);
             statusTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -3962,7 +3967,7 @@ import net.proteanit.sql.DbUtils;
      
      private void update_statusTable(){
         try {
-            String sql = "select item_id as 'Item ID',worker_id as 'Worker ID',date as 'Date',amount_for_operation as 'Amount For Operation',quantity_trace as 'Quantity Trace',operation_type as 'Operation Type' from quantity";
+            String sql = "select item_id as 'Item ID',item_name as 'Item Name',worker_id as 'Worker ID',date as 'Date',amount_for_operation as 'Amount For Operation',quantity_trace as 'Quantity Trace',operation_type as 'Operation Type' from quantity ORDER BY date DEC";
             pst = conn.prepareStatement(sql);
             rs = pst.executeQuery(sql);
             statusTable.setModel(DbUtils.resultSetToTableModel(rs));
@@ -4165,6 +4170,10 @@ import net.proteanit.sql.DbUtils;
             JOptionPane.showMessageDialog(null, e);
         }
   }
+  
+    public void setButtonEnable() {
+        quantityChangesReqButton.setEnabled(false);
+    }
      
      
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -4344,6 +4353,7 @@ import net.proteanit.sql.DbUtils;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel5;

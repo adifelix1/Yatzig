@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AppPackage;
+package client;
 
-import static AppPackage.welcome3.pst;
+
 import java.util.Date;
 import java.sql.*;
 import javax.swing.JOptionPane;
@@ -58,7 +58,8 @@ import javax.swing.BorderFactory;
 
 /**
  *
- * @author Adi
+ * @author Adi Malka
+ * @author Felix Vainer
  */
 /** 
     * This class display all the options that a user with a level 2 permission has  
@@ -430,7 +431,7 @@ public class welcome2 extends javax.swing.JFrame {
         });
         AddSupplierPanel.add(ClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 210, 100, 40));
 
-        background_green1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         AddSupplierPanel.add(background_green1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1250, 440));
 
         suppliersTab.addTab("Add Suppliers", AddSupplierPanel);
@@ -617,7 +618,7 @@ public class welcome2 extends javax.swing.JFrame {
 
         UpdateSupplierPanel.add(ContractPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 250, 370, 130));
 
-        background_green2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         UpdateSupplierPanel.add(background_green2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1250, 450));
 
         suppliersTab.addTab("Update", UpdateSupplierPanel);
@@ -702,7 +703,7 @@ public class welcome2 extends javax.swing.JFrame {
         });
         SearchSupplierPanel.add(Supplier_Show_Contract_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 250, 190, 40));
 
-        background_green3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         SearchSupplierPanel.add(background_green3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 1250, 460));
 
         SupplierContractIDText2.setText("jTextField1");
@@ -775,7 +776,7 @@ public class welcome2 extends javax.swing.JFrame {
         AddProjectPanel.add(ProjectCommentsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 270, -1, -1));
 
         background_green11.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        background_green11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         AddProjectPanel.add(background_green11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1250, 430));
 
         projectsTab.addTab("Add Project", AddProjectPanel);
@@ -887,7 +888,7 @@ public class welcome2 extends javax.swing.JFrame {
         StatusProjectPanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         background_green12.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        background_green12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         StatusProjectPanel.add(background_green12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -30, 1250, 460));
 
         projectsTab.addTab(" Status", StatusProjectPanel);
@@ -957,7 +958,7 @@ public class welcome2 extends javax.swing.JFrame {
         SearchProjectPanel.add(EnterYourSearchLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         background_green13.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        background_green13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         SearchProjectPanel.add(background_green13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -40, 1250, 470));
 
         projectsTab.addTab("Search", SearchProjectPanel);
@@ -1070,7 +1071,7 @@ public class welcome2 extends javax.swing.JFrame {
         ProjectReportPanel.add(CompletedRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, 100, -1));
 
         background_green15.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        background_green15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         ProjectReportPanel.add(background_green15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         reportsTab.addTab("Project Report", ProjectReportPanel);
@@ -1178,7 +1179,7 @@ public class welcome2 extends javax.swing.JFrame {
         HistoryPanel.add(RefreshButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 320, -1, -1));
 
         background_green16.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        background_green16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         HistoryPanel.add(background_green16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         reportsTab.addTab("History", HistoryPanel);
@@ -1272,7 +1273,7 @@ public class welcome2 extends javax.swing.JFrame {
         getContentPane().add(dropManageUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 120, 40));
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/מסך רקע ראשי מתוקן.png"))); // NOI18N
         jLabel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {

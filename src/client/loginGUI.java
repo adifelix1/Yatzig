@@ -3,12 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AppPackage;
+package client;
 import java.sql.*;
 import javax.swing.*;
+import server.mySqlConnect;
 /**
  *
- * @author Adi
+  * @author Adi Malka
+ * @author Felix Vainer
+ * 
+ */
+/**
+ * 
+ *This class is the login window
  */
 public class loginGUI extends javax.swing.JFrame {
 public static Connection conn=null;
@@ -16,6 +23,7 @@ PreparedStatement pst=null;
 ResultSet rs=null;
 public  static String username;
 public static welcome3 w;
+public static welcome1 w1;
     /**
      * Creates new form loginGUI
      */
@@ -102,7 +110,7 @@ public static welcome3 w;
         txtpassword.setFont(new java.awt.Font("Cambria", 0, 11)); // NOI18N
         getContentPane().add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, 110, 25));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/login screen2.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/login screen2.png"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 250));
 
         pack();
@@ -142,8 +150,8 @@ public static welcome3 w;
                 
                 if(lvl==1)
                 {
-                welcome1 w=new welcome1();
-                w.setVisible(true);
+                w1=new welcome1();
+                w1.setVisible(true);
                 this.setVisible(false);
                 }
                 if(lvl==2)

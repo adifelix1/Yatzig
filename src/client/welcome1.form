@@ -165,7 +165,7 @@
               <Component id="suppliersTab" min="-2" max="-2" attributes="0"/>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="inventoryTab" pref="1245" max="32767" attributes="0"/>
+                      <Component id="inventoryTab" pref="0" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -186,7 +186,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="inventoryTab" min="-2" pref="495" max="-2" attributes="0"/>
-                      <EmptySpace pref="154" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
@@ -624,7 +624,7 @@
                 <Component class="javax.swing.JLabel" name="background_green">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/AppPackage/background.png"/>
+                      <Image iconType="3" name="/Images/background.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1261,7 +1261,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel7">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/AppPackage/background.png"/>
+                      <Image iconType="3" name="/Images/background.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1275,8 +1275,8 @@
             <Container class="javax.swing.JPanel" name="StatusItemPanel">
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="Status">
-                    <Property name="tabTitle" type="java.lang.String" value="Status"/>
+                  <JTabbedPaneConstraints tabName="Traffic">
+                    <Property name="tabTitle" type="java.lang.String" value="Traffic"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>
@@ -1393,16 +1393,16 @@
                       <Font name="Calibri" size="20" style="0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/Images/plus_icon.png"/>
+                      <Image iconType="3" name="/Images/submit.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Add"/>
+                    <Property name="text" type="java.lang.String" value="Commit"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addStatusButtonActionPerformed"/>
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="810" y="220" width="130" height="40"/>
+                      <AbsoluteConstraints x="800" y="220" width="140" height="40"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -1531,7 +1531,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel8">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/AppPackage/background.png"/>
+                      <Image iconType="3" name="/Images/background.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1702,7 +1702,7 @@
                 <Component class="javax.swing.JLabel" name="jLabel6">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/AppPackage/background.png"/>
+                      <Image iconType="3" name="/Images/background.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -1999,7 +1999,7 @@
                 <Component class="javax.swing.JLabel" name="background_green4">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/AppPackage/background.png"/>
+                      <Image iconType="3" name="/Images/background.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -2221,7 +2221,7 @@
                 <Component class="javax.swing.JLabel" name="background_green9">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/AppPackage/background.png"/>
+                      <Image iconType="3" name="/Images/background.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -2428,15 +2428,27 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JLabel" name="background_green15">
+                <Component class="javax.swing.JLabel" name="jLabel32">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/AppPackage/background.png"/>
+                      <Image iconType="3" name="/Images/Untitled.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="0" y="-10" width="1250" height="440"/>
+                      <AbsoluteConstraints x="240" y="130" width="30" height="30"/>
+                    </Constraint>
+                  </Constraints>
+                </Component>
+                <Component class="javax.swing.JLabel" name="background_green15">
+                  <Properties>
+                    <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                      <Image iconType="3" name="/Images/background.png"/>
+                    </Property>
+                  </Properties>
+                  <Constraints>
+                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+                      <AbsoluteConstraints x="0" y="0" width="1250" height="440"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -2570,7 +2582,7 @@
                       <Font name="Calibri" size="20" style="0"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/AppPackage/background.png"/>
+                      <Image iconType="3" name="/Images/background.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -2862,7 +2874,7 @@
                 <Component class="javax.swing.JLabel" name="background_green5">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/AppPackage/background.png"/>
+                      <Image iconType="3" name="/Images/background.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -3261,7 +3273,7 @@
                 <Component class="javax.swing.JLabel" name="background_green6">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/AppPackage/background.png"/>
+                      <Image iconType="3" name="/Images/background.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -3441,7 +3453,7 @@
                 <Component class="javax.swing.JLabel" name="background_green7">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/AppPackage/background.png"/>
+                      <Image iconType="3" name="/Images/background.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -3664,7 +3676,7 @@
                 <Component class="javax.swing.JLabel" name="background_green8">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/AppPackage/background.png"/>
+                      <Image iconType="3" name="/Images/background.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -3890,7 +3902,7 @@
                 <Component class="javax.swing.JLabel" name="background_green11">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/AppPackage/background.png"/>
+                      <Image iconType="3" name="/Images/background.png"/>
                     </Property>
                   </Properties>
                   <Constraints>
@@ -3971,7 +3983,7 @@
       <Properties>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/AppPackage/&#x5de;&#x5e1;&#x5da; &#x5e8;&#x5e7;&#x5e2; &#x5e8;&#x5d0;&#x5e9;&#x5d9; &#x5de;&#x5ea;&#x5d5;&#x5e7;&#x5df;.png"/>
+          <Image iconType="3" name="/Images/&#x5de;&#x5e1;&#x5da; &#x5e8;&#x5e7;&#x5e2; &#x5e8;&#x5d0;&#x5e9;&#x5d9; &#x5de;&#x5ea;&#x5d5;&#x5e7;&#x5df;.png"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">

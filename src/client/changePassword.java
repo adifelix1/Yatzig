@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AppPackage;
+package client;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,7 +12,13 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Adi
+  * @author Adi Malka
+ * @author Felix Vainer
+ * 
+ */
+/**
+ * 
+ * This class lets the user change its password
  */
 public class changePassword extends javax.swing.JFrame {
 
@@ -76,9 +82,9 @@ public class changePassword extends javax.swing.JFrame {
         getContentPane().add(newPassTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 120, -1));
         getContentPane().add(conPasstxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, 120, -1));
 
-        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         background_green.setPreferredSize(new java.awt.Dimension(400, 400));
-        getContentPane().add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 410));
+        getContentPane().add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 400, 300));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

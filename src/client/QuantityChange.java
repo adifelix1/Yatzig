@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AppPackage;
+package client;
 
-import static AppPackage.welcome1.pst;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,7 +16,13 @@ import net.proteanit.sql.DbUtils;
 
 /**
  *
- * @author Adi
+ * @author Adi Malka
+ * @author Felix Vainer
+ *  
+ */
+/**
+ * 
+ *This class let the user accept or reject quantity level change requests
  */
 public class QuantityChange extends javax.swing.JFrame {
 
@@ -91,7 +97,7 @@ public class QuantityChange extends javax.swing.JFrame {
         });
         getContentPane().add(rejectButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 130, -1));
 
-        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         background_green.setPreferredSize(new java.awt.Dimension(400, 400));
         getContentPane().add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 410));
 
@@ -137,9 +143,9 @@ public class QuantityChange extends javax.swing.JFrame {
 
     private void rejectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rejectButtonActionPerformed
        // delete_row();
-        user_update_table();
+        
         JOptionPane.showMessageDialog(null, "Quantity Change Rejected");
-        checkIfTableEmpty();
+        
          try {
 
             String sql = "update items set qchanges=0 where item_id='"+itemId+"'";
@@ -163,7 +169,8 @@ public class QuantityChange extends javax.swing.JFrame {
         catch (Exception e){
             JOptionPane.showMessageDialog(null,e);
         }
-        
+         user_update_table();
+        checkIfTableEmpty();
     }//GEN-LAST:event_rejectButtonActionPerformed
 
     /**
@@ -226,6 +233,7 @@ public class QuantityChange extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
           }
         }*/
+
        
         private void checkIfTableEmpty(){
            int checkEmpty=0;
@@ -238,7 +246,7 @@ public class QuantityChange extends javax.swing.JFrame {
             while(rs.next())
             {
               ck=rs.getString("status");
-              if(ck.equals(null))
+              if(ck.equals("null"))
                   checkEmpty=1;
             }
         }

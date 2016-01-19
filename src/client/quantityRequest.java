@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AppPackage;
+package client;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,8 +12,13 @@ import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 /**
- *
- * @author Adi
+ * 
+ * @author Adi Malka
+ * @author Felix Vainer
+ * 
+ */
+/** 
+ *  This Class presents the user with all the Quantity changes requests 
  */
 public class quantityRequest extends javax.swing.JFrame {
 
@@ -23,7 +28,7 @@ public class quantityRequest extends javax.swing.JFrame {
     static Connection conn = loginGUI.conn;
     static Statement pst = null;
     static ResultSet rs = null;
-    
+    String itemID;
     public quantityRequest() {
         initComponents();
         quantityReq_update();
@@ -40,9 +45,11 @@ public class quantityRequest extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         QuantityRequestTable = new javax.swing.JTable();
+        clearItemButton = new javax.swing.JButton();
+        clearAllButton = new javax.swing.JButton();
         background_green = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         QuantityRequestTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -56,16 +63,75 @@ public class quantityRequest extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        QuantityRequestTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuantityRequestTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(QuantityRequestTable);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 14, -1, 328));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 14, 500, 250));
 
-        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        clearItemButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        clearItemButton.setText("Clear Item");
+        clearItemButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearItemButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(clearItemButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, -1, -1));
+
+        clearAllButton.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
+        clearAllButton.setText("Clear All");
+        clearAllButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                clearAllButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(clearAllButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, 120, -1));
+
+        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         background_green.setPreferredSize(new java.awt.Dimension(400, 400));
-        getContentPane().add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 410));
+        getContentPane().add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 360));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void clearItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearItemButtonActionPerformed
+
+        try{
+              
+              String sql = "delete from quantity_change where item_id='"+itemID+"' ";
+              pst = conn.prepareStatement(sql);
+              pst.executeUpdate(sql);
+          }
+          catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+          }
+        checkIfTableEmpty();
+        quantityReq_update();
+        updateItemFlag();
+    }//GEN-LAST:event_clearItemButtonActionPerformed
+
+    private void QuantityRequestTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuantityRequestTableMouseClicked
+        int raw = QuantityRequestTable.getSelectedRow();
+            itemID = (QuantityRequestTable.getModel().getValueAt(raw, 0).toString());
+    }//GEN-LAST:event_QuantityRequestTableMouseClicked
+
+    private void clearAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearAllButtonActionPerformed
+                try{
+              
+              String sql = "delete from quantity_change";
+              pst = conn.prepareStatement(sql);
+              pst.executeUpdate(sql);
+          }
+          catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+          }
+        quantityReq_update();
+        checkIfTableEmpty();
+        
+    }//GEN-LAST:event_clearAllButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -116,9 +182,52 @@ public class quantityRequest extends javax.swing.JFrame {
         }
     }
     
+    private void checkIfTableEmpty(){
+           int checkEmpty=0;
+           try{
+            String sql = "select * from quantity_change";
+            pst = conn.prepareStatement(sql);
+            rs = pst.executeQuery(sql);
+            if(rs.next())
+            checkEmpty=1;
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        if(checkEmpty==0)
+           {   
+          iconChange();
+           }
+       }
+    
+        private void iconChange(){
+           welcome1 wel = loginGUI.w1;
+           wel.setButtonEnable();
+           wel.validate();
+           this.setVisible(false);
+           
+       }
+    
+        private void updateItemFlag()
+        {
+             try {
+
+            String sql = "update items set qchanges=0 where item_id='"+itemID+"'";
+
+            pst = conn.prepareStatement(sql);
+            pst.executeUpdate(sql);
+        }
+
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,e);
+        }
+        }
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable QuantityRequestTable;
     private javax.swing.JLabel background_green;
+    private javax.swing.JButton clearAllButton;
+    private javax.swing.JButton clearItemButton;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

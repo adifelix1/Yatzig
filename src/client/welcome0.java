@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AppPackage;
-import static AppPackage.welcome3.pst;
+package client;
+
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
@@ -40,7 +40,8 @@ import net.proteanit.sql.DbUtils;
 
 /**
  *
- * @author Adi
+ * @author Adi Malka
+ * @author Felix Vainer
  */
 /** 
     * This class display all the options that a user with a level 0 permission has  
@@ -519,7 +520,7 @@ import net.proteanit.sql.DbUtils;
         });
         AddWorkerPanel.add(ClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 210, 100, 40));
 
-        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         background_green.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         AddWorkerPanel.add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1260, 430));
 
@@ -740,7 +741,7 @@ import net.proteanit.sql.DbUtils;
         });
         UpdateDetailsPanel.add(DeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 250, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         UpdateDetailsPanel.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         WorkersTab.addTab("Update Details", UpdateDetailsPanel);
@@ -827,7 +828,7 @@ import net.proteanit.sql.DbUtils;
         });
         SearchPanel.add(Show_Contract_Button, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 250, 190, 40));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         SearchPanel.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         ContractIDText2.addActionListener(new java.awt.event.ActionListener() {
@@ -913,7 +914,7 @@ import net.proteanit.sql.DbUtils;
         CustomerContractLabel.setText("Contract ID");
         AddCustomerPanel.add(CustomerContractLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, -1));
 
-        background_green5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         AddCustomerPanel.add(background_green5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         customerTab.addTab("Add Customer", AddCustomerPanel);
@@ -1034,7 +1035,7 @@ import net.proteanit.sql.DbUtils;
         });
         UpdateDetailsCustomerPanel.add(cusDeleteButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 250, -1, -1));
 
-        background_green6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         UpdateDetailsCustomerPanel.add(background_green6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         customerTab.addTab("Update Details", UpdateDetailsCustomerPanel);
@@ -1118,7 +1119,7 @@ import net.proteanit.sql.DbUtils;
         });
         SearchCustomerPanel.add(cusRefreshButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 250, -1, -1));
 
-        background_green7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         SearchCustomerPanel.add(background_green7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         customerTab.addTab("Search", SearchCustomerPanel);
@@ -1324,7 +1325,7 @@ import net.proteanit.sql.DbUtils;
         });
         AddUserPanel.add(WorkerNameRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, 90, -1));
 
-        background_green4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         AddUserPanel.add(background_green4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1250, 470));
 
         usersTab.addTab("Add User", AddUserPanel);
@@ -1411,7 +1412,7 @@ import net.proteanit.sql.DbUtils;
         });
         ExistingUserPanel.add(orderClearButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 250, 100, 40));
 
-        background_green8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         ExistingUserPanel.add(background_green8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -20, 1250, 470));
 
         usersTab.addTab("Existing User", ExistingUserPanel);
@@ -1479,7 +1480,7 @@ import net.proteanit.sql.DbUtils;
         WorkersReportPanel.add(JobTitleChoice, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 120, -1));
 
         JobTitleChoice1.setFont(new java.awt.Font("Calibri", 0, 20)); // NOI18N
-        JobTitleChoice1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        JobTitleChoice1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         WorkersReportPanel.add(JobTitleChoice1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         reportsTab.addTab("Workers Report", WorkersReportPanel);
@@ -1597,15 +1598,10 @@ import net.proteanit.sql.DbUtils;
         });
         WorkersHistoryReportPanel.add(RefreshButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 320, -1, -1));
 
-        background_green9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         WorkersHistoryReportPanel.add(background_green9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1250, 430));
 
         reportsTab.addTab("History", WorkersHistoryReportPanel);
-
-        jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -1639,6 +1635,10 @@ import net.proteanit.sql.DbUtils;
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(reportsTab, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE))
         );
+        jLayeredPane1.setLayer(WorkersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(customerTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(usersTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(reportsTab, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 230, 1240, 430));
 
@@ -1681,7 +1681,7 @@ import net.proteanit.sql.DbUtils;
         getContentPane().add(dropManageUserLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 120, 40));
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/מסך רקע ראשי מתוקן.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/מסך רקע ראשי מתוקן.png"))); // NOI18N
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 3));
         jLabel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {

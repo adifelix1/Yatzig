@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package AppPackage;
+package client;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,7 +13,13 @@ import net.proteanit.sql.DbUtils;
 
 /**
  *
- * @author Adi
+ * @author Adi Malka
+ * @author Felix Vainer
+ * 
+ */
+/**
+ * 
+ * This class presents the user with all the items that are below minimum level quantity
  */
 public class minLevelWarnings extends javax.swing.JFrame {
 
@@ -63,7 +69,7 @@ public class minLevelWarnings extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 11, -1, 328));
 
-        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AppPackage/background.png"))); // NOI18N
+        background_green.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/background.png"))); // NOI18N
         background_green.setPreferredSize(new java.awt.Dimension(400, 400));
         getContentPane().add(background_green, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 620, 410));
 
